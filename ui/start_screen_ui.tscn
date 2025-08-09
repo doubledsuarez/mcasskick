@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://da0sl8ophwd22"]
+
+[node name="startScreenUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="main_container" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="main_vbox" type="VBoxContainer" parent="main_container"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 40
+
+[node name="button_vbox" type="VBoxContainer" parent="main_container/main_vbox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 16
+
+[node name="button_container" type="MarginContainer" parent="main_container/main_vbox/button_vbox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="start_button" type="Button" parent="main_container/main_vbox/button_vbox/button_container"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="button_container2" type="MarginContainer" parent="main_container/main_vbox/button_vbox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="start_button" type="Button" parent="main_container/main_vbox/button_vbox/button_container2"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="seperator" type="Control" parent="main_container/main_vbox"]
+layout_mode = 2
