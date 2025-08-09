@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://c3i8m0erv0ay4"]
+
+[ext_resource type="Texture2D" uid="uid://ohhqac4yr8gw" path="res://textures/PlaceholderGround.png" id="1_go5pu"]
+
+[resource]
+albedo_texture = ExtResource("1_go5pu")
