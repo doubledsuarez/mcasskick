@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://hohk4gikimti"]
+
+[ext_resource type="Script" uid="uid://cjhkh33qns0ms" path="res://world/props/prop_base.gd" id="1_qa8cp"]
+
+[node name="PropBase" type="Node3D"]
+script = ExtResource("1_qa8cp")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+pixel_size = 0.1
+billboard = 1
+texture_filter = 0

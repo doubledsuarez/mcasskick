@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://2j4apr7tt77b"
+path="res://.godot/imported/demon_worldswitch_test.map-c21cf3550e86e5b20a906d7089f5ea41.tres"
+
+[deps]
+
+source_file="res://trenchbroom/maps/demon_worldswitch_test.map"
+dest_files=["res://.godot/imported/demon_worldswitch_test.map-c21cf3550e86e5b20a906d7089f5ea41.tres"]
+
+[params]
+

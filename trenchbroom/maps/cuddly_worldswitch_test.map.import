@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://comm5si5xxuov"
+path="res://.godot/imported/cuddly_worldswitch_test.map-de5ad244e82575949b72f2b1bd14a4c7.tres"
+
+[deps]
+
+source_file="res://trenchbroom/maps/cuddly_worldswitch_test.map"
+dest_files=["res://.godot/imported/cuddly_worldswitch_test.map-de5ad244e82575949b72f2b1bd14a4c7.tres"]
+
+[params]
+
