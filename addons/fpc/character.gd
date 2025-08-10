@@ -104,11 +104,11 @@ extends CharacterBody3D
 ## Enables or disables sprinting.
 @export var sprint_enabled : bool = true
 ## Toggles the sprinting state when button is pressed or requires the player to hold the button down to remain sprinting.
-@export_enum("Hold to Sprint", "Toggle Sprint") var sprint_mode : int = 0
+@export_enum("Hold to Sprint", "Toggle Sprint") var sprint_mode : int = 1
 ## Enables or disables crouching.
 @export var crouch_enabled : bool = true
 ## Toggles the crouch state when button is pressed or requires the player to hold the button down to remain crouched.
-@export_enum("Hold to Crouch", "Toggle Crouch") var crouch_mode : int = 0
+@export_enum("Hold to Crouch", "Toggle Crouch") var crouch_mode : int = 1
 ## Wether sprinting should effect FOV.
 @export var dynamic_fov : bool = true
 ## If the player holds down the jump button, should the player keep hopping.
