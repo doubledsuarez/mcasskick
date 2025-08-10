@@ -1,13 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://r54dyixspqae"]
+[gd_scene load_steps=5 format=3 uid="uid://r54dyixspqae"]
 
 [ext_resource type="PackedScene" uid="uid://cpv2v57u64u8b" path="res://world/zone_base.tscn" id="1_80nbo"]
 [ext_resource type="PackedScene" uid="uid://c7oy2gjs7iyu4" path="res://world/props/world_demon/prop_hellfire.tscn" id="2_feb5d"]
 [ext_resource type="PackedScene" uid="uid://bqh3p7ae406gx" path="res://world/props/world_cuddly/prop_pinkflower.tscn" id="3_fc0e3"]
+[ext_resource type="PackedScene" uid="uid://cc4pdef86f1w8" path="res://entities/player/player.tscn" id="4_fc0e3"]
 
 [node name="Game" type="Node3D"]
-
-[node name="Camera3DPlaceholder" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.172, 0)
 
 [node name="ZoneBase" parent="." instance=ExtResource("1_80nbo")]
 
@@ -16,3 +14,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.63665, -8.16977)
 
 [node name="PropPinkFlower" parent="." instance=ExtResource("3_fc0e3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71137, 0, -9.22396)
+
+[node name="Player" parent="." instance=ExtResource("4_fc0e3")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1, -3)
