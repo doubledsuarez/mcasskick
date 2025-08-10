@@ -47,8 +47,14 @@ extends CharacterBody3D
 @export var JUMP_ANIMATION : AnimationPlayer
 ## A reference to the crouch animation for use in the character script.
 @export var CROUCH_ANIMATION : AnimationPlayer
+## A reference to the shoot animation for use in the character script.
+@export var WEAPON_SPRITE : AnimatedSprite2D
+## A reference to the shoot sound for use in the character script.
+@export var SHOOT_SOUND : AudioStreamPlayer
 ## A reference to the the player's collision shape for use in the character script.
 @export var COLLISION_MESH : CollisionShape3D
+## A reference to the the weapon's RayCast shape for use in the character script.
+@export var RAYCAST : RayCast3D
 
 #endregion
 
@@ -75,7 +81,8 @@ extends CharacterBody3D
 	JUMP = "jump",
 	CROUCH = "crouch",
 	SPRINT = "sprint",
-	PAUSE = "pause"
+	PAUSE = "pause",
+	SHOOT = "shoot"
 	}
 @export_subgroup("Controller Specific")
 ## This only affects how the camera is handled, the rest should be covered by adding controller inputs to the existing actions in the Input Map.
@@ -117,6 +124,10 @@ extends CharacterBody3D
 @export var view_bobbing : bool = true
 ## Enables an immersive animation when the player jumps and hits the ground.
 @export var jump_animation : bool = true
+## Enables shooting.
+@export var shooting_enabled : bool = true
+## If the player holds down the shoot button, should the player keep shooting.
+@export var continuous_shooting : bool = false
 ## This determines wether the player can use the pause button, not wether the game will actually pause.
 @export var pausing_enabled : bool = true
 ## Use with caution.
@@ -182,6 +193,8 @@ func _physics_process(delta): # Most things happen here.
 		velocity.y -= gravity * delta
 
 	handle_jumping()
+	
+	handle_shooting()
 
 	var input_dir = Vector2.ZERO
 
@@ -212,6 +225,21 @@ func _physics_process(delta): # Most things happen here.
 #endregion
 
 #region Input Handling
+
+func handle_shooting():
+	if shooting_enabled:
+		if continuous_shooting:
+			if Input.is_action_pressed(controls.SHOOT):
+				#WEAPON_SPRITE.play()
+				if RAYCAST.is_colliding() and RAYCAST.get_collider().has_method("kill"):
+					RAYCAST.get_collider().kill()
+		else:
+			if Input.is_action_just_pressed(controls.SHOOT):
+				WEAPON_SPRITE.stop()
+				WEAPON_SPRITE.play("shoot")
+				SHOOT_SOUND.play()
+				if RAYCAST.is_colliding() and RAYCAST.get_collider().has_method("kill"):
+					RAYCAST.get_collider().kill()
 
 func handle_jumping():
 	if jumping_enabled:
@@ -252,25 +280,33 @@ func handle_movement(delta, input_dir):
 func handle_head_rotation():
 	if invert_camera_x_axis:
 		HEAD.rotation_degrees.y -= mouseInput.x * mouse_sensitivity * -1
+		RAYCAST.rotation_degrees.y -= mouseInput.x * mouse_sensitivity * -1
 	else:
 		HEAD.rotation_degrees.y -= mouseInput.x * mouse_sensitivity
+		RAYCAST.rotation_degrees.y -= mouseInput.x * mouse_sensitivity
 
 	if invert_camera_y_axis:
 		HEAD.rotation_degrees.x -= mouseInput.y * mouse_sensitivity * -1
+		RAYCAST.rotation_degrees.x -= mouseInput.y * mouse_sensitivity * -1
 	else:
 		HEAD.rotation_degrees.x -= mouseInput.y * mouse_sensitivity
+		RAYCAST.rotation_degrees.x -= mouseInput.y * mouse_sensitivity
 
 	if controller_support:
 		var controller_view_rotation = Input.get_vector(controller_controls.LOOK_DOWN, controller_controls.LOOK_UP, controller_controls.LOOK_RIGHT, controller_controls.LOOK_LEFT) * look_sensitivity # These are inverted because of the nature of 3D rotation.
 		if invert_camera_x_axis:
 			HEAD.rotation.x += controller_view_rotation.x * -1
+			RAYCAST.rotation.x += controller_view_rotation.x * -1
 		else:
 			HEAD.rotation.x += controller_view_rotation.x
+			RAYCAST.rotation.x += controller_view_rotation.x
 
 		if invert_camera_y_axis:
 			HEAD.rotation.y += controller_view_rotation.y * -1
+			RAYCAST.rotation.x += controller_view_rotation.x
 		else:
 			HEAD.rotation.y += controller_view_rotation.y
+			RAYCAST.rotation.y += controller_view_rotation.y
 
 	mouseInput = Vector2(0,0)
 	HEAD.rotation.x = clamp(HEAD.rotation.x, deg_to_rad(-90), deg_to_rad(90))

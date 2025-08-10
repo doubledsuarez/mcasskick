@@ -18,10 +18,11 @@ config/icon="res://icon.svg"
 [autoload]
 
 g="*res://global.gd"
+Log="*res://addons/logger/logger.gd"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/func_godot/plugin.cfg")
+enabled=PackedStringArray("res://addons/func_godot/plugin.cfg", "res://addons/logger/plugin.cfg")
 
 [input]
 

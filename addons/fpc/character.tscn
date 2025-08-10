@@ -1,6 +1,8 @@
-[gd_scene load_steps=22 format=3 uid="uid://cc1m2a1obsyn4"]
+[gd_scene load_steps=30 format=3 uid="uid://cc1m2a1obsyn4"]
 
 [ext_resource type="Script" uid="uid://brjj243fd01o6" path="res://addons/fpc/character.gd" id="1_0t4e8"]
+[ext_resource type="Texture2D" uid="uid://dgecyir1inxl1" path="res://test-assets/gun_sprites.png" id="2_bx7cj"]
+[ext_resource type="AudioStream" uid="uid://dyyc6yoeueh77" path="res://test-assets/revolver_shot1.wav" id="3_qaoyu"]
 [ext_resource type="Script" uid="uid://hl40wnl3dy4a" path="res://addons/fpc/EditorModule.gd" id="3_v3ckk"]
 [ext_resource type="Script" uid="uid://lsusgueiatl2" path="res://addons/fpc/debug.gd" id="3_x1wcc"]
 
@@ -372,6 +374,54 @@ _data = {
 &"land_right": SubResource("Animation_vsknp")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_qaoyu"]
+atlas = ExtResource("2_bx7cj")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gv6je"]
+atlas = ExtResource("2_bx7cj")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4fv23"]
+atlas = ExtResource("2_bx7cj")
+region = Rect2(1024, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q62an"]
+atlas = ExtResource("2_bx7cj")
+region = Rect2(1536, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q34qd"]
+atlas = ExtResource("2_bx7cj")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bupmj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qaoyu")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gv6je")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4fv23")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q62an")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q34qd")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 10.0
+}]
+
 [sub_resource type="Theme" id="Theme_wdf0f"]
 MarginContainer/constants/margin_bottom = 10
 MarginContainer/constants/margin_left = 10
@@ -380,7 +430,7 @@ MarginContainer/constants/margin_top = 10
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_k4wwl"]
 
-[node name="Character" type="CharacterBody3D" node_paths=PackedStringArray("HEAD", "CAMERA", "HEADBOB_ANIMATION", "JUMP_ANIMATION", "CROUCH_ANIMATION", "COLLISION_MESH")]
+[node name="Character" type="CharacterBody3D" node_paths=PackedStringArray("HEAD", "CAMERA", "HEADBOB_ANIMATION", "JUMP_ANIMATION", "CROUCH_ANIMATION", "WEAPON_SPRITE", "SHOOT_SOUND", "COLLISION_MESH", "RAYCAST")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 script = ExtResource("1_0t4e8")
 base_speed = 5.0
@@ -391,7 +441,10 @@ CAMERA = NodePath("Head/Camera")
 HEADBOB_ANIMATION = NodePath("Head/HeadbobAnimation")
 JUMP_ANIMATION = NodePath("Head/JumpAnimation")
 CROUCH_ANIMATION = NodePath("CrouchAnimation")
+WEAPON_SPRITE = NodePath("Weapon/WeaponSprite")
+SHOOT_SOUND = NodePath("Weapon/ShootSound")
 COLLISION_MESH = NodePath("Collision")
+RAYCAST = NodePath("Weapon/RayCast")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -422,6 +475,23 @@ libraries = {
 &"": SubResource("AnimationLibrary_qeg5r")
 }
 speed_scale = 4.0
+
+[node name="Weapon" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.125, 1.25, 0)
+
+[node name="RayCast" type="RayCast3D" parent="Weapon"]
+target_position = Vector3(0, -1, -999)
+
+[node name="WeaponSprite" type="AnimatedSprite2D" parent="Weapon"]
+position = Vector2(736, 488)
+scale = Vector2(0.632987, 0.632987)
+sprite_frames = SubResource("SpriteFrames_bupmj")
+animation = &"shoot"
+frame = 3
+frame_progress = 1.0
+
+[node name="ShootSound" type="AudioStreamPlayer" parent="Weapon"]
+stream = ExtResource("3_qaoyu")
 
 [node name="UserInterface" type="Control" parent="."]
 layout_mode = 3
