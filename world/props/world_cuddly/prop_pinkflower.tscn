@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqh3p7ae406gx"]
+
+[ext_resource type="PackedScene" uid="uid://hohk4gikimti" path="res://world/props/prop_base.tscn" id="1_8sf5s"]
+[ext_resource type="Texture2D" uid="uid://cagx2r1haavw2" path="res://world/props/world_cuddly/prop_pinkflower.png" id="2_1brgj"]
+
+[node name="PropPinkFlower" instance=ExtResource("1_8sf5s")]
+world_state = "cuddly"
+
+[node name="Sprite3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.47487, 0)
+texture = ExtResource("2_1brgj")
