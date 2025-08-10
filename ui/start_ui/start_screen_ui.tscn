@@ -1,0 +1,76 @@
+[gd_scene load_steps=4 format=3 uid="uid://da0sl8ophwd22"]
+
+[ext_resource type="Script" uid="uid://c2mxatffgyqea" path="res://ui/start_ui/start_button.gd" id="1_gj5kb"]
+[ext_resource type="Script" uid="uid://bgqiloxcaamvt" path="res://ui/start_ui/settings_button.gd" id="2_3hr76"]
+[ext_resource type="Script" uid="uid://bjkuxnv4piori" path="res://ui/start_ui/quit_button.gd" id="3_qfvsx"]
+
+[node name="startScreenUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="main_container" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="main_vbox" type="VBoxContainer" parent="main_container"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 40
+
+[node name="button_vbox" type="VBoxContainer" parent="main_container/main_vbox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 16
+
+[node name="start_button_container" type="MarginContainer" parent="main_container/main_vbox/button_vbox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="start_button" type="Button" parent="main_container/main_vbox/button_vbox/start_button_container"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_gj5kb")
+
+[node name="settings_button_container" type="MarginContainer" parent="main_container/main_vbox/button_vbox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="settings_button" type="Button" parent="main_container/main_vbox/button_vbox/settings_button_container"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("2_3hr76")
+
+[node name="quit_button_container" type="MarginContainer" parent="main_container/main_vbox/button_vbox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="quit_button" type="Button" parent="main_container/main_vbox/button_vbox/quit_button_container"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("3_qfvsx")
+
+[node name="seperator" type="Control" parent="main_container/main_vbox"]
+layout_mode = 2
+
+[connection signal="pressed" from="main_container/main_vbox/button_vbox/start_button_container/start_button" to="main_container/main_vbox/button_vbox/start_button_container/start_button" method="_on_pressed"]
+[connection signal="pressed" from="main_container/main_vbox/button_vbox/settings_button_container/settings_button" to="main_container/main_vbox/button_vbox/settings_button_container/settings_button" method="_on_pressed"]
+[connection signal="pressed" from="main_container/main_vbox/button_vbox/quit_button_container/quit_button" to="main_container/main_vbox/button_vbox/quit_button_container/quit_button" method="_on_pressed"]
