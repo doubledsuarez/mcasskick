@@ -1,0 +1,108 @@
+[gd_scene load_steps=16 format=3 uid="uid://gdk071ikp7vg"]
+
+[ext_resource type="Script" uid="uid://bcma6fowf87da" path="res://entities/enemies/demon/demon.gd" id="1_6b1gw"]
+[ext_resource type="Texture2D" uid="uid://c6dyck8gy8yt1" path="res://test-assets/monster_sprites.png" id="2_bgi78"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fotwf"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_6b1gw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bgi78"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6qwc0"]
+atlas = ExtResource("2_bgi78")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rlvvp"]
+atlas = ExtResource("2_bgi78")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ys8n"]
+atlas = ExtResource("2_bgi78")
+region = Rect2(512, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgkbn"]
+atlas = ExtResource("2_bgi78")
+region = Rect2(768, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qbdg8"]
+atlas = ExtResource("2_bgi78")
+region = Rect2(1024, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1pj2"]
+atlas = ExtResource("2_bgi78")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v32wj"]
+atlas = ExtResource("2_bgi78")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hasv4"]
+atlas = ExtResource("2_bgi78")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_thsvy"]
+atlas = ExtResource("2_bgi78")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x7581"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6qwc0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rlvvp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ys8n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lgkbn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qbdg8")
+}],
+"loop": false,
+"name": &"dying",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u1pj2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v32wj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hasv4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_thsvy")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 10.0
+}]
+
+[node name="Demon" type="RigidBody3D"]
+script = ExtResource("1_6b1gw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_fotwf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+visible = false
+mesh = SubResource("CapsuleMesh_6b1gw")
+surface_material_override/0 = SubResource("StandardMaterial3D_bgi78")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 1, 0)
+billboard = 1
+sprite_frames = SubResource("SpriteFrames_x7581")
+animation = &"walking"
+
+[connection signal="animation_finished" from="AnimatedSprite3D" to="." method="_on_animated_sprite_3d_animation_finished"]

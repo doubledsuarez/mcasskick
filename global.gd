@@ -11,7 +11,7 @@ signal world_toggled
 
 # Temporary solution for activating the world toggle until the player input is handled
 func _input(event):
-	if event.is_action_pressed("ui_accept"):
+	if event.is_action_pressed("toggle"):
 		if cuddly_world == false:
 			cuddly_world = true
 			emit_signal("world_toggled")

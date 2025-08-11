@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cc4pdef86f1w8"]
+
+[ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://addons/fpc/character.tscn" id="1_symyc"]
+
+[node name="Player" instance=ExtResource("1_symyc")]
