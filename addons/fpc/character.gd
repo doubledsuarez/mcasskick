@@ -166,6 +166,7 @@ var dead = false
 #region Main Control Flow
 
 func _ready():
+	g.player = self
 	#It is safe to comment this line if your game doesn't start with the mouse captured
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 

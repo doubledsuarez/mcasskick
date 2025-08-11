@@ -6,6 +6,7 @@ extends Node
 # state when the demon and cuddly worlds switch
 
 var game
+var player
 
 # Emitted from the player (when the player is implemented)
 var cuddly_world := false
