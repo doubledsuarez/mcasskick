@@ -1,4 +1,4 @@
-extends CharacterBody3D
+extends ToggleEnemy
 
 @onready var animated_sprite_3d: AnimatedSprite3D = $AnimatedSprite3D
 @onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
