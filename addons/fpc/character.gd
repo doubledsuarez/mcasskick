@@ -111,7 +111,7 @@ extends CharacterBody3D
 ## Enables or disables sprinting.
 @export var sprint_enabled : bool = true
 ## Toggles the sprinting state when button is pressed or requires the player to hold the button down to remain sprinting.
-@export_enum("Hold to Sprint", "Toggle Sprint") var sprint_mode : int = 1
+@export_enum("Hold to Sprint", "Toggle Sprint") var sprint_mode : int = 0
 ## Enables or disables crouching.
 @export var crouch_enabled : bool = true
 ## Toggles the crouch state when button is pressed or requires the player to hold the button down to remain crouched.
@@ -156,6 +156,9 @@ var gravity : float = ProjectSettings.get_setting("physics/3d/default_gravity") 
 # Stores mouse input for rotating the camera in the physics process
 var mouseInput : Vector2 = Vector2(0,0)
 
+var health : int = 100
+var dead = false
+
 #endregion
 
 
@@ -198,7 +201,7 @@ func _physics_process(delta): # Most things happen here.
 
 	var input_dir = Vector2.ZERO
 
-	if not immobile: # Immobility works by interrupting user input, so other forces can still be applied to the player
+	if not (immobile or dead): # Immobility works by interrupting user input, so other forces can still be applied to the player
 		input_dir = Input.get_vector(controls.LEFT, controls.RIGHT, controls.FORWARD, controls.BACKWARD)
 
 	handle_movement(delta, input_dir)
@@ -341,6 +344,22 @@ func check_controls(): # If you add a control, you might want to add a check for
 
 #endregion
 
+#region Logic Handling
+
+func take_damage(dmg : int):
+	if dead:
+		return
+		
+	health -= dmg
+	
+	if health <= 0:
+		die()
+	
+func die():
+	dead = true
+	
+#endregion
+
 #region State Handling
 
 func handle_state(moving):
@@ -384,6 +403,10 @@ func handle_state(moving):
 					"crouching":
 						if !$CrouchCeilingDetection.is_colliding():
 							enter_normal_state()
+							
+	if dead:
+		await get_tree().create_timer(1).timeout
+		dead = false
 
 
 # Any enter state function should only be called once when you want to enter that state, not every frame.

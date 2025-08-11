@@ -5,6 +5,8 @@ extends Node
 # Variable and a signal for nodes to hook into if they need to switch their
 # state when the demon and cuddly worlds switch
 
+var game
+
 # Emitted from the player (when the player is implemented)
 var cuddly_world := false
 signal world_toggled
