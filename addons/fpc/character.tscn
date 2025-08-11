@@ -432,6 +432,7 @@ MarginContainer/constants/margin_top = 10
 
 [node name="Character" type="CharacterBody3D" node_paths=PackedStringArray("HEAD", "CAMERA", "HEADBOB_ANIMATION", "JUMP_ANIMATION", "CROUCH_ANIMATION", "WEAPON_SPRITE", "SHOOT_SOUND", "COLLISION_MESH", "RAYCAST")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+collision_mask = 15
 script = ExtResource("1_0t4e8")
 base_speed = 5.0
 sprint_speed = 10.0
@@ -481,6 +482,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.125, 1.25, 0)
 
 [node name="RayCast" type="RayCast3D" parent="Weapon"]
 target_position = Vector3(0, -1, -999)
+collision_mask = 2
 
 [node name="WeaponSprite" type="AnimatedSprite2D" parent="Weapon"]
 position = Vector2(736, 488)
@@ -492,6 +494,7 @@ frame_progress = 1.0
 
 [node name="ShootSound" type="AudioStreamPlayer" parent="Weapon"]
 stream = ExtResource("3_qaoyu")
+bus = &"SFX"
 
 [node name="UserInterface" type="Control" parent="."]
 layout_mode = 3

@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bqh3p7ae406gx" path="res://world/props/world_cuddly/prop_pinkflower.tscn" id="3_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://cc4pdef86f1w8" path="res://entities/player/player.tscn" id="4_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://coqpusufa8a6k" path="res://addons/fpc/reticles/reticle_0.tscn" id="5_7jktm"]
-[ext_resource type="PackedScene" uid="uid://gdk071ikp7vg" path="res://entities/enemies/demon/demon.tscn" id="6_ryrav"]
+[ext_resource type="PackedScene" uid="uid://gdk071ikp7vg" path="res://entities/enemies/demon/enemy.tscn" id="6_ryrav"]
 
 [node name="Game" type="Node3D"]
 
