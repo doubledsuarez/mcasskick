@@ -1,5 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cc4pdef86f1w8"]
+[gd_scene load_steps=3 format=3 uid="uid://cc4pdef86f1w8"]
 
 [ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://addons/fpc/character.tscn" id="1_symyc"]
+[ext_resource type="Script" uid="uid://xv5xtyvvrlrr" path="res://entities/player/player.gd" id="2_1234"]
 
 [node name="Player" instance=ExtResource("1_symyc")]
+collision_mask = 63
+script = ExtResource("2_1234")
