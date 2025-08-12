@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://db7xp11deujhy"]
+
+[ext_resource type="PackedScene" uid="uid://gdk071ikp7vg" path="res://entities/enemies/base/enemy.tscn" id="1_obnr0"]
+[ext_resource type="Script" uid="uid://b37m54o0r313b" path="res://entities/enemies/imp/imp.gd" id="2_m8pei"]
+
+[node name="Imp" instance=ExtResource("1_obnr0")]
+script = ExtResource("2_m8pei")

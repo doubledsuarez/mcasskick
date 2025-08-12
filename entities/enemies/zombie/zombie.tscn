@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://latadalk1638"]
+
+[ext_resource type="PackedScene" uid="uid://gdk071ikp7vg" path="res://entities/enemies/base/enemy.tscn" id="1_5vyoa"]
+[ext_resource type="Script" uid="uid://bxv6ovm4iwp3p" path="res://entities/enemies/zombie/zombie.gd" id="2_fxgas"]
+
+[node name="Zombie" instance=ExtResource("1_5vyoa")]
+script = ExtResource("2_fxgas")
+melee_range = 1.5
+melee_damage = 35
+melee_cooldown = 1.5
+lunge_speed = 8.0

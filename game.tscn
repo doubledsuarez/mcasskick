@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://r54dyixspqae"]
+[gd_scene load_steps=10 format=3 uid="uid://r54dyixspqae"]
 
 [ext_resource type="PackedScene" uid="uid://cpv2v57u64u8b" path="res://world/zone_base.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://0x1oyn0i5ywr" path="res://game.gd" id="1_eow3j"]
@@ -6,13 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://bqh3p7ae406gx" path="res://world/props/world_cuddly/prop_pinkflower.tscn" id="3_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://cc4pdef86f1w8" path="res://entities/player/player.tscn" id="4_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://coqpusufa8a6k" path="res://addons/fpc/reticles/reticle_0.tscn" id="5_7jktm"]
-[ext_resource type="PackedScene" uid="uid://gdk071ikp7vg" path="res://entities/enemies/base/enemy.tscn" id="6_ryrav"]
+[ext_resource type="PackedScene" uid="uid://db7xp11deujhy" path="res://entities/enemies/imp/imp.tscn" id="7_j5wjh"]
+[ext_resource type="PackedScene" uid="uid://bwkx5s2xjebvv" path="res://entities/enemies/sniper/sniper.tscn" id="8_j5wjh"]
+[ext_resource type="PackedScene" uid="uid://latadalk1638" path="res://entities/enemies/zombie/zombie.tscn" id="8_vef74"]
 
 [node name="Game" type="Node3D"]
 script = ExtResource("1_eow3j")
-
-[node name="Player" parent="." instance=ExtResource("4_fc0e3")]
-transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 0, 1, 2)
 
 [node name="ZoneBase" parent="." instance=ExtResource("1_80nbo")]
 
@@ -26,8 +25,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71137, 0, -9.22396)
 
 [node name="Enemies" type="Node3D" parent="."]
 
-[node name="Demon" parent="Enemies" instance=ExtResource("6_ryrav")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -3)
+[node name="Sniper" parent="Enemies" instance=ExtResource("8_j5wjh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1, 0)
+strafe_speed = 2.0
+retreat_speed = 3.0
+
+[node name="Imp" parent="Enemies" instance=ExtResource("7_j5wjh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -4)
+
+[node name="Zombie" parent="Enemies" instance=ExtResource("8_vef74")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1, 0.7, 6.3)
+melee_range = 1.5
+melee_damage = 35
+melee_cooldown = 1.5
+lunge_speed = 8.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.258819, 0.965926, 0, -0.965926, -0.258819, 0, 8, -8)
@@ -38,3 +49,8 @@ offset_right = 68.0
 offset_bottom = 559.0
 scale = Vector2(4.71725, 4.71725)
 text = "HP: "
+
+[node name="Player" type="Node3D" parent="."]
+
+[node name="Player" parent="Player" instance=ExtResource("4_fc0e3")]
+transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 0, 1, 2)

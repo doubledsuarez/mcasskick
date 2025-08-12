@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwkx5s2xjebvv"]
+
+[ext_resource type="PackedScene" uid="uid://gdk071ikp7vg" path="res://entities/enemies/base/enemy.tscn" id="1_n4u5l"]
+[ext_resource type="Script" uid="uid://bhi27ow1sps7e" path="res://entities/enemies/sniper/sniper.gd" id="2_frffl"]
+
+[node name="Sniper" instance=ExtResource("1_n4u5l")]
+script = ExtResource("2_frffl")
+preferred_distance = 10.0
+strafe_speed = 2.0
+retreat_speed = 3.0
+strafe_duration = 3.0
+aim_pause_duration = 0.1
