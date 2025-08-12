@@ -6,6 +6,6 @@
 [node name="Zombie" instance=ExtResource("1_5vyoa")]
 script = ExtResource("2_fxgas")
 melee_range = 1.5
-melee_damage = 35
-melee_cooldown = 1.5
+melee_damage = 15
+melee_cooldown = 2.0
 lunge_speed = 8.0

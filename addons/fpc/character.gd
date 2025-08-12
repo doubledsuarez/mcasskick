@@ -63,16 +63,6 @@ extends CharacterBody3D
 # We are using UI controls because they are built into Godot Engine so they can be used right away
 @export_group("Controls")
 ## Use the Input Map to map a mouse/keyboard input to an action and add a reference to it to this dictionary to be used in the script.
-#@export var controls : Dictionary = {
-	#LEFT = "ui_left",
-	#RIGHT = "ui_right",
-	#FORWARD = "ui_up",
-	#BACKWARD = "ui_down",
-	#JUMP = "ui_accept",
-	#CROUCH = "crouch",
-	#SPRINT = "sprint",
-	#PAUSE = "ui_cancel"
-	#}
 @export var controls : Dictionary = {
 	LEFT = "move_left",
 	RIGHT = "move_right",
@@ -156,9 +146,6 @@ var gravity : float = ProjectSettings.get_setting("physics/3d/default_gravity") 
 # Stores mouse input for rotating the camera in the physics process
 var mouseInput : Vector2 = Vector2(0,0)
 
-var health : int = 100
-var dead = false
-
 #endregion
 
 
@@ -197,12 +184,12 @@ func _physics_process(delta): # Most things happen here.
 		velocity.y -= gravity * delta
 
 	handle_jumping()
-	
+
 	handle_shooting()
 
 	var input_dir = Vector2.ZERO
 
-	if not (immobile or dead): # Immobility works by interrupting user input, so other forces can still be applied to the player
+	if not (immobile): # Immobility works by interrupting user input, so other forces can still be applied to the player
 		input_dir = Input.get_vector(controls.LEFT, controls.RIGHT, controls.FORWARD, controls.BACKWARD)
 
 	handle_movement(delta, input_dir)
@@ -235,15 +222,15 @@ func handle_shooting():
 		if continuous_shooting:
 			if Input.is_action_pressed(controls.SHOOT):
 				#WEAPON_SPRITE.play()
-				if RAYCAST.is_colliding() and RAYCAST.get_collider().has_method("kill"):
-					RAYCAST.get_collider().kill()
+				if RAYCAST.is_colliding() and RAYCAST.get_collider().has_method("take_damage"):
+					RAYCAST.get_collider().take_damage(1)
 		else:
 			if Input.is_action_just_pressed(controls.SHOOT):
 				WEAPON_SPRITE.stop()
 				WEAPON_SPRITE.play("shoot")
 				SHOOT_SOUND.play()
-				if RAYCAST.is_colliding() and RAYCAST.get_collider().has_method("kill"):
-					RAYCAST.get_collider().kill()
+				if RAYCAST.is_colliding() and RAYCAST.get_collider().has_method("take_damage"):
+					RAYCAST.get_collider().take_damage(1)
 
 func handle_jumping():
 	if jumping_enabled:
@@ -345,22 +332,6 @@ func check_controls(): # If you add a control, you might want to add a check for
 
 #endregion
 
-#region Logic Handling
-
-func take_damage(dmg : int):
-	if dead:
-		return
-		
-	health -= dmg
-	
-	if health <= 0:
-		die()
-	
-func die():
-	dead = true
-	
-#endregion
-
 #region State Handling
 
 func handle_state(moving):
@@ -404,10 +375,6 @@ func handle_state(moving):
 					"crouching":
 						if !$CrouchCeilingDetection.is_colliding():
 							enter_normal_state()
-							
-	if dead:
-		await get_tree().create_timer(1).timeout
-		dead = false
 
 
 # Any enter state function should only be called once when you want to enter that state, not every frame.

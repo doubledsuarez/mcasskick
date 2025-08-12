@@ -5,9 +5,10 @@ class_name Enemy
 @onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
 @onready var death_sound: AudioStreamPlayer = $DeathSound
 
-@export var move_speed = 2.0
+@export var health = 5
+@export var move_speed = 1.5
 @export var attack_range = 8.0
-@export var fireball_cooldown = 2.0
+@export var fireball_cooldown = 3.0
 @export var fireball_speed = 12.0
 
 @export var fireball_scene: PackedScene = preload("res://entities/projectiles/fireball/fireball.tscn")
@@ -45,6 +46,9 @@ func _physics_process(delta: float) -> void:
 	move()
 	move_and_slide()
 	attack()
+	
+	if health <= 0:
+		die()
 
 
 # Virtual move function - can be overridden by subclasses
@@ -84,10 +88,16 @@ func fire_projectile():
 	# Launch the fireball
 	fireball.launch(direction, launch_position)
 
+func take_damage(dmg : int):
+	if dead:
+		return
+		
+	health -= dmg
+	
+	if health <= 0:
+		die()
 
-
-
-func kill() -> void:
+func die() -> void:
 	dead = true
 	var layer_to_disable = 2
 	self.collision_layer &= ~(1 << (layer_to_disable - 1))

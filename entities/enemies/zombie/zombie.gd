@@ -3,8 +3,8 @@ class_name Zombie
 
 # Zombie-specific behavior variables
 @export var melee_range = 1.5          # How close to get for melee attack
-@export var melee_damage = 35          # Damage dealt by melee attack
-@export var melee_cooldown = 1.5       # Time between melee attacks
+@export var melee_damage = 15          # Damage dealt by melee attack
+@export var melee_cooldown = 2.0       # Time between melee attacks
 @export var lunge_speed = 8.0          # Speed boost during attack lunge
 
 var is_attacking = false
@@ -16,7 +16,7 @@ func _ready() -> void:
 	animated_sprite_3d.modulate = Color.DARK_GRAY
 
 	# Zombies are slow and shambling
-	move_speed = 1.0        # Much slower than other enemies
+	move_speed = 0.5       # Much slower than other enemies
 	attack_range = melee_range  # Use melee range for attack detection
 	fireball_cooldown = melee_cooldown
 

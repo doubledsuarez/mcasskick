@@ -17,14 +17,16 @@ var strafe_direction = 1  # 1 for right, -1 for left
 var aim_timer = 0.0
 var is_aiming = false
 
+
 func _ready():
 	super._ready()
 	animated_sprite_3d.modulate = Color.BLUE
 
 	# Snipers have different stats than base enemies
-	move_speed = 2.0  # Slower base movement
+	move_speed = 1.0  # Slower base movement
 	attack_range = 12.0  # Longer attack range
-	fireball_cooldown = 2.5  # Slower rate of fire but more deliberate
+	fireball_cooldown = 4.0  # Slower rate of fire but more deliberate
+	attack_timer = fireball_cooldown
 
 	# Initialize strafe timer with random offset so snipers don't all move in sync
 	strafe_timer = randf() * strafe_duration
