@@ -124,8 +124,8 @@ func fire_projectile():
 
 	var direction = (predicted_position - global_position).normalized()
 
-	# Launch position
-	var launch_position = global_position + direction * 1.0 + Vector3.UP * 0.5
+	# Launch position at hand height
+	var launch_position = global_position + direction * 1.0 + Vector3.UP * 1.2
 
 	# Launch the fireball with sniper-specific speed
 	fireball.speed = fireball_speed

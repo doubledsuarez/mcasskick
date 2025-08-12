@@ -7,7 +7,7 @@ extends Area3D
 @export var damage = 25
 @export var lifetime = 5.0
 @export var gravity_factor = 0.5
-@export var arc : float = 4.5
+@export var arc : float = 2.0
 
 var velocity: Vector3
 var time_alive = 0.0

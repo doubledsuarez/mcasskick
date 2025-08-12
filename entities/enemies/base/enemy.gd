@@ -46,7 +46,7 @@ func _physics_process(delta: float) -> void:
 	move()
 	move_and_slide()
 	attack()
-	
+
 	if health <= 0:
 		die()
 
@@ -82,8 +82,8 @@ func fire_projectile():
 	# Calculate direction to player
 	var direction = (player.global_position - global_position).normalized()
 
-	# Launch position slightly in front of enemy
-	var launch_position = global_position + direction * 1.0 + Vector3.UP * 0.5
+	# Launch position slightly in front of enemy at hand height
+	var launch_position = global_position + direction * 1.0 + Vector3.UP * 1.2
 
 	# Launch the fireball
 	fireball.launch(direction, launch_position)
@@ -91,9 +91,9 @@ func fire_projectile():
 func take_damage(dmg : int):
 	if dead:
 		return
-		
+
 	health -= dmg
-	
+
 	if health <= 0:
 		die()
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://r54dyixspqae"]
+[gd_scene load_steps=12 format=3 uid="uid://r54dyixspqae"]
 
 [ext_resource type="PackedScene" uid="uid://cpv2v57u64u8b" path="res://world/zone_base.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://0x1oyn0i5ywr" path="res://game.gd" id="1_eow3j"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://db7xp11deujhy" path="res://entities/enemies/imp/imp.tscn" id="7_j5wjh"]
 [ext_resource type="PackedScene" uid="uid://bwkx5s2xjebvv" path="res://entities/enemies/sniper/sniper.tscn" id="8_j5wjh"]
 [ext_resource type="PackedScene" uid="uid://latadalk1638" path="res://entities/enemies/zombie/zombie.tscn" id="8_vef74"]
+[ext_resource type="PackedScene" uid="uid://bvmsu0axhbdu7" path="res://entities/enemies/pickups/figure/figure.tscn" id="10_hve3p"]
+[ext_resource type="PackedScene" uid="uid://bk3j4h5l6m7n8" path="res://entities/enemies/pickups/health_pack/health_pack.tscn" id="11_mfdv2"]
 
 [node name="Game" type="Node3D"]
 script = ExtResource("1_eow3j")
@@ -33,8 +35,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -4)
 
 [node name="Zombie" parent="Enemies" instance=ExtResource("8_vef74")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1, 0.7, 6.3)
-melee_damage = 15
-melee_cooldown = 2.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.258819, 0.965926, 0, -0.965926, -0.258819, 0, 8, -8)
@@ -50,45 +50,14 @@ text = "HP: "
 
 [node name="Player" parent="Player" instance=ExtResource("4_fc0e3")]
 transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 0, 1, 2)
-crouch_speed = 1.0
-acceleration = 10.0
-jump_velocity = 4.5
-mouse_sensitivity = 0.1
-invert_camera_x_axis = false
-invert_camera_y_axis = false
-immobile = false
-controls = {
-&"BACKWARD": "move_backward",
-&"CROUCH": "crouch",
-&"FORWARD": "move_forward",
-&"JUMP": "jump",
-&"LEFT": "move_left",
-&"PAUSE": "pause",
-&"RIGHT": "move_right",
-&"SHOOT": "shoot",
-&"SPRINT": "sprint"
-}
-controller_support = false
-controller_controls = {
-&"LOOK_DOWN": "look_down",
-&"LOOK_LEFT": "look_left",
-&"LOOK_RIGHT": "look_right",
-&"LOOK_UP": "look_up"
-}
-look_sensitivity = 0.035
-jumping_enabled = true
-in_air_momentum = true
-motion_smoothing = true
-sprint_enabled = true
-sprint_mode = 0
-crouch_enabled = true
-crouch_mode = 1
-dynamic_fov = true
-continuous_jumping = true
-view_bobbing = true
-jump_animation = true
-shooting_enabled = true
-continuous_shooting = false
-pausing_enabled = true
-gravity_enabled = true
-dynamic_gravity = false
+collision_mask = 31
+
+[node name="Figures" type="Node3D" parent="."]
+
+[node name="Figure" parent="Figures" instance=ExtResource("10_hve3p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.5, 0)
+
+[node name="HealthPacks" type="Node3D" parent="."]
+
+[node name="HealthPack" parent="HealthPacks" instance=ExtResource("11_mfdv2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1.5, 6)

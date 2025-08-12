@@ -3,10 +3,11 @@
 [ext_resource type="Script" uid="uid://b8keunj66h1h0" path="res://entities/projectiles/fireball/fireball.gd" id="1_jf27t"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_he3yo"]
-radius = 0.25
+radius = 0.175
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_jf27t"]
-height = 1.0
+radius = 0.25
+height = 0.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_he3yo"]
 albedo_color = Color(1, 0, 0, 1)
