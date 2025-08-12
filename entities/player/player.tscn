@@ -4,5 +4,4 @@
 [ext_resource type="Script" uid="uid://xv5xtyvvrlrr" path="res://entities/player/player.gd" id="2_1234"]
 
 [node name="Player" instance=ExtResource("1_symyc")]
-collision_mask = 63
 script = ExtResource("2_1234")
