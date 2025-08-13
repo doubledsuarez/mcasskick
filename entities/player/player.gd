@@ -1,8 +1,11 @@
 extends "res://addons/fpc/character.gd"
 
+@onready var interactable_finder: Area3D = $Head/Direction/InteractableFinder
+
 const MAX_HEALTH : int = 100
 var health : int = MAX_HEALTH
 var dead = false
+var in_dialogue : bool = false
 
 # Inventory system
 var inventory: Dictionary = {}  # item_name -> {description, quantity}
@@ -12,6 +15,25 @@ func _ready():
 	super._ready()
 	# Add player to group so enemies can find it
 	add_to_group("player")
+	
+	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
+	
+func _unhandled_input(event: InputEvent) -> void:
+	super._unhandled_input(event)
+	
+	if Input.is_action_just_pressed("interact"):
+		var interactables = interactable_finder.get_overlapping_areas()
+		if interactables.size() > 0:
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+			in_dialogue = true
+			immobile = true
+			interactables[0].action()
+			return
+			
+func _on_dialogue_ended(resource : DialogueResource):
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	in_dialogue = false
+	immobile = false
 
 #region Logic Handling
 
@@ -34,9 +56,9 @@ func heal(heal_amount: int) -> void:
 	var actual_heal = health - old_health
 
 	if actual_heal > 0:
-		print("Healed for ", actual_heal, ". Health: ", health, "/", MAX_HEALTH)
+		Log.info("Healed for %s. Health: %s/%s" % [actual_heal, health, MAX_HEALTH])
 	else:
-		print("Health already full!")
+		Log.info("Health already full!")
 
 func respawn():
 	# Disable player input during death
@@ -90,7 +112,7 @@ func die():
 func add_to_inventory(item_name: String, description: String, quantity: int = 1) -> bool:
 	# Check if inventory has space
 	if get_inventory_count() >= max_inventory_size and not inventory.has(item_name):
-		print("Inventory full! Cannot pick up ", item_name)
+		Log.info("Inventory full! Cannot pick up ", item_name)
 		return false
 
 	# Add or stack item
@@ -101,8 +123,7 @@ func add_to_inventory(item_name: String, description: String, quantity: int = 1)
 			"description": description,
 			"quantity": quantity
 		}
-
-	print("Added ", quantity, "x ", item_name, " to inventory (", get_inventory_count(), "/", max_inventory_size, ")")
+	Log.info("Added %s x %s to inventory (%s/%s)" % [quantity, item_name, get_inventory_count(), max_inventory_size])
 	return true
 
 func remove_from_inventory(item_name: String, quantity: int = 1) -> bool:
@@ -114,7 +135,7 @@ func remove_from_inventory(item_name: String, quantity: int = 1) -> bool:
 	if inventory[item_name]["quantity"] <= 0:
 		inventory.erase(item_name)
 
-	print("Removed ", quantity, "x ", item_name, " from inventory")
+	Log.info("Removed %s x %s from inventory" % [quantity, item_name])
 	return true
 
 func has_item(item_name: String) -> bool:
@@ -133,12 +154,31 @@ func get_inventory_count() -> int:
 
 func print_inventory():
 	if inventory.is_empty():
-		print("Inventory is empty")
+		Log.info("Inventory is empty")
 		return
 
-	print("=== INVENTORY (", get_inventory_count(), "/", max_inventory_size, ") ===")
+	Log.info("=== INVENTORY (%s/%s) ===" % [get_inventory_count(), max_inventory_size])
 	for item_name in inventory:
 		var item = inventory[item_name]
-		print("- ", item["quantity"], "x ", item_name, " (", item["description"], ")")
+		Log.info("- %s x %s (%s)" % [item["quantity"], item_name, item["description"]])
 
+#endregion
+
+#region Input Overrides
+
+func handle_shooting():
+	if shooting_enabled:
+		if continuous_shooting:
+			if Input.is_action_pressed(controls.SHOOT):
+				#WEAPON_SPRITE.play()
+				if RAYCAST.is_colliding() and RAYCAST.get_collider().has_method("take_damage"):
+					RAYCAST.get_collider().take_damage(1)
+		else:
+			if Input.is_action_just_pressed(controls.SHOOT) and not in_dialogue:
+				WEAPON_SPRITE.stop()
+				WEAPON_SPRITE.play("shoot")
+				SHOOT_SOUND.play()
+				if RAYCAST.is_colliding() and RAYCAST.get_collider().has_method("take_damage"):
+					RAYCAST.get_collider().take_damage(1)
+					
 #endregion

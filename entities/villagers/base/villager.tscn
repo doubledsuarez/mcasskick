@@ -1,0 +1,31 @@
+[gd_scene load_steps=8 format=3 uid="uid://da52itg687i4n"]
+
+[ext_resource type="Script" uid="uid://c8srkvkryb10e" path="res://entities/villagers/base/villager.gd" id="1_nae3m"]
+[ext_resource type="PackedScene" uid="uid://oxf1gms0uy6m" path="res://helpers/interactable.tscn" id="2_plj41"]
+[ext_resource type="Resource" uid="uid://bokrq13iv10tx" path="res://entities/villagers/base/villager.dialogue" id="3_takau"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5vvp5"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_nae3m"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_plj41"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_takau"]
+radius = 1.0
+
+[node name="Villager" type="StaticBody3D"]
+script = ExtResource("1_nae3m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_5vvp5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_nae3m")
+surface_material_override/0 = SubResource("StandardMaterial3D_plj41")
+
+[node name="Interactable" parent="." instance=ExtResource("2_plj41")]
+dialogue_resource = ExtResource("3_takau")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable"]
+shape = SubResource("SphereShape3D_takau")

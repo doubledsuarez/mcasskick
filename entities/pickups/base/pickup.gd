@@ -63,18 +63,18 @@ func use_immediately(player: Node3D) -> void:
 		PickupType.HEALTH:
 			if player.has_method("heal"):
 				player.heal(pickup_value)
-				print("Healed for ", pickup_value, " HP")
+				Log.info("Healed for %s HP" % pickup_value)
 			else:
 				# Fallback for basic health system
 				if player.has_property("health") and player.has_property("MAX_HEALTH"):
 					player.health = min(player.health + pickup_value, player.MAX_HEALTH)
-					print("Health restored: ", pickup_value)
+					Log.info("Health restored: ", pickup_value)
 		_:
-			print("Used unknown pickup type")
+			Log.info("Used unknown pickup type")
 
 func collect_to_inventory(player: Node3D) -> void:
 	if player.has_method("add_to_inventory"):
 		player.add_to_inventory(pickup_name, pickup_description, pickup_value)
-		print("Collected: ", pickup_name)
+		Log.info("Collected: ", pickup_name)
 	else:
-		print("Player has no inventory system")
+		Log.info("Player has no inventory system")
