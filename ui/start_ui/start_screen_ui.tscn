@@ -42,6 +42,7 @@ custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+text = "Start"
 script = ExtResource("1_gj5kb")
 
 [node name="settings_button_container" type="MarginContainer" parent="main_container/main_vbox/button_vbox"]
@@ -54,6 +55,7 @@ custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+text = "Settings"
 script = ExtResource("2_3hr76")
 
 [node name="quit_button_container" type="MarginContainer" parent="main_container/main_vbox/button_vbox"]
@@ -66,6 +68,7 @@ custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+text = "Quit"
 script = ExtResource("3_qfvsx")
 
 [node name="seperator" type="Control" parent="main_container/main_vbox"]
