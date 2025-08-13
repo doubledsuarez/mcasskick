@@ -1,16 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://r54dyixspqae"]
+[gd_scene load_steps=12 format=3 uid="uid://r54dyixspqae"]
 
 [ext_resource type="PackedScene" uid="uid://cpv2v57u64u8b" path="res://world/zone_base.tscn" id="1_80nbo"]
+[ext_resource type="Script" uid="uid://0x1oyn0i5ywr" path="res://game.gd" id="1_eow3j"]
 [ext_resource type="PackedScene" uid="uid://c7oy2gjs7iyu4" path="res://world/props/world_demon/prop_hellfire.tscn" id="2_feb5d"]
 [ext_resource type="PackedScene" uid="uid://bqh3p7ae406gx" path="res://world/props/world_cuddly/prop_pinkflower.tscn" id="3_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://cc4pdef86f1w8" path="res://entities/player/player.tscn" id="4_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://coqpusufa8a6k" path="res://addons/fpc/reticles/reticle_0.tscn" id="5_7jktm"]
-[ext_resource type="PackedScene" uid="uid://gdk071ikp7vg" path="res://entities/enemies/demon/demon.tscn" id="6_ryrav"]
+[ext_resource type="PackedScene" uid="uid://db7xp11deujhy" path="res://entities/enemies/imp/imp.tscn" id="7_j5wjh"]
+[ext_resource type="PackedScene" uid="uid://bwkx5s2xjebvv" path="res://entities/enemies/sniper/sniper.tscn" id="8_j5wjh"]
+[ext_resource type="PackedScene" uid="uid://latadalk1638" path="res://entities/enemies/zombie/zombie.tscn" id="8_vef74"]
+[ext_resource type="PackedScene" uid="uid://bvmsu0axhbdu7" path="res://entities/enemies/pickups/figures/figure.tscn" id="10_hve3p"]
+[ext_resource type="PackedScene" uid="uid://bk3j4h5l6m7n8" path="res://entities/enemies/pickups/health_pack/health_pack.tscn" id="11_mfdv2"]
 
 [node name="Game" type="Node3D"]
-
-[node name="Player" parent="." instance=ExtResource("4_fc0e3")]
-transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 0, 1, 2)
+script = ExtResource("1_eow3j")
 
 [node name="ZoneBase" parent="." instance=ExtResource("1_80nbo")]
 
@@ -24,35 +27,37 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71137, 0, -9.22396)
 
 [node name="Enemies" type="Node3D" parent="."]
 
-[node name="Demon" parent="Enemies" instance=ExtResource("6_ryrav")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -3)
+[node name="Sniper" parent="Enemies" instance=ExtResource("8_j5wjh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1, 0)
 
-[node name="Demon2" parent="Enemies" instance=ExtResource("6_ryrav")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 7)
+[node name="Imp" parent="Enemies" instance=ExtResource("7_j5wjh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -4)
 
-[node name="Demon3" parent="Enemies" instance=ExtResource("6_ryrav")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1, -6)
-
-[node name="Demon10" parent="Enemies" instance=ExtResource("6_ryrav")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, -3)
-
-[node name="Demon4" parent="Enemies" instance=ExtResource("6_ryrav")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1, 5)
-
-[node name="Demon5" parent="Enemies" instance=ExtResource("6_ryrav")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, 2)
-
-[node name="Demon6" parent="Enemies" instance=ExtResource("6_ryrav")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1, -1)
-
-[node name="Demon7" parent="Enemies" instance=ExtResource("6_ryrav")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 1, 1)
-
-[node name="Demon8" parent="Enemies" instance=ExtResource("6_ryrav")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1, 6)
-
-[node name="Demon9" parent="Enemies" instance=ExtResource("6_ryrav")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1, -4)
+[node name="Zombie" parent="Enemies" instance=ExtResource("8_vef74")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1, 0.7, 6.3)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.258819, 0.965926, 0, -0.965926, -0.258819, 0, 8, -8)
+
+[node name="HealthLabel" type="Label" parent="."]
+offset_top = 536.0
+offset_right = 68.0
+offset_bottom = 559.0
+scale = Vector2(4.71725, 4.71725)
+text = "HP: "
+
+[node name="Player" type="Node3D" parent="."]
+
+[node name="Player" parent="Player" instance=ExtResource("4_fc0e3")]
+transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 0, 1, 2)
+collision_mask = 31
+
+[node name="Figures" type="Node3D" parent="."]
+
+[node name="Figure" parent="Figures" instance=ExtResource("10_hve3p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.5, 0)
+
+[node name="HealthPacks" type="Node3D" parent="."]
+
+[node name="HealthPack" parent="HealthPacks" instance=ExtResource("11_mfdv2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1.5, 6)
