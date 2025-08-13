@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cwtka8f7ca3v6"]
 
-[ext_resource type="Script" uid="uid://c8f2hhloi3v05" path="res://entities/enemies/pickups/base/pickup.gd" id="1_t8yo0"]
+[ext_resource type="Script" uid="uid://c8f2hhloi3v05" path="res://entities/pickups/base/pickup.gd" id="1_t8yo0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mk7k3"]
 

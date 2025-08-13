@@ -9,8 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://db7xp11deujhy" path="res://entities/enemies/imp/imp.tscn" id="7_j5wjh"]
 [ext_resource type="PackedScene" uid="uid://bwkx5s2xjebvv" path="res://entities/enemies/sniper/sniper.tscn" id="8_j5wjh"]
 [ext_resource type="PackedScene" uid="uid://latadalk1638" path="res://entities/enemies/zombie/zombie.tscn" id="8_vef74"]
-[ext_resource type="PackedScene" uid="uid://bvmsu0axhbdu7" path="res://entities/enemies/pickups/figures/figure.tscn" id="10_hve3p"]
-[ext_resource type="PackedScene" uid="uid://bk3j4h5l6m7n8" path="res://entities/enemies/pickups/health_pack/health_pack.tscn" id="11_mfdv2"]
+[ext_resource type="PackedScene" uid="uid://bvmsu0axhbdu7" path="res://entities/pickups/figures/figure.tscn" id="10_hve3p"]
+[ext_resource type="PackedScene" uid="uid://bk3j4h5l6m7n8" path="res://entities/pickups/health_pack/health_pack.tscn" id="11_mfdv2"]
 
 [node name="Game" type="Node3D"]
 script = ExtResource("1_eow3j")

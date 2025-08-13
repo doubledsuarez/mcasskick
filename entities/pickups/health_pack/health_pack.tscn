@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bk3j4h5l6m7n8"]
 
-[ext_resource type="Script" uid="uid://c8f2hhloi3v05" path="res://entities/enemies/pickups/base/pickup.gd" id="1_health"]
+[ext_resource type="Script" uid="uid://c8f2hhloi3v05" path="res://entities/pickups/base/pickup.gd" id="1_health"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_health"]
 size = Vector3(1, 0.5, 1)

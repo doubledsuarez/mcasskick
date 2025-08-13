@@ -1,4 +1,4 @@
-extends CharacterBody3D
+extends ToggleEnemy
 class_name Enemy
 
 @onready var animated_sprite_3d: AnimatedSprite3D = $AnimatedSprite3D

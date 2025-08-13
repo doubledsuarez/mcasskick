@@ -30,6 +30,7 @@ func match_world_state():
 
 func enable_object(is_enabled:bool):
 	visible = is_enabled
+	set_physics_process(is_enabled)
 
 	if is_enabled:
 		global_position = base_position

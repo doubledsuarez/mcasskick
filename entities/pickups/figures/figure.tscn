@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bvmsu0axhbdu7"]
 
-[ext_resource type="Script" uid="uid://c8f2hhloi3v05" path="res://entities/enemies/pickups/base/pickup.gd" id="1_figure"]
+[ext_resource type="Script" uid="uid://c8f2hhloi3v05" path="res://entities/pickups/base/pickup.gd" id="1_figure"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_figure"]
 height = 0.8

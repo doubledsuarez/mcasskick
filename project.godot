@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 g="*res://global.gd"
 Log="*res://addons/logger/logger.gd"
 
+[dotnet]
+
+project/assembly_name="McAssKick"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/func_godot/plugin.cfg", "res://addons/logger/plugin.cfg")
