@@ -5,14 +5,16 @@
 [ext_resource type="Resource" uid="uid://bokrq13iv10tx" path="res://entities/villagers/base/villager.dialogue" id="3_takau"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5vvp5"]
+size = Vector3(1, 2, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_nae3m"]
+size = Vector3(1, 2, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_plj41"]
 albedo_color = Color(0, 0, 1, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_takau"]
-radius = 1.0
+radius = 1.5
 
 [node name="Villager" type="StaticBody3D"]
 script = ExtResource("1_nae3m")

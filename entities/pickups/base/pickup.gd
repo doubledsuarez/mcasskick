@@ -1,4 +1,4 @@
-extends Area3D
+extends TogglePickup
 class_name Pickup
 
 # Pickup system with immediate use and inventory collection
@@ -64,11 +64,6 @@ func use_immediately(player: Node3D) -> void:
 			if player.has_method("heal"):
 				player.heal(pickup_value)
 				Log.info("Healed for %s HP" % pickup_value)
-			else:
-				# Fallback for basic health system
-				if player.has_property("health") and player.has_property("MAX_HEALTH"):
-					player.health = min(player.health + pickup_value, player.MAX_HEALTH)
-					Log.info("Health restored: ", pickup_value)
 		_:
 			Log.info("Used unknown pickup type")
 

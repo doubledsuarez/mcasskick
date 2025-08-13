@@ -8,6 +8,8 @@ extends Node
 var game
 var player
 
+var question_asked : bool = false
+
 # Emitted from the player (when the player is implemented)
 var cuddly_world := false
 signal world_toggled

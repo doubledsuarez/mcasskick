@@ -34,6 +34,7 @@ func _on_dialogue_ended(resource : DialogueResource):
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	in_dialogue = false
 	immobile = false
+	g.question_asked = false
 
 #region Logic Handling
 
