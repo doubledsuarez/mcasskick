@@ -1,0 +1,229 @@
+[gd_scene format=3 uid="uid://h30klttmj8ll"]
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="main_box" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = -8
+theme_override_constants/margin_right = -8
+theme_override_constants/margin_bottom = -8
+
+[node name="MarginContainer" type="MarginContainer" parent="main_box"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="ColorRect" type="ColorRect" parent="main_box/MarginContainer"]
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="main_box/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="display_seperator" type="HBoxContainer" parent="main_box/MarginContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="trinkets" type="MarginContainer" parent="main_box/MarginContainer/MarginContainer/display_seperator"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="GridContainer" type="GridContainer" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 12
+columns = 4
+
+[node name="trinket_dispaly1" type="TextureRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer/trinket_dispaly1"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.18359, 0.18359, 0.18359, 1)
+
+[node name="trinket_dispaly2" type="TextureRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer/trinket_dispaly2"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.18359, 0.18359, 0.18359, 1)
+
+[node name="trinket_dispaly3" type="TextureRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer/trinket_dispaly3"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.18359, 0.18359, 0.18359, 1)
+
+[node name="trinket_dispaly4" type="TextureRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer/trinket_dispaly4"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.18359, 0.18359, 0.18359, 1)
+
+[node name="trinket_dispaly5" type="TextureRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer/trinket_dispaly5"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.18359, 0.18359, 0.18359, 1)
+
+[node name="trinket_dispaly6" type="TextureRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer/trinket_dispaly6"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.18359, 0.18359, 0.18359, 1)
+
+[node name="trinket_dispaly7" type="TextureRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer/trinket_dispaly7"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.18359, 0.18359, 0.18359, 1)
+
+[node name="trinket_dispaly8" type="TextureRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer/trinket_dispaly8"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.18359, 0.18359, 0.18359, 1)
+
+[node name="chill_meter" type="MarginContainer" parent="main_box/MarginContainer/MarginContainer/display_seperator"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="header_content_seperator" type="VBoxContainer" parent="main_box/MarginContainer/MarginContainer/display_seperator/chill_meter"]
+layout_mode = 2
+
+[node name="header" type="Label" parent="main_box/MarginContainer/MarginContainer/display_seperator/chill_meter/header_content_seperator"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Chill %"
+horizontal_alignment = 1
+
+[node name="content" type="Label" parent="main_box/MarginContainer/MarginContainer/display_seperator/chill_meter/header_content_seperator"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "100"
+horizontal_alignment = 1
+
+[node name="character_display" type="MarginContainer" parent="main_box/MarginContainer/MarginContainer/display_seperator"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/character_display"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="placeholder" type="ColorRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/character_display/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.572988, 0.572988, 0.572988, 1)
+
+[node name="ammo" type="MarginContainer" parent="main_box/MarginContainer/MarginContainer/display_seperator"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="header_content_seperator" type="VBoxContainer" parent="main_box/MarginContainer/MarginContainer/display_seperator/ammo"]
+layout_mode = 2
+
+[node name="header" type="Label" parent="main_box/MarginContainer/MarginContainer/display_seperator/ammo/header_content_seperator"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Ammo"
+horizontal_alignment = 1
+
+[node name="content" type="Label" parent="main_box/MarginContainer/MarginContainer/display_seperator/ammo/header_content_seperator"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Inf."
+horizontal_alignment = 1
+
+[node name="health" type="MarginContainer" parent="main_box/MarginContainer/MarginContainer/display_seperator"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="header_content_seperator" type="VBoxContainer" parent="main_box/MarginContainer/MarginContainer/display_seperator/health"]
+layout_mode = 2
+
+[node name="header" type="Label" parent="main_box/MarginContainer/MarginContainer/display_seperator/health/header_content_seperator"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Health"
+horizontal_alignment = 1
+
+[node name="content" type="Label" parent="main_box/MarginContainer/MarginContainer/display_seperator/health/header_content_seperator"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "100"
+horizontal_alignment = 1
