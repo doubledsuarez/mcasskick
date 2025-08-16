@@ -1,0 +1,24 @@
+~ start
+Villager: [[Hi|Hello|Hey]], Rick! Do not be alarmed, this is only a test.
+Villager: Try to shoot and grab the figure or the health pack!
+Villager: Press right-click to swap between this world and the demon world.
+Villager: Got a question?
+- Yes
+	~ question
+	Villager: What do you want to know?
+	- Why are you a blue box?
+		Villager: Danny isn't known for his art skills.
+		set g.question_asked = true
+		=> question
+	- Where do you live?
+		Villager: Right now, this empty square with my flower friend.
+		set g.question_asked = true
+		=> question
+	- I'm done with my questions. [if g.question_asked]
+	- I actually have nothing. I was wasting your time. [if not g.question_asked]
+		Villager: Eh I wasn't doing anything anyway.
+- Nope
+- Start again => start
+- End the conversation => END
+Villager: Have fun Rick!
+=> END

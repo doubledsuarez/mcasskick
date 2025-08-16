@@ -1,9 +1,9 @@
-extends CharacterBody3D
-class_name ToggleEnemy
+extends Area3D
+class_name TogglePickup
 
 # This is a base class for all objects that will only exist in one world state
 
-@export_enum("cuddly", "demon") var world_state : String = "demon"
+@export_enum("cuddly", "demon") var world_state : String = "cuddly"
 
 # This is the position the object will return to when enabled
 var base_position := Vector3.ZERO

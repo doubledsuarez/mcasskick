@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bvmsu0axhbdu7" path="res://entities/enemies/pickups/figures/figure.tscn" id="10_hve3p"]
 [ext_resource type="PackedScene" uid="uid://bk3j4h5l6m7n8" path="res://entities/enemies/pickups/health_pack/health_pack.tscn" id="11_mfdv2"]
 [ext_resource type="PackedScene" uid="uid://4icf1c7gpltw" path="res://world/environments/environment.tscn" id="12_iotsf"]
+[ext_resource type="PackedScene" uid="uid://da52itg687i4n" path="res://entities/villagers/base/villager.tscn" id="12_iotsf"]
 
 [node name="SubViewportContainer" type="SubViewportContainer"]
 texture_filter = 1
@@ -78,3 +79,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.5, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1.5, 6)
 
 [node name="Environment" parent="SubViewport/Game" instance=ExtResource("12_iotsf")]
+world_state = "demon"
+
+[node name="Interactables" type="Node3D" parent="."]
+
+[node name="Villager" parent="Interactables" instance=ExtResource("12_iotsf")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 3, 1, -3)
