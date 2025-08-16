@@ -1,11 +1,17 @@
 extends "res://addons/fpc/character.gd"
 
+@onready var direction_ray: Marker3D = $Head/Direction
 @onready var interactable_finder: Area3D = $Head/Direction/InteractableFinder
 
 const MAX_HEALTH : int = 100
 var health : int = MAX_HEALTH
 var dead = false
 var in_dialogue : bool = false
+
+# Shotgun recoil system
+@export var shotgun_recoil_strength: float = 4.0  # Horizontal knockback force
+@export var shotgun_upward_boost: float = 1.0     # Upward boost component
+@export var max_recoil_speed: float = 8.0        # Cap to prevent crazy speeds
 
 # Inventory system
 var inventory: Dictionary = {}  # item_name -> {description, quantity}
@@ -15,12 +21,12 @@ func _ready():
 	super._ready()
 	# Add player to group so enemies can find it
 	add_to_group("player")
-	
+
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
-	
+
 func _unhandled_input(event: InputEvent) -> void:
 	super._unhandled_input(event)
-	
+
 	if Input.is_action_just_pressed("interact"):
 		var interactables = interactable_finder.get_overlapping_areas()
 		if interactables.size() > 0:
@@ -29,7 +35,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			immobile = true
 			interactables[0].action()
 			return
-			
+
 func _on_dialogue_ended(resource : DialogueResource):
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	in_dialogue = false
@@ -179,7 +185,36 @@ func handle_shooting():
 				WEAPON_SPRITE.stop()
 				WEAPON_SPRITE.play("shoot")
 				SHOOT_SOUND.play()
+				# Hit the enemy
 				if RAYCAST.is_colliding() and RAYCAST.get_collider().has_method("take_damage"):
 					RAYCAST.get_collider().take_damage(1)
-					
+
+				# Shotgun momentum boost - only when airborne
+				if not is_on_floor():
+					apply_shotgun_recoil()
+
+func apply_shotgun_recoil():
+	# Get camera's forward direction (where we're aiming)
+	var camera_forward = -CAMERA.global_transform.basis.z
+
+	# Calculate recoil direction (opposite of where we're aiming)
+	var recoil_direction = -camera_forward
+
+	# Split into horizontal and vertical components
+	var horizontal_recoil = Vector3(recoil_direction.x, 0, recoil_direction.z).normalized()
+	var vertical_component = Vector3.UP * shotgun_upward_boost
+
+	# Calculate the boost velocity
+	var boost_velocity = horizontal_recoil * shotgun_recoil_strength + vertical_component
+
+	# Add to current velocity
+	velocity += boost_velocity
+
+	# Cap the total speed to prevent exploits
+	if velocity.length() > max_recoil_speed:
+		velocity = velocity.normalized() * max_recoil_speed
+
+	# Optional: Add a small screen shake or visual effect here
+	# print("Shotgun boost applied! Velocity: ", velocity.length())
+
 #endregion

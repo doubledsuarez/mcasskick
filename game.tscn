@@ -52,6 +52,9 @@ text = "HP: "
 [node name="Player" parent="Player" instance=ExtResource("4_fc0e3")]
 transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 0, 1, 2)
 collision_mask = 31
+shotgun_recoil_strength = 4.0
+shotgun_upward_boost = 1.0
+max_recoil_speed = 8.0
 
 [node name="Figures" type="Node3D" parent="."]
 

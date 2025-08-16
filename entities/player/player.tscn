@@ -7,6 +7,9 @@
 
 [node name="Player" instance=ExtResource("1_symyc")]
 script = ExtResource("2_1234")
+shotgun_recoil_strength = 4.0
+shotgun_upward_boost = 1.0
+max_recoil_speed = 8.0
 
 [node name="Direction" type="Marker3D" parent="Head" index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
