@@ -22,6 +22,7 @@ var attack_timer = fireball_cooldown
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	super()
 	animated_sprite_3d.animation_finished.connect(_on_animated_sprite_3d_animation_finished)
 	animated_sprite_3d.play("walking")
 

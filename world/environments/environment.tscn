@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://4icf1c7gpltw"]
+
+[ext_resource type="Environment" uid="uid://qc0u2ugfxv2c" path="res://world/environments/demon_environment.tres" id="1_0gfox"]
+[ext_resource type="Script" uid="uid://bvlkg4q5f62s2" path="res://world/environments/environment.gd" id="2_x83xs"]
+[ext_resource type="Environment" uid="uid://d15oam578qpg4" path="res://world/environments/cuddly_environment.tres" id="3_wwp7e"]
+
+[node name="Environment" type="WorldEnvironment"]
+environment = ExtResource("3_wwp7e")
+script = ExtResource("2_x83xs")
+demon_environment = ExtResource("1_0gfox")
+cuddly_environment = ExtResource("3_wwp7e")

@@ -105,6 +105,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_bgi78")
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 1, 0)
 billboard = 1
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_x7581")
 animation = &"walking"
 
