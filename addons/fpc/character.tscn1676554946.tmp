@@ -485,10 +485,12 @@ target_position = Vector3(0, -1, -999)
 collision_mask = 2
 
 [node name="WeaponSprite" type="AnimatedSprite2D" parent="Weapon"]
-position = Vector2(432, 345)
+position = Vector2(736, 488)
 scale = Vector2(0.632987, 0.632987)
 sprite_frames = SubResource("SpriteFrames_bupmj")
 animation = &"shoot"
+frame = 3
+frame_progress = 1.0
 
 [node name="ShootSound" type="AudioStreamPlayer" parent="Weapon"]
 stream = ExtResource("3_qaoyu")
