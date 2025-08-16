@@ -1,7 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://latadalk1638"]
+[gd_scene load_steps=6 format=3 uid="uid://latadalk1638"]
 
 [ext_resource type="PackedScene" uid="uid://gdk071ikp7vg" path="res://entities/enemies/base/enemy.tscn" id="1_5vyoa"]
 [ext_resource type="Script" uid="uid://bxv6ovm4iwp3p" path="res://entities/enemies/zombie/zombie.gd" id="2_fxgas"]
+[ext_resource type="Texture2D" uid="uid://bo1npy10rj1a5" path="res://entities/enemies/zombie/horse_walk2.png" id="3_6nnal"]
+[ext_resource type="Texture2D" uid="uid://dblpjwqp85gef" path="res://entities/enemies/zombie/horse_walk1.png" id="4_eu6fq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mcmnf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_6nnal")
+}],
+"loop": true,
+"name": &"dying",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_6nnal")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_eu6fq")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 2.0
+}]
 
 [node name="Zombie" instance=ExtResource("1_5vyoa")]
 script = ExtResource("2_fxgas")
@@ -9,3 +33,11 @@ melee_range = 1.5
 melee_damage = 15
 melee_cooldown = 2.0
 lunge_speed = 8.0
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.43836, 0)
+
+[node name="AnimatedSprite3D" parent="." index="2"]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 1.293, 0)
+pixel_size = 0.05
+sprite_frames = SubResource("SpriteFrames_mcmnf")

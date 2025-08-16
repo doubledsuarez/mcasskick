@@ -1,7 +1,7 @@
 extends ToggleEnemy
 class_name Enemy
 
-@onready var animated_sprite_3d: AnimatedSprite3D = $AnimatedSprite3D
+@onready var sprite_3d: AnimatedSprite3D = $AnimatedSprite3D
 @onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
 @onready var death_sound: AudioStreamPlayer = $DeathSound
 
@@ -69,7 +69,8 @@ func attack():
 	# Check if attack is ready (cooldown finished)
 	if attack_timer > 0:
 		return
-
+	
+	animated_sprite_3d.play("attacking")
 	fire_projectile()
 	attack_timer = fireball_cooldown
 

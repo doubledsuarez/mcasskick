@@ -1,7 +1,54 @@
-[gd_scene load_steps=3 format=3 uid="uid://db7xp11deujhy"]
+[gd_scene load_steps=10 format=3 uid="uid://db7xp11deujhy"]
 
 [ext_resource type="PackedScene" uid="uid://gdk071ikp7vg" path="res://entities/enemies/base/enemy.tscn" id="1_obnr0"]
 [ext_resource type="Script" uid="uid://b37m54o0r313b" path="res://entities/enemies/imp/imp.gd" id="2_m8pei"]
+[ext_resource type="Texture2D" uid="uid://c3ae0en5c0084" path="res://entities/enemies/imp/fish.png" id="3_deubw"]
+[ext_resource type="Texture2D" uid="uid://cylpjp3wr4xgg" path="res://entities/enemies/imp/fish_walk1.png" id="3_nvavl"]
+[ext_resource type="Texture2D" uid="uid://ccj10fxllga88" path="res://entities/enemies/imp/fish_shoot1.png" id="4_dicxx"]
+[ext_resource type="Texture2D" uid="uid://f3w6qg6udbud" path="res://entities/enemies/imp/fish_shoot2.png" id="5_eylrn"]
+[ext_resource type="Texture2D" uid="uid://ddh7lw3nb518c" path="res://entities/enemies/imp/fish_walk2.png" id="5_naqm8"]
+[ext_resource type="Texture2D" uid="uid://7n3r12hbvpyi" path="res://entities/enemies/imp/fish_shoot3.png" id="6_5ch5b"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ngk6w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_dicxx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_eylrn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5ch5b")
+}],
+"loop": true,
+"name": &"attacking",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_nvavl")
+}],
+"loop": true,
+"name": &"dying",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_deubw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_naqm8")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 5.0
+}]
 
 [node name="Imp" instance=ExtResource("1_obnr0")]
 script = ExtResource("2_m8pei")
+
+[node name="AnimatedSprite3D" parent="." index="2"]
+pixel_size = 0.05
+sprite_frames = SubResource("SpriteFrames_ngk6w")
+animation = &"attacking"

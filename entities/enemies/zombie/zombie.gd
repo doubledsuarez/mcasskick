@@ -13,7 +13,7 @@ var lunge_duration = 0.3
 
 func _ready() -> void:
 	super._ready()
-	animated_sprite_3d.modulate = Color.DARK_GRAY
+	#animated_sprite_3d.modulate = Color.DARK_GRAY
 
 	# Zombies are slow and shambling
 	move_speed = 0.5       # Much slower than other enemies
