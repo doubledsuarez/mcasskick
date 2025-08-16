@@ -20,6 +20,12 @@ config/icon="res://icon.svg"
 g="*res://global.gd"
 Log="*res://addons/logger/logger.gd"
 
+[display]
+
+window/size/viewport_width=640
+window/size/viewport_height=480
+window/stretch/mode="viewport"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/func_godot/plugin.cfg", "res://addons/logger/plugin.cfg")
