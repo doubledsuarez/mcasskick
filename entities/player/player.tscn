@@ -5,3 +5,4 @@
 
 [node name="Player" instance=ExtResource("1_symyc")]
 script = ExtResource("2_1234")
+mouse_sensitivity = 0.2
