@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=3 uid="uid://r54dyixspqae"]
 
-[ext_resource type="PackedScene" uid="uid://cpv2v57u64u8b" path="res://world/zone_base.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://0x1oyn0i5ywr" path="res://game.gd" id="1_eow3j"]
 [ext_resource type="PackedScene" uid="uid://c7oy2gjs7iyu4" path="res://world/props/world_demon/prop_hellfire.tscn" id="2_feb5d"]
+[ext_resource type="PackedScene" uid="uid://xik4ox0brkx7" path="res://world/zone_village.tscn" id="2_mfdv2"]
 [ext_resource type="PackedScene" uid="uid://bqh3p7ae406gx" path="res://world/props/world_cuddly/prop_pinkflower.tscn" id="3_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://cc4pdef86f1w8" path="res://entities/player/player.tscn" id="4_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://coqpusufa8a6k" path="res://addons/fpc/reticles/reticle_0.tscn" id="5_7jktm"]
@@ -15,7 +15,7 @@
 [node name="Game" type="Node3D"]
 script = ExtResource("1_eow3j")
 
-[node name="ZoneBase" parent="." instance=ExtResource("1_80nbo")]
+[node name="ZoneVillage" parent="." instance=ExtResource("2_mfdv2")]
 
 [node name="PropHellfire" parent="." instance=ExtResource("2_feb5d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.63665, -8.16977)
