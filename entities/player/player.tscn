@@ -18,3 +18,7 @@ collision_mask = 64
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Head/Direction/InteractableFinder" index="0"]
 shape = SubResource("SphereShape3D_abrql")
+
+[node name="WeaponSprite" parent="Weapon" index="1"]
+position = Vector2(216, 168)
+scale = Vector2(0.281337, 0.281337)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://r54dyixspqae"]
+[gd_scene load_steps=14 format=3 uid="uid://r54dyixspqae"]
 
 [ext_resource type="PackedScene" uid="uid://cpv2v57u64u8b" path="res://world/zone_base.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://0x1oyn0i5ywr" path="res://game.gd" id="1_eow3j"]
@@ -9,10 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://db7xp11deujhy" path="res://entities/enemies/imp/imp.tscn" id="7_j5wjh"]
 [ext_resource type="PackedScene" uid="uid://bwkx5s2xjebvv" path="res://entities/enemies/sniper/sniper.tscn" id="8_j5wjh"]
 [ext_resource type="PackedScene" uid="uid://latadalk1638" path="res://entities/enemies/zombie/zombie.tscn" id="8_vef74"]
-[ext_resource type="PackedScene" uid="uid://bvmsu0axhbdu7" path="res://entities/enemies/pickups/figures/figure.tscn" id="10_hve3p"]
-[ext_resource type="PackedScene" uid="uid://bk3j4h5l6m7n8" path="res://entities/enemies/pickups/health_pack/health_pack.tscn" id="11_mfdv2"]
-[ext_resource type="PackedScene" uid="uid://4icf1c7gpltw" path="res://world/environments/environment.tscn" id="12_iotsf"]
+[ext_resource type="PackedScene" uid="uid://bvmsu0axhbdu7" path="res://entities/pickups/figures/figure.tscn" id="10_hve3p"]
+[ext_resource type="PackedScene" uid="uid://bk3j4h5l6m7n8" path="res://entities/pickups/health_pack/health_pack.tscn" id="11_mfdv2"]
 [ext_resource type="PackedScene" uid="uid://da52itg687i4n" path="res://entities/villagers/base/villager.tscn" id="12_iotsf"]
+[ext_resource type="PackedScene" uid="uid://4icf1c7gpltw" path="res://world/environments/environment.tscn" id="13_lc2xo"]
 
 [node name="SubViewportContainer" type="SubViewportContainer"]
 texture_filter = 1
@@ -78,10 +78,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.5, 0)
 [node name="HealthPack" parent="SubViewport/Game/HealthPacks" instance=ExtResource("11_mfdv2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1.5, 6)
 
-[node name="Environment" parent="SubViewport/Game" instance=ExtResource("12_iotsf")]
-world_state = "demon"
+[node name="Interactables" type="Node3D" parent="SubViewport/Game"]
 
-[node name="Interactables" type="Node3D" parent="."]
-
-[node name="Villager" parent="Interactables" instance=ExtResource("12_iotsf")]
+[node name="Villager" parent="SubViewport/Game/Interactables" instance=ExtResource("12_iotsf")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 3, 1, -3)
+
+[node name="Environment" parent="SubViewport/Game" instance=ExtResource("13_lc2xo")]
