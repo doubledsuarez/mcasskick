@@ -6,7 +6,7 @@ extends Node
 # state when the demon and cuddly worlds switch
 
 var game
-var player
+var player = null
 
 var question_asked : bool = false
 
