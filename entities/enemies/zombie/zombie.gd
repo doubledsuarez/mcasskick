@@ -13,10 +13,9 @@ var lunge_duration = 0.3
 
 func _ready() -> void:
 	super._ready()
-	#animated_sprite_3d.modulate = Color.DARK_GRAY
 
 	# Zombies are slow and shambling
-	move_speed = 0.5       # Much slower than other enemies
+	#move_speed = 0.5       # Much slower than other enemies
 	attack_range = melee_range  # Use melee range for attack detection
 	fireball_cooldown = melee_cooldown
 
@@ -79,11 +78,11 @@ func melee_attack():
 			player.take_damage(melee_damage)
 
 	# Play attack animation if available
-	if animated_sprite_3d and not dead:
-		# You could add an "attacking" animation here
-		# animated_sprite_3d.play("attacking")
-		Log.info("Zombie attacked!")
-		pass
+	#if animated_sprite_3d and not dead:
+		## You could add an "attacking" animation here
+		## animated_sprite_3d.play("attacking")
+		#Log.info("Zombie attacked!")
+		#pass
 
 # Override fire_projectile to do nothing (zombies don't shoot)
 func fire_projectile():
