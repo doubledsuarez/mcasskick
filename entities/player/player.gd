@@ -1,5 +1,6 @@
 extends "res://addons/fpc/character.gd"
 
+
 const MAX_HEALTH : int = 100
 var health : int = MAX_HEALTH
 var dead = false
@@ -21,6 +22,7 @@ func take_damage(dmg : int):
 
 	health -= dmg
 	health = clampi(health, 0, MAX_HEALTH)
+	
 
 	if health <= 0:
 		die()

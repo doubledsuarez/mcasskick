@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://h30klttmj8ll"]
+[gd_scene load_steps=2 format=3 uid="uid://h30klttmj8ll"]
+
+[ext_resource type="Script" uid="uid://7dc6wtyxq8qa" path="res://ui/hud/hud.gd" id="1_xmswo"]
 
 [node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_xmswo")
 
 [node name="main_box" type="MarginContainer" parent="."]
 anchors_preset = 15
@@ -161,13 +164,15 @@ layout_mode = 2
 
 [node name="header" type="Label" parent="main_box/MarginContainer/MarginContainer/display_seperator/chill_meter/header_content_seperator"]
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 20
 text = "Chill %"
 horizontal_alignment = 1
 
 [node name="content" type="Label" parent="main_box/MarginContainer/MarginContainer/display_seperator/chill_meter/header_content_seperator"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
 text = "100"
 horizontal_alignment = 1
 
@@ -199,13 +204,15 @@ layout_mode = 2
 
 [node name="header" type="Label" parent="main_box/MarginContainer/MarginContainer/display_seperator/ammo/header_content_seperator"]
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 20
 text = "Ammo"
 horizontal_alignment = 1
 
 [node name="content" type="Label" parent="main_box/MarginContainer/MarginContainer/display_seperator/ammo/header_content_seperator"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
 text = "Inf."
 horizontal_alignment = 1
 
@@ -216,14 +223,16 @@ size_flags_horizontal = 3
 [node name="header_content_seperator" type="VBoxContainer" parent="main_box/MarginContainer/MarginContainer/display_seperator/health"]
 layout_mode = 2
 
-[node name="header" type="Label" parent="main_box/MarginContainer/MarginContainer/display_seperator/health/header_content_seperator"]
+[node name="health_header" type="Label" parent="main_box/MarginContainer/MarginContainer/display_seperator/health/header_content_seperator"]
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 20
 text = "Health"
 horizontal_alignment = 1
 
-[node name="content" type="Label" parent="main_box/MarginContainer/MarginContainer/display_seperator/health/header_content_seperator"]
+[node name="health_content" type="Label" parent="main_box/MarginContainer/MarginContainer/display_seperator/health/header_content_seperator"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
 text = "100"
 horizontal_alignment = 1
