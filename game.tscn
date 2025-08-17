@@ -1,17 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://r54dyixspqae"]
+[gd_scene load_steps=7 format=3 uid="uid://r54dyixspqae"]
 
-[ext_resource type="PackedScene" uid="uid://cpv2v57u64u8b" path="res://world/zone_base.tscn" id="1_80nbo"]
+[ext_resource type="AudioStream" uid="uid://d00hhm6m4j7hb" path="res://test-assets/mcasskick hell 2 jam rough.ogg" id="1_215e1"]
 [ext_resource type="Script" uid="uid://0x1oyn0i5ywr" path="res://game.gd" id="1_eow3j"]
-[ext_resource type="PackedScene" uid="uid://c7oy2gjs7iyu4" path="res://world/props/world_demon/prop_hellfire.tscn" id="2_feb5d"]
-[ext_resource type="PackedScene" uid="uid://bqh3p7ae406gx" path="res://world/props/world_cuddly/prop_pinkflower.tscn" id="3_fc0e3"]
+[ext_resource type="PackedScene" uid="uid://dyks0b1t1vx3j" path="res://world/intro_ship.tscn" id="3_ryrav"]
 [ext_resource type="PackedScene" uid="uid://cc4pdef86f1w8" path="res://entities/player/player.tscn" id="4_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://coqpusufa8a6k" path="res://addons/fpc/reticles/reticle_0.tscn" id="5_7jktm"]
-[ext_resource type="PackedScene" uid="uid://db7xp11deujhy" path="res://entities/enemies/imp/imp.tscn" id="7_j5wjh"]
-[ext_resource type="PackedScene" uid="uid://bwkx5s2xjebvv" path="res://entities/enemies/sniper/sniper.tscn" id="8_j5wjh"]
-[ext_resource type="PackedScene" uid="uid://latadalk1638" path="res://entities/enemies/zombie/zombie.tscn" id="8_vef74"]
-[ext_resource type="PackedScene" uid="uid://bvmsu0axhbdu7" path="res://entities/pickups/figures/figure.tscn" id="10_hve3p"]
-[ext_resource type="PackedScene" uid="uid://bk3j4h5l6m7n8" path="res://entities/pickups/health_pack/health_pack.tscn" id="11_mfdv2"]
-[ext_resource type="PackedScene" uid="uid://da52itg687i4n" path="res://entities/villagers/base/villager.tscn" id="12_iotsf"]
 [ext_resource type="PackedScene" uid="uid://4icf1c7gpltw" path="res://world/environments/environment.tscn" id="13_lc2xo"]
 
 [node name="SubViewportContainer" type="SubViewportContainer"]
@@ -25,29 +18,19 @@ handle_input_locally = false
 size = Vector2i(320, 240)
 render_target_update_mode = 4
 
+[node name="Music" type="AudioStreamPlayer" parent="SubViewport"]
+stream = ExtResource("1_215e1")
+volume_db = -8.0
+autoplay = true
+bus = &"Music"
+
 [node name="Game" type="Node3D" parent="SubViewport"]
 script = ExtResource("1_eow3j")
 
-[node name="ZoneBase" parent="SubViewport/Game" instance=ExtResource("1_80nbo")]
-
-[node name="PropHellfire" parent="SubViewport/Game" instance=ExtResource("2_feb5d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.63665, -8.16977)
-
-[node name="PropPinkFlower" parent="SubViewport/Game" instance=ExtResource("3_fc0e3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71137, 0, -9.22396)
+[node name="IntroShip" parent="SubViewport/Game" instance=ExtResource("3_ryrav")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 43.8369, 0)
 
 [node name="Reticle" parent="SubViewport/Game" instance=ExtResource("5_7jktm")]
-
-[node name="Enemies" type="Node3D" parent="SubViewport/Game"]
-
-[node name="Sniper" parent="SubViewport/Game/Enemies" instance=ExtResource("8_j5wjh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1, 0)
-
-[node name="Imp" parent="SubViewport/Game/Enemies" instance=ExtResource("7_j5wjh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -4)
-
-[node name="Zombie" parent="SubViewport/Game/Enemies" instance=ExtResource("8_vef74")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1, 0.7, 6.3)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport/Game"]
 transform = Transform3D(1, 0, 0, 0, -0.258819, 0.965926, 0, -0.965926, -0.258819, 0, 8, -8)
@@ -63,24 +46,10 @@ theme_override_font_sizes/font_size = 8
 text = "HP: "
 
 [node name="Player" type="Node3D" parent="SubViewport/Game"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.7988, 44.6865, -48.0753)
 
 [node name="Player" parent="SubViewport/Game/Player" instance=ExtResource("4_fc0e3")]
 transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 0, 1, 2)
 collision_mask = 31
-
-[node name="Figures" type="Node3D" parent="SubViewport/Game"]
-
-[node name="Figure" parent="SubViewport/Game/Figures" instance=ExtResource("10_hve3p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.5, 0)
-
-[node name="HealthPacks" type="Node3D" parent="SubViewport/Game"]
-
-[node name="HealthPack" parent="SubViewport/Game/HealthPacks" instance=ExtResource("11_mfdv2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1.5, 6)
-
-[node name="Interactables" type="Node3D" parent="SubViewport/Game"]
-
-[node name="Villager" parent="SubViewport/Game/Interactables" instance=ExtResource("12_iotsf")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 3, 1, -3)
 
 [node name="Environment" parent="SubViewport/Game" instance=ExtResource("13_lc2xo")]

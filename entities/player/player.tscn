@@ -1,13 +1,78 @@
-[gd_scene load_steps=4 format=3 uid="uid://cc4pdef86f1w8"]
+[gd_scene load_steps=16 format=3 uid="uid://cc4pdef86f1w8"]
 
 [ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://addons/fpc/character.tscn" id="1_symyc"]
 [ext_resource type="Script" uid="uid://xv5xtyvvrlrr" path="res://entities/player/player.gd" id="2_1234"]
+[ext_resource type="Texture2D" uid="uid://cdef8sodtif0l" path="res://entities/player/hands_shoot1.png" id="3_a1qjk"]
+[ext_resource type="Texture2D" uid="uid://dwypcu607ef4a" path="res://entities/player/hands_shoot2.png" id="4_j3ovn"]
+[ext_resource type="Texture2D" uid="uid://40136qgekerd" path="res://entities/player/hands_shoot3.png" id="5_afbqv"]
+[ext_resource type="Texture2D" uid="uid://bsc2a8wjrvgnl" path="res://entities/player/hands_shoot4.png" id="6_gx6sm"]
+[ext_resource type="Texture2D" uid="uid://bnvs4hvfi01ud" path="res://entities/player/hands_shoot5.png" id="7_yqrof"]
+[ext_resource type="Texture2D" uid="uid://djt2nldss4mp5" path="res://entities/player/hands_shoot6.png" id="8_3wlsy"]
+[ext_resource type="Texture2D" uid="uid://c7mbhxwi8ngbn" path="res://entities/player/hands_shoot7.png" id="9_b2kln"]
+[ext_resource type="Texture2D" uid="uid://ojjj7h5gwq5m" path="res://entities/player/hands_shoot8.png" id="10_we0b7"]
+[ext_resource type="Texture2D" uid="uid://cocd3ck0hhyl3" path="res://entities/player/hands_shoot9.png" id="11_mtric"]
+[ext_resource type="Texture2D" uid="uid://6acrsmho4x8g" path="res://entities/player/hands_shoot10.png" id="12_eyb6c"]
+[ext_resource type="AudioStream" uid="uid://cdkc61m0urxtm" path="res://entities/player/shotgun_blast.wav" id="13_j3ovn"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_abrql"]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_221hk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_a1qjk")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_a1qjk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_j3ovn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_afbqv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_gx6sm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_yqrof")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_3wlsy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_b2kln")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_we0b7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_mtric")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_eyb6c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_a1qjk")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 10.0
+}]
+
 [node name="Player" instance=ExtResource("1_symyc")]
 script = ExtResource("2_1234")
-mouse_sensitivity = 0.2
+shotgun_recoil_strength = 4.0
+shotgun_upward_boost = 1.0
+max_recoil_speed = 8.0
+base_speed = 8.0
+metadata/_edit_vertical_guides_ = [305.0]
+metadata/_edit_horizontal_guides_ = [251.0]
 
 [node name="Direction" type="Marker3D" parent="Head" index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
@@ -20,5 +85,10 @@ collision_mask = 64
 shape = SubResource("SphereShape3D_abrql")
 
 [node name="WeaponSprite" parent="Weapon" index="1"]
-position = Vector2(216, 168)
-scale = Vector2(0.281337, 0.281337)
+position = Vector2(84, 172)
+scale = Vector2(1, 1)
+sprite_frames = SubResource("SpriteFrames_221hk")
+
+[node name="ShootSound" parent="Weapon" index="2"]
+stream = ExtResource("13_j3ovn")
+volume_db = -0.6

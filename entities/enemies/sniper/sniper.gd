@@ -20,7 +20,6 @@ var is_aiming = false
 
 func _ready():
 	super._ready()
-	animated_sprite_3d.modulate = Color.BLUE
 
 	# Snipers have different stats than base enemies
 	move_speed = 1.0  # Slower base movement
@@ -31,12 +30,8 @@ func _ready():
 	# Initialize strafe timer with random offset so snipers don't all move in sync
 	strafe_timer = randf() * strafe_duration
 
-	# Make sure we have a player reference
-	if player == null:
-		player = get_node("../../Player/Player")
-		if player == null:
-			# Try to find player in scene
-			player = get_tree().get_first_node_in_group("player")
+
+
 
 func _process(delta: float) -> void:
 	super._process(delta)

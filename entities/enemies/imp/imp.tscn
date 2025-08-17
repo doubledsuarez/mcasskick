@@ -5,3 +5,7 @@
 
 [node name="Imp" instance=ExtResource("1_obnr0")]
 script = ExtResource("2_m8pei")
+health = 3
+
+[node name="Sprite3D" parent="." index="2"]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0.794739, 0)

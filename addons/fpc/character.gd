@@ -32,6 +32,8 @@ extends CharacterBody3D
 ## The reticle file to import at runtime. By default are in res://addons/fpc/reticles/. Set to an empty string to remove.
 @export_file var default_reticle
 
+var reloading = false
+
 #endregion
 
 #region Nodes Export Group
@@ -226,11 +228,14 @@ func handle_shooting():
 					RAYCAST.get_collider().take_damage(1)
 		else:
 			if Input.is_action_just_pressed(controls.SHOOT):
-				WEAPON_SPRITE.stop()
-				WEAPON_SPRITE.play("shoot")
-				SHOOT_SOUND.play()
-				if RAYCAST.is_colliding() and RAYCAST.get_collider().has_method("take_damage"):
-					RAYCAST.get_collider().take_damage(1)
+				if reloading == false:
+					WEAPON_SPRITE.stop()
+					WEAPON_SPRITE.play("shoot")
+					reloading = true
+
+					SHOOT_SOUND.play()
+					if RAYCAST.is_colliding() and RAYCAST.get_collider().has_method("take_damage"):
+						RAYCAST.get_collider().take_damage(1)
 
 func handle_jumping():
 	if jumping_enabled:
@@ -276,12 +281,13 @@ func handle_head_rotation():
 		HEAD.rotation_degrees.y -= mouseInput.x * mouse_sensitivity
 		RAYCAST.rotation_degrees.y -= mouseInput.x * mouse_sensitivity
 
-	if invert_camera_y_axis:
-		HEAD.rotation_degrees.x -= mouseInput.y * mouse_sensitivity * -1
-		RAYCAST.rotation_degrees.x -= mouseInput.y * mouse_sensitivity * -1
-	else:
-		HEAD.rotation_degrees.x -= mouseInput.y * mouse_sensitivity
-		RAYCAST.rotation_degrees.x -= mouseInput.y * mouse_sensitivity
+	if g.y_look_unlocked:
+		if invert_camera_y_axis:
+			HEAD.rotation_degrees.x -= mouseInput.y * mouse_sensitivity * -1
+			RAYCAST.rotation_degrees.x -= mouseInput.y * mouse_sensitivity * -1
+		else:
+			HEAD.rotation_degrees.x -= mouseInput.y * mouse_sensitivity
+			RAYCAST.rotation_degrees.x -= mouseInput.y * mouse_sensitivity
 
 	if controller_support:
 		var controller_view_rotation = Input.get_vector(controller_controls.LOOK_DOWN, controller_controls.LOOK_UP, controller_controls.LOOK_RIGHT, controller_controls.LOOK_LEFT) * look_sensitivity # These are inverted because of the nature of 3D rotation.
@@ -523,3 +529,7 @@ func handle_pausing():
 				#get_tree().paused = false
 
 #endregion
+
+
+func _on_weapon_sprite_animation_finished():
+	reloading = false

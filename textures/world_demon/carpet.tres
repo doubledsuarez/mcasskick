@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dfhcue5u5nnxf"]
+
+[ext_resource type="Texture2D" uid="uid://ce2m05gf6fafk" path="res://textures/world_demon/carpet.png" id="1_pi31c"]
+
+[resource]
+albedo_texture = ExtResource("1_pi31c")
+metallic_specular = 0.0
+texture_filter = 2

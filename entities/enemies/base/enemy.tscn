@@ -1,91 +1,162 @@
-[gd_scene load_steps=17 format=3 uid="uid://gdk071ikp7vg"]
+[gd_scene load_steps=13 format=3 uid="uid://gdk071ikp7vg"]
 
 [ext_resource type="Script" uid="uid://bcma6fowf87da" path="res://entities/enemies/base/enemy.gd" id="1_6b1gw"]
-[ext_resource type="Texture2D" uid="uid://c6dyck8gy8yt1" path="res://test-assets/monster_sprites.png" id="2_bgi78"]
+[ext_resource type="Texture2D" uid="uid://c3ae0en5c0084" path="res://entities/enemies/imp/fish.png" id="2_jwj14"]
 [ext_resource type="AudioStream" uid="uid://iqqsxq1ka0ib" path="res://test-assets/monster_die.wav" id="3_6qwc0"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fotwf"]
+radius = 0.672137
+height = 3.17206
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_6b1gw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bgi78"]
 albedo_color = Color(1, 0, 0, 1)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6qwc0"]
-atlas = ExtResource("2_bgi78")
-region = Rect2(0, 256, 256, 256)
+[sub_resource type="Animation" id="Animation_bgyrl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rlvvp"]
-atlas = ExtResource("2_bgi78")
-region = Rect2(256, 256, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3ys8n"]
-atlas = ExtResource("2_bgi78")
-region = Rect2(512, 256, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lgkbn"]
-atlas = ExtResource("2_bgi78")
-region = Rect2(768, 256, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qbdg8"]
-atlas = ExtResource("2_bgi78")
-region = Rect2(1024, 256, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_u1pj2"]
-atlas = ExtResource("2_bgi78")
-region = Rect2(0, 0, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_v32wj"]
-atlas = ExtResource("2_bgi78")
-region = Rect2(256, 0, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hasv4"]
-atlas = ExtResource("2_bgi78")
-region = Rect2(512, 0, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_thsvy"]
-atlas = ExtResource("2_bgi78")
-region = Rect2(768, 0, 256, 256)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_x7581"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6qwc0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rlvvp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3ys8n")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lgkbn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qbdg8")
-}],
-"loop": false,
-"name": &"dying",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_u1pj2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_v32wj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hasv4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_thsvy")
-}],
-"loop": true,
-"name": &"walking",
-"speed": 10.0
+[sub_resource type="Animation" id="Animation_wvv05"]
+resource_name = "attacking"
+loop_mode = 2
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [5, 6, 7, 8]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.983898),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"walking", -1, 1.0, false],
+"method": &"play"
 }]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.246891),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"fire_projectile"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_ngu24"]
+resource_name = "dying"
+length = 0.4
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [10, 11, 12, 13]
+}
+
+[sub_resource type="Animation" id="Animation_ej1s8"]
+resource_name = "hurt"
+length = 0.5
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [9]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.44),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"walking", -1, 1.0, false],
+"method": &"play"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_jwj14"]
+resource_name = "walking"
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wvv05"]
+_data = {
+&"RESET": SubResource("Animation_bgyrl"),
+&"attacking": SubResource("Animation_wvv05"),
+&"dying": SubResource("Animation_ngu24"),
+&"hurt": SubResource("Animation_ej1s8"),
+&"walking": SubResource("Animation_jwj14")
+}
 
 [node name="Enemy" type="CharacterBody3D"]
 collision_layer = 2
@@ -102,13 +173,19 @@ visible = false
 mesh = SubResource("CapsuleMesh_6b1gw")
 surface_material_override/0 = SubResource("StandardMaterial3D_bgi78")
 
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+[node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 1, 0)
+pixel_size = 0.05
 billboard = 1
-texture_filter = 1
-sprite_frames = SubResource("SpriteFrames_x7581")
-animation = &"walking"
+texture_filter = 0
+texture = ExtResource("2_jwj14")
+hframes = 14
 
 [node name="DeathSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_6qwc0")
 bus = &"SFX"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_wvv05")
+}

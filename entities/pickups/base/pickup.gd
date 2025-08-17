@@ -4,13 +4,13 @@ class_name Pickup
 # Pickup system with immediate use and inventory collection
 @export var pickup_name: String = "Unknown Item"
 @export var pickup_description: String = "A mysterious item"
-@export var is_inventory_item: bool = false  # false = immediate use, true = add to inventory
 @export var pickup_value: int = 1  # Amount for health/ammo, or quantity for inventory
 
 # Immediate use pickup types
 enum PickupType {
 	HEALTH,
-	INVENTORY_ITEM
+	FIGURINE,
+	KEYITEM
 }
 
 @export var pickup_type: PickupType = PickupType.HEALTH
@@ -25,6 +25,8 @@ enum PickupType {
 
 var initial_y_position: float
 var time_passed: float = 0.0
+
+signal picked_up
 
 func _ready() -> void:
 	# Connect pickup detection
@@ -50,26 +52,28 @@ func _on_body_entered(body: Node3D) -> void:
 		return
 
 	# Handle pickup based on type
-	if is_inventory_item:
-		collect_to_inventory(body)
-	else:
-		use_immediately(body)
+	pickup(body)
 
 	# Remove pickup from scene
 	queue_free()
 
-func use_immediately(player: Node3D) -> void:
+func pickup(player: Node3D) -> void:
+	emit_signal("picked_up")
+
 	match pickup_type:
 		PickupType.HEALTH:
 			if player.has_method("heal"):
 				player.heal(pickup_value)
 				Log.info("Healed for %s HP" % pickup_value)
+
+		PickupType.FIGURINE:
+			if player.has_method("add_to_inventory"):
+				player.add_to_inventory(pickup_name, pickup_description, pickup_value)
+				Log.info("Collected: ", pickup_name)
+			else:
+				Log.info("Player has no inventory system")
 		_:
 			Log.info("Used unknown pickup type")
 
-func collect_to_inventory(player: Node3D) -> void:
-	if player.has_method("add_to_inventory"):
-		player.add_to_inventory(pickup_name, pickup_description, pickup_value)
-		Log.info("Collected: ", pickup_name)
-	else:
-		Log.info("Player has no inventory system")
+		PickupType.KEYITEM:
+			Log.info("Key Item picked up!")

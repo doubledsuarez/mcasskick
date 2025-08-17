@@ -1,7 +1,8 @@
 extends ToggleEnemy
 class_name Enemy
 
-@onready var animated_sprite_3d: AnimatedSprite3D = $AnimatedSprite3D
+@onready var sprite_3d : Sprite3D = $Sprite3D
+@onready var anim : AnimationPlayer = $AnimationPlayer
 @onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
 @onready var death_sound: AudioStreamPlayer = $DeathSound
 
@@ -16,15 +17,22 @@ class_name Enemy
 # Get the gravity from the project settings to be synced with RigidBody nodes
 var gravity : float = ProjectSettings.get_setting("physics/3d/default_gravity") # Don't set this as a const, see the gravity section in _physics_process
 
+@export var flying := false
+
 @onready var player : CharacterBody3D = $"../../Player/Player"
 var dead = false
-var attack_timer = fireball_cooldown
+@onready var attack_timer = fireball_cooldown
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	super()
-	animated_sprite_3d.animation_finished.connect(_on_animated_sprite_3d_animation_finished)
-	animated_sprite_3d.play("walking")
+	anim.play("walking")
+	
+	# Make sure we have a player reference
+	await get_tree().create_timer(.1).timeout
+	if g.player != null:
+		player = g.player
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -40,7 +48,7 @@ func _physics_process(delta: float) -> void:
 	if player == null:
 		return
 
-	if not is_on_floor() and gravity:
+	if not is_on_floor() and gravity and flying == false:
 		velocity.y -= gravity * delta
 
 	# Call virtual move function that can be overridden by subclasses
@@ -62,6 +70,7 @@ func move():
 	velocity.z = dir.z * move_speed
 
 func attack():
+
 	var dist_to_player = global_position.distance_to(player.global_position)
 	if dist_to_player > attack_range:
 		return
@@ -69,8 +78,8 @@ func attack():
 	# Check if attack is ready (cooldown finished)
 	if attack_timer > 0:
 		return
-
-	fire_projectile()
+	
+	anim.play("attacking")
 	attack_timer = fireball_cooldown
 
 func fire_projectile():
@@ -94,7 +103,8 @@ func take_damage(dmg : int):
 		return
 
 	health -= dmg
-
+	anim.play("hurt")
+	
 	if health <= 0:
 		die()
 
@@ -102,7 +112,7 @@ func die() -> void:
 	dead = true
 	var layer_to_disable = 2
 	self.collision_layer &= ~(1 << (layer_to_disable - 1))
-	animated_sprite_3d.play("dying")
+	anim.play("dying")
 	death_sound.play()
 
 
