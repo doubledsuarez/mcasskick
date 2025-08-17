@@ -18,8 +18,10 @@ var inventory: Dictionary = {}  # item_name -> {description, quantity}
 var max_inventory_size: int = 20
 
 func _ready():
+
 	super._ready()
-	# Add player to group so enemies can find it
+	# Add player to global settings to enemies can find it
+	g.player = self
 	add_to_group("player")
 
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
