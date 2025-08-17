@@ -7,8 +7,10 @@ extends Node3D
 
 @onready var world_demon = $WorldDemon
 @onready var world_cuddly = $WorldCuddly
+var basePos := Vector3.ZERO
 
 func _ready():
+	basePos = world_demon.global_position
 	g.world_toggled.connect(match_world_state)
 	match_world_state()
 
@@ -27,6 +29,7 @@ func enable_world(world:FuncGodotMap, is_enabled:bool):
 		world.visible = is_enabled
 		
 		if is_enabled:
-			world.global_position = Vector3.ZERO
+			world.global_position = basePos
 		else:
+			basePos = world.global_position
 			world.global_position = Vector3(999999, 999999, 999999)
