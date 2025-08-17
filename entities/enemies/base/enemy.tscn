@@ -1,87 +1,65 @@
-[gd_scene load_steps=17 format=3 uid="uid://gdk071ikp7vg"]
+[gd_scene load_steps=12 format=3 uid="uid://gdk071ikp7vg"]
 
 [ext_resource type="Script" uid="uid://bcma6fowf87da" path="res://entities/enemies/base/enemy.gd" id="1_6b1gw"]
-[ext_resource type="Texture2D" uid="uid://c3ae0en5c0084" path="res://entities/enemies/imp/fish.png" id="2_wvv05"]
+[ext_resource type="Texture2D" uid="uid://c3ae0en5c0084" path="res://entities/enemies/imp/fish.png" id="2_jwj14"]
 [ext_resource type="AudioStream" uid="uid://iqqsxq1ka0ib" path="res://test-assets/monster_die.wav" id="3_6qwc0"]
-[ext_resource type="Texture2D" uid="uid://cylpjp3wr4xgg" path="res://entities/enemies/imp/fish_walk1.png" id="4_ngu24"]
-[ext_resource type="Texture2D" uid="uid://ddh7lw3nb518c" path="res://entities/enemies/imp/fish_walk2.png" id="5_ej1s8"]
-[ext_resource type="Texture2D" uid="uid://ccj10fxllga88" path="res://entities/enemies/imp/fish_shoot1.png" id="6_xcfcd"]
-[ext_resource type="Texture2D" uid="uid://f3w6qg6udbud" path="res://entities/enemies/imp/fish_shoot2.png" id="7_htigm"]
-[ext_resource type="Texture2D" uid="uid://7n3r12hbvpyi" path="res://entities/enemies/imp/fish_shoot3.png" id="8_sqmak"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fotwf"]
-radius = 0.660301
-height = 2.95107
+radius = 0.672137
+height = 3.17206
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_6b1gw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bgi78"]
+albedo_color = Color(1, 0, 0, 1)
 
-[sub_resource type="Animation" id="Animation_xcfcd"]
+[sub_resource type="Animation" id="Animation_jwj14"]
 resource_name = "walking"
 loop_mode = 1
-step = 0.1
+step = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite3D:texture")
+tracks/0/path = NodePath("Sprite3D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("4_ngu24"), ExtResource("5_ej1s8")]
+"values": [1, 2, 3, 4]
 }
 
-[sub_resource type="Animation" id="Animation_htigm"]
+[sub_resource type="Animation" id="Animation_bgyrl"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite3D:texture")
+tracks/0/path = NodePath("Sprite3D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_wvv05")]
+"values": [0]
 }
 
-[sub_resource type="Animation" id="Animation_g02bs"]
-resource_name = "dying"
-loop_mode = 1
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite3D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("4_ngu24")]
-}
-
-[sub_resource type="Animation" id="Animation_jmd6m"]
+[sub_resource type="Animation" id="Animation_wvv05"]
 resource_name = "attacking"
-length = 0.6
-loop_mode = 1
-step = 0.1
+loop_mode = 2
+step = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite3D:texture")
+tracks/0/path = NodePath("Sprite3D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("6_xcfcd"), ExtResource("7_htigm"), ExtResource("8_sqmak")]
+"values": [5, 6, 7, 8]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -90,33 +68,58 @@ tracks/1/path = NodePath("AnimationPlayer")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.6),
+"times": PackedFloat32Array(0.983898),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": [&"walking"],
+"args": [&"walking", -1, 1.0, false],
 "method": &"play"
 }]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.246891),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"fire_projectile"
+}]
+}
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_sqmak"]
+[sub_resource type="Animation" id="Animation_ngu24"]
+resource_name = "dying"
+length = 1.2
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [9, 10, 11, 12, 13]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wvv05"]
 _data = {
-&"RESET": SubResource("Animation_htigm"),
-&"attacking": SubResource("Animation_jmd6m"),
-&"dying": SubResource("Animation_g02bs"),
-&"walking": SubResource("Animation_xcfcd")
+&"RESET": SubResource("Animation_bgyrl"),
+&"attacking": SubResource("Animation_wvv05"),
+&"dying": SubResource("Animation_ngu24"),
+&"walking": SubResource("Animation_jwj14")
 }
 
 [node name="Enemy" type="CharacterBody3D"]
 collision_layer = 2
 collision_mask = 31
 script = ExtResource("1_6b1gw")
-health = null
-move_speed = null
-attack_range = null
-fireball_cooldown = null
-fireball_speed = null
-fireball_scene = null
-world_state = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -133,7 +136,8 @@ transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 1, 0)
 pixel_size = 0.05
 billboard = 1
 texture_filter = 0
-texture = ExtResource("2_wvv05")
+texture = ExtResource("2_jwj14")
+hframes = 14
 
 [node name="DeathSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_6qwc0")
@@ -141,5 +145,5 @@ bus = &"SFX"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-&"": SubResource("AnimationLibrary_sqmak")
+&"": SubResource("AnimationLibrary_wvv05")
 }

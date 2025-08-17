@@ -1,7 +1,8 @@
 extends ToggleEnemy
 class_name Enemy
 
-@onready var sprite_3d: AnimatedSprite3D = $AnimatedSprite3D
+@onready var sprite_3d : Sprite3D = $Sprite3D
+@onready var anim : AnimationPlayer = $AnimationPlayer
 @onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
 @onready var death_sound: AudioStreamPlayer = $DeathSound
 
@@ -18,13 +19,13 @@ var gravity : float = ProjectSettings.get_setting("physics/3d/default_gravity") 
 
 @onready var player : CharacterBody3D = $"../../Player/Player"
 var dead = false
-var attack_timer = fireball_cooldown
+@onready var attack_timer = fireball_cooldown
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	super()
-	animated_sprite_3d.animation_finished.connect(_on_animated_sprite_3d_animation_finished)
-	animated_sprite_3d.play("walking")
+	anim.play("walking")
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -62,6 +63,7 @@ func move():
 	velocity.z = dir.z * move_speed
 
 func attack():
+
 	var dist_to_player = global_position.distance_to(player.global_position)
 	if dist_to_player > attack_range:
 		return
@@ -70,8 +72,7 @@ func attack():
 	if attack_timer > 0:
 		return
 	
-	animated_sprite_3d.play("attacking")
-	fire_projectile()
+	anim.play("attacking")
 	attack_timer = fireball_cooldown
 
 func fire_projectile():
@@ -103,7 +104,7 @@ func die() -> void:
 	dead = true
 	var layer_to_disable = 2
 	self.collision_layer &= ~(1 << (layer_to_disable - 1))
-	animated_sprite_3d.play("dying")
+	anim.play("dying")
 	death_sound.play()
 
 
