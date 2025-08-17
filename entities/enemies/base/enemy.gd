@@ -17,6 +17,8 @@ class_name Enemy
 # Get the gravity from the project settings to be synced with RigidBody nodes
 var gravity : float = ProjectSettings.get_setting("physics/3d/default_gravity") # Don't set this as a const, see the gravity section in _physics_process
 
+@export var flying := false
+
 @onready var player : CharacterBody3D = $"../../Player/Player"
 var dead = false
 @onready var attack_timer = fireball_cooldown
@@ -41,7 +43,7 @@ func _physics_process(delta: float) -> void:
 	if player == null:
 		return
 
-	if not is_on_floor() and gravity:
+	if not is_on_floor() and gravity and flying == false:
 		velocity.y -= gravity * delta
 
 	# Call virtual move function that can be overridden by subclasses
