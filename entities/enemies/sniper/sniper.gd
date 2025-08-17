@@ -20,7 +20,6 @@ var is_aiming = false
 
 func _ready():
 	super._ready()
-	#animated_sprite_3d.modulate = Color.BLUE
 
 	# Snipers have different stats than base enemies
 	move_speed = 1.0  # Slower base movement
