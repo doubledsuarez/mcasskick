@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cwxujrln46o72"]
+
+[ext_resource type="Texture2D" uid="uid://db1bnybpmiaer" path="res://textures/world_demon/grate.png" id="1_pkylv"]
+
+[resource]
+albedo_texture = ExtResource("1_pkylv")
+metallic_specular = 0.0
+texture_filter = 2
