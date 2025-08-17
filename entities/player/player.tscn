@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cc4pdef86f1w8"]
+[gd_scene load_steps=15 format=3 uid="uid://cc4pdef86f1w8"]
 
 [ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://addons/fpc/character.tscn" id="1_symyc"]
 [ext_resource type="Script" uid="uid://xv5xtyvvrlrr" path="res://entities/player/player.gd" id="2_1234"]
@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://cocd3ck0hhyl3" path="res://entities/player/hands_shoot9.png" id="11_mtric"]
 [ext_resource type="Texture2D" uid="uid://6acrsmho4x8g" path="res://entities/player/hands_shoot10.png" id="12_eyb6c"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_abrql"]
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_221hk"]
 animations = [{
 "frames": [{
@@ -24,28 +26,31 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 0.2,
+"duration": 1.0,
+"texture": ExtResource("3_a1qjk")
+}, {
+"duration": 1.0,
 "texture": ExtResource("4_j3ovn")
 }, {
-"duration": 0.2,
+"duration": 1.0,
 "texture": ExtResource("5_afbqv")
 }, {
-"duration": 0.35,
+"duration": 1.0,
 "texture": ExtResource("6_gx6sm")
 }, {
 "duration": 1.0,
 "texture": ExtResource("7_yqrof")
 }, {
-"duration": 0.7,
+"duration": 1.0,
 "texture": ExtResource("8_3wlsy")
 }, {
-"duration": 0.8,
+"duration": 1.0,
 "texture": ExtResource("9_b2kln")
 }, {
 "duration": 1.0,
 "texture": ExtResource("10_we0b7")
 }, {
-"duration": 0.7,
+"duration": 1.0,
 "texture": ExtResource("11_mtric")
 }, {
 "duration": 1.0,
@@ -56,16 +61,28 @@ animations = [{
 }],
 "loop": false,
 "name": &"shoot",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [node name="Player" instance=ExtResource("1_symyc")]
 script = ExtResource("2_1234")
-mouse_sensitivity = 0.2
+shotgun_recoil_strength = 4.0
+shotgun_upward_boost = 1.0
+max_recoil_speed = 8.0
+metadata/_edit_vertical_guides_ = [305.0]
+metadata/_edit_horizontal_guides_ = [251.0]
+
+[node name="Direction" type="Marker3D" parent="Head" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+
+[node name="InteractableFinder" type="Area3D" parent="Head/Direction" index="0"]
+collision_layer = 0
+collision_mask = 64
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Head/Direction/InteractableFinder" index="0"]
+shape = SubResource("SphereShape3D_abrql")
 
 [node name="WeaponSprite" parent="Weapon" index="1"]
-position = Vector2(82, 164)
+position = Vector2(84, 172)
 scale = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_221hk")
-frame = 0
-frame_progress = 0.0
