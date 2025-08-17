@@ -96,7 +96,8 @@ func take_damage(dmg : int):
 		return
 
 	health -= dmg
-
+	anim.play("hurt")
+	
 	if health <= 0:
 		die()
 
