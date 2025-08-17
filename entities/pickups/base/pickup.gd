@@ -9,7 +9,8 @@ class_name Pickup
 # Immediate use pickup types
 enum PickupType {
 	HEALTH,
-	FIGURINE
+	FIGURINE,
+	KEYITEM
 }
 
 @export var pickup_type: PickupType = PickupType.HEALTH
@@ -24,6 +25,8 @@ enum PickupType {
 
 var initial_y_position: float
 var time_passed: float = 0.0
+
+signal picked_up
 
 func _ready() -> void:
 	# Connect pickup detection
@@ -55,11 +58,14 @@ func _on_body_entered(body: Node3D) -> void:
 	queue_free()
 
 func pickup(player: Node3D) -> void:
+	emit_signal("picked_up")
+
 	match pickup_type:
 		PickupType.HEALTH:
 			if player.has_method("heal"):
 				player.heal(pickup_value)
 				Log.info("Healed for %s HP" % pickup_value)
+
 		PickupType.FIGURINE:
 			if player.has_method("add_to_inventory"):
 				player.add_to_inventory(pickup_name, pickup_description, pickup_value)
@@ -68,3 +74,6 @@ func pickup(player: Node3D) -> void:
 				Log.info("Player has no inventory system")
 		_:
 			Log.info("Used unknown pickup type")
+
+		PickupType.KEYITEM:
+			Log.info("Key Item picked up!")
