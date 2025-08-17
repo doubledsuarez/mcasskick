@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://c7f4n0ljhleuu"
+path="res://.godot/imported/demon_introship.map-beff09ebad4ed973158ade97758304f2.tres"
+
+[deps]
+
+source_file="res://trenchbroom/maps/demon_introship.map"
+dest_files=["res://.godot/imported/demon_introship.map-beff09ebad4ed973158ade97758304f2.tres"]
+
+[params]
+

@@ -6,9 +6,16 @@ extends Node
 # state when the demon and cuddly worlds switch
 
 var game
-var player
+var player = null
 
 var question_asked : bool = false
+
+# Game State Variables
+
+# This is unlocked when the player gets the cell phone and uses the cheat code
+# it will handle if they can look around like in doom
+var y_look_unlocked := false
+var recoil_unlocked := false
 
 # Emitted from the player (when the player is implemented)
 var cuddly_world := false

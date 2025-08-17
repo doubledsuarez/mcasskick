@@ -23,8 +23,7 @@ collision_layer = 32
 script = ExtResource("1_figure")
 pickup_name = "Cute Figure"
 pickup_description = "A mysterious cute figurine"
-is_inventory_item = true
-pickup_type = 2
+pickup_type = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CylinderShape3D_figure")
