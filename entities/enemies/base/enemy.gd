@@ -28,6 +28,11 @@ func _ready() -> void:
 	super()
 	anim.play("walking")
 	
+	# Make sure we have a player reference
+	await get_tree().create_timer(.1).timeout
+	if g.player != null:
+		player = g.player
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
