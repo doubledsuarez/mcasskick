@@ -23,7 +23,7 @@ render_target_update_mode = 4
 
 [node name="Music" type="AudioStreamPlayer" parent="SubViewportContainer/SubViewport"]
 stream = ExtResource("1_215e1")
-volume_db = -8.0
+volume_db = -2.0
 autoplay = true
 bus = &"Music"
 
@@ -33,20 +33,11 @@ script = ExtResource("1_eow3j")
 [node name="IntroShip" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("3_ryrav")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 43.8369, 0)
 
-[node name="Reticle" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("5_7jktm")]
+[node name="Reticle" parent="SubViewportContainer/SubViewport/Game" node_paths=PackedStringArray("character") instance=ExtResource("5_7jktm")]
+character = NodePath("../Player/Player")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport/Game"]
 transform = Transform3D(1, 0, 0, 0, -0.258819, 0.965926, 0, -0.965926, -0.258819, 0, 8, -8)
-
-[node name="HealthLabel" type="Label" parent="SubViewportContainer/SubViewport/Game"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(4.71725, 4.71725)
-theme_override_font_sizes/font_size = 8
-text = "HP: "
 
 [node name="Player" type="Node3D" parent="SubViewportContainer/SubViewport/Game"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.7988, 44.6865, -48.0753)

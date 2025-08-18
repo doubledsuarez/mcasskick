@@ -6,8 +6,3 @@ extends Node3D
 func _ready() -> void:
 	g.game = self
 	
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	$HealthLabel.text = "HP: %s" % g.player.health
