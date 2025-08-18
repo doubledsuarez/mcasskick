@@ -1,41 +1,44 @@
-[gd_scene load_steps=7 format=3 uid="uid://r54dyixspqae"]
+[gd_scene load_steps=8 format=3 uid="uid://r54dyixspqae"]
 
 [ext_resource type="AudioStream" uid="uid://d00hhm6m4j7hb" path="res://test-assets/mcasskick hell 2 jam rough.ogg" id="1_215e1"]
 [ext_resource type="Script" uid="uid://0x1oyn0i5ywr" path="res://game.gd" id="1_eow3j"]
 [ext_resource type="PackedScene" uid="uid://dyks0b1t1vx3j" path="res://world/intro_ship.tscn" id="3_ryrav"]
 [ext_resource type="PackedScene" uid="uid://cc4pdef86f1w8" path="res://entities/player/player.tscn" id="4_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://coqpusufa8a6k" path="res://addons/fpc/reticles/reticle_0.tscn" id="5_7jktm"]
+[ext_resource type="PackedScene" uid="uid://h30klttmj8ll" path="res://ui/hud/hud.tscn" id="7_eow3j"]
 [ext_resource type="PackedScene" uid="uid://4icf1c7gpltw" path="res://world/environments/environment.tscn" id="13_lc2xo"]
 
-[node name="SubViewportContainer" type="SubViewportContainer"]
+[node name="Node" type="Node"]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 texture_filter = 1
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(2, 2)
 
-[node name="SubViewport" type="SubViewport" parent="."]
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 handle_input_locally = false
 size = Vector2i(320, 240)
 render_target_update_mode = 4
 
-[node name="Music" type="AudioStreamPlayer" parent="SubViewport"]
+[node name="Music" type="AudioStreamPlayer" parent="SubViewportContainer/SubViewport"]
 stream = ExtResource("1_215e1")
 volume_db = -8.0
 autoplay = true
 bus = &"Music"
 
-[node name="Game" type="Node3D" parent="SubViewport"]
+[node name="Game" type="Node3D" parent="SubViewportContainer/SubViewport"]
 script = ExtResource("1_eow3j")
 
-[node name="IntroShip" parent="SubViewport/Game" instance=ExtResource("3_ryrav")]
+[node name="IntroShip" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("3_ryrav")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 43.8369, 0)
 
-[node name="Reticle" parent="SubViewport/Game" instance=ExtResource("5_7jktm")]
+[node name="Reticle" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("5_7jktm")]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport/Game"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport/Game"]
 transform = Transform3D(1, 0, 0, 0, -0.258819, 0.965926, 0, -0.965926, -0.258819, 0, 8, -8)
 
-[node name="HealthLabel" type="Label" parent="SubViewport/Game"]
+[node name="HealthLabel" type="Label" parent="SubViewportContainer/SubViewport/Game"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -45,11 +48,13 @@ scale = Vector2(4.71725, 4.71725)
 theme_override_font_sizes/font_size = 8
 text = "HP: "
 
-[node name="Player" type="Node3D" parent="SubViewport/Game"]
+[node name="Player" type="Node3D" parent="SubViewportContainer/SubViewport/Game"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.7988, 44.6865, -48.0753)
 
-[node name="Player" parent="SubViewport/Game/Player" instance=ExtResource("4_fc0e3")]
+[node name="Player" parent="SubViewportContainer/SubViewport/Game/Player" instance=ExtResource("4_fc0e3")]
 transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 0, 1, 2)
 collision_mask = 31
 
-[node name="Environment" parent="SubViewport/Game" instance=ExtResource("13_lc2xo")]
+[node name="Environment" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("13_lc2xo")]
+
+[node name="HUD" parent="." instance=ExtResource("7_eow3j")]

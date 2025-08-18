@@ -19,7 +19,7 @@ var gravity : float = ProjectSettings.get_setting("physics/3d/default_gravity") 
 
 @export var flying := false
 
-@onready var player : CharacterBody3D = $"../../Player/Player"
+@onready var player : CharacterBody3D
 var dead = false
 @onready var attack_timer = fireball_cooldown
 
