@@ -2,6 +2,7 @@ extends "res://addons/fpc/character.gd"
 
 @onready var direction_ray: Marker3D = $Head/Direction
 @onready var interactable_finder: Area3D = $Head/Direction/InteractableFinder
+signal health_changed
 
 const MAX_HEALTH : int = 100
 var health : int = MAX_HEALTH
@@ -52,7 +53,8 @@ func take_damage(dmg : int):
 
 	health -= dmg
 	health = clampi(health, 0, MAX_HEALTH)
-
+	emit_signal("health_changed", health)
+	
 	if health <= 0:
 		die()
 
@@ -62,6 +64,7 @@ func heal(heal_amount: int) -> void:
 
 	var old_health = health
 	health = min(health + heal_amount, MAX_HEALTH)
+	emit_signal("health_changed", health)
 	var actual_heal = health - old_health
 
 	if actual_heal > 0:
@@ -69,6 +72,7 @@ func heal(heal_amount: int) -> void:
 	else:
 		Log.info("Health already full!")
 
+	
 func respawn():
 	# Disable player input during death
 	immobile = true
