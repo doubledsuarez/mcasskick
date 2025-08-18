@@ -6,12 +6,11 @@
 
 [node name="Zombie" instance=ExtResource("1_5vyoa")]
 script = ExtResource("2_fxgas")
-melee_range = 1.5
+melee_range = 3.0
 melee_damage = 35
 melee_cooldown = 2.0
-lunge_speed = 12.0
-health = 8
-move_speed = 2.2
+lunge_speed = 6.0
+move_speed = 5.0
 
 [node name="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.22156, 0)

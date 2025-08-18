@@ -12,7 +12,11 @@ strafe_speed = 4.0
 retreat_speed = 8.0
 strafe_duration = 3.0
 aim_pause_duration = 0.1
+health = 1
 move_speed = 2.0
+attack_range = 20.0
+fireball_cooldown = 0.6
+fireball_speed = 14.0
 flying = true
 
 [node name="CollisionShape3D" parent="." index="0"]
