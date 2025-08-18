@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://r54dyixspqae"]
+[gd_scene load_steps=9 format=3 uid="uid://r54dyixspqae"]
 
 [ext_resource type="AudioStream" uid="uid://d00hhm6m4j7hb" path="res://test-assets/mcasskick hell 2 jam rough.ogg" id="1_215e1"]
 [ext_resource type="Script" uid="uid://0x1oyn0i5ywr" path="res://game.gd" id="1_eow3j"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cc4pdef86f1w8" path="res://entities/player/player.tscn" id="4_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://coqpusufa8a6k" path="res://addons/fpc/reticles/reticle_0.tscn" id="5_7jktm"]
 [ext_resource type="PackedScene" uid="uid://h30klttmj8ll" path="res://ui/hud/hud.tscn" id="7_eow3j"]
+[ext_resource type="PackedScene" uid="uid://c1xntkh8cxt1m" path="res://world/village.tscn" id="7_j5wjh"]
 [ext_resource type="PackedScene" uid="uid://4icf1c7gpltw" path="res://world/environments/environment.tscn" id="13_lc2xo"]
 
 [node name="Node" type="Node"]
@@ -51,4 +52,11 @@ collision_mask = 31
 
 [node name="Environment" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("13_lc2xo")]
 
+[node name="Village" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("7_j5wjh")]
+
+[node name="ZoneVillage" parent="SubViewportContainer/SubViewport/Game/Village" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.393, 0, 11.9852)
+
 [node name="HUD" parent="." instance=ExtResource("7_eow3j")]
+
+[editable path="SubViewportContainer/SubViewport/Game/Village"]
