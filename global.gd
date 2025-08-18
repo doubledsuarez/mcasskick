@@ -16,6 +16,7 @@ var question_asked : bool = false
 # it will handle if they can look around like in doom
 var y_look_unlocked := false
 var recoil_unlocked := false
+var world_switch_unlocked := false
 
 # Accessibility setting for the hit flash (screen flashes red when the player is hit)
 var hitflash_enabled := true
@@ -27,9 +28,13 @@ signal world_toggled
 # Temporary solution for activating the world toggle until the player input is handled
 func _input(event):
 	if event.is_action_pressed("toggle"):
-		if cuddly_world == false:
-			cuddly_world = true
-			emit_signal("world_toggled")
-		else:
-			cuddly_world = false
-			emit_signal("world_toggled")
+		if world_switch_unlocked:
+			world_switch()
+
+func world_switch():
+	if cuddly_world == false:
+		cuddly_world = true
+		emit_signal("world_toggled")
+	else:
+		cuddly_world = false
+		emit_signal("world_toggled")
