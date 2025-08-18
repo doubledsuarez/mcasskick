@@ -62,6 +62,8 @@ func attack():
 		return
 
 	# Perform melee attack
+	$AnimationPlayer.play("attacking")
+	await get_tree().create_timer(.5).timeout
 	melee_attack()
 	attack_timer = melee_cooldown
 
