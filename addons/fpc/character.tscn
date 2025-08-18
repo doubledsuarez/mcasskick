@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cc1m2a1obsyn4"]
+[gd_scene load_steps=34 format=3 uid="uid://cc1m2a1obsyn4"]
 
 [ext_resource type="Script" uid="uid://brjj243fd01o6" path="res://addons/fpc/character.gd" id="1_0t4e8"]
 [ext_resource type="Texture2D" uid="uid://dgecyir1inxl1" path="res://test-assets/gun_sprites.png" id="2_bx7cj"]
@@ -208,6 +208,7 @@ tracks/1/keys = {
 resource_name = "walk"
 length = 2.0
 loop_mode = 1
+step = 0.2
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -422,6 +423,60 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="Animation" id="Animation_qaoyu"]
+resource_name = "hitflash"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.45098), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_gv6je"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4fv23"]
+resource_name = "init"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4fv23"]
+_data = {
+&"RESET": SubResource("Animation_gv6je"),
+&"hitflash": SubResource("Animation_qaoyu"),
+&"init": SubResource("Animation_4fv23")
+}
+
 [sub_resource type="Theme" id="Theme_wdf0f"]
 MarginContainer/constants/margin_bottom = 10
 MarginContainer/constants/margin_left = 10
@@ -493,6 +548,20 @@ animation = &"shoot"
 [node name="ShootSound" type="AudioStreamPlayer" parent="Weapon"]
 stream = ExtResource("3_qaoyu")
 bus = &"SFX"
+
+[node name="HitFlash" type="ColorRect" parent="Weapon"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.704753, 0, 0.059547, 1)
+
+[node name="HitFlashAnim" type="AnimationPlayer" parent="Weapon/HitFlash"]
+libraries = {
+&"": SubResource("AnimationLibrary_4fv23")
+}
+autoplay = "init"
 
 [node name="UserInterface" type="Control" parent="."]
 layout_mode = 3

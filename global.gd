@@ -17,6 +17,9 @@ var question_asked : bool = false
 var y_look_unlocked := false
 var recoil_unlocked := false
 
+# Accessibility setting for the hit flash (screen flashes red when the player is hit)
+var hitflash_enabled := true
+
 # Emitted from the player (when the player is implemented)
 var cuddly_world := false
 signal world_toggled

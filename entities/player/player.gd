@@ -54,7 +54,9 @@ func take_damage(dmg : int):
 	health -= dmg
 	health = clampi(health, 0, MAX_HEALTH)
 	emit_signal("health_changed", health)
-	
+
+	if g.hitflash_enabled:
+		$Weapon/HitFlash/HitFlashAnim.play("hitflash")
 	if health <= 0:
 		die()
 
