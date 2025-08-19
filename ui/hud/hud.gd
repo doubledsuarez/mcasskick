@@ -11,7 +11,7 @@ func _process(delta: float) -> void:
 	health_label.text = str(g.player.health)
 	
 func _on_health_changed(new_health: int) -> void:
-	#health_label.text = str(new_health)
-	pass
+	health_label.text = str(new_health)
+	
 	
 	

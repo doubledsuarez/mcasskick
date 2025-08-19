@@ -41,118 +41,119 @@ alignment = 1
 [node name="trinkets" type="MarginContainer" parent="main_box/MarginContainer/MarginContainer/display_seperator"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/margin_left = 8
 
 [node name="GridContainer" type="GridContainer" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets"]
-custom_minimum_size = Vector2(200, 100)
+custom_minimum_size = Vector2(150, 75)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/h_separation = 12
-theme_override_constants/v_separation = 12
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
 columns = 4
 
 [node name="trinket_dispaly1" type="TextureRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer"]
-custom_minimum_size = Vector2(20, 20)
+custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="ColorRect" type="ColorRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer/trinket_dispaly1"]
-custom_minimum_size = Vector2(20, 20)
+custom_minimum_size = Vector2(26, 26)
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 30.0
+offset_bottom = 30.0
 color = Color(0.18359, 0.18359, 0.18359, 1)
 
 [node name="trinket_dispaly2" type="TextureRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer"]
-custom_minimum_size = Vector2(20, 20)
+custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="ColorRect" type="ColorRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer/trinket_dispaly2"]
-custom_minimum_size = Vector2(20, 20)
+custom_minimum_size = Vector2(26, 26)
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 30.0
+offset_bottom = 30.0
 color = Color(0.18359, 0.18359, 0.18359, 1)
 
 [node name="trinket_dispaly3" type="TextureRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer"]
-custom_minimum_size = Vector2(20, 20)
+custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="ColorRect" type="ColorRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer/trinket_dispaly3"]
-custom_minimum_size = Vector2(20, 20)
+custom_minimum_size = Vector2(26, 26)
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 30.0
+offset_bottom = 30.0
 color = Color(0.18359, 0.18359, 0.18359, 1)
 
 [node name="trinket_dispaly4" type="TextureRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer"]
-custom_minimum_size = Vector2(20, 20)
+custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="ColorRect" type="ColorRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer/trinket_dispaly4"]
-custom_minimum_size = Vector2(20, 20)
+custom_minimum_size = Vector2(26, 26)
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 30.0
+offset_bottom = 30.0
 color = Color(0.18359, 0.18359, 0.18359, 1)
 
 [node name="trinket_dispaly5" type="TextureRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer"]
-custom_minimum_size = Vector2(20, 20)
+custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="ColorRect" type="ColorRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer/trinket_dispaly5"]
-custom_minimum_size = Vector2(20, 20)
+custom_minimum_size = Vector2(26, 26)
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 30.0
+offset_bottom = 30.0
 color = Color(0.18359, 0.18359, 0.18359, 1)
 
 [node name="trinket_dispaly6" type="TextureRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer"]
-custom_minimum_size = Vector2(20, 20)
+custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="ColorRect" type="ColorRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer/trinket_dispaly6"]
-custom_minimum_size = Vector2(20, 20)
+custom_minimum_size = Vector2(26, 26)
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 30.0
+offset_bottom = 30.0
 color = Color(0.18359, 0.18359, 0.18359, 1)
 
 [node name="trinket_dispaly7" type="TextureRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer"]
-custom_minimum_size = Vector2(20, 20)
+custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="ColorRect" type="ColorRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer/trinket_dispaly7"]
-custom_minimum_size = Vector2(20, 20)
+custom_minimum_size = Vector2(26, 26)
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 30.0
+offset_bottom = 30.0
 color = Color(0.18359, 0.18359, 0.18359, 1)
 
 [node name="trinket_dispaly8" type="TextureRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer"]
-custom_minimum_size = Vector2(20, 20)
+custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="ColorRect" type="ColorRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer/trinket_dispaly8"]
-custom_minimum_size = Vector2(20, 20)
+custom_minimum_size = Vector2(26, 26)
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 30.0
+offset_bottom = 30.0
 color = Color(0.18359, 0.18359, 0.18359, 1)
 
 [node name="chill_meter" type="MarginContainer" parent="main_box/MarginContainer/MarginContainer/display_seperator"]
@@ -161,27 +162,28 @@ size_flags_horizontal = 3
 
 [node name="header_content_seperator" type="VBoxContainer" parent="main_box/MarginContainer/MarginContainer/display_seperator/chill_meter"]
 layout_mode = 2
+size_flags_vertical = 8
 
 [node name="header" type="Label" parent="main_box/MarginContainer/MarginContainer/display_seperator/chill_meter/header_content_seperator"]
 layout_mode = 2
-size_flags_vertical = 1
+size_flags_vertical = 8
 theme_override_font_sizes/font_size = 20
 text = "Chill %"
 horizontal_alignment = 1
 
 [node name="content" type="Label" parent="main_box/MarginContainer/MarginContainer/display_seperator/chill_meter/header_content_seperator"]
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_vertical = 10
 theme_override_font_sizes/font_size = 30
 text = "100"
 horizontal_alignment = 1
 
 [node name="character_display" type="MarginContainer" parent="main_box/MarginContainer/MarginContainer/display_seperator"]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 6
 
 [node name="TextureRect" type="TextureRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/character_display"]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -201,17 +203,18 @@ size_flags_horizontal = 3
 
 [node name="header_content_seperator" type="VBoxContainer" parent="main_box/MarginContainer/MarginContainer/display_seperator/ammo"]
 layout_mode = 2
+size_flags_vertical = 8
 
 [node name="header" type="Label" parent="main_box/MarginContainer/MarginContainer/display_seperator/ammo/header_content_seperator"]
 layout_mode = 2
-size_flags_vertical = 1
+size_flags_vertical = 8
 theme_override_font_sizes/font_size = 20
 text = "Ammo"
 horizontal_alignment = 1
 
 [node name="content" type="Label" parent="main_box/MarginContainer/MarginContainer/display_seperator/ammo/header_content_seperator"]
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_vertical = 10
 theme_override_font_sizes/font_size = 30
 text = "Inf."
 horizontal_alignment = 1
@@ -219,20 +222,22 @@ horizontal_alignment = 1
 [node name="health" type="MarginContainer" parent="main_box/MarginContainer/MarginContainer/display_seperator"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/margin_right = 8
 
 [node name="header_content_seperator" type="VBoxContainer" parent="main_box/MarginContainer/MarginContainer/display_seperator/health"]
 layout_mode = 2
+size_flags_vertical = 8
 
 [node name="health_header" type="Label" parent="main_box/MarginContainer/MarginContainer/display_seperator/health/header_content_seperator"]
 layout_mode = 2
-size_flags_vertical = 1
+size_flags_vertical = 8
 theme_override_font_sizes/font_size = 20
 text = "Health"
 horizontal_alignment = 1
 
 [node name="health_content" type="Label" parent="main_box/MarginContainer/MarginContainer/display_seperator/health/header_content_seperator"]
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_vertical = 10
 theme_override_font_sizes/font_size = 30
 text = "100"
 horizontal_alignment = 1
