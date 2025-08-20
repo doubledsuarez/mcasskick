@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://h30klttmj8ll"]
+[gd_scene load_steps=3 format=3 uid="uid://h30klttmj8ll"]
 
 [ext_resource type="Script" uid="uid://7dc6wtyxq8qa" path="res://ui/hud/hud.gd" id="1_xmswo"]
+[ext_resource type="Texture2D" uid="uid://cfdtpwsyq8cux" path="res://ui/sprite/rick_glasses.png" id="2_4d6w6"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_xmswo")
@@ -183,13 +184,16 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 6
 
-[node name="TextureRect" type="TextureRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/character_display"]
+[node name="rick_head" type="TextureRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/character_display"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+texture = ExtResource("2_4d6w6")
 
-[node name="placeholder" type="ColorRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/character_display/TextureRect"]
+[node name="placeholder" type="ColorRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/character_display/rick_head"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
