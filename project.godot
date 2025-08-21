@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 g="*res://global.gd"
 Log="*res://addons/logger/logger.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+Music="*res://music/music.tscn"
 
 [display]
 
@@ -117,6 +118,10 @@ locale/translations_pot_files=PackedStringArray("res://entities/villagers/base/v
 3d_physics/layer_5="Projectiles"
 3d_physics/layer_6="Pickups"
 3d_physics/layer_7="Interactables"
+
+[physics]
+
+3d/default_gravity=16.0
 
 [rendering]
 

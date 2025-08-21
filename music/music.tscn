@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://8jrkobmy4o2g"]
+
+[ext_resource type="AudioStream" uid="uid://d00hhm6m4j7hb" path="res://test-assets/mcasskick hell 2 jam rough.ogg" id="1_g6io0"]
+[ext_resource type="Script" uid="uid://xpt15aqq2kf8" path="res://music/music.gd" id="2_sma34"]
+[ext_resource type="AudioStream" uid="uid://d25r28ae5xvie" path="res://music/Descent into cuddliness.ogg" id="3_akenf"]
+[ext_resource type="AudioStream" uid="uid://cta73pslo5kb0" path="res://music/level2_cuddley_chill.ogg" id="4_t501q"]
+
+[node name="Music" type="AudioStreamPlayer"]
+stream = ExtResource("1_g6io0")
+volume_db = -8.0
+autoplay = true
+bus = &"Music"
+script = ExtResource("2_sma34")
+demon_level_1 = ExtResource("1_g6io0")
+cuddly_descent = ExtResource("3_akenf")
+cuddly_level_1 = ExtResource("4_t501q")

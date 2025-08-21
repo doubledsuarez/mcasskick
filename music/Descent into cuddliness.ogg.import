@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://d25r28ae5xvie"
+path="res://.godot/imported/Descent into cuddliness.ogg-d1697e0b5698f3d2d70b53b42925c716.oggvorbisstr"
+
+[deps]
+
+source_file="res://music/Descent into cuddliness.ogg"
+dest_files=["res://.godot/imported/Descent into cuddliness.ogg-d1697e0b5698f3d2d70b53b42925c716.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
