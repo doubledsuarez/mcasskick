@@ -22,6 +22,7 @@ var question_asked : bool = false
 var y_look_unlocked := false
 var recoil_unlocked := false
 var world_switch_unlocked := false
+var jumping_unlocked := false
 
 # Accessibility setting for the hit flash (screen flashes red when the player is hit)
 var hitflash_enabled := true
