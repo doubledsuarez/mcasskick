@@ -4,7 +4,4 @@ extends Node
 # This will enable looking around, world switching, etc
 
 func _on_cell_phone_picked_up():
-	g.y_look_unlocked = true
-	g.recoil_unlocked = true
-	g.world_switch_unlocked = true
-	g.world_switch()
+	g.player.cellphone_picked_up()
