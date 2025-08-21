@@ -491,7 +491,6 @@ collision_mask = 63
 script = ExtResource("1_0t4e8")
 base_speed = 5.0
 sprint_speed = 10.0
-default_reticle = "res://addons/fpc/reticles/reticle_1.tscn"
 HEAD = NodePath("Head")
 CAMERA = NodePath("Head/Camera")
 HEADBOB_ANIMATION = NodePath("Head/HeadbobAnimation")

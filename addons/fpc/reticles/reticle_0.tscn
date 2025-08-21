@@ -34,4 +34,5 @@ grow_vertical = 2
 script = SubResource("GDScript_10f85")
 
 [node name="dot" type="Polygon2D" parent="."]
+color = Color(1, 1, 1, 0)
 polygon = PackedVector2Array(-1, -1, 1, -1, 1, 1, -1, 1)
