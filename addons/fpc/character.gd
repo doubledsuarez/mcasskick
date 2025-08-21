@@ -281,7 +281,7 @@ func handle_head_rotation():
 		HEAD.rotation_degrees.y -= mouseInput.x * mouse_sensitivity
 		RAYCAST.rotation_degrees.y -= mouseInput.x * mouse_sensitivity
 
-	if g.y_look_unlocked:
+	if g.y_look_unlocked or g.dev_mode:
 		if invert_camera_y_axis:
 			HEAD.rotation_degrees.x -= mouseInput.y * mouse_sensitivity * -1
 			RAYCAST.rotation_degrees.x -= mouseInput.y * mouse_sensitivity * -1
