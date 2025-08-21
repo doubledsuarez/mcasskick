@@ -29,8 +29,13 @@ func unlock_shotgun_jump():
 func unlock_world_switch():
 	cellphone_text.set_cellphonetext("Unlocking... \n&A gentler world.")
 	await get_tree().create_timer(4).timeout
+	Music.play_track("cuddly_descent")
 	g.world_switch()
+	g.low_gravity = true
 	await get_tree().create_timer(5.0).timeout
 	g.world_switch_unlocked = true
-	
 	cellphone_text.set_not_visible()
+
+	await get_tree().create_timer(12.0).timeout
+	g.low_gravity = false
+	
