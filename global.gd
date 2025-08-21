@@ -5,6 +5,11 @@ extends Node
 # Variable and a signal for nodes to hook into if they need to switch their
 # state when the demon and cuddly worlds switch
 
+# this will be a cheat mode that will allow the player to switch the
+# worlds without getting the cell phone and probably other stuff
+# it will be set in the game script
+var dev_mode := false
+
 var game
 var player = null
 
@@ -28,7 +33,7 @@ signal world_toggled
 # Temporary solution for activating the world toggle until the player input is handled
 func _input(event):
 	if event.is_action_pressed("toggle"):
-		if world_switch_unlocked:
+		if world_switch_unlocked or dev_mode:
 			world_switch()
 
 func world_switch():
