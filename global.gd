@@ -24,6 +24,9 @@ var recoil_unlocked := false
 var world_switch_unlocked := false
 var jumping_unlocked := false
 
+# This is used for the descent scene
+var low_gravity := false
+
 # Accessibility setting for the hit flash (screen flashes red when the player is hit)
 var hitflash_enabled := true
 

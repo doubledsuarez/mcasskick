@@ -183,7 +183,12 @@ func _physics_process(delta): # Most things happen here.
 	if dynamic_gravity:
 		gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 	if not is_on_floor() and gravity and gravity_enabled:
+	
 		velocity.y -= gravity * delta
+		
+		# Low gravity used for the player falling after the cell phone is collected
+		if g.low_gravity == true:
+			velocity.y = clamp(velocity.y, -1, 9999999)
 
 	handle_jumping()
 
@@ -259,6 +264,13 @@ func handle_movement(delta, input_dir):
 
 	if in_air_momentum:
 		if is_on_floor():
+			if motion_smoothing:
+				velocity.x = lerp(velocity.x, direction.x * speed, acceleration * delta)
+				velocity.z = lerp(velocity.z, direction.z * speed, acceleration * delta)
+			else:
+				velocity.x = direction.x * speed
+				velocity.z = direction.z * speed
+		else:
 			if motion_smoothing:
 				velocity.x = lerp(velocity.x, direction.x * speed, acceleration * delta)
 				velocity.z = lerp(velocity.z, direction.z * speed, acceleration * delta)
