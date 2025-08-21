@@ -37,6 +37,7 @@ func _ready():
 
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
 
+
 func _unhandled_input(event: InputEvent) -> void:
 	super._unhandled_input(event)
 
@@ -49,6 +50,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			interactables[0].action()
 			return
 
+
 func _on_dialogue_ended(resource : DialogueResource):
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	in_dialogue = false
@@ -56,6 +58,7 @@ func _on_dialogue_ended(resource : DialogueResource):
 	g.question_asked = false
 
 #region Logic Handling
+
 
 func take_damage(dmg : int):
 	if dead:
