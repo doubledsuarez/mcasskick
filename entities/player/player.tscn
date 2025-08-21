@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cc4pdef86f1w8"]
+[gd_scene load_steps=17 format=3 uid="uid://cc4pdef86f1w8"]
 
 [ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://addons/fpc/character.tscn" id="1_symyc"]
 [ext_resource type="Script" uid="uid://xv5xtyvvrlrr" path="res://entities/player/player.gd" id="2_1234"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://cocd3ck0hhyl3" path="res://entities/player/hands_shoot9.png" id="11_mtric"]
 [ext_resource type="Texture2D" uid="uid://6acrsmho4x8g" path="res://entities/player/hands_shoot10.png" id="12_eyb6c"]
 [ext_resource type="AudioStream" uid="uid://cdkc61m0urxtm" path="res://entities/player/shotgun_blast.wav" id="13_j3ovn"]
+[ext_resource type="PackedScene" uid="uid://jmjmk2jj1v36" path="res://world/skybox/cloud_box.tscn" id="14_afbqv"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_abrql"]
 
@@ -93,3 +94,5 @@ sprite_frames = SubResource("SpriteFrames_221hk")
 [node name="ShootSound" parent="Weapon" index="2"]
 stream = ExtResource("13_j3ovn")
 volume_db = -0.6
+
+[node name="CloudBox" parent="." index="8" instance=ExtResource("14_afbqv")]
