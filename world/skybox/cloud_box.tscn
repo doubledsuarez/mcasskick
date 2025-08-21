@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://jmjmk2jj1v36"]
+
+[ext_resource type="Script" uid="uid://cji7y6qaesjaj" path="res://world/skybox/cloud_box.gd" id="1_41tjs"]
+[ext_resource type="PackedScene" uid="uid://l8aw6ohp0uju" path="res://world/skybox/SkyBox.glb" id="1_yim1y"]
+[ext_resource type="Material" uid="uid://c8a1g2e1e52i5" path="res://world/skybox/skybox.tres" id="2_41tjs"]
+
+[node name="CloudBox" type="Node3D"]
+script = ExtResource("1_41tjs")
+world_state = "cuddly"
+
+[node name="SkyBox2" parent="." instance=ExtResource("1_yim1y")]
+
+[node name="SkyBox" parent="SkyBox2" index="0"]
+surface_material_override/0 = ExtResource("2_41tjs")
+
+[editable path="SkyBox2"]
