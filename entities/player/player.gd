@@ -1,5 +1,7 @@
 extends "res://addons/fpc/character.gd"
 
+@export var weapon_sprite : AnimatedSprite2D
+@export var cellphone_sprite : Sprite2D
 @onready var direction_ray: Marker3D = $Head/Direction
 @onready var interactable_finder: Area3D = $Head/Direction/InteractableFinder
 signal health_changed
@@ -18,8 +20,16 @@ var in_dialogue : bool = false
 var inventory: Dictionary = {}  # item_name -> {description, quantity}
 var max_inventory_size: int = 20
 
-func _ready():
+# States to determine which held item should be shown
+var HELD_ITEM_STATES := {
+	"gun" :0,
+	"cellphone" : 1
+}
 
+var held_item := 0
+
+func _ready():
+	switch_held_item_state(HELD_ITEM_STATES.gun)
 	super._ready()
 	# Add player to global settings to enemies can find it
 	g.player = self
@@ -180,6 +190,23 @@ func print_inventory():
 #endregion
 
 #region Input Overrides
+
+# Called from the cellphone pickup
+func cellphone_picked_up():
+	switch_held_item_state(HELD_ITEM_STATES.cellphone)
+	cellphone_sprite.picked_up()
+	await cellphone_sprite.get_node("CellPhoneAnimation").animation_finished
+	switch_held_item_state(HELD_ITEM_STATES.gun)
+
+func switch_held_item_state(new_state:=0):
+	match new_state:
+		# Gun
+		0:
+			weapon_sprite.visible = true
+			cellphone_sprite.visible = false
+		1:
+			weapon_sprite.visible = false
+			cellphone_sprite.visible = true
 
 func handle_shooting():
 	if shooting_enabled:

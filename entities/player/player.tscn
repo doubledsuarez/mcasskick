@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cc4pdef86f1w8"]
+[gd_scene load_steps=24 format=3 uid="uid://cc4pdef86f1w8"]
 
 [ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://addons/fpc/character.tscn" id="1_symyc"]
 [ext_resource type="Script" uid="uid://xv5xtyvvrlrr" path="res://entities/player/player.gd" id="2_1234"]
@@ -12,8 +12,12 @@
 [ext_resource type="Texture2D" uid="uid://ojjj7h5gwq5m" path="res://entities/player/hands_shoot8.png" id="10_we0b7"]
 [ext_resource type="Texture2D" uid="uid://cocd3ck0hhyl3" path="res://entities/player/hands_shoot9.png" id="11_mtric"]
 [ext_resource type="Texture2D" uid="uid://6acrsmho4x8g" path="res://entities/player/hands_shoot10.png" id="12_eyb6c"]
+[ext_resource type="Texture2D" uid="uid://b7q5ngaobmpq7" path="res://entities/player/cellphone_00.png" id="13_gx6sm"]
 [ext_resource type="AudioStream" uid="uid://cdkc61m0urxtm" path="res://entities/player/shotgun_blast.wav" id="13_j3ovn"]
 [ext_resource type="PackedScene" uid="uid://jmjmk2jj1v36" path="res://world/skybox/cloud_box.tscn" id="14_afbqv"]
+[ext_resource type="Script" uid="uid://bubu7hpb8ant0" path="res://entities/player/cellphone.gd" id="14_b2kln"]
+[ext_resource type="Texture2D" uid="uid://cxstrweescg88" path="res://entities/player/cellphone_01.png" id="15_we0b7"]
+[ext_resource type="Texture2D" uid="uid://cqqpcfxsf10ca" path="res://entities/player/cellphone_02.png" id="16_mtric"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_abrql"]
 
@@ -66,8 +70,72 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="Player" instance=ExtResource("1_symyc")]
+[sub_resource type="Animation" id="Animation_eyb6c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("13_gx6sm")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(155, 172)]
+}
+
+[sub_resource type="Animation" id="Animation_221hk"]
+resource_name = "cellphone_initialize"
+length = 12.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2.5, 2.8, 4.9, 5, 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8, 5.9, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("13_gx6sm"), ExtResource("15_we0b7"), ExtResource("16_mtric"), ExtResource("15_we0b7"), ExtResource("16_mtric"), ExtResource("15_we0b7"), ExtResource("16_mtric"), ExtResource("15_we0b7"), ExtResource("16_mtric"), ExtResource("15_we0b7"), ExtResource("16_mtric"), ExtResource("15_we0b7"), ExtResource("16_mtric"), ExtResource("15_we0b7")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 2.5, 2.7, 2.8, 2.9, 3.2, 4.8, 4.9, 5, 5.1, 5.3, 5.5, 5.6, 5.8, 6, 12),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(155, 282), Vector2(155, 172), Vector2(155, 180), Vector2(155, 180), Vector2(155, 194), Vector2(155, 169), Vector2(155, 186), Vector2(155, 180), Vector2(155, 180), Vector2(155, 182), Vector2(155, 180), Vector2(155, 182), Vector2(155, 180), Vector2(155, 182), Vector2(155, 180), Vector2(155, 182), Vector2(155, 180), Vector2(155, 182)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ghoj8"]
+_data = {
+&"RESET": SubResource("Animation_eyb6c"),
+&"cellphone_initialize": SubResource("Animation_221hk")
+}
+
+[node name="Player" node_paths=PackedStringArray("weapon_sprite", "cellphone_sprite") instance=ExtResource("1_symyc")]
 script = ExtResource("2_1234")
+weapon_sprite = NodePath("Weapon/WeaponSprite")
+cellphone_sprite = NodePath("Weapon/CellPhoneOrigin/Cellphone")
 shotgun_recoil_strength = 4.0
 shotgun_upward_boost = 1.0
 max_recoil_speed = 8.0
@@ -87,11 +155,26 @@ collision_mask = 64
 shape = SubResource("SphereShape3D_abrql")
 
 [node name="WeaponSprite" parent="Weapon" index="1"]
+texture_filter = 1
 position = Vector2(84, 172)
 scale = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_221hk")
 
-[node name="ShootSound" parent="Weapon" index="2"]
+[node name="CellPhoneOrigin" type="Node2D" parent="Weapon" index="2"]
+position = Vector2(0, -67)
+
+[node name="Cellphone" type="Sprite2D" parent="Weapon/CellPhoneOrigin" index="0"]
+texture_filter = 1
+position = Vector2(155, 172)
+texture = ExtResource("13_gx6sm")
+script = ExtResource("14_b2kln")
+
+[node name="CellPhoneAnimation" type="AnimationPlayer" parent="Weapon/CellPhoneOrigin/Cellphone" index="0"]
+libraries = {
+&"": SubResource("AnimationLibrary_ghoj8")
+}
+
+[node name="ShootSound" parent="Weapon" index="3"]
 stream = ExtResource("13_j3ovn")
 volume_db = -0.6
 
