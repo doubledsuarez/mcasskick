@@ -14,7 +14,7 @@
 [node name="ZoneIntroShip" parent="." instance=ExtResource("1_1x4ik")]
 
 [node name="CellPhone" parent="ZoneIntroShip" instance=ExtResource("2_6bg7k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.4797, -0.66827, 19.8465)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.8555, 1.76054, -46.7263)
 
 [node name="Enemies" type="Node3D" parent="."]
 
