@@ -158,31 +158,31 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.6071, 32.2516, -61.1481)
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 local_map_file = "uid://2j4apr7tt77b"
 
-[node name="entity_0_worldspawn" type="StaticBody3D" parent="SubViewportContainer/SubViewport/Game/ZoneBase/WorldDemon" index="0"]
+[node name="entity_0_worldspawn2" type="StaticBody3D" parent="SubViewportContainer/SubViewport/Game/ZoneBase/WorldDemon" index="0"]
 collision_mask = 0
 
-[node name="entity_0_mesh_instance" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Game/ZoneBase/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_mesh_instance2" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Game/ZoneBase/WorldDemon/entity_0_worldspawn" index="211"]
 mesh = SubResource("ArrayMesh_80cx4")
 
-[node name="entity_0_occluder_instance" type="OccluderInstance3D" parent="SubViewportContainer/SubViewport/Game/ZoneBase/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_occluder_instance2" type="OccluderInstance3D" parent="SubViewportContainer/SubViewport/Game/ZoneBase/WorldDemon/entity_0_worldspawn" index="212"]
 occluder = SubResource("ArrayOccluder3D_e8heu")
 
-[node name="entity_0_brush_0_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ZoneBase/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_0_collision_shape2" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ZoneBase/WorldDemon/entity_0_worldspawn" index="213"]
 shape = SubResource("ConvexPolygonShape3D_rvswv")
 
-[node name="entity_0_brush_1_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ZoneBase/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_1_collision_shape2" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ZoneBase/WorldDemon/entity_0_worldspawn" index="214"]
 shape = SubResource("ConvexPolygonShape3D_boyg6")
 
-[node name="entity_0_brush_2_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ZoneBase/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_2_collision_shape2" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ZoneBase/WorldDemon/entity_0_worldspawn" index="215"]
 shape = SubResource("ConvexPolygonShape3D_e36ub")
 
-[node name="entity_0_brush_3_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ZoneBase/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_3_collision_shape2" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ZoneBase/WorldDemon/entity_0_worldspawn" index="216"]
 shape = SubResource("ConvexPolygonShape3D_hb5m1")
 
-[node name="entity_0_brush_4_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ZoneBase/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_4_collision_shape2" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ZoneBase/WorldDemon/entity_0_worldspawn" index="217"]
 shape = SubResource("ConvexPolygonShape3D_x5p1p")
 
-[node name="entity_0_brush_5_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ZoneBase/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_5_collision_shape2" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ZoneBase/WorldDemon/entity_0_worldspawn" index="218"]
 shape = SubResource("ConvexPolygonShape3D_qhcbd")
 
 [node name="entity_0_worldspawn2" type="StaticBody3D" parent="SubViewportContainer/SubViewport/Game/ZoneBase/WorldCuddly" index="0"]
