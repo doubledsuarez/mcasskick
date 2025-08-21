@@ -1,8 +1,6 @@
-[gd_scene load_steps=33 format=4 uid="uid://r54dyixspqae"]
+[gd_scene load_steps=31 format=4 uid="uid://r54dyixspqae"]
 
-[ext_resource type="AudioStream" uid="uid://d00hhm6m4j7hb" path="res://test-assets/mcasskick hell 2 jam rough.ogg" id="1_215e1"]
 [ext_resource type="Script" uid="uid://0x1oyn0i5ywr" path="res://game.gd" id="1_eow3j"]
-[ext_resource type="Script" uid="uid://xpt15aqq2kf8" path="res://music/music.gd" id="2_vef74"]
 [ext_resource type="PackedScene" uid="uid://dyks0b1t1vx3j" path="res://world/intro_ship.tscn" id="3_ryrav"]
 [ext_resource type="PackedScene" uid="uid://cpv2v57u64u8b" path="res://world/zone_base.tscn" id="4_215e1"]
 [ext_resource type="PackedScene" uid="uid://cc4pdef86f1w8" path="res://entities/player/player.tscn" id="4_fc0e3"]
@@ -139,13 +137,6 @@ scale = Vector2(2, 2)
 handle_input_locally = false
 size = Vector2i(320, 240)
 render_target_update_mode = 4
-
-[node name="Music" type="AudioStreamPlayer" parent="SubViewportContainer/SubViewport"]
-stream = ExtResource("1_215e1")
-volume_db = -2.0
-autoplay = true
-bus = &"Music"
-script = ExtResource("2_vef74")
 
 [node name="Game" type="Node3D" parent="SubViewportContainer/SubViewport"]
 script = ExtResource("1_eow3j")
