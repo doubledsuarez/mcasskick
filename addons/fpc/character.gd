@@ -183,7 +183,12 @@ func _physics_process(delta): # Most things happen here.
 	if dynamic_gravity:
 		gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 	if not is_on_floor() and gravity and gravity_enabled:
+	
 		velocity.y -= gravity * delta
+		
+		# Low gravity used for the player falling after the cell phone is collected
+		if g.low_gravity == true:
+			velocity.y = clamp(velocity.y, -1, 9999999)
 
 	handle_jumping()
 
@@ -238,17 +243,18 @@ func handle_shooting():
 						RAYCAST.get_collider().take_damage(1)
 
 func handle_jumping():
-	if jumping_enabled:
-		if continuous_jumping: # Hold down the jump button
-			if Input.is_action_pressed(controls.JUMP) and is_on_floor() and !low_ceiling:
-				if jump_animation:
-					JUMP_ANIMATION.play("jump", 0.25)
-				velocity.y += jump_velocity # Adding instead of setting so jumping on slopes works properly
-		else:
-			if Input.is_action_just_pressed(controls.JUMP) and is_on_floor() and !low_ceiling:
-				if jump_animation:
-					JUMP_ANIMATION.play("jump", 0.25)
-				velocity.y += jump_velocity
+	if g.jumping_unlocked or g.dev_mode:
+		if jumping_enabled:
+			if continuous_jumping: # Hold down the jump button
+				if Input.is_action_pressed(controls.JUMP) and is_on_floor() and !low_ceiling:
+					if jump_animation:
+						JUMP_ANIMATION.play("jump", 0.25)
+					velocity.y += jump_velocity # Adding instead of setting so jumping on slopes works properly
+			else:
+				if Input.is_action_just_pressed(controls.JUMP) and is_on_floor() and !low_ceiling:
+					if jump_animation:
+						JUMP_ANIMATION.play("jump", 0.25)
+					velocity.y += jump_velocity
 
 
 func handle_movement(delta, input_dir):
@@ -258,6 +264,13 @@ func handle_movement(delta, input_dir):
 
 	if in_air_momentum:
 		if is_on_floor():
+			if motion_smoothing:
+				velocity.x = lerp(velocity.x, direction.x * speed, acceleration * delta)
+				velocity.z = lerp(velocity.z, direction.z * speed, acceleration * delta)
+			else:
+				velocity.x = direction.x * speed
+				velocity.z = direction.z * speed
+		else:
 			if motion_smoothing:
 				velocity.x = lerp(velocity.x, direction.x * speed, acceleration * delta)
 				velocity.z = lerp(velocity.z, direction.z * speed, acceleration * delta)
@@ -281,7 +294,7 @@ func handle_head_rotation():
 		HEAD.rotation_degrees.y -= mouseInput.x * mouse_sensitivity
 		RAYCAST.rotation_degrees.y -= mouseInput.x * mouse_sensitivity
 
-	if g.y_look_unlocked:
+	if g.y_look_unlocked or g.dev_mode:
 		if invert_camera_y_axis:
 			HEAD.rotation_degrees.x -= mouseInput.y * mouse_sensitivity * -1
 			RAYCAST.rotation_degrees.x -= mouseInput.y * mouse_sensitivity * -1

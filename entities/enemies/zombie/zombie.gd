@@ -62,8 +62,11 @@ func attack():
 		return
 
 	# Perform melee attack
-	melee_attack()
+	$AnimationPlayer.play("attacking")
 	attack_timer = melee_cooldown
+	await get_tree().create_timer(.5).timeout
+	melee_attack()
+
 
 # Melee attack function
 func melee_attack():
@@ -76,6 +79,7 @@ func melee_attack():
 	if dist_to_player <= melee_range:
 		if player.has_method("take_damage"):
 			player.take_damage(melee_damage)
+			return
 
 	# Play attack animation if available
 	#if animated_sprite_3d and not dead:

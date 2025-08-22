@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1xntkh8cxt1m"]
+
+[ext_resource type="PackedScene" uid="uid://b7varapqnerb5" path="res://world/zone_village.tscn" id="1_am3c7"]
+[ext_resource type="PackedScene" uid="uid://b5g5ldlfgsn0w" path="res://entities/toggleblock/toggle_block.tscn" id="2_6msu2"]
+
+[node name="Village" type="Node3D"]
+
+[node name="ZoneVillage" parent="." instance=ExtResource("1_am3c7")]
+
+[node name="ToggleBlock" parent="ZoneVillage" instance=ExtResource("2_6msu2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.78323, 10.3591, 54.687)

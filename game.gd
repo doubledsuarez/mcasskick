@@ -1,13 +1,11 @@
 extends Node3D
 #@onready var hud_scene = preload("res://ui/hud/hud.tscn")
 
+@export var dev_mode := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	g.game = self
 	
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	$HealthLabel.text = "HP: %s" % g.player.health
+	g.dev_mode = dev_mode
+	

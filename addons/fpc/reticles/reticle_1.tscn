@@ -83,6 +83,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = SubResource("GDScript_a8kpl")
 reticle_lines = [NodePath("top"), NodePath("left"), NodePath("right"), NodePath("bottom")]
+dot_color = Color(1, 1, 1, 0)
+line_color = Color(1, 1, 1, 0)
 
 [node name="dot" type="Polygon2D" parent="."]
 polygon = PackedVector2Array(-1, -1, 1, -1, 1, 1, -1, 1)
