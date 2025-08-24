@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c1xntkh8cxt1m"]
+[gd_scene load_steps=13 format=3 uid="uid://c1xntkh8cxt1m"]
 
 [ext_resource type="PackedScene" uid="uid://b7varapqnerb5" path="res://world/zone_village.tscn" id="1_am3c7"]
 [ext_resource type="PackedScene" uid="uid://b7qg7wj01bti6" path="res://entities/pickups/figures/pickup_figurine_hellokitty.tscn" id="2_6msu2"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://pfsk25ldh56t" path="res://entities/pickups/figures/pickup_figurine_hellokitty_gold.tscn" id="6_pnguk"]
 [ext_resource type="PackedScene" uid="uid://dxfpxck5qlyej" path="res://entities/pickups/figures/pickup_figurine_carebear_gold.tscn" id="7_nfe5f"]
 [ext_resource type="PackedScene" uid="uid://dg6tthxf1a7m2" path="res://entities/final_staircase.tscn" id="8_lm1a5"]
-[ext_resource type="PackedScene" uid="uid://vsspef1jk2kv" path="res://entities/staircase/staircase.tscn" id="8_t2p8v"]
 [ext_resource type="Script" uid="uid://b8lj2fdqsbvg7" path="res://world/world_light.gd" id="9_nfe5f"]
 [ext_resource type="PackedScene" uid="uid://b5g5ldlfgsn0w" path="res://entities/toggleblock/toggle_block.tscn" id="10_t2p8v"]
 [ext_resource type="PackedScene" uid="uid://s8ycp8u5vbug" path="res://world/props/world_cuddly/lantern.tscn" id="11_lm1a5"]
@@ -37,9 +36,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 6, -4)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.57945, 10.5, -5.5)
 
 [node name="FinalStaircase" parent="." instance=ExtResource("8_lm1a5")]
-
-[node name="Staircase8" parent="." instance=ExtResource("8_t2p8v")]
-transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 75.2893, 139.985)
 
 [node name="Props" type="Node3D" parent="."]
 
