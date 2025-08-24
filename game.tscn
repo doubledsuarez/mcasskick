@@ -1,22 +1,16 @@
-[gd_scene load_steps=18 format=3 uid="uid://r54dyixspqae"]
+[gd_scene load_steps=12 format=3 uid="uid://r54dyixspqae"]
 
 [ext_resource type="Script" uid="uid://0x1oyn0i5ywr" path="res://game.gd" id="1_eow3j"]
 [ext_resource type="PackedScene" uid="uid://co7sigkndoct3" path="res://world/puzzle_trees.tscn" id="2_iotsf"]
 [ext_resource type="PackedScene" uid="uid://da52itg687i4n" path="res://entities/villagers/base/villager.tscn" id="2_mfdv2"]
-[ext_resource type="PackedScene" uid="uid://dxfpxck5qlyej" path="res://entities/pickups/figures/pickup_figurine_carebear_gold.tscn" id="2_rvswv"]
 [ext_resource type="PackedScene" uid="uid://c1xntkh8cxt1m" path="res://world/village.tscn" id="2_vef74"]
-[ext_resource type="PackedScene" uid="uid://cuke6pl3it7f6" path="res://entities/pickups/figures/pickup_figurine_doomguy.tscn" id="4_e36ub"]
 [ext_resource type="PackedScene" uid="uid://cc4pdef86f1w8" path="res://entities/player/player.tscn" id="4_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://coqpusufa8a6k" path="res://addons/fpc/reticles/reticle_0.tscn" id="5_7jktm"]
-[ext_resource type="PackedScene" uid="uid://cm2rhd3w6soiv" path="res://entities/pickups/figures/pickup_figurine_doomguy_gold.tscn" id="5_hb5m1"]
 [ext_resource type="PackedScene" uid="uid://dyks0b1t1vx3j" path="res://world/intro_ship.tscn" id="5_hve3p"]
-[ext_resource type="PackedScene" uid="uid://cju0pxn2xm2ql" path="res://entities/pickups/figures/pickup_figurine_doomguy_pink.tscn" id="6_x5p1p"]
 [ext_resource type="PackedScene" uid="uid://h30klttmj8ll" path="res://ui/hud/hud.tscn" id="7_eow3j"]
-[ext_resource type="PackedScene" uid="uid://pfsk25ldh56t" path="res://entities/pickups/figures/pickup_figurine_hellokitty_gold.tscn" id="8_f1jbl"]
 [ext_resource type="PackedScene" uid="uid://7me2ccb5ua8m" path="res://world/castle.tscn" id="9_hve3p"]
 [ext_resource type="PackedScene" uid="uid://bim2jwgv8vjsu" path="res://world/final_area.tscn" id="11_e8heu"]
 [ext_resource type="PackedScene" uid="uid://4icf1c7gpltw" path="res://world/environments/environment.tscn" id="13_lc2xo"]
-[ext_resource type="PackedScene" uid="uid://vsspef1jk2kv" path="res://entities/staircase/staircase.tscn" id="15_80cx4"]
 
 [node name="Node" type="Node"]
 
@@ -34,21 +28,6 @@ render_target_update_mode = 4
 [node name="Game" type="Node3D" parent="SubViewportContainer/SubViewport"]
 script = ExtResource("1_eow3j")
 dev_mode = true
-
-[node name="Pickup_Figurine_doomguy" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("4_e36ub")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 5, -6)
-
-[node name="Pickup_Figurine_doomguy_gold" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("5_hb5m1")]
-transform = Transform3D(0.642788, 0, 0.766044, 0, 1, 0, -0.766044, 0, 0.642788, 4, 6, -30)
-
-[node name="Pickup_Figurine_doomguy_pink" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("6_x5p1p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 5, -3)
-
-[node name="Pickup_Figurine_hellokitty_gold" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("8_f1jbl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 6, -4)
-
-[node name="Pickup_Figurine_CarebearGold" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("2_rvswv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.57945, 10.5, -5.5)
 
 [node name="PuzzleTrees" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("2_iotsf")]
 transform = Transform3D(0.642788, 0, 0.766044, 0, 1, 0, -0.766044, 0, 0.642788, 37, 5, -32)
@@ -86,29 +65,5 @@ collision_mask = 31
 default_reticle = "res://addons/fpc/reticles/reticle_1.tscn"
 
 [node name="Environment" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("13_lc2xo")]
-
-[node name="Staircase" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("15_80cx4")]
-transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 19.2893, 83.9853)
-
-[node name="Staircase2" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("15_80cx4")]
-transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 27.2893, 91.9853)
-
-[node name="Staircase3" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("15_80cx4")]
-transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 35.2893, 99.9853)
-
-[node name="Staircase4" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("15_80cx4")]
-transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 43.2893, 107.985)
-
-[node name="Staircase5" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("15_80cx4")]
-transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 51.2893, 115.985)
-
-[node name="Staircase6" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("15_80cx4")]
-transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 59.2893, 123.985)
-
-[node name="Staircase7" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("15_80cx4")]
-transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 67.2893, 131.985)
-
-[node name="Staircase8" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("15_80cx4")]
-transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 75.2893, 139.985)
 
 [node name="HUD" parent="." instance=ExtResource("7_eow3j")]
