@@ -55,8 +55,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		var interactables = interactable_finder.get_overlapping_areas()
 		if interactables.size() > 0:
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-			in_dialogue = true
-			immobile = true
 			interactables[0].action()
 			return
 
@@ -97,52 +95,6 @@ func heal(heal_amount: int) -> void:
 	else:
 		Log.info("Health already full!")
 
-
-func respawn():
-	# Disable player input during death
-	immobile = true
-	shooting_enabled = false
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-
-	# Create red transparent overlay
-	var overlay = ColorRect.new()
-	overlay.color = Color(0.8, 0.0, 0.0, 0.4)  # Semi-transparent red
-	overlay.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	overlay.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	get_tree().current_scene.add_child(overlay)
-
-	# Create death message
-	var death_label = Label.new()
-	death_label.text = "YOU DIED\nRespawning in 5 seconds..."
-	death_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	death_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	death_label.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	death_label.add_theme_font_size_override("font_size", 48)
-	death_label.modulate = Color.WHITE
-	get_tree().current_scene.add_child(death_label)
-
-	# Fade in the overlay and text
-	var tween = create_tween()
-	tween.set_parallel(true)  # Allow multiple tweens to run simultaneously
-
-	overlay.modulate.a = 0.0
-	death_label.modulate.a = 0.0
-
-	tween.tween_property(overlay, "modulate:a", 1.0, 1.0)
-	tween.tween_property(death_label, "modulate:a", 1.0, 1.0)
-
-	# Countdown from 5 seconds
-	for i in range(5, 0, -1):
-		death_label.text = "YOU DIED\nRespawning in %d seconds..." % i
-		await get_tree().create_timer(1.0).timeout
-
-	# Clean up UI elements before respawning
-	overlay.queue_free()
-	death_label.queue_free()
-
-	# Respawn at last activated checkpoint
-	respawn_at_last_checkpoint()
-
 func die():
 	if dead:
 		return
@@ -171,7 +123,7 @@ func add_to_inventory(item_name: String, description: String, quantity: int = 1,
 			"quantity": quantity
 		}
 	Log.info("Added %s x %s to inventory (%s/%s)" % [quantity, item_name, get_inventory_count(), max_inventory_size])
-	
+
 	# Emit the signal to the hud can pick it up
 	emit_signal("item_picked_up", item_name)
 	
@@ -217,6 +169,59 @@ func print_inventory():
 	for item_name in inventory:
 		var item = inventory[item_name]
 		Log.info("- %s x %s (%s)" % [item["quantity"], item_name, item["description"]])
+
+#endregion
+
+#region Respawn System
+
+func respawn():
+	# Disable player input during death
+	immobile = true
+	shooting_enabled = false
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
+	# Create red transparent overlay
+	var overlay = ColorRect.new()
+	overlay.color = Color(0.8, 0.0, 0.0, 0.4)  # Semi-transparent red
+	overlay.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	overlay.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	get_tree().current_scene.add_child(overlay)
+
+	# Create death message
+	var death_label = Label.new()
+	death_label.text = "YOU DIED\nRespawning in 5 seconds..."
+	death_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	death_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	death_label.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	death_label.add_theme_font_size_override("font_size", 24)
+	death_label.modulate = Color.WHITE
+	var custom_font = load("res://ui/UAV-OSD-Mono.ttf")
+	if custom_font:
+		death_label.add_theme_font_override("font", custom_font)
+
+	get_tree().current_scene.add_child(death_label)
+
+	# Fade in the overlay and text
+	var tween = create_tween()
+	tween.set_parallel(true)  # Allow multiple tweens to run simultaneously
+
+	overlay.modulate.a = 0.0
+	death_label.modulate.a = 0.0
+
+	tween.tween_property(overlay, "modulate:a", 1.0, 1.0)
+	tween.tween_property(death_label, "modulate:a", 1.0, 1.0)
+
+	# Countdown from 5 seconds
+	for i in range(5, 0, -1):
+		death_label.text = "YOU DIED\nRespawning in %d seconds..." % i
+		await get_tree().create_timer(1.0).timeout
+
+	# Clean up UI elements before respawning
+	overlay.queue_free()
+	death_label.queue_free()
+
+	# Respawn at last activated checkpoint
+	respawn_at_last_checkpoint()
 
 func get_last_activated_respawn_point() -> Node3D:
 	# Get the last activated checkpoint from global
@@ -306,11 +311,19 @@ func handle_shooting():
 					reloading = true
 					WEAPON_SPRITE.stop()
 					WEAPON_SPRITE.play("shoot")
-					SHOOT_SOUND.play()
-					# Hit the enemy
+					if !g.cuddly_world:
+						SHOOT_SOUND.play()
+					else:
+						#CONFETTI_SOUND.play()
+						Log.info("Confetti!!")
+						
+					# Hit the enemy and only play the shoot sound if it's an enemy
 					if RAYCAST.is_colliding() and RAYCAST.get_collider().has_method("take_damage"):
-						Log.info("Player raycast hit: " + str(RAYCAST.get_collider().get_name()))
+						Log.info("Player shot hit: " + str(RAYCAST.get_collider().get_name()))
 						RAYCAST.get_collider().take_damage(1)
+					elif RAYCAST.is_colliding() and RAYCAST.get_collider().has_method("have_party"):
+						#CONFETTI_SOUND.play()
+						Log.info("Player shot confetti at: " + str(RAYCAST.get_collider().get_name()))
 
 					# Shotgun momentum boost - only when airborne
 					if g.recoil_unlocked or g.dev_mode:
