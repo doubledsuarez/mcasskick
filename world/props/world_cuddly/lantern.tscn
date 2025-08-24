@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://s8ycp8u5vbug"]
+
+[ext_resource type="Texture2D" uid="uid://g71ka61x5c8t" path="res://world/props/world_cuddly/house_lantern.png" id="1_iguyw"]
+[ext_resource type="Script" uid="uid://cjhkh33qns0ms" path="res://world/props/prop_base.gd" id="2_gu56j"]
+
+[node name="Lantern" type="Sprite3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+pixel_size = 0.05
+texture_filter = 0
+texture = ExtResource("1_iguyw")
+script = ExtResource("2_gu56j")
+world_state = "cuddly"
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.163149)
+light_color = Color(0.897218, 0.721951, 0.553394, 1)
+light_energy = 0.8
+omni_range = 1.0
