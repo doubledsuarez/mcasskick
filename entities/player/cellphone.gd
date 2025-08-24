@@ -36,6 +36,6 @@ func unlock_world_switch():
 	g.world_switch_unlocked = true
 	cellphone_text.set_not_visible()
 
-	await get_tree().create_timer(12.0).timeout
+	await get_tree().create_timer(6.0).timeout
 	g.low_gravity = false
 	

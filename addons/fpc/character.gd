@@ -188,7 +188,7 @@ func _physics_process(delta): # Most things happen here.
 		
 		# Low gravity used for the player falling after the cell phone is collected
 		if g.low_gravity == true:
-			velocity.y = clamp(velocity.y, -1, 9999999)
+			velocity.y = clamp(velocity.y, -2.5, 9999999)
 
 	handle_jumping()
 
