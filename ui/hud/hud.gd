@@ -27,13 +27,13 @@ func _on_health_changed(new_health: int) -> void:
 	
 	else:
 		chill_icon.texture = full_chill_icon
-	
-	if trinket_grid != null:
+
 func _item_picked_up(figurine_name:String):
+	if trinket_grid != null:
 		# Loop through the TriketGrids children, and see if any have a figurine name
 		# that matches the item picked up name
 		for display in trinket_grid.get_children():
-				if display.has_method("set_collected"):
-			if display.figurine_name == figurine_name:
-					display.set_collected()
+			if display.has_method("set_collected"):
+				if display.figurine_name == figurine_name:
+						display.set_collected()
 	
