@@ -15,3 +15,6 @@ surface_material_override/0 = ExtResource("3_fn1j7")
 
 [node name="Sprite3D" parent="." index="2"]
 visible = false
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.305236, 0)
