@@ -58,11 +58,11 @@ func set_respawn_data(position: Vector3, respawn_name: String = "Unknown") -> vo
 	stored_respawn_position = position
 	stored_respawn_name = respawn_name
 	has_respawn_data_stored = true
-	Log.info("Global: Stored respawn data - Position: %s, Name: %s" % [position, respawn_name])
+	Log.info("Stored respawn data - Position: %s, Name: %s" % [position, respawn_name])
 
 func set_last_activated_checkpoint(checkpoint: Node3D) -> void:
 	last_activated_checkpoint = checkpoint
-	Log.info("Global: Last activated checkpoint set to: %s" % (checkpoint.get_respawn_name() if checkpoint.has_method("get_respawn_name") else "Unknown"))
+	Log.info("Last activated checkpoint set to: %s" % (checkpoint.get_respawn_name() if checkpoint.has_method("get_respawn_name") else "Unknown"))
 
 func get_last_activated_checkpoint() -> Node3D:
 	return last_activated_checkpoint
