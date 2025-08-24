@@ -6,6 +6,8 @@ extends "res://addons/fpc/character.gd"
 @onready var interactable_finder: Area3D = $Head/Direction/InteractableFinder
 signal health_changed
 signal item_picked_up
+# A signal to update the ammo amount in the ui
+signal shooting
 
 # This will be used with the final staircase to know how many segments to rise
 var figurine_count := 0
@@ -234,7 +236,7 @@ func handle_shooting():
 		else:
 			if Input.is_action_just_pressed(controls.SHOOT) and not in_dialogue:
 				if not reloading:
-					
+					emit_signal("shooting")
 					reloading = true
 					WEAPON_SPRITE.stop()
 					WEAPON_SPRITE.play("shoot")
