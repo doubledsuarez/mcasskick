@@ -1,7 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://c1xntkh8cxt1m"]
+[gd_scene load_steps=3 format=3 uid="uid://c1xntkh8cxt1m"]
 
 [ext_resource type="PackedScene" uid="uid://b7varapqnerb5" path="res://world/zone_village.tscn" id="1_am3c7"]
+[ext_resource type="PackedScene" uid="uid://b7qg7wj01bti6" path="res://entities/pickups/figures/pickup_figurine_hellokitty.tscn" id="2_6msu2"]
 
 [node name="Village" type="Node3D"]
 
 [node name="ZoneVillage" parent="." instance=ExtResource("1_am3c7")]
+
+[node name="Pickup_Figurine_hellokitty" parent="." instance=ExtResource("2_6msu2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.29289, 11.7162, -16.5)
