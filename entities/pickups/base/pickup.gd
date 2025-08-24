@@ -68,7 +68,7 @@ func pickup(player: Node3D) -> void:
 
 		PickupType.FIGURINE:
 			if player.has_method("add_to_inventory"):
-				player.add_to_inventory(pickup_name, pickup_description, pickup_value)
+				player.add_to_inventory(pickup_name, pickup_description, pickup_value, true)
 				Log.info("Collected: ", pickup_name)
 			else:
 				Log.info("Player has no inventory system")
