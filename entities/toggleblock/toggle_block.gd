@@ -30,7 +30,7 @@ func match_world_state():
 
 
 func take_damage(_dmg : int):
-	print("Toggle block shot")
+	Log.info("Toggle block shot")
 	if complete == false:
 		if g.cuddly_world == false:
 			complete = false

@@ -34,6 +34,12 @@ var hitflash_enabled := true
 var cuddly_world := false
 signal world_toggled
 
+# Respawn system variables
+var has_respawn_data_stored: bool = false
+var stored_respawn_position: Vector3
+var stored_respawn_name: String
+var last_activated_checkpoint: Node3D = null
+
 # Temporary solution for activating the world toggle until the player input is handled
 func _input(event):
 	if event.is_action_pressed("toggle"):
@@ -47,3 +53,35 @@ func world_switch():
 	else:
 		cuddly_world = false
 		emit_signal("world_toggled")
+
+func set_respawn_data(position: Vector3, respawn_name: String = "Unknown") -> void:
+	stored_respawn_position = position
+	stored_respawn_name = respawn_name
+	has_respawn_data_stored = true
+	Log.info("Global: Stored respawn data - Position: %s, Name: %s" % [position, respawn_name])
+
+func set_last_activated_checkpoint(checkpoint: Node3D) -> void:
+	last_activated_checkpoint = checkpoint
+	Log.info("Global: Last activated checkpoint set to: %s" % (checkpoint.get_respawn_name() if checkpoint.has_method("get_respawn_name") else "Unknown"))
+
+func get_last_activated_checkpoint() -> Node3D:
+	return last_activated_checkpoint
+
+func has_respawn_data() -> bool:
+	return has_respawn_data_stored
+
+func get_and_clear_respawn_data() -> Dictionary:
+	var data = {
+		"position": stored_respawn_position,
+		"name": stored_respawn_name
+	}
+
+	clear_respawn_data()
+
+	return data
+
+func clear_respawn_data() -> void:
+	has_respawn_data_stored = false
+	stored_respawn_position = Vector3.ZERO
+	stored_respawn_name = ""
+	Log.info("Cleared respawn data")

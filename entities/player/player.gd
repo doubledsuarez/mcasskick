@@ -17,6 +17,7 @@ var health : int = MAX_HEALTH
 var dead = false
 var in_dialogue : bool = false
 
+
 # Shotgun recoil system
 @export var shotgun_recoil_strength: float = 4.0  # Horizontal knockback force
 @export var shotgun_upward_boost: float = 1.0     # Upward boost component
@@ -42,6 +43,9 @@ func _ready():
 	add_to_group("player")
 
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
+
+	# Check if we need to respawn at a specific position
+	check_for_respawn_position()
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -93,10 +97,11 @@ func heal(heal_amount: int) -> void:
 	else:
 		Log.info("Health already full!")
 
-	
+
 func respawn():
 	# Disable player input during death
 	immobile = true
+	shooting_enabled = false
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 	# Create red transparent overlay
@@ -126,9 +131,17 @@ func respawn():
 	tween.tween_property(overlay, "modulate:a", 1.0, 1.0)
 	tween.tween_property(death_label, "modulate:a", 1.0, 1.0)
 
-	# Wait 5 seconds then reload scene
-	await get_tree().create_timer(5.0).timeout
-	get_tree().reload_current_scene()
+	# Countdown from 5 seconds
+	for i in range(5, 0, -1):
+		death_label.text = "YOU DIED\nRespawning in %d seconds..." % i
+		await get_tree().create_timer(1.0).timeout
+
+	# Clean up UI elements before respawning
+	overlay.queue_free()
+	death_label.queue_free()
+
+	# Respawn at last activated checkpoint
+	respawn_at_last_checkpoint()
 
 func die():
 	if dead:
@@ -205,6 +218,59 @@ func print_inventory():
 		var item = inventory[item_name]
 		Log.info("- %s x %s (%s)" % [item["quantity"], item_name, item["description"]])
 
+func get_last_activated_respawn_point() -> Node3D:
+	# Get the last activated checkpoint from global
+	var last_checkpoint = g.get_last_activated_checkpoint()
+
+	if last_checkpoint == null or not is_instance_valid(last_checkpoint):
+		Log.info("No last activated checkpoint found! Using scene reload.")
+		return null
+
+	# Verify it's still activated (in case of scene reload)
+	if last_checkpoint.has_method("is_activated") and not last_checkpoint.is_activated():
+		Log.info("Last checkpoint no longer activated! Using scene reload.")
+		return null
+
+	return last_checkpoint
+
+func respawn_at_last_checkpoint():
+	var respawn_point = get_last_activated_respawn_point()
+
+	if respawn_point == null:
+		# Fallback to scene reload if no respawn points found
+		get_tree().reload_current_scene()
+		return
+
+	# Store respawn position for after scene reload
+	var respawn_position = respawn_point.global_position
+	var respawn_name = respawn_point.get_respawn_name() if respawn_point.has_method("get_respawn_name") else "Unknown"
+
+	# Store respawn data in global singleton
+	g.set_respawn_data(respawn_position, respawn_name)
+
+	# Reload scene to reset all enemies and world state
+	get_tree().reload_current_scene()
+
+func check_for_respawn_position():
+	# Check if global has stored a respawn position
+	if g.has_respawn_data():
+		var respawn_data = g.get_and_clear_respawn_data()
+
+		# Move player to respawn position
+		global_position = respawn_data.position
+
+		# Reset player state
+		dead = false
+		immobile = false
+		shooting_enabled = true
+		health = MAX_HEALTH
+		velocity = Vector3.ZERO
+
+		# Reset camera and input
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+		Log.info("Respawned at: %s" % respawn_data.name)
+
 #endregion
 
 #region Input Overrides
@@ -271,7 +337,6 @@ func apply_shotgun_recoil():
 	if velocity.length() > max_recoil_speed:
 		velocity = velocity.normalized() * max_recoil_speed
 
-	# Optional: Add a small screen shake or visual effect here
-	# print("Shotgun boost applied! Velocity: ", velocity.length())
+	# Log.info("Shotgun boost applied! Velocity: ", velocity.length())
 
 #endregion
