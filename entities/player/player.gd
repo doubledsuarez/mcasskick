@@ -7,6 +7,9 @@ extends "res://addons/fpc/character.gd"
 signal health_changed
 signal item_picked_up
 
+# This will be used with the final staircase to know how many segments to rise
+var figurine_count := 0
+
 const MAX_HEALTH : int = 100
 var health : int = MAX_HEALTH
 var dead = false
@@ -138,7 +141,7 @@ func die():
 
 #region Inventory System
 
-func add_to_inventory(item_name: String, description: String, quantity: int = 1) -> bool:
+func add_to_inventory(item_name: String, description: String, quantity: int = 1, is_figurine:=false) -> bool:
 	# Check if inventory has space
 	if get_inventory_count() >= max_inventory_size and not inventory.has(item_name):
 		Log.info("Inventory full! Cannot pick up ", item_name)
@@ -156,6 +159,12 @@ func add_to_inventory(item_name: String, description: String, quantity: int = 1)
 	
 	# Emit the signal to the hud can pick it up
 	emit_signal("item_picked_up", item_name)
+	
+	# Keep track of the figurines for the final staircase
+	if is_figurine:
+		figurine_count += 1
+		print("Player figurine count: " + str(figurine_count))
+	
 	return true
 
 func remove_from_inventory(item_name: String, quantity: int = 1) -> bool:
@@ -225,13 +234,13 @@ func handle_shooting():
 		else:
 			if Input.is_action_just_pressed(controls.SHOOT) and not in_dialogue:
 				if not reloading:
+					
 					reloading = true
 					WEAPON_SPRITE.stop()
 					WEAPON_SPRITE.play("shoot")
 					SHOOT_SOUND.play()
 					# Hit the enemy
 					if RAYCAST.is_colliding() and RAYCAST.get_collider().has_method("take_damage"):
-						print("Player raycast hit: " + str(RAYCAST.get_collider()))
 						RAYCAST.get_collider().take_damage(1)
 
 					# Shotgun momentum boost - only when airborne
