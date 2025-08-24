@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://dewgegmbs8em6"
+path="res://.godot/imported/cuddly_puzzle_platform.map-76a953816e6e5853408df62b8301509a.tres"
+
+[deps]
+
+source_file="res://trenchbroom/maps/cuddly_puzzle_platform.map"
+dest_files=["res://.godot/imported/cuddly_puzzle_platform.map-76a953816e6e5853408df62b8301509a.tres"]
+
+[params]
+

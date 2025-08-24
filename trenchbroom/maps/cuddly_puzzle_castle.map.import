@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://s2x6boa43o78"
+path="res://.godot/imported/cuddly_puzzle_castle.map-ebe2d0af31938da3a5e082938f3d5ce2.tres"
+
+[deps]
+
+source_file="res://trenchbroom/maps/cuddly_puzzle_castle.map"
+dest_files=["res://.godot/imported/cuddly_puzzle_castle.map-ebe2d0af31938da3a5e082938f3d5ce2.tres"]
+
+[params]
+
