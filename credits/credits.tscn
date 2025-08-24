@@ -1,0 +1,183 @@
+[gd_scene load_steps=12 format=3 uid="uid://dunkmnmoyl5tw"]
+
+[ext_resource type="FontFile" uid="uid://cc12wq7tok063" path="res://ui/DooM.ttf" id="1_5uwby"]
+[ext_resource type="Script" uid="uid://deoq3elpo2x0d" path="res://credits/credits.gd" id="1_24bn4"]
+[ext_resource type="Texture2D" uid="uid://chi6ceef88yi1" path="res://credits/rick_concepts_1.png" id="2_xjpbh"]
+[ext_resource type="Texture2D" uid="uid://df5ndk41nte06" path="res://credits/villager_concepts_1.png" id="3_bacv1"]
+[ext_resource type="Texture2D" uid="uid://rp3r1es61j4g" path="res://credits/house_concepts_1.png" id="4_24bn4"]
+[ext_resource type="Texture2D" uid="uid://cd8ofk6bjte6j" path="res://credits/enemy_concepts_1.png" id="5_bacv1"]
+
+[sub_resource type="Gradient" id="Gradient_k1w7j"]
+colors = PackedColorArray(0.951562, 0.882345, 0.867401, 1, 0.834232, 0.953632, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5uwby"]
+gradient = SubResource("Gradient_k1w7j")
+width = 640
+height = 480
+fill_from = Vector2(0.649485, 1)
+fill_to = Vector2(0.4811, 0)
+
+[sub_resource type="Animation" id="Animation_24bn4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Credit Root:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 480)]
+}
+
+[sub_resource type="Animation" id="Animation_bacv1"]
+resource_name = "scroll"
+length = 90.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Credit Root:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 89.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 480), Vector2(0, -3624)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lj7uq"]
+_data = {
+&"RESET": SubResource("Animation_24bn4"),
+&"scroll": SubResource("Animation_bacv1")
+}
+
+[node name="CanvasLayer" type="CanvasLayer"]
+layer = 3
+
+[node name="Credits" type="Node2D" parent="."]
+script = ExtResource("1_24bn4")
+
+[node name="BG" type="Sprite2D" parent="Credits"]
+position = Vector2(320, 240)
+texture = SubResource("GradientTexture2D_5uwby")
+
+[node name="Credit Root" type="Node2D" parent="Credits"]
+position = Vector2(0, 480)
+
+[node name="MarginContainer" type="MarginContainer" parent="Credits/Credit Root"]
+custom_minimum_size = Vector2(640, 1000)
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Credits/Credit Root/MarginContainer"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Credits Text" type="RichTextLabel" parent="Credits/Credit Root/MarginContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/default_color = Color(1, 0.619651, 0.683766, 1)
+theme_override_fonts/normal_font = ExtResource("1_5uwby")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "Programming
+Danny Suarez
+Milton Monroe
+Alex
+
+
+
+
+
+
+
+Art
+Concept Art - Ava
+Title Screen Art - Ava
+Game Art - Milton
+Figurine Models - James
+
+
+
+
+
+
+UI
+Programming - Chescher
+Textures - Milton
+
+
+Level Design
+World - Milton
+Intro UFO - Alex, Milton
+
+
+
+
+
+Music
+Drums - Danny
+Guitar - Cenewulf
+Mixing, Synth - Jake
+Recording - Milton, Jake
+
+
+Voice Acting
+Rick - Chescher
+
+
+
+
+
+
+
+Assets Used
+Godot
+Trenchbroom
+FuncGodot
+DialogueManager
+Quality First Person Controller
+Log
+
+Fonts Used
+DooM
+UAV-OSD-Mono"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Rick" type="Sprite2D" parent="Credits/Credit Root"]
+position = Vector2(320, 328)
+scale = Vector2(0.258333, 0.258333)
+texture = ExtResource("2_xjpbh")
+
+[node name="Villagers" type="Sprite2D" parent="Credits/Credit Root"]
+position = Vector2(320, 800)
+scale = Vector2(0.258333, 0.258333)
+texture = ExtResource("3_bacv1")
+
+[node name="Villagers2" type="Sprite2D" parent="Credits/Credit Root"]
+position = Vector2(320, 1368)
+scale = Vector2(0.258333, 0.258333)
+texture = ExtResource("4_24bn4")
+
+[node name="Villagers3" type="Sprite2D" parent="Credits/Credit Root"]
+position = Vector2(320, 1960)
+scale = Vector2(0.258333, 0.258333)
+texture = ExtResource("5_bacv1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Credits"]
+libraries = {
+&"": SubResource("AnimationLibrary_lj7uq")
+}
+autoplay = "scroll"
+
+[connection signal="animation_finished" from="Credits/AnimationPlayer" to="Credits" method="_on_animation_player_animation_finished"]
