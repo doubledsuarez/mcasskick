@@ -50,9 +50,6 @@ func _ready():
 
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
 
-	# Check if we need to respawn at a specific position
-	check_for_respawn_position()
-
 
 func _unhandled_input(event: InputEvent) -> void:
 	super._unhandled_input(event)
