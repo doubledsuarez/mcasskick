@@ -163,7 +163,7 @@ func add_to_inventory(item_name: String, description: String, quantity: int = 1,
 	# Keep track of the figurines for the final staircase
 	if is_figurine:
 		figurine_count += 1
-		print("Player figurine count: " + str(figurine_count))
+		#print("Player figurine count: " + str(figurine_count))
 	
 	return true
 
