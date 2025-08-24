@@ -1,4 +1,4 @@
-extends StaticBody3D
+extends CharacterBody3D
 class_name ToggleVillager
 
 # This is a base class for all objects that will only exist in one world state

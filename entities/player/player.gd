@@ -278,7 +278,7 @@ func check_for_respawn_position():
 
 #endregion
 
-#region Input Overrides
+#region Game Mechanics
 
 # Called from the cellphone pickup
 func cellphone_picked_up():
@@ -313,17 +313,17 @@ func handle_shooting():
 					WEAPON_SPRITE.play("shoot")
 					if !g.cuddly_world:
 						SHOOT_SOUND.play()
-					else:
-						#CONFETTI_SOUND.play()
-						Log.info("Confetti!!")
+					#else:
+						##CONFETTI_SOUND.play()
+						#Log.info("Confetti!!")
 						
-					# Hit the enemy and only play the shoot sound if it's an enemy
+					# Shoot to kill enemies, throw confetti at villagers
 					if RAYCAST.is_colliding() and RAYCAST.get_collider().has_method("take_damage"):
 						Log.info("Player shot hit: " + str(RAYCAST.get_collider().get_name()))
 						RAYCAST.get_collider().take_damage(1)
 					elif RAYCAST.is_colliding() and RAYCAST.get_collider().has_method("have_party"):
-						#CONFETTI_SOUND.play()
 						Log.info("Player shot confetti at: " + str(RAYCAST.get_collider().get_name()))
+						RAYCAST.get_collider().have_party()
 
 					# Shotgun momentum boost - only when airborne
 					if g.recoil_unlocked or g.dev_mode:
