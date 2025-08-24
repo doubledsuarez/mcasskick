@@ -111,7 +111,7 @@ mute={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://entities/villagers/base/villager.dialogue", "res://entities/villagers/bunny.dialogue")
+locale/translations_pot_files=PackedStringArray("res://entities/villagers/base/villager.dialogue", "res://entities/villagers/bunny/bunny.dialogue", "res://entities/villagers/confetti.dialogue")
 
 [layer_names]
 

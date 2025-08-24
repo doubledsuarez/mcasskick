@@ -1,4 +1,2 @@
 extends ToggleVillager
-
-func have_party():
-	Log.info("Wheeeeeee")
+class_name Villager

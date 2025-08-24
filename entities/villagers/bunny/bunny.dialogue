@@ -1,6 +1,6 @@
 ~ start
 Bunny: Hi! Welcome to Cuddle Land!
 Bunny: Feel free to take a load off and explore!
-- Start again => start
-- End the conversation => END
+- Say that again? => start
+- Leave => END
 => END

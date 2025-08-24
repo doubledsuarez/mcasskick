@@ -63,6 +63,7 @@ func _on_dialogue_ended(resource : DialogueResource):
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	in_dialogue = false
 	immobile = false
+	shooting_enabled = true
 	g.question_asked = false
 
 #region Logic Handling
@@ -324,7 +325,7 @@ func handle_shooting():
 					elif RAYCAST.is_colliding() and RAYCAST.get_collider().has_method("have_party"):
 						Log.info("Player shot confetti at: " + str(RAYCAST.get_collider().get_name()))
 						RAYCAST.get_collider().have_party()
-
+						
 					# Shotgun momentum boost - only when airborne
 					if g.recoil_unlocked or g.dev_mode:
 						if not is_on_floor():

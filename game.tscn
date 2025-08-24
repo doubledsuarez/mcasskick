@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://r54dyixspqae"]
+[gd_scene load_steps=17 format=3 uid="uid://r54dyixspqae"]
 
 [ext_resource type="Script" uid="uid://0x1oyn0i5ywr" path="res://game.gd" id="1_eow3j"]
 [ext_resource type="PackedScene" uid="uid://co7sigkndoct3" path="res://world/puzzle_trees.tscn" id="2_iotsf"]
@@ -8,8 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://coqpusufa8a6k" path="res://addons/fpc/reticles/reticle_0.tscn" id="5_7jktm"]
 [ext_resource type="PackedScene" uid="uid://dyks0b1t1vx3j" path="res://world/intro_ship.tscn" id="5_hve3p"]
 [ext_resource type="PackedScene" uid="uid://h30klttmj8ll" path="res://ui/hud/hud.tscn" id="7_eow3j"]
-[ext_resource type="Script" uid="uid://kiohtaf0hws1" path="res://entities/villagers/bunny.gd" id="8_lc2xo"]
-[ext_resource type="Resource" uid="uid://bs4kkljhftgq3" path="res://entities/villagers/bunny.dialogue" id="9_215e1"]
+[ext_resource type="Script" uid="uid://b4x7vv1n8vmk5" path="res://entities/villagers/bunny/bunny.gd" id="8_lc2xo"]
+[ext_resource type="Script" uid="uid://kiohtaf0hws1" path="res://entities/villagers/bunny/bunny_action.gd" id="9_7sc4i"]
+[ext_resource type="Resource" uid="uid://dr8tcdrk4fo78" path="res://entities/villagers/confetti.dialogue" id="9_80cx4"]
+[ext_resource type="Resource" uid="uid://bs4kkljhftgq3" path="res://entities/villagers/bunny/bunny.dialogue" id="9_215e1"]
 [ext_resource type="PackedScene" uid="uid://7me2ccb5ua8m" path="res://world/castle.tscn" id="9_hve3p"]
 [ext_resource type="PackedScene" uid="uid://bim2jwgv8vjsu" path="res://world/final_area.tscn" id="11_e8heu"]
 [ext_resource type="PackedScene" uid="uid://c3dx7ns1vrdv5" path="res://entities/respawn_points/respawn_point.tscn" id="11_iotsf"]
@@ -48,9 +50,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 6.8, 165.5)
 
 [node name="Villager" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("2_mfdv2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 5.04058, -6)
+script = ExtResource("8_lc2xo")
+confetti_resource = ExtResource("9_80cx4")
+dialogue_start = "start"
 
 [node name="Interactable" parent="SubViewportContainer/SubViewport/Game/Villager" index="2"]
-script = ExtResource("8_lc2xo")
+script = ExtResource("9_7sc4i")
 dialogue_resource = ExtResource("9_215e1")
 
 [node name="Reticle" parent="SubViewportContainer/SubViewport/Game" node_paths=PackedStringArray("character") instance=ExtResource("5_7jktm")]

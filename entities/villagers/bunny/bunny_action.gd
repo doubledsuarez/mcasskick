@@ -11,3 +11,4 @@ func action() -> void:
 	g.player.in_dialogue = true
 	
 	DialogueManager.show_dialogue_balloon_scene(BALLOON, dialogue_resource, dialogue_start)
+	
