@@ -8,4 +8,8 @@ func _ready() -> void:
 	g.game = self
 	
 	g.dev_mode = dev_mode
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("respawn"):
+		g.player.die()
 	
