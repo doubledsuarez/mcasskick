@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://vsspef1jk2kv"]
+
+[ext_resource type="ArrayMesh" uid="uid://d0y8lbjl5foqy" path="res://entities/staircase/staircase_mesh.res" id="1_04icg"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_04icg"]
+points = PackedVector3Array(4, 4, -4, 4, -4, 4, -4, -4, 4, -4, 4, -4, 4, -100, -4, 4, -100, 4, -4, -100, 4, -4, -100, -4)
+
+[node name="Staircase" type="Node3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+mesh = ExtResource("1_04icg")
+skeleton = NodePath("../../Pickup_Figurine_doomguy_gold")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_04icg")
