@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxfpxck5qlyej"]
+
+[ext_resource type="PackedScene" uid="uid://dnn8740kl002s" path="res://entities/pickups/figures/pickup_figurine.tscn" id="1_2ki2i"]
+[ext_resource type="ArrayMesh" uid="uid://bdrxq66v7oi16" path="res://entities/pickups/figures/carebeargold.res" id="2_5sa1e"]
+
+[node name="Pickup_Figurine_CarebearGold" instance=ExtResource("1_2ki2i")]
+pickup_name = "CarebearGold"
+
+[node name="MeshInstance3D" parent="." index="1"]
+mesh = ExtResource("2_5sa1e")

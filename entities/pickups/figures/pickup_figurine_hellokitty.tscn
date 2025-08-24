@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7qg7wj01bti6"]
+
+[ext_resource type="PackedScene" uid="uid://dnn8740kl002s" path="res://entities/pickups/figures/pickup_figurine.tscn" id="1_2tpth"]
+[ext_resource type="ArrayMesh" uid="uid://10e0xgxdpyal" path="res://entities/pickups/figures/hellokitty.res" id="2_yo7ki"]
+
+[node name="Pickup_Figurine_hellokitty" instance=ExtResource("1_2tpth")]
+pickup_name = "Hellokitty"
+
+[node name="MeshInstance3D" parent="." index="1"]
+mesh = ExtResource("2_yo7ki")
