@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://da52itg687i4n"]
+[gd_scene load_steps=9 format=3 uid="uid://da52itg687i4n"]
 
 [ext_resource type="Script" uid="uid://c8srkvkryb10e" path="res://entities/villagers/base/villager.gd" id="1_nae3m"]
 [ext_resource type="PackedScene" uid="uid://oxf1gms0uy6m" path="res://helpers/interactable.tscn" id="2_plj41"]
 [ext_resource type="Resource" uid="uid://bokrq13iv10tx" path="res://entities/villagers/base/villager.dialogue" id="3_takau"]
+[ext_resource type="Texture2D" uid="uid://dff258vub3l21" path="res://entities/villagers/villager_rabbit.png" id="4_nfjb1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5vvp5"]
 size = Vector3(1, 2, 1)
@@ -23,6 +24,7 @@ script = ExtResource("1_nae3m")
 shape = SubResource("BoxShape3D_5vvp5")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("BoxMesh_nae3m")
 surface_material_override/0 = SubResource("StandardMaterial3D_plj41")
 
@@ -31,3 +33,10 @@ dialogue_resource = ExtResource("3_takau")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable"]
 shape = SubResource("SphereShape3D_takau")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.739794, 0)
+pixel_size = 0.05
+billboard = 1
+texture_filter = 0
+texture = ExtResource("4_nfjb1")
