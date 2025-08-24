@@ -320,6 +320,7 @@ func handle_head_rotation():
 
 	mouseInput = Vector2(0,0)
 	HEAD.rotation.x = clamp(HEAD.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+	RAYCAST.rotation.x = clamp(RAYCAST.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 
 
 func check_controls(): # If you add a control, you might want to add a check for it here.

@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cju0pxn2xm2ql" path="res://entities/pickups/figures/pickup_figurine_doomguy_pink.tscn" id="5_yur0g"]
 [ext_resource type="PackedScene" uid="uid://pfsk25ldh56t" path="res://entities/pickups/figures/pickup_figurine_hellokitty_gold.tscn" id="6_pnguk"]
 [ext_resource type="PackedScene" uid="uid://dxfpxck5qlyej" path="res://entities/pickups/figures/pickup_figurine_carebear_gold.tscn" id="7_nfe5f"]
-[ext_resource type="PackedScene" uid="uid://vsspef1jk2kv" path="res://entities/staircase/staircase.tscn" id="8_t2p8v"]
+[ext_resource type="PackedScene" uid="uid://dg6tthxf1a7m2" path="res://entities/final_staircase.tscn" id="8_lm1a5"]
 [ext_resource type="Script" uid="uid://b8lj2fdqsbvg7" path="res://world/world_light.gd" id="9_nfe5f"]
 [ext_resource type="PackedScene" uid="uid://b5g5ldlfgsn0w" path="res://entities/toggleblock/toggle_block.tscn" id="10_t2p8v"]
 [ext_resource type="PackedScene" uid="uid://s8ycp8u5vbug" path="res://world/props/world_cuddly/lantern.tscn" id="11_lm1a5"]
@@ -35,29 +35,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 6, -4)
 [node name="Pickup_Figurine_CarebearGold" parent="." instance=ExtResource("7_nfe5f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.57945, 10.5, -5.5)
 
-[node name="Staircase" parent="." instance=ExtResource("8_t2p8v")]
-transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 19.2893, 83.9853)
-
-[node name="Staircase2" parent="." instance=ExtResource("8_t2p8v")]
-transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 27.2893, 91.9853)
-
-[node name="Staircase3" parent="." instance=ExtResource("8_t2p8v")]
-transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 35.2893, 99.9853)
-
-[node name="Staircase4" parent="." instance=ExtResource("8_t2p8v")]
-transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 43.2893, 107.985)
-
-[node name="Staircase5" parent="." instance=ExtResource("8_t2p8v")]
-transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 51.2893, 115.985)
-
-[node name="Staircase6" parent="." instance=ExtResource("8_t2p8v")]
-transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 59.2893, 123.985)
-
-[node name="Staircase7" parent="." instance=ExtResource("8_t2p8v")]
-transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 67.2893, 131.985)
-
-[node name="Staircase8" parent="." instance=ExtResource("8_t2p8v")]
-transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 75.2893, 139.985)
+[node name="FinalStaircase" parent="." instance=ExtResource("8_lm1a5")]
 
 [node name="Props" type="Node3D" parent="."]
 
