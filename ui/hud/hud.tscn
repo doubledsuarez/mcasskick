@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://h30klttmj8ll"]
+[gd_scene load_steps=14 format=3 uid="uid://h30klttmj8ll"]
 
 [ext_resource type="Script" uid="uid://7dc6wtyxq8qa" path="res://ui/hud/hud.gd" id="1_xmswo"]
 [ext_resource type="Texture2D" uid="uid://cfdtpwsyq8cux" path="res://ui/sprite/rick_glasses.png" id="2_4d6w6"]
@@ -11,10 +11,15 @@
 [ext_resource type="Texture2D" uid="uid://bjcb3hft5g3yo" path="res://ui/pickups/FigurinePreview_HelloKittyGold.png" id="8_aixkq"]
 [ext_resource type="Texture2D" uid="uid://b7dfje45hpyl8" path="res://ui/pickups/FigurinePreview_DoomGuyGold.png" id="9_cxhb7"]
 [ext_resource type="Texture2D" uid="uid://dvmiyxgnko2t2" path="res://ui/pickups/FigurinePreview_DoomGuyPink.png" id="10_5uuaq"]
+[ext_resource type="FontFile" uid="uid://cc12wq7tok063" path="res://ui/DooM.ttf" id="12_gv4gi"]
+[ext_resource type="Texture2D" uid="uid://cf66wmm3k7sbe" path="res://ui/hud/hud.png" id="12_p3vm3"]
 
-[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("trinket_grid")]
+[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("health_label", "chill_label", "ammo_label", "trinket_grid")]
 script = ExtResource("1_xmswo")
-trinket_grid = NodePath("main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer")
+health_label = NodePath("main_box/MarginContainer/HudContents/display_seperator/health/header_content_seperator/health_percent")
+chill_label = NodePath("main_box/MarginContainer/HudContents/display_seperator/chill_meter/header_content_seperator/chill_percent")
+ammo_label = NodePath("main_box/MarginContainer/HudContents/display_seperator/ammo/header_content_seperator/ammo_count")
+trinket_grid = NodePath("main_box/MarginContainer/HudContents/display_seperator/trinkets/GridContainer")
 
 [node name="main_box" type="MarginContainer" parent="."]
 anchors_preset = 15
@@ -23,123 +28,133 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme_override_constants/margin_left = -8
-theme_override_constants/margin_right = -8
-theme_override_constants/margin_bottom = -8
 
 [node name="MarginContainer" type="MarginContainer" parent="main_box"]
 layout_mode = 2
 size_flags_vertical = 8
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
 
-[node name="ColorRect" type="ColorRect" parent="main_box/MarginContainer"]
+[node name="BG" type="TextureRect" parent="main_box/MarginContainer"]
+texture_filter = 1
 layout_mode = 2
-color = Color(0, 0, 0, 1)
+texture = ExtResource("12_p3vm3")
 
-[node name="MarginContainer" type="MarginContainer" parent="main_box/MarginContainer"]
+[node name="HudContents" type="MarginContainer" parent="main_box/MarginContainer"]
+custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_bottom = 8
 
-[node name="display_seperator" type="HBoxContainer" parent="main_box/MarginContainer/MarginContainer"]
+[node name="display_seperator" type="HBoxContainer" parent="main_box/MarginContainer/HudContents"]
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="trinkets" type="MarginContainer" parent="main_box/MarginContainer/MarginContainer/display_seperator"]
+[node name="trinkets" type="MarginContainer" parent="main_box/MarginContainer/HudContents/display_seperator"]
+custom_minimum_size = Vector2(130, 70)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/margin_left = 8
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
 
-[node name="GridContainer" type="GridContainer" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets"]
-custom_minimum_size = Vector2(150, 75)
+[node name="GridContainer" type="GridContainer" parent="main_box/MarginContainer/HudContents/display_seperator/trinkets"]
+custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/h_separation = 10
-theme_override_constants/v_separation = 10
+theme_override_constants/h_separation = 2
+theme_override_constants/v_separation = 2
 columns = 4
 
-[node name="TrinketDisplay" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer" instance=ExtResource("2_e0nub")]
+[node name="TrinketDisplay" parent="main_box/MarginContainer/HudContents/display_seperator/trinkets/GridContainer" instance=ExtResource("2_e0nub")]
 layout_mode = 2
 figurine_name = "Carebear"
 figurine_texture = ExtResource("3_w75iv")
 
-[node name="TrinketDisplay2" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer" instance=ExtResource("2_e0nub")]
+[node name="TrinketDisplay2" parent="main_box/MarginContainer/HudContents/display_seperator/trinkets/GridContainer" instance=ExtResource("2_e0nub")]
 layout_mode = 2
 figurine_name = "Hellokitty"
 figurine_texture = ExtResource("4_imuuq")
 
-[node name="TrinketDisplay3" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer" instance=ExtResource("2_e0nub")]
+[node name="TrinketDisplay3" parent="main_box/MarginContainer/HudContents/display_seperator/trinkets/GridContainer" instance=ExtResource("2_e0nub")]
 layout_mode = 2
 figurine_name = "Doomguy"
 figurine_texture = ExtResource("5_kwc50")
 
-[node name="TrinketDisplay4" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer" instance=ExtResource("2_e0nub")]
+[node name="TrinketDisplay4" parent="main_box/MarginContainer/HudContents/display_seperator/trinkets/GridContainer" instance=ExtResource("2_e0nub")]
 layout_mode = 2
 figurine_name = "Cheese"
 figurine_texture = ExtResource("6_o2lis")
 
-[node name="TrinketDisplay5" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer" instance=ExtResource("2_e0nub")]
+[node name="TrinketDisplay5" parent="main_box/MarginContainer/HudContents/display_seperator/trinkets/GridContainer" instance=ExtResource("2_e0nub")]
 layout_mode = 2
 figurine_name = "CarebearGold"
 figurine_texture = ExtResource("7_gfles")
 
-[node name="TrinketDisplay6" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer" instance=ExtResource("2_e0nub")]
+[node name="TrinketDisplay6" parent="main_box/MarginContainer/HudContents/display_seperator/trinkets/GridContainer" instance=ExtResource("2_e0nub")]
 layout_mode = 2
 figurine_name = "HellokittyGold"
 figurine_texture = ExtResource("8_aixkq")
 
-[node name="TrinketDisplay7" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer" instance=ExtResource("2_e0nub")]
+[node name="TrinketDisplay7" parent="main_box/MarginContainer/HudContents/display_seperator/trinkets/GridContainer" instance=ExtResource("2_e0nub")]
 layout_mode = 2
 figurine_name = "DoomguyGold"
 figurine_texture = ExtResource("9_cxhb7")
 
-[node name="TrinketDisplay8" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer" instance=ExtResource("2_e0nub")]
+[node name="TrinketDisplay8" parent="main_box/MarginContainer/HudContents/display_seperator/trinkets/GridContainer" instance=ExtResource("2_e0nub")]
 layout_mode = 2
 figurine_name = "DoomguyPink"
 figurine_texture = ExtResource("10_5uuaq")
 
-[node name="chill_meter" type="MarginContainer" parent="main_box/MarginContainer/MarginContainer/display_seperator"]
+[node name="chill_meter" type="MarginContainer" parent="main_box/MarginContainer/HudContents/display_seperator"]
+custom_minimum_size = Vector2(154, 70)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="header_content_seperator" type="VBoxContainer" parent="main_box/MarginContainer/HudContents/display_seperator/chill_meter"]
+layout_mode = 2
+theme_override_constants/separation = -4
+
+[node name="chill_percent" type="RichTextLabel" parent="main_box/MarginContainer/HudContents/display_seperator/chill_meter/header_content_seperator"]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.677213, 1.20929e-05, 0.0723995, 1)
+theme_override_colors/font_outline_color = Color(0.351709, 0, 0.0183809, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("12_gv4gi")
+theme_override_font_sizes/normal_font_size = 32
+text = "0%"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="chill_title" type="RichTextLabel" parent="main_box/MarginContainer/HudContents/display_seperator/chill_meter/header_content_seperator"]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.654232, 0.654232, 0.654232, 1)
+theme_override_fonts/normal_font = ExtResource("12_gv4gi")
+text = "Chill"
+horizontal_alignment = 1
+
+[node name="character_display" type="MarginContainer" parent="main_box/MarginContainer/HudContents/display_seperator"]
+custom_minimum_size = Vector2(68, 70)
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 0
 
-[node name="header_content_seperator" type="VBoxContainer" parent="main_box/MarginContainer/MarginContainer/display_seperator/chill_meter"]
-layout_mode = 2
-size_flags_vertical = 8
-
-[node name="header" type="Label" parent="main_box/MarginContainer/MarginContainer/display_seperator/chill_meter/header_content_seperator"]
-layout_mode = 2
-size_flags_vertical = 8
-theme_override_font_sizes/font_size = 20
-text = "Chill %"
-horizontal_alignment = 1
-
-[node name="content" type="Label" parent="main_box/MarginContainer/MarginContainer/display_seperator/chill_meter/header_content_seperator"]
-layout_mode = 2
-size_flags_vertical = 10
-theme_override_font_sizes/font_size = 30
-text = "100"
-horizontal_alignment = 1
-
-[node name="character_display" type="MarginContainer" parent="main_box/MarginContainer/MarginContainer/display_seperator"]
-layout_mode = 2
-size_flags_horizontal = 6
-
-[node name="rick_head" type="TextureRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/character_display"]
+[node name="rick_head" type="TextureRect" parent="main_box/MarginContainer/HudContents/display_seperator/character_display"]
 unique_name_in_owner = true
 texture_filter = 1
-custom_minimum_size = Vector2(48, 70)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 texture = ExtResource("2_4d6w6")
 
-[node name="placeholder" type="ColorRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/character_display/rick_head"]
+[node name="placeholder" type="ColorRect" parent="main_box/MarginContainer/HudContents/display_seperator/character_display/rick_head"]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -149,47 +164,77 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.572988, 0.572988, 0.572988, 1)
 
-[node name="ammo" type="MarginContainer" parent="main_box/MarginContainer/MarginContainer/display_seperator"]
+[node name="health" type="MarginContainer" parent="main_box/MarginContainer/HudContents/display_seperator"]
+custom_minimum_size = Vector2(144, 70)
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
 
-[node name="header_content_seperator" type="VBoxContainer" parent="main_box/MarginContainer/MarginContainer/display_seperator/ammo"]
+[node name="header_content_seperator" type="VBoxContainer" parent="main_box/MarginContainer/HudContents/display_seperator/health"]
 layout_mode = 2
-size_flags_vertical = 8
+theme_override_constants/separation = -4
 
-[node name="header" type="Label" parent="main_box/MarginContainer/MarginContainer/display_seperator/ammo/header_content_seperator"]
+[node name="health_percent" type="RichTextLabel" parent="main_box/MarginContainer/HudContents/display_seperator/health/header_content_seperator"]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 45)
 layout_mode = 2
-size_flags_vertical = 8
-theme_override_font_sizes/font_size = 20
-text = "Ammo"
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.677213, 1.20929e-05, 0.0723995, 1)
+theme_override_colors/font_outline_color = Color(0.351709, 0, 0.0183809, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("12_gv4gi")
+theme_override_font_sizes/normal_font_size = 32
+text = "100%"
+scroll_active = false
 horizontal_alignment = 1
+vertical_alignment = 2
 
-[node name="content" type="Label" parent="main_box/MarginContainer/MarginContainer/display_seperator/ammo/header_content_seperator"]
+[node name="health_title" type="RichTextLabel" parent="main_box/MarginContainer/HudContents/display_seperator/health/header_content_seperator"]
+texture_filter = 1
 layout_mode = 2
-size_flags_vertical = 10
-theme_override_font_sizes/font_size = 30
-text = "Inf."
-horizontal_alignment = 1
-
-[node name="health" type="MarginContainer" parent="main_box/MarginContainer/MarginContainer/display_seperator"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/margin_right = 8
-
-[node name="header_content_seperator" type="VBoxContainer" parent="main_box/MarginContainer/MarginContainer/display_seperator/health"]
-layout_mode = 2
-size_flags_vertical = 8
-
-[node name="health_header" type="Label" parent="main_box/MarginContainer/MarginContainer/display_seperator/health/header_content_seperator"]
-layout_mode = 2
-size_flags_vertical = 8
-theme_override_font_sizes/font_size = 20
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.654232, 0.654232, 0.654232, 1)
+theme_override_fonts/normal_font = ExtResource("12_gv4gi")
 text = "Health"
 horizontal_alignment = 1
 
-[node name="health_content" type="Label" parent="main_box/MarginContainer/MarginContainer/display_seperator/health/header_content_seperator"]
+[node name="ammo" type="MarginContainer" parent="main_box/MarginContainer/HudContents/display_seperator"]
+custom_minimum_size = Vector2(144, 70)
 layout_mode = 2
-size_flags_vertical = 10
-theme_override_font_sizes/font_size = 30
-text = "100"
+size_flags_vertical = 4
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="header_content_seperator" type="VBoxContainer" parent="main_box/MarginContainer/HudContents/display_seperator/ammo"]
+layout_mode = 2
+theme_override_constants/separation = -4
+
+[node name="ammo_count" type="RichTextLabel" parent="main_box/MarginContainer/HudContents/display_seperator/ammo/header_content_seperator"]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.677213, 1.20929e-05, 0.0723995, 1)
+theme_override_colors/font_outline_color = Color(0.351709, 0, 0.0183809, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("12_gv4gi")
+theme_override_font_sizes/normal_font_size = 32
+text = "8000"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="ammo_title" type="RichTextLabel" parent="main_box/MarginContainer/HudContents/display_seperator/ammo/header_content_seperator"]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.654232, 0.654232, 0.654232, 1)
+theme_override_fonts/normal_font = ExtResource("12_gv4gi")
+text = "Ammo"
 horizontal_alignment = 1
