@@ -1,13 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://r54dyixspqae"]
+[gd_scene load_steps=11 format=3 uid="uid://r54dyixspqae"]
 
 [ext_resource type="Script" uid="uid://0x1oyn0i5ywr" path="res://game.gd" id="1_eow3j"]
-[ext_resource type="PackedScene" uid="uid://bvmsu0axhbdu7" path="res://entities/pickups/figures/figure.tscn" id="2_215e1"]
+[ext_resource type="PackedScene" uid="uid://co7sigkndoct3" path="res://world/puzzle_trees.tscn" id="2_iotsf"]
 [ext_resource type="PackedScene" uid="uid://da52itg687i4n" path="res://entities/villagers/base/villager.tscn" id="2_mfdv2"]
 [ext_resource type="PackedScene" uid="uid://c1xntkh8cxt1m" path="res://world/village.tscn" id="2_vef74"]
 [ext_resource type="PackedScene" uid="uid://cc4pdef86f1w8" path="res://entities/player/player.tscn" id="4_fc0e3"]
-[ext_resource type="PackedScene" uid="uid://b5g5ldlfgsn0w" path="res://entities/toggleblock/toggle_block.tscn" id="4_hve3p"]
 [ext_resource type="PackedScene" uid="uid://coqpusufa8a6k" path="res://addons/fpc/reticles/reticle_0.tscn" id="5_7jktm"]
+[ext_resource type="PackedScene" uid="uid://dyks0b1t1vx3j" path="res://world/intro_ship.tscn" id="5_hve3p"]
 [ext_resource type="PackedScene" uid="uid://h30klttmj8ll" path="res://ui/hud/hud.tscn" id="7_eow3j"]
+[ext_resource type="PackedScene" uid="uid://7me2ccb5ua8m" path="res://world/castle.tscn" id="9_hve3p"]
 [ext_resource type="PackedScene" uid="uid://4icf1c7gpltw" path="res://world/environments/environment.tscn" id="13_lc2xo"]
 
 [node name="Node" type="Node"]
@@ -27,23 +28,26 @@ render_target_update_mode = 4
 script = ExtResource("1_eow3j")
 dev_mode = true
 
+[node name="PuzzleTrees" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("2_iotsf")]
+transform = Transform3D(0.642788, 0, 0.766044, 0, 1, 0, -0.766044, 0, 0.642788, 37, 5, -32)
+
+[node name="castle" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("9_hve3p")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 8, 49.505)
+
 [node name="Village" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("2_vef74")]
+
+[node name="IntroShip" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("5_hve3p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33, 50, -17)
 
 [node name="Villager" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("2_mfdv2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 5.04058, -6)
-
-[node name="Figure" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("2_215e1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.39634, 10.5207, -4.91477)
-
-[node name="ToggleBlock2" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("4_hve3p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, 0)
 
 [node name="Reticle" parent="SubViewportContainer/SubViewport/Game" node_paths=PackedStringArray("character") instance=ExtResource("5_7jktm")]
 character = NodePath("../Player/Player")
 dot_color = Color(1, 1, 1, 0.282353)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport/Game"]
-transform = Transform3D(-0.871274, 0.478818, 0.107775, 0, -0.219591, 0.975592, 0.490797, 0.850008, 0.191324, 0, 8, -8)
+transform = Transform3D(-0.904297, 0.133342, 0.405545, 0.204798, -0.698018, 0.68617, 0.374573, 0.703556, 0.603908, 0, 8, -8)
 light_energy = 0.5
 shadow_enabled = true
 sky_mode = 1
@@ -52,13 +56,10 @@ sky_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.75175, 0)
 
 [node name="Player" parent="SubViewportContainer/SubViewport/Game/Player" instance=ExtResource("4_fc0e3")]
-transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, -9, 1, 2)
+transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, -51, 47, -64)
 collision_mask = 31
 default_reticle = "res://addons/fpc/reticles/reticle_1.tscn"
 
 [node name="Environment" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("13_lc2xo")]
-
-[node name="Figure2" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("2_215e1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.88309, 25.3527, 0.0852337)
 
 [node name="HUD" parent="." instance=ExtResource("7_eow3j")]
