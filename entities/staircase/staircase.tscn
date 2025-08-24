@@ -67,7 +67,6 @@ script = ExtResource("1_3jwkb")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 mesh = ExtResource("1_04icg")
-skeleton = NodePath("../../Pickup_Figurine_doomguy_gold")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 

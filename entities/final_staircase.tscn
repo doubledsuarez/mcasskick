@@ -30,6 +30,9 @@ transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 59.
 [node name="Staircase7" parent="." instance=ExtResource("1_rpvrn")]
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 67.2893, 131.985)
 
+[node name="Staircase8" parent="." instance=ExtResource("1_rpvrn")]
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 75.2893, 139.985)
+
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 0
 
