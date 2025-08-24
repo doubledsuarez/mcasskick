@@ -1,7 +1,9 @@
 extends CanvasLayer
 
 
-@onready var health_label = $main_box/MarginContainer/MarginContainer/display_seperator/health/header_content_seperator/health_content
+@export var health_label : RichTextLabel
+@export var chill_label : RichTextLabel
+@export var ammo_label : RichTextLabel
 @export var trinket_grid : GridContainer = null
 
 # rick head icon
@@ -11,9 +13,15 @@ extends CanvasLayer
 @onready var full_chill_icon = preload("res://ui/sprite/rick_glasses.png")
 @onready var low_chill_icon = preload("res://ui/sprite/rick_no_glasses.png")
 
+var chill_amount := 0.0
+
+var ammo_amount := 9923
+
 func _ready() -> void:
 	g.player.health_changed.connect(_on_health_changed)
 	g.player.item_picked_up.connect(_item_picked_up)
+	g.player.shooting.connect(_set_ammo_count)
+	_set_ammo_count()
 	
 	
 func _process(delta: float) -> void:
@@ -36,4 +44,11 @@ func _item_picked_up(figurine_name:String):
 			if display.has_method("set_collected"):
 				if display.figurine_name == figurine_name:
 						display.set_collected()
-	
+						
+		# Set the chill %
+		chill_amount += 12.5
+		chill_label.text = str(int(chill_amount), "%")
+
+func _set_ammo_count():
+	ammo_amount -= 1
+	ammo_label.text = str(ammo_amount)
