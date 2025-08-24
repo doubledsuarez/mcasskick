@@ -70,6 +70,7 @@ func _on_dialogue_ended(resource : DialogueResource):
 	in_dialogue = false
 	immobile = false
 	shooting_enabled = true
+	jumping_enabled = true
 	g.question_asked = false
 
 #region Logic Handling

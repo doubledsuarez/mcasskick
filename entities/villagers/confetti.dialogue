@@ -1,6 +1,6 @@
 ~ start
-% Villager: Tee hee, that tickles!
-% Villager: Yaaay it's a party!
-% Villager: ooooh pretttyyyyyyyyy <3
-% Villager: Again! Again!
-=> END
+% [next=1] Tee hee, that tickles!
+% [next=1] Yaaay it's a party!
+% [next=1] ooooh pretttyyyyyyyyy <3
+% [next=1] Again! Again!
+~ END
