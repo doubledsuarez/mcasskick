@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bs4kkljhftgq3"
+path="res://.godot/imported/bunny.dialogue-bc10ad5e7a652b849baf257e0eef3458.tres"
+
+[deps]
+
+source_file="res://entities/villagers/bunny/bunny.dialogue"
+dest_files=["res://.godot/imported/bunny.dialogue-bc10ad5e7a652b849baf257e0eef3458.tres"]
+
+[params]
+
+defaults=true

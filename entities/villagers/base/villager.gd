@@ -1,1 +1,2 @@
 extends ToggleVillager
+class_name Villager

@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dr8tcdrk4fo78"
+path="res://.godot/imported/confetti.dialogue-77427d403efb7f4bb2e0f3a3f5513825.tres"
+
+[deps]
+
+source_file="res://entities/villagers/confetti.dialogue"
+dest_files=["res://.godot/imported/confetti.dialogue-77427d403efb7f4bb2e0f3a3f5513825.tres"]
+
+[params]
+
+defaults=true

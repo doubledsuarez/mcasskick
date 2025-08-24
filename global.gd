@@ -34,6 +34,9 @@ var hitflash_enabled := true
 var cuddly_world := false
 signal world_toggled
 
+# Respawn system variables
+var last_activated_checkpoint: Node3D = null
+
 # Temporary solution for activating the world toggle until the player input is handled
 func _input(event):
 	if event.is_action_pressed("toggle"):
@@ -47,3 +50,12 @@ func world_switch():
 	else:
 		cuddly_world = false
 		emit_signal("world_toggled")
+
+
+
+func set_last_activated_checkpoint(checkpoint: Node3D) -> void:
+	last_activated_checkpoint = checkpoint
+	Log.info("Global: Last activated checkpoint set to: %s" % (checkpoint.get_respawn_name() if checkpoint.has_method("get_respawn_name") else "Unknown"))
+
+func get_last_activated_checkpoint() -> Node3D:
+	return last_activated_checkpoint

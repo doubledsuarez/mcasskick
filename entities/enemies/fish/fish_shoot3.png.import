@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3ae0en5c0084"
-path.s3tc="res://.godot/imported/fish.png-ef519502f31360021b7485bd62d5f660.s3tc.ctex"
+uid="uid://7n3r12hbvpyi"
+path.s3tc="res://.godot/imported/fish_shoot3.png-d2a4be9dc2e4236800581ff651254517.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://entities/enemies/imp/fish.png"
-dest_files=["res://.godot/imported/fish.png-ef519502f31360021b7485bd62d5f660.s3tc.ctex"]
+source_file="res://entities/enemies/fish/fish_shoot3.png"
+dest_files=["res://.godot/imported/fish_shoot3.png-d2a4be9dc2e4236800581ff651254517.s3tc.ctex"]
 
 [params]
 

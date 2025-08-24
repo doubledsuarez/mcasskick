@@ -19,8 +19,8 @@ func _input(event):
 
 
 func play_track(track_name:String):
-	print("music called")
+	Log.info("music called")
 	if track_name in self:
-		print("music Switching track")
+		Log.info("music Switching track")
 		stream = get(track_name)
 		play()

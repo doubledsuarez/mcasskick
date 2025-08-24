@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7n3r12hbvpyi"
-path.s3tc="res://.godot/imported/fish_shoot3.png-c2f16c1ed962b3aaa3858b8054993d54.s3tc.ctex"
+uid="uid://d25708uo4gbsb"
+path.s3tc="res://.godot/imported/horse.png-1b9026f98ebcc89b35af4fec381acca8.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://entities/enemies/imp/fish_shoot3.png"
-dest_files=["res://.godot/imported/fish_shoot3.png-c2f16c1ed962b3aaa3858b8054993d54.s3tc.ctex"]
+source_file="res://entities/enemies/horse/horse.png"
+dest_files=["res://.godot/imported/horse.png-1b9026f98ebcc89b35af4fec381acca8.s3tc.ctex"]
 
 [params]
 

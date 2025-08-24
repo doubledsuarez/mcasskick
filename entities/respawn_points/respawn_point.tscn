@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3dx7ns1vrdv5"]
+
+[ext_resource type="Script" uid="uid://cljgo8mbp7eop" path="res://entities/respawn_points/respawn_point.gd" id="1_respawn"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_debug"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_debug"]
+transparency = 1
+albedo_color = Color(0, 1, 1, 0.7)
+emission_enabled = true
+emission = Color(0, 1, 1, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_checkpoint"]
+radius = 2.0
+
+[node name="RespawnPoint" type="Node3D"]
+script = ExtResource("1_respawn")
+
+[node name="DebugVisual" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CylinderMesh_debug")
+surface_material_override/0 = SubResource("StandardMaterial3D_debug")
+
+[node name="CheckpointArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CheckpointArea"]
+shape = SubResource("SphereShape3D_checkpoint")

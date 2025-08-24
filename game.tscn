@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://r54dyixspqae"]
+[gd_scene load_steps=17 format=3 uid="uid://r54dyixspqae"]
 
 [ext_resource type="Script" uid="uid://0x1oyn0i5ywr" path="res://game.gd" id="1_eow3j"]
 [ext_resource type="PackedScene" uid="uid://co7sigkndoct3" path="res://world/puzzle_trees.tscn" id="2_iotsf"]
@@ -8,16 +8,21 @@
 [ext_resource type="PackedScene" uid="uid://coqpusufa8a6k" path="res://addons/fpc/reticles/reticle_0.tscn" id="5_7jktm"]
 [ext_resource type="PackedScene" uid="uid://dyks0b1t1vx3j" path="res://world/intro_ship.tscn" id="5_hve3p"]
 [ext_resource type="PackedScene" uid="uid://h30klttmj8ll" path="res://ui/hud/hud.tscn" id="7_eow3j"]
+[ext_resource type="Script" uid="uid://b4x7vv1n8vmk5" path="res://entities/villagers/bunny/bunny.gd" id="8_lc2xo"]
+[ext_resource type="Script" uid="uid://kiohtaf0hws1" path="res://entities/villagers/bunny/bunny_action.gd" id="9_7sc4i"]
+[ext_resource type="Resource" uid="uid://dr8tcdrk4fo78" path="res://entities/villagers/confetti.dialogue" id="9_80cx4"]
+[ext_resource type="Resource" uid="uid://bs4kkljhftgq3" path="res://entities/villagers/bunny/bunny.dialogue" id="9_215e1"]
 [ext_resource type="PackedScene" uid="uid://7me2ccb5ua8m" path="res://world/castle.tscn" id="9_hve3p"]
 [ext_resource type="PackedScene" uid="uid://bim2jwgv8vjsu" path="res://world/final_area.tscn" id="11_e8heu"]
+[ext_resource type="PackedScene" uid="uid://c3dx7ns1vrdv5" path="res://entities/respawn_points/respawn_point.tscn" id="11_iotsf"]
 [ext_resource type="PackedScene" uid="uid://4icf1c7gpltw" path="res://world/environments/environment.tscn" id="13_lc2xo"]
 
 [node name="Node" type="Node"]
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 texture_filter = 1
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 320.0
+offset_bottom = 240.0
 scale = Vector2(2, 2)
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
@@ -45,9 +50,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 6.8, 165.5)
 
 [node name="Villager" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("2_mfdv2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 5.04058, -6)
+script = ExtResource("8_lc2xo")
+confetti_resource = ExtResource("9_80cx4")
+dialogue_start = "start"
+
+[node name="Interactable" parent="SubViewportContainer/SubViewport/Game/Villager" index="2"]
+script = ExtResource("9_7sc4i")
+dialogue_resource = ExtResource("9_215e1")
 
 [node name="Reticle" parent="SubViewportContainer/SubViewport/Game" node_paths=PackedStringArray("character") instance=ExtResource("5_7jktm")]
-character = NodePath("../Player/Player")
+character = NodePath("../Player")
 dot_color = Color(1, 1, 1, 0.282353)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport/Game"]
@@ -56,14 +68,24 @@ light_energy = 0.5
 shadow_enabled = true
 sky_mode = 1
 
-[node name="Player" type="Node3D" parent="SubViewportContainer/SubViewport/Game"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.75175, 0)
+[node name="Environment" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("13_lc2xo")]
 
-[node name="Player" parent="SubViewportContainer/SubViewport/Game/Player" instance=ExtResource("4_fc0e3")]
-transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, -51, 47, -64)
+[node name="Player" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("4_fc0e3")]
+transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, -51, 51.7518, -64)
 collision_mask = 31
 default_reticle = "res://addons/fpc/reticles/reticle_1.tscn"
 
-[node name="Environment" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("13_lc2xo")]
+[node name="RespawnPoints" type="Node3D" parent="SubViewportContainer/SubViewport/Game"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.101498, -0.139862, -0.180614)
+
+[node name="Ship" parent="SubViewportContainer/SubViewport/Game/RespawnPoints" instance=ExtResource("11_iotsf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.9742, 51.6859, -63.9896)
+respawn_name = "Ship"
+
+[node name="Village" parent="SubViewportContainer/SubViewport/Game/RespawnPoints" instance=ExtResource("11_iotsf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.89964, 5.58401, 2.82174)
+respawn_name = "Village"
 
 [node name="HUD" parent="." instance=ExtResource("7_eow3j")]
+
+[editable path="SubViewportContainer/SubViewport/Game/Villager"]

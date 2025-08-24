@@ -17,7 +17,8 @@ albedo_color = Color(0, 0, 1, 1)
 [sub_resource type="SphereShape3D" id="SphereShape3D_takau"]
 radius = 1.5
 
-[node name="Villager" type="StaticBody3D"]
+[node name="Villager" type="CharacterBody3D"]
+collision_layer = 128
 script = ExtResource("1_nae3m")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

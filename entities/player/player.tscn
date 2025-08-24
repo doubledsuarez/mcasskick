@@ -169,6 +169,7 @@ _data = {
 }
 
 [node name="Player" node_paths=PackedStringArray("weapon_sprite", "cellphone_sprite") instance=ExtResource("1_symyc")]
+collision_mask = 255
 script = ExtResource("2_1234")
 weapon_sprite = NodePath("Weapon/WeaponSprite")
 cellphone_sprite = NodePath("Weapon/CellPhoneOrigin/Cellphone")
@@ -191,6 +192,9 @@ collision_mask = 64
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Head/Direction/InteractableFinder" index="0"]
 shape = SubResource("SphereShape3D_abrql")
+
+[node name="RayCast" parent="Weapon" index="0"]
+collision_mask = 130
 
 [node name="WeaponSprite" parent="Weapon" index="1"]
 texture_filter = 1

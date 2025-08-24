@@ -1,7 +1,7 @@
 extends Enemy
-class_name Sniper
+class_name Bat
 
-# Sniper-specific behavior variables
+# bat-specific behavior variables - shoots from far away like a sniper
 @export var preferred_distance = 10.0  # Optimal distance to maintain from player
 @export var strafe_speed = 2.0         # Speed when strafing left/right
 @export var retreat_speed = 3.0        # Speed when retreating from player
@@ -127,23 +127,3 @@ func fire_projectile():
 	fireball.launch(direction, launch_position)
 
 	# Visual feedback - brief muzzle flash or recoil animation could go here
-
-# Cliff detection commented out for now
-# func is_cliff_ahead() -> bool:
-#	var space_state = get_world_3d().direct_space_state
-#	var start_pos = global_position + Vector3.UP * 0.1
-#	var movement_dir = Vector3(velocity.x, 0, velocity.z).normalized()
-#
-#	if movement_dir.length() == 0:
-#		return false
-#
-#	# Check point ahead in movement direction
-#	var check_pos = start_pos + movement_dir * cliff_check_distance
-#	var ground_check_end = check_pos + Vector3.DOWN * cliff_drop_threshold
-#
-#	var query = PhysicsRayQueryParameters3D.create(check_pos, ground_check_end)
-#	query.collision_mask = 1
-#	var result = space_state.intersect_ray(query)
-#
-#	# If no ground found within cliff_drop_threshold distance, it's a cliff
-#	return not result
