@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://dg6tthxf1a7m2"]
+
+[ext_resource type="Script" uid="uid://b6p1m0ku81pkg" path="res://entities/final_staircase.gd" id="1_5nuts"]
+[ext_resource type="PackedScene" uid="uid://vsspef1jk2kv" path="res://entities/staircase/staircase.tscn" id="1_rpvrn"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_rpvrn"]
+radius = 17.6223
+
+[node name="FinalStaircase" type="Node3D"]
+script = ExtResource("1_5nuts")
+
+[node name="Staircase" parent="." instance=ExtResource("1_rpvrn")]
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 19.2893, 83.9853)
+
+[node name="Staircase2" parent="." instance=ExtResource("1_rpvrn")]
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 27.2893, 91.9853)
+
+[node name="Staircase3" parent="." instance=ExtResource("1_rpvrn")]
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 35.2893, 99.9853)
+
+[node name="Staircase4" parent="." instance=ExtResource("1_rpvrn")]
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 43.2893, 107.985)
+
+[node name="Staircase5" parent="." instance=ExtResource("1_rpvrn")]
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 51.2893, 115.985)
+
+[node name="Staircase6" parent="." instance=ExtResource("1_rpvrn")]
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 59.2893, 123.985)
+
+[node name="Staircase7" parent="." instance=ExtResource("1_rpvrn")]
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 67.2893, 131.985)
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16.1836, 84.0718)
+shape = SubResource("SphereShape3D_rpvrn")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
