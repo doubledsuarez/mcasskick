@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cuke6pl3it7f6"]
+
+[ext_resource type="PackedScene" uid="uid://dnn8740kl002s" path="res://entities/pickups/figures/pickup_figurine.tscn" id="1_igfoj"]
+[ext_resource type="ArrayMesh" uid="uid://1ekku38peypf" path="res://entities/pickups/figures/doomguy.res" id="2_wxb1j"]
+
+[node name="Pickup_Figurine_doomguy" instance=ExtResource("1_igfoj")]
+pickup_name = "Doomguy"
+
+[node name="MeshInstance3D" parent="." index="1"]
+mesh = ExtResource("2_wxb1j")

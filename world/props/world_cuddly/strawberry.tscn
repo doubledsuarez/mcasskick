@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpgwa4eutjfo7"]
+
+[ext_resource type="Texture2D" uid="uid://crluallugvi08" path="res://world/props/world_cuddly/strawberry.png" id="1_wp11q"]
+[ext_resource type="Script" uid="uid://cjhkh33qns0ms" path="res://world/props/prop_base.gd" id="2_p5ark"]
+
+[node name="Strawberry" type="Sprite3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+pixel_size = 0.05
+texture_filter = 0
+texture = ExtResource("1_wp11q")
+script = ExtResource("2_p5ark")
+world_state = "cuddly"

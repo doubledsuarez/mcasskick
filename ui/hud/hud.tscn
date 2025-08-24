@@ -1,9 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://h30klttmj8ll"]
+[gd_scene load_steps=12 format=3 uid="uid://h30klttmj8ll"]
 
 [ext_resource type="Script" uid="uid://7dc6wtyxq8qa" path="res://ui/hud/hud.gd" id="1_xmswo"]
+[ext_resource type="Texture2D" uid="uid://cfdtpwsyq8cux" path="res://ui/sprite/rick_glasses.png" id="2_4d6w6"]
+[ext_resource type="PackedScene" uid="uid://mr2liq6v6i3d" path="res://ui/pickups/trinket_display.tscn" id="2_e0nub"]
+[ext_resource type="Texture2D" uid="uid://br3cevlqa6it8" path="res://ui/pickups/FigurinePreview_Carebear.png" id="3_w75iv"]
+[ext_resource type="Texture2D" uid="uid://18detfbslqdo" path="res://ui/pickups/FigurinePreview_HelloKitty.png" id="4_imuuq"]
+[ext_resource type="Texture2D" uid="uid://brygnmh5ldk13" path="res://ui/pickups/FigurinePreview_Doomguy.png" id="5_kwc50"]
+[ext_resource type="Texture2D" uid="uid://dh31cuair2ai5" path="res://ui/pickups/FigurinePreview_Cheese.png" id="6_o2lis"]
+[ext_resource type="Texture2D" uid="uid://dd8o6awx7o07t" path="res://ui/pickups/FigurinePreview_CarebearGold.png" id="7_gfles"]
+[ext_resource type="Texture2D" uid="uid://bjcb3hft5g3yo" path="res://ui/pickups/FigurinePreview_HelloKittyGold.png" id="8_aixkq"]
+[ext_resource type="Texture2D" uid="uid://b7dfje45hpyl8" path="res://ui/pickups/FigurinePreview_DoomGuyGold.png" id="9_cxhb7"]
+[ext_resource type="Texture2D" uid="uid://dvmiyxgnko2t2" path="res://ui/pickups/FigurinePreview_DoomGuyPink.png" id="10_5uuaq"]
 
-[node name="HUD" type="CanvasLayer"]
+[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("trinket_grid")]
 script = ExtResource("1_xmswo")
+trinket_grid = NodePath("main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer")
 
 [node name="main_box" type="MarginContainer" parent="."]
 anchors_preset = 15
@@ -42,119 +53,56 @@ alignment = 1
 [node name="trinkets" type="MarginContainer" parent="main_box/MarginContainer/MarginContainer/display_seperator"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/margin_left = 8
 
 [node name="GridContainer" type="GridContainer" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets"]
-custom_minimum_size = Vector2(200, 100)
+custom_minimum_size = Vector2(150, 75)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/h_separation = 12
-theme_override_constants/v_separation = 12
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
 columns = 4
 
-[node name="trinket_dispaly1" type="TextureRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer"]
-custom_minimum_size = Vector2(20, 20)
+[node name="TrinketDisplay" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer" instance=ExtResource("2_e0nub")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+figurine_name = "Carebear"
+figurine_texture = ExtResource("3_w75iv")
 
-[node name="ColorRect" type="ColorRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer/trinket_dispaly1"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-color = Color(0.18359, 0.18359, 0.18359, 1)
-
-[node name="trinket_dispaly2" type="TextureRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer"]
-custom_minimum_size = Vector2(20, 20)
+[node name="TrinketDisplay2" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer" instance=ExtResource("2_e0nub")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+figurine_name = "Hellokitty"
+figurine_texture = ExtResource("4_imuuq")
 
-[node name="ColorRect" type="ColorRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer/trinket_dispaly2"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-color = Color(0.18359, 0.18359, 0.18359, 1)
-
-[node name="trinket_dispaly3" type="TextureRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer"]
-custom_minimum_size = Vector2(20, 20)
+[node name="TrinketDisplay3" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer" instance=ExtResource("2_e0nub")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+figurine_name = "Doomguy"
+figurine_texture = ExtResource("5_kwc50")
 
-[node name="ColorRect" type="ColorRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer/trinket_dispaly3"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-color = Color(0.18359, 0.18359, 0.18359, 1)
-
-[node name="trinket_dispaly4" type="TextureRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer"]
-custom_minimum_size = Vector2(20, 20)
+[node name="TrinketDisplay4" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer" instance=ExtResource("2_e0nub")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+figurine_name = "Cheese"
+figurine_texture = ExtResource("6_o2lis")
 
-[node name="ColorRect" type="ColorRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer/trinket_dispaly4"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-color = Color(0.18359, 0.18359, 0.18359, 1)
-
-[node name="trinket_dispaly5" type="TextureRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer"]
-custom_minimum_size = Vector2(20, 20)
+[node name="TrinketDisplay5" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer" instance=ExtResource("2_e0nub")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+figurine_name = "CarebearGold"
+figurine_texture = ExtResource("7_gfles")
 
-[node name="ColorRect" type="ColorRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer/trinket_dispaly5"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-color = Color(0.18359, 0.18359, 0.18359, 1)
-
-[node name="trinket_dispaly6" type="TextureRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer"]
-custom_minimum_size = Vector2(20, 20)
+[node name="TrinketDisplay6" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer" instance=ExtResource("2_e0nub")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+figurine_name = "HellokittyGold"
+figurine_texture = ExtResource("8_aixkq")
 
-[node name="ColorRect" type="ColorRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer/trinket_dispaly6"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-color = Color(0.18359, 0.18359, 0.18359, 1)
-
-[node name="trinket_dispaly7" type="TextureRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer"]
-custom_minimum_size = Vector2(20, 20)
+[node name="TrinketDisplay7" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer" instance=ExtResource("2_e0nub")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+figurine_name = "DoomguyGold"
+figurine_texture = ExtResource("9_cxhb7")
 
-[node name="ColorRect" type="ColorRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer/trinket_dispaly7"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-color = Color(0.18359, 0.18359, 0.18359, 1)
-
-[node name="trinket_dispaly8" type="TextureRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer"]
-custom_minimum_size = Vector2(20, 20)
+[node name="TrinketDisplay8" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer" instance=ExtResource("2_e0nub")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="ColorRect" type="ColorRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/trinkets/GridContainer/trinket_dispaly8"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-color = Color(0.18359, 0.18359, 0.18359, 1)
+figurine_name = "DoomguyPink"
+figurine_texture = ExtResource("10_5uuaq")
 
 [node name="chill_meter" type="MarginContainer" parent="main_box/MarginContainer/MarginContainer/display_seperator"]
 layout_mode = 2
@@ -162,32 +110,37 @@ size_flags_horizontal = 3
 
 [node name="header_content_seperator" type="VBoxContainer" parent="main_box/MarginContainer/MarginContainer/display_seperator/chill_meter"]
 layout_mode = 2
+size_flags_vertical = 8
 
 [node name="header" type="Label" parent="main_box/MarginContainer/MarginContainer/display_seperator/chill_meter/header_content_seperator"]
 layout_mode = 2
-size_flags_vertical = 1
+size_flags_vertical = 8
 theme_override_font_sizes/font_size = 20
 text = "Chill %"
 horizontal_alignment = 1
 
 [node name="content" type="Label" parent="main_box/MarginContainer/MarginContainer/display_seperator/chill_meter/header_content_seperator"]
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_vertical = 10
 theme_override_font_sizes/font_size = 30
 text = "100"
 horizontal_alignment = 1
 
 [node name="character_display" type="MarginContainer" parent="main_box/MarginContainer/MarginContainer/display_seperator"]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 6
 
-[node name="TextureRect" type="TextureRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/character_display"]
-custom_minimum_size = Vector2(100, 100)
+[node name="rick_head" type="TextureRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/character_display"]
+unique_name_in_owner = true
+texture_filter = 1
+custom_minimum_size = Vector2(48, 70)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+texture = ExtResource("2_4d6w6")
 
-[node name="placeholder" type="ColorRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/character_display/TextureRect"]
+[node name="placeholder" type="ColorRect" parent="main_box/MarginContainer/MarginContainer/display_seperator/character_display/rick_head"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -202,17 +155,18 @@ size_flags_horizontal = 3
 
 [node name="header_content_seperator" type="VBoxContainer" parent="main_box/MarginContainer/MarginContainer/display_seperator/ammo"]
 layout_mode = 2
+size_flags_vertical = 8
 
 [node name="header" type="Label" parent="main_box/MarginContainer/MarginContainer/display_seperator/ammo/header_content_seperator"]
 layout_mode = 2
-size_flags_vertical = 1
+size_flags_vertical = 8
 theme_override_font_sizes/font_size = 20
 text = "Ammo"
 horizontal_alignment = 1
 
 [node name="content" type="Label" parent="main_box/MarginContainer/MarginContainer/display_seperator/ammo/header_content_seperator"]
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_vertical = 10
 theme_override_font_sizes/font_size = 30
 text = "Inf."
 horizontal_alignment = 1
@@ -220,20 +174,22 @@ horizontal_alignment = 1
 [node name="health" type="MarginContainer" parent="main_box/MarginContainer/MarginContainer/display_seperator"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/margin_right = 8
 
 [node name="header_content_seperator" type="VBoxContainer" parent="main_box/MarginContainer/MarginContainer/display_seperator/health"]
 layout_mode = 2
+size_flags_vertical = 8
 
 [node name="health_header" type="Label" parent="main_box/MarginContainer/MarginContainer/display_seperator/health/header_content_seperator"]
 layout_mode = 2
-size_flags_vertical = 1
+size_flags_vertical = 8
 theme_override_font_sizes/font_size = 20
 text = "Health"
 horizontal_alignment = 1
 
 [node name="health_content" type="Label" parent="main_box/MarginContainer/MarginContainer/display_seperator/health/header_content_seperator"]
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_vertical = 10
 theme_override_font_sizes/font_size = 30
 text = "100"
 horizontal_alignment = 1

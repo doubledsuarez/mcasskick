@@ -1,0 +1,126 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://cs34a6xt36sm8"
+path="res://.godot/imported/Figurines.glb-6207d48044395fab52a684681050e4a9.scn"
+
+[deps]
+
+source_file="res://entities/pickups/Figurines.glb"
+dest_files=["res://.godot/imported/Figurines.glb-6207d48044395fab52a684681050e4a9.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+_subresources={
+"materials": {
+"Material": {
+"use_external/enabled": true,
+"use_external/path": "uid://c1ehqxys8csu3"
+},
+"Material.002": {
+"use_external/enabled": true,
+"use_external/path": ""
+},
+"Material.003": {
+"use_external/enabled": true,
+"use_external/path": ""
+},
+"Material.004": {
+"use_external/enabled": true,
+"use_external/path": ""
+},
+"Material.005": {
+"use_external/enabled": true,
+"use_external/path": ""
+}
+},
+"meshes": {
+"Figurines_Cube_001": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://entities/pickups/figures/carebeargold.res"
+},
+"Figurines_Cube_003": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://entities/pickups/figures/doomguygold.res"
+},
+"Figurines_Cube_004": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://entities/pickups/figures/hellokittygold.res"
+},
+"Figurines_Cube_005": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://entities/pickups/figures/doomguypink.res"
+},
+"Figurines_Cube_009": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://entities/pickups/figures/carebear.res"
+},
+"Figurines_Cube_027": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://entities/pickups/figures/doomguy.res"
+},
+"Figurines_Cube_049": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://entities/pickups/figures/hellokitty.res"
+},
+"Figurines_mesh_010": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://entities/pickups/figures/cheese.res"
+}
+}
+}
+gltf/naming_version=1
+gltf/embedded_image_handling=1

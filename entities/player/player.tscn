@@ -232,3 +232,4 @@ stream = ExtResource("13_j3ovn")
 volume_db = -0.6
 
 [node name="CloudBox" parent="." index="8" instance=ExtResource("14_afbqv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -40.2578, 0)

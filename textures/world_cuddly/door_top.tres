@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://detyi684jg36r"]
+
+[ext_resource type="Texture2D" uid="uid://dv2ghpk7kueu8" path="res://textures/world_cuddly/door_top.png" id="1_m1gbp"]
+
+[resource]
+albedo_texture = ExtResource("1_m1gbp")
+metallic_specular = 0.0
+emission_enabled = true
+emission_energy_multiplier = 0.5
+emission_texture = ExtResource("1_m1gbp")
+texture_filter = 2

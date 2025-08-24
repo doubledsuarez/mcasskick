@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://ds4p1vk5koxgj"
+path="res://.godot/imported/cuddly_puzzle_trees.map-2581047b42df77c17178bec15b4c386f.tres"
+
+[deps]
+
+source_file="res://trenchbroom/maps/cuddly_puzzle_trees.map"
+dest_files=["res://.godot/imported/cuddly_puzzle_trees.map-2581047b42df77c17178bec15b4c386f.tres"]
+
+[params]
+

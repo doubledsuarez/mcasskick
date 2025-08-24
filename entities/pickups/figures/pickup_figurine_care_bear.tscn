@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://clm0qnrk0dubo"]
+
+[ext_resource type="PackedScene" uid="uid://dnn8740kl002s" path="res://entities/pickups/figures/pickup_figurine.tscn" id="1_k2cac"]
+[ext_resource type="ArrayMesh" uid="uid://c0mt734avuh6n" path="res://entities/pickups/figures/carebear.res" id="2_ftipd"]
+
+[node name="Pickup_Figurine_CareBear" instance=ExtResource("1_k2cac")]
+pickup_name = "Carebear"
+
+[node name="MeshInstance3D" parent="." index="1"]
+mesh = ExtResource("2_ftipd")

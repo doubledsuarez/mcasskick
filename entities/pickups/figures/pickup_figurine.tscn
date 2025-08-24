@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dnn8740kl002s"]
+
+[ext_resource type="PackedScene" uid="uid://cwtka8f7ca3v6" path="res://entities/pickups/base/pickup.tscn" id="1_nb4g0"]
+[ext_resource type="ArrayMesh" uid="uid://hyu6uoftkx7j" path="res://entities/pickups/figures/cheese.res" id="2_fn1j7"]
+[ext_resource type="Material" uid="uid://c1ehqxys8csu3" path="res://entities/pickups/figures/figurine.tres" id="3_fn1j7"]
+
+[node name="Pickup_Figurine" instance=ExtResource("1_nb4g0")]
+pickup_type = 1
+
+[node name="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = true
+mesh = ExtResource("2_fn1j7")
+surface_material_override/0 = ExtResource("3_fn1j7")
+
+[node name="Sprite3D" parent="." index="2"]
+visible = false
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.305236, 0)

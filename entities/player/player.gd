@@ -5,6 +5,7 @@ extends "res://addons/fpc/character.gd"
 @onready var direction_ray: Marker3D = $Head/Direction
 @onready var interactable_finder: Area3D = $Head/Direction/InteractableFinder
 signal health_changed
+signal item_picked_up
 
 const MAX_HEALTH : int = 100
 var health : int = MAX_HEALTH
@@ -152,6 +153,9 @@ func add_to_inventory(item_name: String, description: String, quantity: int = 1)
 			"quantity": quantity
 		}
 	Log.info("Added %s x %s to inventory (%s/%s)" % [quantity, item_name, get_inventory_count(), max_inventory_size])
+	
+	# Emit the signal to the hud can pick it up
+	emit_signal("item_picked_up", item_name)
 	return true
 
 func remove_from_inventory(item_name: String, quantity: int = 1) -> bool:
@@ -227,10 +231,11 @@ func handle_shooting():
 					SHOOT_SOUND.play()
 					# Hit the enemy
 					if RAYCAST.is_colliding() and RAYCAST.get_collider().has_method("take_damage"):
+						print("Player raycast hit: " + str(RAYCAST.get_collider()))
 						RAYCAST.get_collider().take_damage(1)
 
 					# Shotgun momentum boost - only when airborne
-					if g.recoil_unlocked:
+					if g.recoil_unlocked or g.dev_mode:
 						if not is_on_floor():
 							apply_shotgun_recoil()
 

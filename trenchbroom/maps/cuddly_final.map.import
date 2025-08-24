@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://cgdt2ceuoveqe"
+path="res://.godot/imported/cuddly_final.map-34bfe537973dec7c280c4695e5af399a.tres"
+
+[deps]
+
+source_file="res://trenchbroom/maps/cuddly_final.map"
+dest_files=["res://.godot/imported/cuddly_final.map-34bfe537973dec7c280c4695e5af399a.tres"]
+
+[params]
+
