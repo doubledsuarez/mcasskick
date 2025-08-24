@@ -1,5 +1,7 @@
 extends "res://addons/fpc/character.gd"
 
+#region Variable Init
+
 @export var weapon_sprite : AnimatedSprite2D
 @export var cellphone_sprite : Sprite2D
 @onready var direction_ray: Marker3D = $Head/Direction
@@ -34,6 +36,10 @@ var HELD_ITEM_STATES := {
 }
 
 var held_item := 0
+
+#endregion
+
+#region Built-in Functions and Signals
 
 func _ready():
 	switch_held_item_state(HELD_ITEM_STATES.gun)
@@ -221,61 +227,33 @@ func respawn():
 	overlay.queue_free()
 	death_label.queue_free()
 
-	# Respawn at last activated checkpoint
-	respawn_at_last_checkpoint()
-
-func get_last_activated_respawn_point() -> Node3D:
-	# Get the last activated checkpoint from global
 	var last_checkpoint = g.get_last_activated_checkpoint()
 
 	if last_checkpoint == null or not is_instance_valid(last_checkpoint):
-		Log.info("No last activated checkpoint found! Using scene reload.")
-		return null
-
-	# Verify it's still activated (in case of scene reload)
-	if last_checkpoint.has_method("is_activated") and not last_checkpoint.is_activated():
-		Log.info("Last checkpoint no longer activated! Using scene reload.")
-		return null
-
-	return last_checkpoint
-
-func respawn_at_last_checkpoint():
-	var respawn_point = get_last_activated_respawn_point()
-
-	if respawn_point == null:
-		# Fallback to scene reload if no respawn points found
-		get_tree().reload_current_scene()
+		Log.info("No last activated checkpoint found! Respawning at current position.")
+		# Just reset player state without moving
+		reset_player_state()
 		return
 
-	# Store respawn position for after scene reload
-	var respawn_position = respawn_point.global_position
-	var respawn_name = respawn_point.get_respawn_name() if respawn_point.has_method("get_respawn_name") else "Unknown"
+	# Move player to respawn point
+	global_position = last_checkpoint.global_position
+	var respawn_name = last_checkpoint.get_respawn_name() if last_checkpoint.has_method("get_respawn_name") else "Unknown"
 
-	# Store respawn data in global singleton
-	g.set_respawn_data(respawn_position, respawn_name)
+	# Reset only player state, keep inventory and world state
+	reset_player_state()
 
-	# Reload scene to reset all enemies and world state
-	get_tree().reload_current_scene()
+	Log.info("Respawned at: %s" % respawn_name)
 
-func check_for_respawn_position():
-	# Check if global has stored a respawn position
-	if g.has_respawn_data():
-		var respawn_data = g.get_and_clear_respawn_data()
+func reset_player_state():
+	# Reset only essential player state
+	dead = false
+	immobile = false
+	shooting_enabled = true
+	health = MAX_HEALTH
+	velocity = Vector3.ZERO
 
-		# Move player to respawn position
-		global_position = respawn_data.position
-
-		# Reset player state
-		dead = false
-		immobile = false
-		shooting_enabled = true
-		health = MAX_HEALTH
-		velocity = Vector3.ZERO
-
-		# Reset camera and input
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-
-		Log.info("Respawned at: %s" % respawn_data.name)
+	# Reset camera and input
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 #endregion
 
@@ -308,7 +286,7 @@ func handle_shooting():
 		else:
 			if Input.is_action_just_pressed(controls.SHOOT) and not in_dialogue:
 				if not reloading:
-					emit_signal("shooting")
+					
 					reloading = true
 					WEAPON_SPRITE.stop()
 					WEAPON_SPRITE.play("shoot")
