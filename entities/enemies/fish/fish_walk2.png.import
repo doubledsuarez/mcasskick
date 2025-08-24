@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bo1npy10rj1a5"
-path.s3tc="res://.godot/imported/horse_walk2.png-50c2e61c3122e260b76a5e0c23ed10ea.s3tc.ctex"
+uid="uid://ddh7lw3nb518c"
+path.s3tc="res://.godot/imported/fish_walk2.png-1109764626a52f51f546f6aef5558369.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://entities/enemies/zombie/horse_walk2.png"
-dest_files=["res://.godot/imported/horse_walk2.png-50c2e61c3122e260b76a5e0c23ed10ea.s3tc.ctex"]
+source_file="res://entities/enemies/fish/fish_walk2.png"
+dest_files=["res://.godot/imported/fish_walk2.png-1109764626a52f51f546f6aef5558369.s3tc.ctex"]
 
 [params]
 

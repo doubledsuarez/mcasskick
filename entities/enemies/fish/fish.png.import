@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddh7lw3nb518c"
-path.s3tc="res://.godot/imported/fish_walk2.png-2ecd1c149e37f776d9d7b93553b17676.s3tc.ctex"
+uid="uid://c3ae0en5c0084"
+path.s3tc="res://.godot/imported/fish.png-2711774f396be0e2dc6bc26ce5e88b4a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://entities/enemies/imp/fish_walk2.png"
-dest_files=["res://.godot/imported/fish_walk2.png-2ecd1c149e37f776d9d7b93553b17676.s3tc.ctex"]
+source_file="res://entities/enemies/fish/fish.png"
+dest_files=["res://.godot/imported/fish.png-2711774f396be0e2dc6bc26ce5e88b4a.s3tc.ctex"]
 
 [params]
 

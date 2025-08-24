@@ -4,7 +4,7 @@ extends Area3D
 @onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
 
 @export var speed = 8.0
-@export var damage = 25
+@export var damage = 15
 @export var lifetime = 5.0
 @export var gravity_factor = 0.5
 @export var arc : float = 2.0

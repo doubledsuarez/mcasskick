@@ -1,19 +1,17 @@
-[gd_scene load_steps=176 format=4 uid="uid://dyks0b1t1vx3j"]
+[gd_scene load_steps=174 format=4 uid="uid://dyks0b1t1vx3j"]
 
 [ext_resource type="PackedScene" uid="uid://qv3rhpl8sk6t" path="res://world/zone_intro_ship.tscn" id="1_1x4ik"]
 [ext_resource type="Material" uid="uid://cwxujrln46o72" path="res://textures/world_demon/grate.tres" id="2_0cftq"]
 [ext_resource type="PackedScene" uid="uid://dssp60ahsx7gt" path="res://entities/pickups/cell_phone.tscn" id="2_6bg7k"]
-[ext_resource type="PackedScene" uid="uid://bwkx5s2xjebvv" path="res://entities/enemies/sniper/sniper.tscn" id="2_invuf"]
+[ext_resource type="PackedScene" uid="uid://bwkx5s2xjebvv" path="res://entities/enemies/bat/bat.tscn" id="2_invuf"]
 [ext_resource type="Material" uid="uid://b63twwrjhymo1" path="res://textures/world_demon/panel.tres" id="3_0ljpk"]
-[ext_resource type="PackedScene" uid="uid://db7xp11deujhy" path="res://entities/enemies/imp/imp.tscn" id="3_6bg7k"]
+[ext_resource type="PackedScene" uid="uid://db7xp11deujhy" path="res://entities/enemies/fish/fish.tscn" id="3_6bg7k"]
 [ext_resource type="Material" uid="uid://3pgixekefveg" path="res://textures/world_demon/concrete.tres" id="4_j66lg"]
-[ext_resource type="PackedScene" uid="uid://latadalk1638" path="res://entities/enemies/zombie/zombie.tscn" id="4_yaf3i"]
-[ext_resource type="PackedScene" uid="uid://da52itg687i4n" path="res://entities/villagers/base/villager.tscn" id="5_c3be7"]
+[ext_resource type="PackedScene" uid="uid://latadalk1638" path="res://entities/enemies/horse/horse.tscn" id="4_yaf3i"]
 [ext_resource type="Material" uid="uid://bjacqtbmvxotu" path="res://textures/PlaceholderWall.tres" id="5_mm1s7"]
 [ext_resource type="PackedScene" uid="uid://bk3j4h5l6m7n8" path="res://entities/pickups/health_pack/health_pack.tscn" id="6_lh5q7"]
 [ext_resource type="Material" uid="uid://sajjdxfwywq5" path="res://textures/world_demon/wire.tres" id="6_y7wue"]
 [ext_resource type="Material" uid="uid://dfhcue5u5nnxf" path="res://textures/world_demon/carpet.tres" id="7_6rs2j"]
-[ext_resource type="PackedScene" uid="uid://bvmsu0axhbdu7" path="res://entities/pickups/figures/figure.tscn" id="7_ohkmd"]
 [ext_resource type="Texture2D" uid="uid://cyg2snr1w5xw5" path="res://addons/func_godot/textures/default_texture.png" id="8_ojso5"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_w81kb"]
@@ -1073,66 +1071,56 @@ shape = SubResource("ConvexPolygonShape3D_y44fl")
 
 [node name="Enemies" type="Node3D" parent="."]
 
-[node name="Sniper" parent="Enemies" instance=ExtResource("2_invuf")]
+[node name="Bat" parent="Enemies" instance=ExtResource("2_invuf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1, 0)
 
-[node name="Imp" parent="Enemies" instance=ExtResource("3_6bg7k")]
+[node name="Fish" parent="Enemies" instance=ExtResource("3_6bg7k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.7012, 1, -31.466)
 
-[node name="Zombie" parent="Enemies" instance=ExtResource("4_yaf3i")]
+[node name="Horse" parent="Enemies" instance=ExtResource("4_yaf3i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.0307, 0.7, -6.91233)
 
-[node name="Imp2" parent="Enemies" instance=ExtResource("3_6bg7k")]
+[node name="Fish2" parent="Enemies" instance=ExtResource("3_6bg7k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2026, 1, -23.4243)
 
-[node name="Imp3" parent="Enemies" instance=ExtResource("3_6bg7k")]
+[node name="Fish3" parent="Enemies" instance=ExtResource("3_6bg7k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.71112, 1, -13.7831)
 
-[node name="Imp4" parent="Enemies" instance=ExtResource("3_6bg7k")]
+[node name="Fish4" parent="Enemies" instance=ExtResource("3_6bg7k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.1997, 2.24246, 9.89854)
 
-[node name="Imp5" parent="Enemies" instance=ExtResource("3_6bg7k")]
+[node name="Fish5" parent="Enemies" instance=ExtResource("3_6bg7k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5482, 1.15653, 18.7562)
 
-[node name="Imp6" parent="Enemies" instance=ExtResource("3_6bg7k")]
+[node name="Fish6" parent="Enemies" instance=ExtResource("3_6bg7k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.837, 1.15653, 20.7923)
 
-[node name="Imp7" parent="Enemies" instance=ExtResource("3_6bg7k")]
+[node name="Fish7" parent="Enemies" instance=ExtResource("3_6bg7k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.825, 2.23669, 9.96192)
 
-[node name="Zombie2" parent="Enemies" instance=ExtResource("4_yaf3i")]
+[node name="Horse2" parent="Enemies" instance=ExtResource("4_yaf3i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.829, -1.22525, 15.725)
 
-[node name="Zombie3" parent="Enemies" instance=ExtResource("4_yaf3i")]
+[node name="Horse3" parent="Enemies" instance=ExtResource("4_yaf3i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0756, -2.09371, 22.1838)
 
-[node name="Sniper2" parent="Enemies" instance=ExtResource("2_invuf")]
+[node name="Bat2" parent="Enemies" instance=ExtResource("2_invuf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.7149, 1, 13.7904)
 
-[node name="Sniper3" parent="Enemies" instance=ExtResource("2_invuf")]
+[node name="Bat3" parent="Enemies" instance=ExtResource("2_invuf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.71072, 1, 19.5777)
 
-[node name="Sniper4" parent="Enemies" instance=ExtResource("2_invuf")]
+[node name="Bat4" parent="Enemies" instance=ExtResource("2_invuf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.9604, 1, 22.9755)
 
-[node name="Sniper5" parent="Enemies" instance=ExtResource("2_invuf")]
+[node name="Bat5" parent="Enemies" instance=ExtResource("2_invuf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.9604, 1, -6.21272)
-
-[node name="Interactables" type="Node3D" parent="."]
-
-[node name="Villager" parent="Interactables" instance=ExtResource("5_c3be7")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 3, 1, -3)
 
 [node name="HealthPacks" type="Node3D" parent="."]
 
 [node name="HealthPack" parent="HealthPacks" instance=ExtResource("6_lh5q7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1.5, 6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.4208, 0.127513, 23.5027)
 world_state = "demon"
-
-[node name="Figures" type="Node3D" parent="."]
-
-[node name="Figure" parent="Figures" instance=ExtResource("7_ohkmd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.5, 0)
 
 [node name="CellPhone" parent="." instance=ExtResource("2_6bg7k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.0378, -1.19089, 16.921)

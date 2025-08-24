@@ -1,4 +1,4 @@
-[gd_scene load_steps=171 format=4 uid="uid://7me2ccb5ua8m"]
+[gd_scene load_steps=172 format=4 uid="uid://7me2ccb5ua8m"]
 
 [ext_resource type="PackedScene" uid="uid://cpv2v57u64u8b" path="res://world/zone_base.tscn" id="1_jvn5f"]
 [ext_resource type="Material" uid="uid://b63twwrjhymo1" path="res://textures/world_demon/panel.tres" id="2_cq1d3"]
@@ -9,7 +9,8 @@
 [ext_resource type="Material" uid="uid://c0k35fucmvxd5" path="res://textures/world_cuddly/brick_green.tres" id="6_db5tb"]
 [ext_resource type="Material" uid="uid://bxwcgqqtut6c" path="res://textures/world_cuddly/plank.tres" id="7_4jrp1"]
 [ext_resource type="PackedScene" uid="uid://clm0qnrk0dubo" path="res://entities/pickups/figures/pickup_figurine_care_bear.tscn" id="9_4p0vj"]
-[ext_resource type="PackedScene" uid="uid://bwkx5s2xjebvv" path="res://entities/enemies/sniper/sniper.tscn" id="10_5s2ih"]
+[ext_resource type="PackedScene" uid="uid://bwkx5s2xjebvv" path="res://entities/enemies/bat/bat.tscn" id="10_5s2ih"]
+[ext_resource type="PackedScene" uid="uid://latadalk1638" path="res://entities/enemies/horse/horse.tscn" id="11_db5tb"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_4p0vj"]
 _surfaces = [{
@@ -1065,7 +1066,7 @@ shape = SubResource("ConvexPolygonShape3D_pblnm")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 2.5, 0)
 
 [node name="Pickup_Figurine_CareBear" parent="." instance=ExtResource("9_4p0vj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 8.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.5, 8.5, 0)
 
 [node name="Sniper" parent="." instance=ExtResource("10_5s2ih")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 8, -0.5)
@@ -1078,5 +1079,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, 8, -4)
 
 [node name="Sniper4" parent="." instance=ExtResource("10_5s2ih")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 8, 1)
+
+[node name="Zombie" parent="." instance=ExtResource("11_db5tb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 8, 0)
 
 [editable path="ZoneBase"]

@@ -309,6 +309,7 @@ func handle_shooting():
 					SHOOT_SOUND.play()
 					# Hit the enemy
 					if RAYCAST.is_colliding() and RAYCAST.get_collider().has_method("take_damage"):
+						Log.info("Player raycast hit: " + str(RAYCAST.get_collider().get_name()))
 						RAYCAST.get_collider().take_damage(1)
 
 					# Shotgun momentum boost - only when airborne

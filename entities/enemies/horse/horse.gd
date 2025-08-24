@@ -1,9 +1,9 @@
 extends Enemy
-class_name Zombie
+class_name Horse
 
-# Zombie-specific behavior variables
+# horse-specific behavior variables - runs at you and melee attacks
 @export var melee_range = 1.5          # How close to get for melee attack
-@export var melee_damage = 15          # Damage dealt by melee attack
+@export var melee_damage = 5          # Damage dealt by melee attack
 @export var melee_cooldown = 2.0       # Time between melee attacks
 @export var lunge_speed = 8.0          # Speed boost during attack lunge
 
@@ -14,7 +14,6 @@ var lunge_duration = 0.3
 func _ready() -> void:
 	super._ready()
 
-	# Zombies are slow and shambling
 	#move_speed = 0.5       # Much slower than other enemies
 	attack_range = melee_range  # Use melee range for attack detection
 	fireball_cooldown = melee_cooldown
@@ -80,13 +79,6 @@ func melee_attack():
 		if player.has_method("take_damage"):
 			player.take_damage(melee_damage)
 			return
-
-	# Play attack animation if available
-	#if animated_sprite_3d and not dead:
-		## You could add an "attacking" animation here
-		## animated_sprite_3d.play("attacking")
-		#Log.info("Zombie attacked!")
-		#pass
 
 # Override fire_projectile to do nothing (zombies don't shoot)
 func fire_projectile():

@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://latadalk1638"]
 
 [ext_resource type="PackedScene" uid="uid://gdk071ikp7vg" path="res://entities/enemies/base/enemy.tscn" id="1_5vyoa"]
-[ext_resource type="Script" uid="uid://bxv6ovm4iwp3p" path="res://entities/enemies/zombie/zombie.gd" id="2_fxgas"]
-[ext_resource type="Texture2D" uid="uid://d25708uo4gbsb" path="res://entities/enemies/zombie/horse.png" id="3_pk8n1"]
+[ext_resource type="Script" uid="uid://bxv6ovm4iwp3p" path="res://entities/enemies/horse/horse.gd" id="2_fxgas"]
+[ext_resource type="Texture2D" uid="uid://d25708uo4gbsb" path="res://entities/enemies/horse/horse.png" id="3_pk8n1"]
 
-[node name="Zombie" instance=ExtResource("1_5vyoa")]
+[node name="Horse" instance=ExtResource("1_5vyoa")]
 script = ExtResource("2_fxgas")
 melee_range = 3.0
 melee_damage = 30

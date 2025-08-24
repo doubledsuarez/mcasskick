@@ -65,6 +65,7 @@ collision_mask = 31
 default_reticle = "res://addons/fpc/reticles/reticle_1.tscn"
 
 [node name="RespawnPoints" type="Node3D" parent="SubViewportContainer/SubViewport/Game"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.101498, -0.139862, -0.180614)
 
 [node name="Ship" parent="SubViewportContainer/SubViewport/Game/RespawnPoints" instance=ExtResource("11_iotsf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.9742, 51.6859, -63.9896)
