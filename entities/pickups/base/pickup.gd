@@ -53,6 +53,10 @@ func _on_body_entered(body: Node3D) -> void:
 
 	# Handle pickup based on type
 	pickup(body)
+	
+	visible = false
+	
+	await get_tree().create_timer(2).timeout
 
 	# Remove pickup from scene
 	queue_free()
@@ -68,6 +72,8 @@ func pickup(player: Node3D) -> void:
 
 		PickupType.FIGURINE:
 			if player.has_method("add_to_inventory"):
+				$AudioStreamPlayer3D.play()
+				
 				player.add_to_inventory(pickup_name, pickup_description, pickup_value, true)
 				Log.info("Collected: ", pickup_name)
 			else:

@@ -103,7 +103,7 @@ func heal(heal_amount: int) -> void:
 func die():
 	if dead:
 		return
-
+	$Dying.play()
 	dead = true
 	immobile = true
 	health = 0
@@ -288,8 +288,8 @@ func handle_shooting():
 					reloading = true
 					WEAPON_SPRITE.stop()
 					WEAPON_SPRITE.play("shoot")
-					if !g.cuddly_world:
-						SHOOT_SOUND.play()
+					#if !g.cuddly_world:
+					SHOOT_SOUND.play()
 					#else:
 						##CONFETTI_SOUND.play()
 						#Log.info("Confetti!!")

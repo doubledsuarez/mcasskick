@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cc4pdef86f1w8"]
+[gd_scene load_steps=28 format=3 uid="uid://cc4pdef86f1w8"]
 
 [ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://addons/fpc/character.tscn" id="1_symyc"]
 [ext_resource type="Script" uid="uid://xv5xtyvvrlrr" path="res://entities/player/player.gd" id="2_1234"]
@@ -22,7 +22,6 @@
 [ext_resource type="Texture2D" uid="uid://cqqpcfxsf10ca" path="res://entities/player/cellphone_02.png" id="16_mtric"]
 [ext_resource type="AudioStream" uid="uid://day0bccnlyssw" path="res://entities/world_switch.wav" id="21_221hk"]
 [ext_resource type="Script" uid="uid://kamyusguu154" path="res://entities/player/world_switch.gd" id="22_ghoj8"]
-[ext_resource type="AudioStream" uid="uid://dbix6rbm13xv6" path="res://entities/player/death.wav" id="23_ghoj8"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_abrql"]
 
@@ -243,10 +242,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -40.2578, 0)
 
 [node name="WorldSwitch" type="AudioStreamPlayer" parent="." index="9"]
 stream = ExtResource("21_221hk")
-script = ExtResource("22_ghoj8")
-
-[node name="Dying" type="AudioStreamPlayer" parent="." index="10"]
-stream = ExtResource("23_ghoj8")
-volume_db = 2.0
-bus = &"SFX"
 script = ExtResource("22_ghoj8")

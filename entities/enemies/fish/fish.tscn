@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://db7xp11deujhy"]
+[gd_scene load_steps=5 format=3 uid="uid://db7xp11deujhy"]
 
 [ext_resource type="PackedScene" uid="uid://gdk071ikp7vg" path="res://entities/enemies/base/enemy.tscn" id="1_obnr0"]
 [ext_resource type="Script" uid="uid://b37m54o0r313b" path="res://entities/enemies/fish/fish.gd" id="2_m8pei"]
+[ext_resource type="AudioStream" uid="uid://ce1nalpkakkrq" path="res://entities/enemies/frog_death.wav" id="3_tfel5"]
+[ext_resource type="AudioStream" uid="uid://dpsohlsrbv4xq" path="res://entities/enemies/frog_attack.wav" id="4_xffb3"]
 
 [node name="Fish" instance=ExtResource("1_obnr0")]
 script = ExtResource("2_m8pei")
@@ -10,3 +12,15 @@ fireball_cooldown = 2.0
 
 [node name="Sprite3D" parent="." index="2"]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0.794739, 0)
+
+[node name="DeathSound" parent="." index="3"]
+stream = ExtResource("3_tfel5")
+volume_db = 4.0
+
+[node name="AttackSound" parent="." index="4"]
+stream = ExtResource("4_xffb3")
+volume_db = 4.0
+
+[node name="HurtSound" parent="." index="5"]
+stream = ExtResource("3_tfel5")
+volume_db = 4.0
