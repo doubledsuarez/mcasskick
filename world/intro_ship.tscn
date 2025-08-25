@@ -1,4 +1,4 @@
-[gd_scene load_steps=173 format=4 uid="uid://dyks0b1t1vx3j"]
+[gd_scene load_steps=172 format=4 uid="uid://dyks0b1t1vx3j"]
 
 [ext_resource type="PackedScene" uid="uid://qv3rhpl8sk6t" path="res://world/zone_intro_ship.tscn" id="1_1x4ik"]
 [ext_resource type="Material" uid="uid://cwxujrln46o72" path="res://textures/world_demon/grate.tres" id="2_0cftq"]
@@ -9,7 +9,6 @@
 [ext_resource type="Material" uid="uid://3pgixekefveg" path="res://textures/world_demon/concrete.tres" id="4_j66lg"]
 [ext_resource type="PackedScene" uid="uid://latadalk1638" path="res://entities/enemies/horse.tscn" id="4_yaf3i"]
 [ext_resource type="Material" uid="uid://bjacqtbmvxotu" path="res://textures/PlaceholderWall.tres" id="5_mm1s7"]
-[ext_resource type="PackedScene" uid="uid://bk3j4h5l6m7n8" path="res://entities/pickups/health_pack/health_pack.tscn" id="6_lh5q7"]
 [ext_resource type="Material" uid="uid://sajjdxfwywq5" path="res://textures/world_demon/wire.tres" id="6_y7wue"]
 [ext_resource type="Material" uid="uid://dfhcue5u5nnxf" path="res://textures/world_demon/carpet.tres" id="7_6rs2j"]
 [ext_resource type="Texture2D" uid="uid://cyg2snr1w5xw5" path="res://addons/func_godot/textures/default_texture.png" id="8_ojso5"]
@@ -1109,12 +1108,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.9604, 1, 22.9755)
 
 [node name="Bat5" parent="Enemies" instance=ExtResource("2_invuf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.3271, 1, 0.304924)
-
-[node name="HealthPacks" type="Node3D" parent="."]
-
-[node name="HealthPack" parent="HealthPacks" instance=ExtResource("6_lh5q7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.4208, 0.127513, 23.5027)
-world_state = "demon"
 
 [node name="CellPhone" parent="." instance=ExtResource("2_6bg7k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.0378, -1.19089, 16.921)
