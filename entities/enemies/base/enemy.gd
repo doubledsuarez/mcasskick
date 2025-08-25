@@ -104,9 +104,12 @@ func take_damage(dmg : int):
 
 	health -= dmg
 	anim.play("hurt")
+
 	
 	if health <= 0:
 		die()
+	else:
+		$HurtSound.play()
 
 func die() -> void:
 	dead = true

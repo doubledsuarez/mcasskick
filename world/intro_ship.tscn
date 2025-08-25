@@ -7,7 +7,7 @@
 [ext_resource type="Material" uid="uid://b63twwrjhymo1" path="res://textures/world_demon/panel.tres" id="3_0ljpk"]
 [ext_resource type="PackedScene" uid="uid://db7xp11deujhy" path="res://entities/enemies/fish/fish.tscn" id="3_6bg7k"]
 [ext_resource type="Material" uid="uid://3pgixekefveg" path="res://textures/world_demon/concrete.tres" id="4_j66lg"]
-[ext_resource type="PackedScene" uid="uid://latadalk1638" path="res://entities/enemies/horse/horse.tscn" id="4_yaf3i"]
+[ext_resource type="PackedScene" uid="uid://latadalk1638" path="res://entities/enemies/horse.tscn" id="4_yaf3i"]
 [ext_resource type="Material" uid="uid://bjacqtbmvxotu" path="res://textures/PlaceholderWall.tres" id="5_mm1s7"]
 [ext_resource type="PackedScene" uid="uid://bk3j4h5l6m7n8" path="res://entities/pickups/health_pack/health_pack.tscn" id="6_lh5q7"]
 [ext_resource type="Material" uid="uid://sajjdxfwywq5" path="res://textures/world_demon/wire.tres" id="6_y7wue"]

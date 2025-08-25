@@ -23,6 +23,8 @@ func match_world_state():
 		complete = true
 
 	elif g.cuddly_world == false:
+		if visible == false:
+			$RestoredPlayer.play()
 		material.albedo_texture = broken_texture
 		complete = false
 		$CollisionShape3D.disabled = false
@@ -30,9 +32,9 @@ func match_world_state():
 
 
 func take_damage(_dmg : int):
-	Log.info("Toggle block shot")
 	if complete == false:
 		if g.cuddly_world == false:
 			complete = false
 			$CollisionShape3D.disabled = true
 			visible = false
+			$BrokenPlayer.play()
