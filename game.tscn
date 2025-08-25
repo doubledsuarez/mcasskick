@@ -832,10 +832,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.101498, -0.139862, -0.18061
 [node name="Ship" parent="SubViewportContainer/SubViewport/Game/RespawnPoints" instance=ExtResource("11_iotsf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.9742, 51.6859, -63.9896)
 respawn_name = "Ship"
+show_debug_visual = false
 
 [node name="Village" parent="SubViewportContainer/SubViewport/Game/RespawnPoints" instance=ExtResource("11_iotsf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.89964, 5.58401, 2.82174)
 respawn_name = "Village"
+show_debug_visual = false
 
 [node name="DannyPuzzle1" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("16_f1jbl")]
 transform = Transform3D(-0.999868, 0, 0.0162309, 0, 1, 0, -0.0162309, 0, -0.999868, 41.1618, 0, 42.7829)
