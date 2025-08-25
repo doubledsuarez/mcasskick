@@ -44,7 +44,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("1_3hr76")
-text = "Start"
+text = "START"
 script = ExtResource("1_gj5kb")
 
 [node name="settings_button_container" type="MarginContainer" parent="main_container/main_vbox/button_vbox"]
@@ -58,7 +58,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("1_3hr76")
-text = "Settings"
+text = "SETTINGS"
 script = ExtResource("2_3hr76")
 
 [node name="quit_button_container" type="MarginContainer" parent="main_container/main_vbox/button_vbox"]
@@ -72,7 +72,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("1_3hr76")
-text = "Quit"
+text = "QUIT"
 script = ExtResource("3_qfvsx")
 
 [node name="seperator" type="Control" parent="main_container/main_vbox"]

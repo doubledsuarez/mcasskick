@@ -30,11 +30,6 @@ func _process(delta: float) -> void:
 func _on_health_changed(new_health: int) -> void:
 	health_label.text = str(new_health)
 
-	if new_health <= 75:
-		chill_icon.texture = low_chill_icon
-	
-	else:
-		chill_icon.texture = full_chill_icon
 
 func _item_picked_up(figurine_name:String):
 	if trinket_grid != null:
@@ -48,7 +43,15 @@ func _item_picked_up(figurine_name:String):
 		# Set the chill %
 		chill_amount += 12.5
 		chill_label.text = str(int(chill_amount), "%")
+		
+		if chill_amount >= 50:
+			chill_icon.texture = low_chill_icon
+	
+		else:
+			chill_icon.texture = full_chill_icon
 
 func _set_ammo_count():
 	ammo_amount -= 1
 	ammo_label.text = str(ammo_amount)
+	
+	

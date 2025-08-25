@@ -12,6 +12,8 @@ var dev_mode := false
 
 var game
 var player = null
+var pause_menu = null
+var settings = null
 
 var question_asked : bool = false
 

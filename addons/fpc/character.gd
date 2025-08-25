@@ -541,6 +541,8 @@ func handle_pausing():
 			Input.MOUSE_MODE_VISIBLE:
 				Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 				#get_tree().paused = false
+		
+		g.pause_menu.visible = true
 
 #endregion
 
