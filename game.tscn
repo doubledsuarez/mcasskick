@@ -1,4 +1,4 @@
-[gd_scene load_steps=205 format=4 uid="uid://r54dyixspqae"]
+[gd_scene load_steps=206 format=4 uid="uid://r54dyixspqae"]
 
 [ext_resource type="Script" uid="uid://0x1oyn0i5ywr" path="res://game.gd" id="1_eow3j"]
 [ext_resource type="PackedScene" uid="uid://co7sigkndoct3" path="res://world/puzzle_trees.tscn" id="2_iotsf"]
@@ -13,6 +13,7 @@
 [ext_resource type="Resource" uid="uid://dr8tcdrk4fo78" path="res://entities/villagers/confetti.dialogue" id="9_80cx4"]
 [ext_resource type="Resource" uid="uid://bs4kkljhftgq3" path="res://entities/villagers/bunny/bunny.dialogue" id="9_215e1"]
 [ext_resource type="PackedScene" uid="uid://7me2ccb5ua8m" path="res://world/castle.tscn" id="9_hve3p"]
+[ext_resource type="Resource" uid="uid://cpv342krgbtky" path="res://entities/villagers/bunny/tutorial.dialogue" id="11_5b14r"]
 [ext_resource type="PackedScene" uid="uid://bim2jwgv8vjsu" path="res://world/final_area.tscn" id="11_e8heu"]
 [ext_resource type="PackedScene" uid="uid://c3dx7ns1vrdv5" path="res://entities/respawn_points/respawn_point.tscn" id="11_iotsf"]
 [ext_resource type="PackedScene" uid="uid://4icf1c7gpltw" path="res://world/environments/environment.tscn" id="13_lc2xo"]
@@ -799,14 +800,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33, 50, -17)
 [node name="FinalArea" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("11_e8heu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 6.8, 165.5)
 
-[node name="Villager" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("2_mfdv2")]
+[node name="BonBon" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("2_mfdv2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 5.04058, -6)
 script = ExtResource("8_lc2xo")
 confetti_resource = ExtResource("9_80cx4")
 dialogue_start = "start"
 
-[node name="Interactable" parent="SubViewportContainer/SubViewport/Game/Villager" index="2"]
+[node name="Interactable" parent="SubViewportContainer/SubViewport/Game/BonBon" index="2"]
 script = ExtResource("9_7sc4i")
+tutorial_resource = ExtResource("11_5b14r")
 dialogue_resource = ExtResource("9_215e1")
 
 [node name="Reticle" parent="SubViewportContainer/SubViewport/Game" node_paths=PackedStringArray("character") instance=ExtResource("5_7jktm")]
@@ -1407,6 +1409,6 @@ shape = SubResource("ConvexPolygonShape3D_mdjp4")
 
 [node name="HUD" parent="." instance=ExtResource("7_eow3j")]
 
-[editable path="SubViewportContainer/SubViewport/Game/Villager"]
+[editable path="SubViewportContainer/SubViewport/Game/BonBon"]
 [editable path="SubViewportContainer/SubViewport/Game/DannyPuzzle1"]
 [editable path="SubViewportContainer/SubViewport/Game/ChescherPuzzle"]
