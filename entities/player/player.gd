@@ -287,6 +287,8 @@ func handle_shooting():
 			if Input.is_action_just_pressed(controls.SHOOT) and not in_dialogue:
 				if not reloading:
 					
+					emit_signal("shooting")
+					
 					reloading = true
 					WEAPON_SPRITE.stop()
 					WEAPON_SPRITE.play("shoot")
