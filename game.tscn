@@ -784,7 +784,6 @@ render_target_update_mode = 4
 [node name="Game" type="Node3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00311661, 0.141235, 0.0404968)
 script = ExtResource("1_eow3j")
-dev_mode = true
 
 [node name="PuzzleTrees" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("2_iotsf")]
 transform = Transform3D(0.642788, 0, 0.766044, 0, 1, 0, -0.766044, 0, 0.642788, 37, 5, -32)
@@ -823,7 +822,7 @@ sky_mode = 1
 [node name="Environment" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("13_lc2xo")]
 
 [node name="Player" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("4_fc0e3")]
-transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, -31.9035, 0.691402, -1.35454)
+transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, -50.9035, 51.6914, -64.3545)
 collision_mask = 31
 default_reticle = "res://addons/fpc/reticles/reticle_1.tscn"
 
@@ -1248,160 +1247,160 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -71, 0
 [node name="WorldDemon" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle" index="0"]
 local_map_file = "uid://bb67j2j0tkt52"
 
-[node name="entity_0_worldspawn" type="StaticBody3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldDemon" index="0"]
+[node name="entity_0_worldspawn2" type="StaticBody3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldDemon" index="0"]
 collision_mask = 0
 
-[node name="entity_0_mesh_instance" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_mesh_instance2" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldDemon/entity_0_worldspawn" index="3"]
 mesh = SubResource("ArrayMesh_xa8c5")
 
-[node name="entity_0_occluder_instance" type="OccluderInstance3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_occluder_instance2" type="OccluderInstance3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldDemon/entity_0_worldspawn" index="4"]
 occluder = SubResource("ArrayOccluder3D_5b14r")
 
-[node name="entity_0_brush_0_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_0_collision_shape2" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldDemon/entity_0_worldspawn" index="5"]
 shape = SubResource("ConvexPolygonShape3D_vqo61")
 
-[node name="entity_0_brush_1_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_1_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldDemon/entity_0_worldspawn" index="6"]
 shape = SubResource("ConvexPolygonShape3D_pwsyv")
 
-[node name="entity_0_brush_2_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_2_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldDemon/entity_0_worldspawn" index="7"]
 shape = SubResource("ConvexPolygonShape3D_xsyha")
 
-[node name="entity_0_brush_3_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_3_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldDemon/entity_0_worldspawn" index="8"]
 shape = SubResource("ConvexPolygonShape3D_8seav")
 
-[node name="entity_0_brush_4_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_4_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldDemon/entity_0_worldspawn" index="9"]
 shape = SubResource("ConvexPolygonShape3D_0wxyg")
 
-[node name="entity_0_brush_5_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_5_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldDemon/entity_0_worldspawn" index="10"]
 shape = SubResource("ConvexPolygonShape3D_bva1w")
 
-[node name="entity_0_brush_6_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_6_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldDemon/entity_0_worldspawn" index="11"]
 shape = SubResource("ConvexPolygonShape3D_lnyny")
 
-[node name="entity_0_brush_7_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_7_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldDemon/entity_0_worldspawn" index="12"]
 shape = SubResource("ConvexPolygonShape3D_px3hy")
 
-[node name="entity_0_brush_8_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_8_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldDemon/entity_0_worldspawn" index="13"]
 shape = SubResource("ConvexPolygonShape3D_8f8qe")
 
-[node name="entity_0_brush_9_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_9_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldDemon/entity_0_worldspawn" index="14"]
 shape = SubResource("ConvexPolygonShape3D_ke0um")
 
-[node name="entity_0_brush_10_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_10_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldDemon/entity_0_worldspawn" index="15"]
 shape = SubResource("ConvexPolygonShape3D_o3erk")
 
-[node name="entity_0_brush_11_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_11_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldDemon/entity_0_worldspawn" index="16"]
 shape = SubResource("ConvexPolygonShape3D_8vmfi")
 
-[node name="entity_0_brush_12_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_12_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldDemon/entity_0_worldspawn" index="17"]
 shape = SubResource("ConvexPolygonShape3D_u8w2r")
 
-[node name="entity_0_brush_13_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_13_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldDemon/entity_0_worldspawn" index="18"]
 shape = SubResource("ConvexPolygonShape3D_1ov7p")
 
-[node name="entity_0_brush_14_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_14_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldDemon/entity_0_worldspawn" index="19"]
 shape = SubResource("ConvexPolygonShape3D_yf7a7")
 
-[node name="entity_0_brush_15_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_15_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldDemon/entity_0_worldspawn" index="20"]
 shape = SubResource("ConvexPolygonShape3D_wp6hd")
 
-[node name="entity_0_brush_16_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_16_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldDemon/entity_0_worldspawn" index="21"]
 shape = SubResource("ConvexPolygonShape3D_pks5g")
 
-[node name="entity_0_brush_17_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_17_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldDemon/entity_0_worldspawn" index="22"]
 shape = SubResource("ConvexPolygonShape3D_rbtfl")
 
-[node name="entity_0_brush_18_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_18_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldDemon/entity_0_worldspawn" index="23"]
 shape = SubResource("ConvexPolygonShape3D_cv8gu")
 
-[node name="entity_0_brush_19_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_19_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldDemon/entity_0_worldspawn" index="24"]
 shape = SubResource("ConvexPolygonShape3D_riv5k")
 
-[node name="entity_0_brush_20_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_20_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldDemon/entity_0_worldspawn" index="25"]
 shape = SubResource("ConvexPolygonShape3D_qqive")
 
-[node name="entity_0_brush_21_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_21_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldDemon/entity_0_worldspawn" index="26"]
 shape = SubResource("ConvexPolygonShape3D_si3yo")
 
-[node name="entity_0_brush_22_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_22_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldDemon/entity_0_worldspawn" index="27"]
 shape = SubResource("ConvexPolygonShape3D_lqlas")
 
 [node name="WorldCuddly" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle" index="1"]
 local_map_file = "uid://bb67j2j0tkt52"
 
-[node name="entity_0_worldspawn" type="StaticBody3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldCuddly" index="0"]
+[node name="entity_0_worldspawn2" type="StaticBody3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldCuddly" index="0"]
 collision_mask = 0
 
-[node name="entity_0_mesh_instance" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_mesh_instance2" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldCuddly/entity_0_worldspawn" index="3"]
 mesh = SubResource("ArrayMesh_olben")
 
-[node name="entity_0_occluder_instance" type="OccluderInstance3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_occluder_instance2" type="OccluderInstance3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldCuddly/entity_0_worldspawn" index="4"]
 occluder = SubResource("ArrayOccluder3D_10duq")
 
-[node name="entity_0_brush_0_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_0_collision_shape2" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldCuddly/entity_0_worldspawn" index="5"]
 shape = SubResource("ConvexPolygonShape3D_tt5ve")
 
-[node name="entity_0_brush_1_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_1_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldCuddly/entity_0_worldspawn" index="6"]
 shape = SubResource("ConvexPolygonShape3D_6x0xb")
 
-[node name="entity_0_brush_2_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_2_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldCuddly/entity_0_worldspawn" index="7"]
 shape = SubResource("ConvexPolygonShape3D_8npkw")
 
-[node name="entity_0_brush_3_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_3_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldCuddly/entity_0_worldspawn" index="8"]
 shape = SubResource("ConvexPolygonShape3D_33ckb")
 
-[node name="entity_0_brush_4_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_4_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldCuddly/entity_0_worldspawn" index="9"]
 shape = SubResource("ConvexPolygonShape3D_qqc4h")
 
-[node name="entity_0_brush_5_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_5_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldCuddly/entity_0_worldspawn" index="10"]
 shape = SubResource("ConvexPolygonShape3D_kp8cn")
 
-[node name="entity_0_brush_6_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_6_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldCuddly/entity_0_worldspawn" index="11"]
 shape = SubResource("ConvexPolygonShape3D_nc06o")
 
-[node name="entity_0_brush_7_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_7_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldCuddly/entity_0_worldspawn" index="12"]
 shape = SubResource("ConvexPolygonShape3D_qnd83")
 
-[node name="entity_0_brush_8_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_8_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldCuddly/entity_0_worldspawn" index="13"]
 shape = SubResource("ConvexPolygonShape3D_de524")
 
-[node name="entity_0_brush_9_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_9_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldCuddly/entity_0_worldspawn" index="14"]
 shape = SubResource("ConvexPolygonShape3D_0i3gv")
 
-[node name="entity_0_brush_10_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_10_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldCuddly/entity_0_worldspawn" index="15"]
 shape = SubResource("ConvexPolygonShape3D_d53yc")
 
-[node name="entity_0_brush_11_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_11_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldCuddly/entity_0_worldspawn" index="16"]
 shape = SubResource("ConvexPolygonShape3D_3i62b")
 
-[node name="entity_0_brush_12_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_12_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldCuddly/entity_0_worldspawn" index="17"]
 shape = SubResource("ConvexPolygonShape3D_swnqc")
 
-[node name="entity_0_brush_13_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_13_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldCuddly/entity_0_worldspawn" index="18"]
 shape = SubResource("ConvexPolygonShape3D_swvvi")
 
-[node name="entity_0_brush_14_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_14_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldCuddly/entity_0_worldspawn" index="19"]
 shape = SubResource("ConvexPolygonShape3D_21r1j")
 
-[node name="entity_0_brush_15_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_15_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldCuddly/entity_0_worldspawn" index="20"]
 shape = SubResource("ConvexPolygonShape3D_i8wiq")
 
-[node name="entity_0_brush_16_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_16_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldCuddly/entity_0_worldspawn" index="21"]
 shape = SubResource("ConvexPolygonShape3D_v4v7k")
 
-[node name="entity_0_brush_17_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_17_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldCuddly/entity_0_worldspawn" index="22"]
 shape = SubResource("ConvexPolygonShape3D_fa885")
 
-[node name="entity_0_brush_18_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_18_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldCuddly/entity_0_worldspawn" index="23"]
 shape = SubResource("ConvexPolygonShape3D_wr4we")
 
-[node name="entity_0_brush_19_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_19_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldCuddly/entity_0_worldspawn" index="24"]
 shape = SubResource("ConvexPolygonShape3D_2pp1t")
 
-[node name="entity_0_brush_20_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_20_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldCuddly/entity_0_worldspawn" index="25"]
 shape = SubResource("ConvexPolygonShape3D_6crov")
 
-[node name="entity_0_brush_21_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_21_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldCuddly/entity_0_worldspawn" index="26"]
 shape = SubResource("ConvexPolygonShape3D_mdjp4")
 
 [node name="HUD" parent="." instance=ExtResource("7_eow3j")]
