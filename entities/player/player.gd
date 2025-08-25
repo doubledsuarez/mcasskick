@@ -2,8 +2,6 @@ extends "res://addons/fpc/character.gd"
 
 #region Variable Init
 
-var confetti_ref = preload("res://entities/player/confetti.tscn")
-
 @export var weapon_sprite : AnimatedSprite2D
 @export var cellphone_sprite : Sprite2D
 @onready var direction_ray: Marker3D = $Head/Direction
@@ -290,20 +288,9 @@ func handle_shooting():
 					reloading = true
 					WEAPON_SPRITE.stop()
 					WEAPON_SPRITE.play("shoot")
-					if !g.cuddly_world:
-						SHOOT_SOUND.pitch_scale = 1.0
-					else:
-						SHOOT_SOUND.pitch_scale = 2.0
+					#if !g.cuddly_world:
 					SHOOT_SOUND.play()
-					
-					if g.cuddly_world:
-						var confetti = confetti_ref.instantiate()
-						g.game.add_child(confetti)
-						confetti.rotation.y = rotation.y
-						confetti.global_position = global_position
-						var material = confetti.process_material as ParticleProcessMaterial
-						material.direction = -HEAD.transform.basis.z
-						
+					#else:
 						##CONFETTI_SOUND.play()
 						#Log.info("Confetti!!")
 						

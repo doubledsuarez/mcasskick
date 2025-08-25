@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cc4pdef86f1w8"]
+[gd_scene load_steps=29 format=3 uid="uid://cc4pdef86f1w8"]
 
 [ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://addons/fpc/character.tscn" id="1_symyc"]
 [ext_resource type="Script" uid="uid://xv5xtyvvrlrr" path="res://entities/player/player.gd" id="2_1234"]
@@ -23,7 +23,6 @@
 [ext_resource type="AudioStream" uid="uid://day0bccnlyssw" path="res://entities/world_switch.wav" id="21_221hk"]
 [ext_resource type="Script" uid="uid://kamyusguu154" path="res://entities/player/world_switch.gd" id="22_ghoj8"]
 [ext_resource type="AudioStream" uid="uid://dbix6rbm13xv6" path="res://entities/player/death.wav" id="23_ghoj8"]
-[ext_resource type="PackedScene" uid="uid://dc1ahjpqjakl0" path="res://entities/player/confetti.tscn" id="24_t1t22"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_abrql"]
 
@@ -251,5 +250,3 @@ stream = ExtResource("23_ghoj8")
 volume_db = 2.0
 bus = &"SFX"
 script = ExtResource("22_ghoj8")
-
-[node name="GPUParticles3D" parent="." index="11" instance=ExtResource("24_t1t22")]
