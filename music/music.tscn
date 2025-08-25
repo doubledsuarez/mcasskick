@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://8jrkobmy4o2g"]
+[gd_scene load_steps=8 format=3 uid="uid://8jrkobmy4o2g"]
 
 [ext_resource type="AudioStream" uid="uid://d00hhm6m4j7hb" path="res://test-assets/mcasskick hell 2 jam rough.ogg" id="1_g6io0"]
 [ext_resource type="Script" uid="uid://xpt15aqq2kf8" path="res://music/music.gd" id="2_sma34"]
 [ext_resource type="AudioStream" uid="uid://d25r28ae5xvie" path="res://music/Descent into cuddliness.ogg" id="3_akenf"]
 [ext_resource type="AudioStream" uid="uid://cta73pslo5kb0" path="res://music/level2_cuddley_chill.ogg" id="4_t501q"]
+[ext_resource type="AudioStream" uid="uid://dqfw27u3pso67" path="res://music/level2-1_cuddley_chill.ogg" id="5_t501q"]
+[ext_resource type="AudioStream" uid="uid://b2ob6p4b2v8i7" path="res://music/level2-2_slower_guitar.ogg" id="6_eikdc"]
+[ext_resource type="AudioStream" uid="uid://wev6uvypld5x" path="res://music/level3_onslaught.ogg" id="7_eovk6"]
 
 [node name="Music" type="AudioStreamPlayer"]
 stream = ExtResource("1_g6io0")
@@ -14,3 +17,22 @@ script = ExtResource("2_sma34")
 demon_level_1 = ExtResource("1_g6io0")
 cuddly_descent = ExtResource("3_akenf")
 cuddly_level_1 = ExtResource("4_t501q")
+
+[node name="Introship" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_g6io0")
+
+[node name="DescentIntoCuddliness" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_akenf")
+volume_db = -12.0
+
+[node name="ChillJam1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_t501q")
+
+[node name="ChillJam2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_eikdc")
+
+[node name="Final" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_eovk6")
+
+[connection signal="finished" from="DescentIntoCuddliness" to="." method="_on_descent_into_cuddliness_finished"]
+[connection signal="finished" from="ChillJam1" to="." method="_on_chill_jam_1_finished"]
