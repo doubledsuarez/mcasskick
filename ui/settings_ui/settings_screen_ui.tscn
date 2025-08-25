@@ -1,9 +1,98 @@
-[gd_scene format=3 uid="uid://dk4sp1mbws851"]
+[gd_scene load_steps=4 format=3 uid="uid://dk4sp1mbws851"]
+
+[ext_resource type="Script" uid="uid://c548mlplx6wcp" path="res://ui/settings_ui/settings_screen_ui.gd" id="1_rsps6"]
+[ext_resource type="Theme" uid="uid://ch7oeipur42j5" path="res://ui/themes/start_screen_theme.tres" id="1_sto4a"]
+[ext_resource type="Script" uid="uid://cnrmbxyjerjyl" path="res://ui/settings_ui/back_button.gd" id="2_sto4a"]
 
 [node name="settings_screen_ui" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_rsps6")
+
+[node name="main_container" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="settings_box" type="VBoxContainer" parent="main_container"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="volume_container" type="VBoxContainer" parent="main_container/settings_box"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="main_container/settings_box/volume_container"]
+layout_mode = 2
+text = "Master Volume"
+
+[node name="HSlider" type="HSlider" parent="main_container/settings_box/volume_container"]
+custom_minimum_size = Vector2(200, 20)
+layout_mode = 2
+
+[node name="seperator" type="MarginContainer" parent="main_container/settings_box"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Control" type="Control" parent="main_container/settings_box/seperator"]
+layout_mode = 2
+
+[node name="mouse_sense_container" type="VBoxContainer" parent="main_container/settings_box"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="main_container/settings_box/mouse_sense_container"]
+layout_mode = 2
+text = "Mouse Sensetivity"
+
+[node name="HSlider" type="HSlider" parent="main_container/settings_box/mouse_sense_container"]
+custom_minimum_size = Vector2(200, 20)
+layout_mode = 2
+
+[node name="seperator2" type="MarginContainer" parent="main_container/settings_box"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Control" type="Control" parent="main_container/settings_box/seperator2"]
+layout_mode = 2
+
+[node name="fullscreen_toggle_container" type="VBoxContainer" parent="main_container/settings_box"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="main_container/settings_box/fullscreen_toggle_container"]
+layout_mode = 2
+text = "Full Screen On/Off"
+
+[node name="fullscreen_checkbox" type="CheckBox" parent="main_container/settings_box/fullscreen_toggle_container"]
+layout_mode = 2
+
+[node name="seperator3" type="MarginContainer" parent="main_container/settings_box"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Control" type="Control" parent="main_container/settings_box/seperator3"]
+layout_mode = 2
+
+[node name="back_button_container" type="MarginContainer" parent="main_container/settings_box"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="back_button" type="Button" parent="main_container/settings_box/back_button_container"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_sto4a")
+text = "BACK"
+script = ExtResource("2_sto4a")
+
+[connection signal="pressed" from="main_container/settings_box/back_button_container/back_button" to="main_container/settings_box/back_button_container/back_button" method="_on_pressed"]

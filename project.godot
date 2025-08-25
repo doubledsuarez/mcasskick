@@ -21,6 +21,8 @@ g="*res://global.gd"
 Log="*res://addons/logger/logger.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 Music="*res://music/music.tscn"
+PauseScreenUi="*res://ui/pause_ui/pause_screen_ui.tscn"
+IngameSettingsUi="*res://ui/ingame_settings_ui/ingame_settings_ui.tscn"
 
 [dialogue_manager]
 

@@ -1,0 +1,94 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqwel3mk3bwmv"]
+
+[ext_resource type="Script" uid="uid://byqe06ciq72m" path="res://ui/pause_ui/pause_screen_ui.gd" id="1_3dfu6"]
+[ext_resource type="Theme" uid="uid://ch7oeipur42j5" path="res://ui/themes/start_screen_theme.tres" id="1_kwp3f"]
+[ext_resource type="Script" uid="uid://cy7saqim765a" path="res://ui/pause_ui/ingame_settings_button.gd" id="2_6gmx3"]
+[ext_resource type="Script" uid="uid://c0668uws3vhap" path="res://ui/pause_ui/title_button.gd" id="2_xymh2"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+layer = 3
+
+[node name="pauseScreenUI" type="Control" parent="."]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3dfu6")
+
+[node name="main_container" type="MarginContainer" parent="pauseScreenUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="background" type="ColorRect" parent="pauseScreenUI/main_container"]
+layout_mode = 2
+color = Color(0.110726, 0.103969, 0.102753, 0.482353)
+
+[node name="main_vbox" type="VBoxContainer" parent="pauseScreenUI/main_container"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 40
+
+[node name="button_vbox" type="VBoxContainer" parent="pauseScreenUI/main_container/main_vbox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 16
+
+[node name="start_button_container" type="MarginContainer" parent="pauseScreenUI/main_container/main_vbox/button_vbox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="resume_button" type="Button" parent="pauseScreenUI/main_container/main_vbox/button_vbox/start_button_container"]
+texture_filter = 1
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_kwp3f")
+text = "RESUME"
+
+[node name="settings_button_container" type="MarginContainer" parent="pauseScreenUI/main_container/main_vbox/button_vbox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="settings_button" type="Button" parent="pauseScreenUI/main_container/main_vbox/button_vbox/settings_button_container"]
+texture_filter = 1
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_kwp3f")
+text = "SETTINGS"
+script = ExtResource("2_6gmx3")
+
+[node name="quit_button_container" type="MarginContainer" parent="pauseScreenUI/main_container/main_vbox/button_vbox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="title_button" type="Button" parent="pauseScreenUI/main_container/main_vbox/button_vbox/quit_button_container"]
+texture_filter = 1
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_kwp3f")
+text = "HOME"
+script = ExtResource("2_xymh2")
+
+[node name="seperator" type="Control" parent="pauseScreenUI/main_container/main_vbox"]
+layout_mode = 2
+
+[connection signal="pressed" from="pauseScreenUI/main_container/main_vbox/button_vbox/start_button_container/resume_button" to="pauseScreenUI" method="_on_resume_button_pressed"]
+[connection signal="pressed" from="pauseScreenUI/main_container/main_vbox/button_vbox/settings_button_container/settings_button" to="pauseScreenUI/main_container/main_vbox/button_vbox/settings_button_container/settings_button" method="_on_pressed"]
+[connection signal="pressed" from="pauseScreenUI/main_container/main_vbox/button_vbox/quit_button_container/title_button" to="pauseScreenUI/main_container/main_vbox/button_vbox/quit_button_container/title_button" method="_on_pressed"]

@@ -12,6 +12,8 @@ var dev_mode := false
 
 var game
 var player = null
+var pause_menu = null
+var settings = null
 
 var question_asked : bool = false
 
@@ -37,11 +39,19 @@ signal world_toggled
 # Respawn system variables
 var last_activated_checkpoint: Node3D = null
 
+func _ready():
+	process_mode = Node.PROCESS_MODE_ALWAYS
+
 # Temporary solution for activating the world toggle until the player input is handled
 func _input(event):
 	if event.is_action_pressed("toggle"):
 		if world_switch_unlocked or dev_mode:
 			world_switch()
+	
+
+	if event.is_action_pressed("pause"):
+		toggle_pause()
+
 
 func world_switch():
 	if cuddly_world == false:
@@ -59,3 +69,17 @@ func set_last_activated_checkpoint(checkpoint: Node3D) -> void:
 
 func get_last_activated_checkpoint() -> Node3D:
 	return last_activated_checkpoint
+
+func toggle_pause():
+	print("Toggling mouse mode")
+# You may want another node to handle pausing, because this player may get paused too.
+	match Input.mouse_mode:
+		Input.MOUSE_MODE_CAPTURED:
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+			g.pause_menu.visible = true
+			get_tree().paused = true
+		
+		Input.MOUSE_MODE_VISIBLE:
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+			get_tree().paused = false
+			g.pause_menu.visible = false
