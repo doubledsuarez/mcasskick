@@ -10,8 +10,8 @@ albedo_color = Color(0, 1, 1, 0.7)
 emission_enabled = true
 emission = Color(0, 1, 1, 1)
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_checkpoint"]
-radius = 2.0
+[sub_resource type="BoxShape3D" id="BoxShape3D_sngxt"]
+size = Vector3(10, 3, 5)
 
 [node name="RespawnPoint" type="Node3D"]
 script = ExtResource("1_respawn")
@@ -24,4 +24,5 @@ surface_material_override/0 = SubResource("StandardMaterial3D_debug")
 [node name="CheckpointArea" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CheckpointArea"]
-shape = SubResource("SphereShape3D_checkpoint")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_sngxt")
