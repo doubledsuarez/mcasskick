@@ -1,15 +1,31 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://ch7oeipur42j5"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://ch7oeipur42j5"]
 
-[ext_resource type="StyleBox" uid="uid://5j1x8s2f5ck6" path="res://ui/themes/hover_theme.tres" id="1_cq2lv"]
 [ext_resource type="FontFile" uid="uid://cc12wq7tok063" path="res://ui/DooM.ttf" id="1_yoqqx"]
-[ext_resource type="StyleBox" uid="uid://i38fbrw6xoup" path="res://ui/themes/button_theme.tres" id="2_yoqqx"]
-[ext_resource type="StyleBox" uid="uid://d0snlsrtkevg6" path="res://ui/themes/pressed_theme.tres" id="3_6w3gq"]
+[ext_resource type="Texture2D" uid="uid://b1c5i5b8vt3q3" path="res://ui/button_1.png" id="2_ju0s1"]
+[ext_resource type="Texture2D" uid="uid://33e1h1fflb8r" path="res://ui/button_pressed.png" id="4_6w3gq"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g1ksj"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cq2lv"]
+texture = ExtResource("4_6w3gq")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yoqqx"]
+texture = ExtResource("4_6w3gq")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yfkyq"]
+texture = ExtResource("4_6w3gq")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6w3gq"]
+texture = ExtResource("2_ju0s1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1ky8f"]
+texture = ExtResource("4_6w3gq")
 
 [resource]
+Button/colors/font_color = Color(0.846653, 0, 0.123928, 1)
+Button/colors/font_outline_color = Color(0.413877, 0, 0.0652665, 1)
+Button/constants/outline_size = 4
 Button/fonts/font = ExtResource("1_yoqqx")
-Button/styles/focus = SubResource("StyleBoxEmpty_g1ksj")
-Button/styles/hover = ExtResource("1_cq2lv")
-Button/styles/normal = ExtResource("2_yoqqx")
-Button/styles/pressed = ExtResource("3_6w3gq")
+Button/styles/focus = SubResource("StyleBoxTexture_cq2lv")
+Button/styles/hover = SubResource("StyleBoxTexture_yoqqx")
+Button/styles/hover_pressed = SubResource("StyleBoxTexture_yfkyq")
+Button/styles/normal = SubResource("StyleBoxTexture_6w3gq")
+Button/styles/pressed = SubResource("StyleBoxTexture_1ky8f")

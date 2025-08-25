@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://cnrmbxyjerjyl" path="res://ui/settings_ui/back_button.gd" id="2_sto4a"]
 
 [node name="settings_screen_ui" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -80,6 +81,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="back_button_container" type="MarginContainer" parent="main_container/settings_box"]
+texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4

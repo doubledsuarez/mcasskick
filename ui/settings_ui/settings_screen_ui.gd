@@ -1,4 +1,4 @@
 extends Control
 
-func _ready() -> void:
-	g.settings = self
+func enable():
+	pass

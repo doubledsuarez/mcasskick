@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://dddjifsnb10gh"]
+[gd_scene load_steps=4 format=3 uid="uid://dddjifsnb10gh"]
 
+[ext_resource type="Script" uid="uid://olxtlh80f43m" path="res://ui/ingame_settings_ui/ingame_settings_ui.gd" id="1_ayb4e"]
 [ext_resource type="Theme" uid="uid://ch7oeipur42j5" path="res://ui/themes/start_screen_theme.tres" id="1_nan42"]
 [ext_resource type="Script" uid="uid://bp3v54itc6el6" path="res://ui/ingame_settings_ui/ingame_back_button.gd" id="2_ayb4e"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
+process_mode = 3
 
 [node name="ingame_settings_ui" type="Control" parent="."]
 layout_mode = 3
@@ -12,6 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ayb4e")
 
 [node name="main_container" type="MarginContainer" parent="ingame_settings_ui"]
 layout_mode = 1

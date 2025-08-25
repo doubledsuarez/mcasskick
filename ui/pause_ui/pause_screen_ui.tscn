@@ -9,6 +9,7 @@
 layer = 3
 
 [node name="pauseScreenUI" type="Control" parent="."]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -47,6 +48,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="resume_button" type="Button" parent="pauseScreenUI/main_container/main_vbox/button_vbox/start_button_container"]
+texture_filter = 1
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -60,6 +62,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="settings_button" type="Button" parent="pauseScreenUI/main_container/main_vbox/button_vbox/settings_button_container"]
+texture_filter = 1
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -74,6 +77,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="title_button" type="Button" parent="pauseScreenUI/main_container/main_vbox/button_vbox/quit_button_container"]
+texture_filter = 1
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -85,6 +89,6 @@ script = ExtResource("2_xymh2")
 [node name="seperator" type="Control" parent="pauseScreenUI/main_container/main_vbox"]
 layout_mode = 2
 
-[connection signal="pressed" from="pauseScreenUI/main_container/main_vbox/button_vbox/start_button_container/resume_button" to="pauseScreenUI/main_container/main_vbox/button_vbox/start_button_container/resume_button" method="_on_pressed"]
+[connection signal="pressed" from="pauseScreenUI/main_container/main_vbox/button_vbox/start_button_container/resume_button" to="pauseScreenUI" method="_on_resume_button_pressed"]
 [connection signal="pressed" from="pauseScreenUI/main_container/main_vbox/button_vbox/settings_button_container/settings_button" to="pauseScreenUI/main_container/main_vbox/button_vbox/settings_button_container/settings_button" method="_on_pressed"]
 [connection signal="pressed" from="pauseScreenUI/main_container/main_vbox/button_vbox/quit_button_container/title_button" to="pauseScreenUI/main_container/main_vbox/button_vbox/quit_button_container/title_button" method="_on_pressed"]

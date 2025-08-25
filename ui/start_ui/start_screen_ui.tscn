@@ -39,6 +39,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="start_button" type="Button" parent="main_container/main_vbox/button_vbox/start_button_container"]
+texture_filter = 1
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -48,6 +49,7 @@ text = "START"
 script = ExtResource("1_gj5kb")
 
 [node name="settings_button_container" type="MarginContainer" parent="main_container/main_vbox/button_vbox"]
+texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -62,6 +64,7 @@ text = "SETTINGS"
 script = ExtResource("2_3hr76")
 
 [node name="quit_button_container" type="MarginContainer" parent="main_container/main_vbox/button_vbox"]
+texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
