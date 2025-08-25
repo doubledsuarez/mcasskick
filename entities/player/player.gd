@@ -12,6 +12,7 @@ signal health_changed
 signal item_picked_up
 # A signal to update the ammo amount in the ui
 signal shooting
+signal talking
 
 # This will be used with the final staircase to know how many segments to rise
 var figurine_count := 0
@@ -59,6 +60,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("interact"):
 		var interactables = interactable_finder.get_overlapping_areas()
 		if interactables.size() > 0:
+			emit_signal("talking")
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 			interactables[0].action()
 			return

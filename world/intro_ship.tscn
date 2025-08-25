@@ -1111,5 +1111,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.3271, 1, 0.304924)
 
 [node name="CellPhone" parent="." instance=ExtResource("2_6bg7k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.0378, -1.19089, 16.921)
+pickup_value = 0
 
 [editable path="ZoneIntroShip"]

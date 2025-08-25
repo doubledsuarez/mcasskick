@@ -12,6 +12,8 @@ var learned_world_toggle := false
 var started_learning_world_toggle := false
 var learned_shotgun_jump := false
 var started_learning_shotgun_jump := false
+var learned_talking := false
+var started_learning_talking := false
 
 # Logic for executing picked up cutscene, triggered from the player script
 func picked_up():
@@ -22,6 +24,7 @@ func _ready():
 	await get_tree().create_timer(0.3).timeout
 	g.world_toggled.connect(learn_world_toggle)
 	g.player.shooting.connect(learn_shotgun_jump)
+	g.player.talking.connect(learn_talking)
 
 func learn_world_toggle():
 	if tutorial_mode:
@@ -33,8 +36,12 @@ func learn_shotgun_jump():
 		if g.player.is_on_floor() == false:
 			await get_tree().create_timer(2.0).timeout
 			learned_shotgun_jump = true
-			cellphone_text.set_not_visible()
 		
+func learn_talking():
+	if tutorial_mode:
+			await get_tree().create_timer(2.0).timeout
+			learned_talking = true
+			cellphone_text.set_not_visible()
 
 func _physics_process(delta):
 	if tutorial_mode:
@@ -46,6 +53,10 @@ func _physics_process(delta):
 			if started_learning_shotgun_jump == false:
 				started_learning_shotgun_jump = true
 				cellphone_text.set_cellphonetext("Shoot while jumping to shotgun jump!")
+		elif learned_talking == false:
+			if started_learning_talking == false:
+				started_learning_talking = true
+				cellphone_text.set_cellphonetext("Press E to talk to the villagers!")
 
 	
 
