@@ -68,9 +68,11 @@ func _on_dialogue_ended(resource : DialogueResource):
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	in_dialogue = false
 	immobile = false
-	shooting_enabled = true
 	jumping_enabled = true
 	g.question_asked = false
+	
+	await get_tree().create_timer(0.5).timeout
+	shooting_enabled = true
 
 #region Logic Handling
 
