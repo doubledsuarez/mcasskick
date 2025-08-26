@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=4 uid="uid://r54dyixspqae"]
+[gd_scene load_steps=75 format=4 uid="uid://r54dyixspqae"]
 
 [ext_resource type="Script" uid="uid://0x1oyn0i5ywr" path="res://game.gd" id="1_eow3j"]
 [ext_resource type="PackedScene" uid="uid://co7sigkndoct3" path="res://world/puzzle_trees.tscn" id="2_iotsf"]
@@ -19,6 +19,9 @@
 [ext_resource type="PackedScene" uid="uid://4icf1c7gpltw" path="res://world/environments/environment.tscn" id="13_lc2xo"]
 [ext_resource type="PackedScene" uid="uid://cpv2v57u64u8b" path="res://world/zone_base.tscn" id="16_f1jbl"]
 [ext_resource type="PackedScene" uid="uid://cy1huwjkxco4l" path="res://world/danny_puzzle.tscn" id="17_x5p1p"]
+[ext_resource type="PackedScene" uid="uid://db7xp11deujhy" path="res://entities/enemies/fish/fish.tscn" id="18_qhcbd"]
+[ext_resource type="PackedScene" uid="uid://bwkx5s2xjebvv" path="res://entities/enemies/bat/bat.tscn" id="23_vaj68"]
+[ext_resource type="PackedScene" uid="uid://latadalk1638" path="res://entities/enemies/horse.tscn" id="24_i2p71"]
 [ext_resource type="Material" uid="uid://c3i8m0erv0ay4" path="res://textures/PlaceholderGround.tres" id="24_xa8c5"]
 [ext_resource type="Material" uid="uid://bjacqtbmvxotu" path="res://textures/PlaceholderWall.tres" id="25_5b14r"]
 [ext_resource type="Material" uid="uid://bxwcgqqtut6c" path="res://textures/world_cuddly/plank.tres" id="26_bnpwn"]
@@ -309,6 +312,9 @@ show_debug_visual = false
 [node name="DannyPuzzle" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("17_x5p1p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.00114, 5.44415, 2.64113)
 
+[node name="Fish" parent="SubViewportContainer/SubViewport/Game/DannyPuzzle" instance=ExtResource("18_qhcbd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33, -4, 30)
+
 [node name="ChescherPuzzle" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("16_f1jbl")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -71, 0, 0)
 
@@ -470,6 +476,18 @@ shape = SubResource("ConvexPolygonShape3D_6crov")
 
 [node name="entity_0_brush_21_collision_shape" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle/WorldCuddly/entity_0_worldspawn" index="26"]
 shape = SubResource("ConvexPolygonShape3D_mdjp4")
+
+[node name="Bat" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle" instance=ExtResource("23_vaj68")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, 10)
+
+[node name="Bat3" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle" instance=ExtResource("23_vaj68")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2, 7)
+
+[node name="Bat2" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle" instance=ExtResource("23_vaj68")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 3, 8)
+
+[node name="Horse" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle" instance=ExtResource("24_i2p71")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 1, 16)
 
 [node name="HUD" parent="." instance=ExtResource("7_eow3j")]
 
