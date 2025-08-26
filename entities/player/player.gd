@@ -6,7 +6,7 @@ var confetti_ref = preload("res://entities/player/confetti.tscn")
 
 @export var village_respawn_point : RespawnPoint
 
-@export var weapon_sprite : AnimatedSprite2D
+@onready var weapon_sprite : Sprite2D = $Weapon/WeaponOrigin/WeaponSprite
 @export var cellphone_sprite : Sprite2D
 @onready var direction_ray: Marker3D = $Head/Direction
 @onready var interactable_finder: Area3D = $Head/Direction/InteractableFinder
@@ -57,6 +57,8 @@ func _ready():
 	add_to_group("player")
 
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
+	
+	g.world_toggled.connect(set_shotgun_texture)
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -303,12 +305,18 @@ func handle_shooting():
 		else:
 			if Input.is_action_just_pressed(controls.SHOOT) and not in_dialogue:
 				if not reloading:
+					reloading = true
+					
+					if g.cuddly_world:
+						$Weapon/WeaponAnim.play("cuddly_fire")
+					else:
+						$Weapon/WeaponAnim.play("demon_fire")
 					
 					emit_signal("shooting")
 					
-					reloading = true
-					WEAPON_SPRITE.stop()
-					WEAPON_SPRITE.play("shoot")
+		
+					$Weapon/ReloadTimer.start()
+
 					if !g.cuddly_world:
 						SHOOT_SOUND.pitch_scale = 1.0
 					else:

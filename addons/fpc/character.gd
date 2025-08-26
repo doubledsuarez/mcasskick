@@ -50,7 +50,7 @@ var reloading = false
 ## A reference to the crouch animation for use in the character script.
 @export var CROUCH_ANIMATION : AnimationPlayer
 ## A reference to the shoot animation for use in the character script.
-@export var WEAPON_SPRITE : AnimatedSprite2D
+@export var WEAPON_SPRITE : Sprite2D
 ## A reference to the shoot sound for use in the character script.
 @export var SHOOT_SOUND : AudioStreamPlayer
 ## A reference to the the player's collision shape for use in the character script.
@@ -234,13 +234,24 @@ func handle_shooting():
 		else:
 			if Input.is_action_just_pressed(controls.SHOOT):
 				if reloading == false:
-					WEAPON_SPRITE.stop()
-					WEAPON_SPRITE.play("shoot")
+					if g.cuddly_world:
+						$Weapon/WeaponAnim.play("cuddly_fire")
+					else:
+						$Weapon/WeaponAnim.play("demon_fire")
+
 					reloading = true
 
 					SHOOT_SOUND.play()
 					if RAYCAST.is_colliding() and RAYCAST.get_collider().has_method("take_damage"):
 						RAYCAST.get_collider().take_damage(1)
+
+
+func set_shotgun_texture():
+	if !$Weapon/WeaponAnim.is_playing():
+		if g.cuddly_world:
+			$Weapon/WeaponAnim.play("cuddly_idle")
+		else:
+			$Weapon/WeaponAnim.play("demon_idle")
 
 func handle_jumping():
 	if g.jumping_unlocked or g.dev_mode:

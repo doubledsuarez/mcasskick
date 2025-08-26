@@ -1,10 +1,13 @@
-[gd_scene load_steps=34 format=3 uid="uid://cc1m2a1obsyn4"]
+[gd_scene load_steps=38 format=3 uid="uid://cc1m2a1obsyn4"]
 
 [ext_resource type="Script" uid="uid://brjj243fd01o6" path="res://addons/fpc/character.gd" id="1_0t4e8"]
-[ext_resource type="Texture2D" uid="uid://dgecyir1inxl1" path="res://test-assets/gun_sprites.png" id="2_bx7cj"]
+[ext_resource type="Texture2D" uid="uid://5co1fxw55hu3" path="res://entities/player/shotgun textures1.png" id="2_qaoyu"]
 [ext_resource type="AudioStream" uid="uid://dyyc6yoeueh77" path="res://test-assets/revolver_shot1.wav" id="3_qaoyu"]
 [ext_resource type="Script" uid="uid://hl40wnl3dy4a" path="res://addons/fpc/EditorModule.gd" id="3_v3ckk"]
 [ext_resource type="Script" uid="uid://lsusgueiatl2" path="res://addons/fpc/debug.gd" id="3_x1wcc"]
+[ext_resource type="Texture2D" uid="uid://ctswnc6pailh6" path="res://entities/player/shotgun textures2.png" id="4_gv6je"]
+[ext_resource type="Texture2D" uid="uid://b2ycl55lo7ebe" path="res://entities/player/shotgun textures4.png" id="5_q62an"]
+[ext_resource type="Texture2D" uid="uid://dbxipdbds4w68" path="res://entities/player/shotgun textures3.png" id="6_q34qd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kp17n"]
 albedo_color = Color(0.909804, 0.596078, 0, 1)
@@ -375,54 +378,6 @@ _data = {
 &"land_right": SubResource("Animation_vsknp")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qaoyu"]
-atlas = ExtResource("2_bx7cj")
-region = Rect2(0, 0, 512, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gv6je"]
-atlas = ExtResource("2_bx7cj")
-region = Rect2(512, 0, 512, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4fv23"]
-atlas = ExtResource("2_bx7cj")
-region = Rect2(1024, 0, 512, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q62an"]
-atlas = ExtResource("2_bx7cj")
-region = Rect2(1536, 0, 512, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q34qd"]
-atlas = ExtResource("2_bx7cj")
-region = Rect2(0, 0, 512, 512)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_bupmj"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qaoyu")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gv6je")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4fv23")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q62an")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q34qd")
-}],
-"loop": false,
-"name": &"shoot",
-"speed": 10.0
-}]
-
 [sub_resource type="Animation" id="Animation_gv6je"]
 length = 0.001
 tracks/0/type = "value"
@@ -477,6 +432,219 @@ _data = {
 &"init": SubResource("Animation_4fv23")
 }
 
+[sub_resource type="Animation" id="Animation_q62an"]
+resource_name = "fire"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WeaponOrigin/WeaponSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("4_gv6je"), ExtResource("2_qaoyu")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WeaponOrigin/WeaponSprite:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.25, 0.45, 0.65, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(315, 391), Vector2(315, 391), Vector2(315, 480), Vector2(315, 443), Vector2(315, 476), Vector2(315, 467), Vector2(315, 479), Vector2(315, 466), Vector2(315, 391)]
+}
+
+[sub_resource type="Animation" id="Animation_q34qd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WeaponOrigin/WeaponSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_qaoyu")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WeaponOrigin/WeaponSprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(315, 391)]
+}
+
+[sub_resource type="Animation" id="Animation_ex63h"]
+resource_name = "demon_idle"
+length = 0.1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WeaponOrigin/WeaponSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_qaoyu")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WeaponOrigin/WeaponSprite:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(315, 391)]
+}
+
+[sub_resource type="Animation" id="Animation_go8lt"]
+resource_name = "demon_fire"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WeaponOrigin/WeaponSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("4_gv6je"), ExtResource("2_qaoyu")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WeaponOrigin/WeaponSprite:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.15, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(315, 391), Vector2(315, 391), Vector2(315, 440), Vector2(315, 370), Vector2(315, 391)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.15, 1),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"_on_weapon_sprite_animation_finished"
+}, {
+"args": [],
+"method": &"set_shotgun_texture"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_mnhhx"]
+resource_name = "cuddly_fire"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WeaponOrigin/WeaponSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("5_q62an"), ExtResource("6_q34qd")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WeaponOrigin/WeaponSprite:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.15, 0.35, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(315, 391), Vector2(315, 391), Vector2(315, 440), Vector2(315, 410), Vector2(315, 380), Vector2(315, 391)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.9, 1),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"_on_weapon_sprite_animation_finished"
+}, {
+"args": [],
+"method": &"set_shotgun_texture"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_6wwgf"]
+resource_name = "cuddly_idle"
+length = 0.1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WeaponOrigin/WeaponSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_q34qd")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WeaponOrigin/WeaponSprite:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(315, 391)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ex63h"]
+_data = {
+&"RESET": SubResource("Animation_q34qd"),
+&"cuddly_fire": SubResource("Animation_mnhhx"),
+&"cuddly_idle": SubResource("Animation_6wwgf"),
+&"demon_fire": SubResource("Animation_go8lt"),
+&"demon_idle": SubResource("Animation_ex63h"),
+&"fire": SubResource("Animation_q62an")
+}
+
 [sub_resource type="Theme" id="Theme_wdf0f"]
 MarginContainer/constants/margin_bottom = 10
 MarginContainer/constants/margin_left = 10
@@ -496,7 +664,7 @@ CAMERA = NodePath("Head/Camera")
 HEADBOB_ANIMATION = NodePath("Head/HeadbobAnimation")
 JUMP_ANIMATION = NodePath("Head/JumpAnimation")
 CROUCH_ANIMATION = NodePath("CrouchAnimation")
-WEAPON_SPRITE = NodePath("Weapon/WeaponSprite")
+WEAPON_SPRITE = NodePath("Weapon/WeaponOrigin/WeaponSprite")
 SHOOT_SOUND = NodePath("Weapon/ShootSound")
 COLLISION_MESH = NodePath("Collision")
 RAYCAST = NodePath("Weapon/RayCast")
@@ -538,11 +706,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.125, 1.25, 0)
 target_position = Vector3(0, -1, -999)
 collision_mask = 2
 
-[node name="WeaponSprite" type="AnimatedSprite2D" parent="Weapon"]
-position = Vector2(432, 345)
-scale = Vector2(0.632987, 0.632987)
-sprite_frames = SubResource("SpriteFrames_bupmj")
-animation = &"shoot"
+[node name="ReloadTimer" type="Timer" parent="Weapon"]
+one_shot = true
+
+[node name="WeaponOrigin" type="Node2D" parent="Weapon"]
+
+[node name="WeaponSprite" type="Sprite2D" parent="Weapon/WeaponOrigin"]
+texture_filter = 1
+position = Vector2(315, 391)
+texture = ExtResource("2_qaoyu")
 
 [node name="ShootSound" type="AudioStreamPlayer" parent="Weapon"]
 stream = ExtResource("3_qaoyu")
@@ -561,6 +733,12 @@ libraries = {
 &"": SubResource("AnimationLibrary_4fv23")
 }
 autoplay = "init"
+
+[node name="WeaponAnim" type="AnimationPlayer" parent="Weapon"]
+libraries = {
+&"": SubResource("AnimationLibrary_ex63h")
+}
+autoplay = "demon_idle"
 
 [node name="UserInterface" type="Control" parent="."]
 layout_mode = 3
@@ -595,4 +773,4 @@ target_position = Vector3(0, 0.5, 0)
 [node name="EditorModule" type="Node" parent="."]
 script = ExtResource("3_v3ckk")
 
-[connection signal="animation_finished" from="Weapon/WeaponSprite" to="." method="_on_weapon_sprite_animation_finished"]
+[connection signal="timeout" from="Weapon/ReloadTimer" to="." method="_on_weapon_sprite_animation_finished"]
