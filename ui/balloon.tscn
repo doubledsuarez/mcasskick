@@ -78,7 +78,7 @@ corner_radius_bottom_right = 32
 corner_radius_bottom_left = 32
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_do8d5"]
-bg_color = Color(1, 1, 1, 1)
+bg_color = Color(0.903598, 0.903598, 0.903598, 1)
 corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
@@ -175,7 +175,11 @@ response_template = NodePath("ResponseExample")
 texture_filter = 1
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.180392, 0.180392, 0.180392, 1)
+theme_override_colors/font_outline_color = Color(0.172833, 0.172833, 0.172833, 1)
 theme_override_colors/font_color = Color(0.180005, 0.180005, 0.180005, 1)
+theme_override_colors/font_focus_color = Color(0.180392, 0.180392, 0.180392, 1)
+theme_override_constants/outline_size = 2
 theme_override_fonts/font = ExtResource("3_vefbx")
 theme_override_font_sizes/font_size = 10
 theme_override_styles/focus = SubResource("StyleBoxFlat_do8d5")
