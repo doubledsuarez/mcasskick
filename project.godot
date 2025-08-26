@@ -13,7 +13,7 @@ config_version=5
 config/name="McAssKick"
 run/main_scene="uid://r54dyixspqae"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://oqb4i12vk7b6"
 
 [autoload]
 
