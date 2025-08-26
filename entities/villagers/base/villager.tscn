@@ -37,7 +37,7 @@ shape = SubResource("SphereShape3D_takau")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.739794, 0)
-pixel_size = 0.05
+pixel_size = 0.03
 billboard = 1
 texture_filter = 0
 texture = ExtResource("4_nfjb1")
