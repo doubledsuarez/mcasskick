@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://ch7oeipur42j5" path="res://ui/themes/start_screen_theme.tres" id="1_3hr76"]
 [ext_resource type="Script" uid="uid://c2mxatffgyqea" path="res://ui/start_ui/start_button.gd" id="1_gj5kb"]
-[ext_resource type="Texture2D" uid="uid://mn74ynhv2wlb" path="res://ui/start_ui/Logo.png" id="1_qfvsx"]
+[ext_resource type="Texture2D" uid="uid://c06bl0rl4kj53" path="res://ui/start_ui/RickMcAssKickCover.png" id="1_qfvsx"]
 [ext_resource type="Script" uid="uid://bgqiloxcaamvt" path="res://ui/start_ui/settings_button.gd" id="2_3hr76"]
 [ext_resource type="Script" uid="uid://bjkuxnv4piori" path="res://ui/start_ui/quit_button.gd" id="3_qfvsx"]
 
@@ -37,8 +37,8 @@ position = Vector2(320, 240)
 texture = SubResource("GradientTexture2D_01v4m")
 
 [node name="Logo" type="Sprite2D" parent="main_container"]
-position = Vector2(312, 194)
-scale = Vector2(0.2, 0.2)
+position = Vector2(312, 255)
+scale = Vector2(0.65, 0.65)
 texture = ExtResource("1_qfvsx")
 
 [node name="main_vbox" type="VBoxContainer" parent="main_container"]
