@@ -8,6 +8,8 @@ var bus_index = AudioServer.get_bus_index("Master")
 
 @export var cuddly_level_1 : AudioStream
 
+var stopped := false
+
 func _input(event):
 	if event.is_action_pressed("mute"):
 		if muted == false:
@@ -20,6 +22,7 @@ func _input(event):
 func stop_all_tracks():
 	for child in get_children():
 		child.stop()
+	stopped = true
 
 func play_track(track_name:String):
 	if track_name == "cuddly_descent":
@@ -36,10 +39,12 @@ func play_track(track_name:String):
 
 func _on_descent_into_cuddliness_finished():
 	await get_tree().create_timer(15.0).timeout
-	$ChillJam1.play()
+	if stopped == false:
+		$ChillJam1.play()
 	
 
 
 func _on_chill_jam_1_finished():
 	await get_tree().create_timer(15.0).timeout
-	$ChillJam2.play()
+	if stopped == false:
+		$ChillJam2.play()
