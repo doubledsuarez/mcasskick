@@ -7,11 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://rp3r1es61j4g" path="res://credits/house_concepts_1.png" id="4_24bn4"]
 [ext_resource type="Texture2D" uid="uid://cd8ofk6bjte6j" path="res://credits/enemy_concepts_1.png" id="5_bacv1"]
 
-[sub_resource type="Gradient" id="Gradient_k1w7j"]
+[sub_resource type="Gradient" id="Gradient_24bn4"]
 colors = PackedColorArray(0.951562, 0.882345, 0.867401, 1, 0.834232, 0.953632, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_5uwby"]
-gradient = SubResource("Gradient_k1w7j")
+gradient = SubResource("Gradient_24bn4")
 width = 640
 height = 480
 fill_from = Vector2(0.649485, 1)
@@ -114,7 +114,7 @@ UI Technical Artist
 Level Designer
 Puddle of Anxiety
 
-ALEX
+ALEX GOGLIN
 Programming
 Level Design
 Executive Delivery Boy

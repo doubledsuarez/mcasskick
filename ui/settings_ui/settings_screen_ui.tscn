@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dk4sp1mbws851"]
+[gd_scene load_steps=5 format=3 uid="uid://dk4sp1mbws851"]
 
 [ext_resource type="Script" uid="uid://c548mlplx6wcp" path="res://ui/settings_ui/settings_screen_ui.gd" id="1_rsps6"]
 [ext_resource type="Theme" uid="uid://ch7oeipur42j5" path="res://ui/themes/start_screen_theme.tres" id="1_sto4a"]
+[ext_resource type="Script" uid="uid://dyar7n7q8nnag" path="res://ui/settings_ui/fullscreen_checkbox.gd" id="2_epbtc"]
 [ext_resource type="Script" uid="uid://cnrmbxyjerjyl" path="res://ui/settings_ui/back_button.gd" id="2_sto4a"]
 
 [node name="settings_screen_ui" type="Control"]
@@ -52,7 +53,7 @@ layout_mode = 2
 layout_mode = 2
 text = "Mouse Sensetivity"
 
-[node name="HSlider" type="HSlider" parent="main_container/settings_box/mouse_sense_container"]
+[node name="sensitivity_slider" type="HSlider" parent="main_container/settings_box/mouse_sense_container"]
 custom_minimum_size = Vector2(200, 20)
 layout_mode = 2
 
@@ -72,6 +73,7 @@ text = "Full Screen On/Off"
 
 [node name="fullscreen_checkbox" type="CheckBox" parent="main_container/settings_box/fullscreen_toggle_container"]
 layout_mode = 2
+script = ExtResource("2_epbtc")
 
 [node name="seperator3" type="MarginContainer" parent="main_container/settings_box"]
 custom_minimum_size = Vector2(0, 20)
@@ -95,4 +97,5 @@ theme = ExtResource("1_sto4a")
 text = "BACK"
 script = ExtResource("2_sto4a")
 
+[connection signal="toggled" from="main_container/settings_box/fullscreen_toggle_container/fullscreen_checkbox" to="main_container/settings_box/fullscreen_toggle_container/fullscreen_checkbox" method="_on_toggled"]
 [connection signal="pressed" from="main_container/settings_box/back_button_container/back_button" to="main_container/settings_box/back_button_container/back_button" method="_on_pressed"]
