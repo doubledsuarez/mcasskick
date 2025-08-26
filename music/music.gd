@@ -17,6 +17,9 @@ func _input(event):
 			muted = false
 			AudioServer.set_bus_volume_db(bus_index, 0)
 
+func stop_all_tracks():
+	for child in get_children():
+		child.stop()
 
 func play_track(track_name:String):
 	if track_name == "cuddly_descent":
