@@ -36,10 +36,10 @@ grow_vertical = 2
 position = Vector2(320, 240)
 texture = SubResource("GradientTexture2D_01v4m")
 
-[node name="Logo" type="TextureRect" parent="main_container"]
-layout_mode = 2
+[node name="Logo" type="Sprite2D" parent="main_container"]
+position = Vector2(312, 194)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_qfvsx")
-expand_mode = 1
 
 [node name="main_vbox" type="VBoxContainer" parent="main_container"]
 layout_mode = 2
@@ -47,7 +47,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_constants/separation = 40
 
-[node name="button_vbox" type="HBoxContainer" parent="main_container/main_vbox"]
+[node name="button_vbox" type="VBoxContainer" parent="main_container/main_vbox"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
