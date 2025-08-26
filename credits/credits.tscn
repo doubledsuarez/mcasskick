@@ -87,12 +87,17 @@ texture_filter = 1
 layout_mode = 2
 theme_override_colors/default_color = Color(1, 0.619651, 0.683766, 1)
 theme_override_fonts/normal_font = ExtResource("1_5uwby")
+theme_override_fonts/bold_font = ExtResource("1_5uwby")
 theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 24
 bbcode_enabled = true
-text = "Programming
-Danny Suarez
-Milton Monroe
-Alex
+text = "[b]CAST[/b]
+
+RICK MCASSKICK
+Aaron \"Chescher\" Shannon
+
+DEMON KING AGAMEMNON
+Cenewulf
 
 
 
@@ -100,39 +105,64 @@ Alex
 
 
 
-Art
-Concept Art - Ava
-Title Screen Art - Ava
-Game Art - Milton
-Figurine Models - James
 
 
+[b]CREW[/b]
 
+AARON \"CHESCHER\" SHANNON
+UI Technical Artist
+Level Designer
+Puddle of Anxiety
 
-
-
-UI
-Programming - Chescher
-Textures - Milton
-
-
+ALEX
+Programming
 Level Design
-World - Milton
-Intro UFO - Alex, Milton
+Executive Delivery Boy
 
 
 
 
 
-Music
-Drums - Danny
-Guitar - Cenewulf
-Mixing, Synth - Jake
-Recording - Milton, Jake
 
 
-Voice Acting
-Rick - Chescher
+AVA LUISA 
+MADRIGAL MIEL
+Concept Artist
+Writer
+Escaped Confinement
+
+CENEWULF
+Guitar
+Bass
+Cream of the Crop
+
+DANNY SUAREZ
+Backend Programmer
+Drummer
+All around cool guy
+
+
+
+
+
+
+
+JAKE BICKLE
+Mixing
+Synth
+Resident discord lurker
+
+JAMES BOCHANKSI
+Figurine 3D Models
+
+MILTON MONROE
+Animation
+Pixelart
+Level Design
+Programming
+Sound Design
+
+
 
 
 
@@ -155,22 +185,22 @@ fit_content = true
 horizontal_alignment = 1
 
 [node name="Rick" type="Sprite2D" parent="Credits/Credit Root"]
-position = Vector2(320, 328)
+position = Vector2(320, 568)
 scale = Vector2(0.258333, 0.258333)
 texture = ExtResource("2_xjpbh")
 
 [node name="Villagers" type="Sprite2D" parent="Credits/Credit Root"]
-position = Vector2(320, 800)
+position = Vector2(320, 1392)
 scale = Vector2(0.258333, 0.258333)
 texture = ExtResource("3_bacv1")
 
-[node name="Villagers2" type="Sprite2D" parent="Credits/Credit Root"]
-position = Vector2(320, 1368)
+[node name="Houses" type="Sprite2D" parent="Credits/Credit Root"]
+position = Vector2(320, 2288)
 scale = Vector2(0.258333, 0.258333)
 texture = ExtResource("4_24bn4")
 
-[node name="Villagers3" type="Sprite2D" parent="Credits/Credit Root"]
-position = Vector2(320, 1960)
+[node name="Enemies" type="Sprite2D" parent="Credits/Credit Root"]
+position = Vector2(320, 3192)
 scale = Vector2(0.258333, 0.258333)
 texture = ExtResource("5_bacv1")
 
