@@ -288,7 +288,7 @@ sky_mode = 1
 [node name="Environment" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("13_lc2xo")]
 
 [node name="Player" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("4_fc0e3")]
-transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, -50.9035, 51.6914, -64.3545)
+transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, -50.9035, 61.9914, -69.5545)
 collision_mask = 31
 default_reticle = "res://addons/fpc/reticles/reticle_1.tscn"
 
@@ -296,7 +296,7 @@ default_reticle = "res://addons/fpc/reticles/reticle_1.tscn"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.101498, -0.139862, -0.180614)
 
 [node name="Ship" parent="SubViewportContainer/SubViewport/Game/RespawnPoints" instance=ExtResource("11_iotsf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.9742, 51.6859, -63.9896)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.4742, 62.0859, -68.6896)
 respawn_name = "Ship"
 show_debug_visual = false
 

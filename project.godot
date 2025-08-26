@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="McAssKick"
-run/main_scene="uid://r54dyixspqae"
+run/main_scene="uid://da0sl8ophwd22"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 

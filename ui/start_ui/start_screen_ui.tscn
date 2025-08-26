@@ -1,9 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://da0sl8ophwd22"]
+[gd_scene load_steps=8 format=3 uid="uid://da0sl8ophwd22"]
 
 [ext_resource type="Theme" uid="uid://ch7oeipur42j5" path="res://ui/themes/start_screen_theme.tres" id="1_3hr76"]
 [ext_resource type="Script" uid="uid://c2mxatffgyqea" path="res://ui/start_ui/start_button.gd" id="1_gj5kb"]
+[ext_resource type="Texture2D" uid="uid://mn74ynhv2wlb" path="res://ui/start_ui/Logo.png" id="1_qfvsx"]
 [ext_resource type="Script" uid="uid://bgqiloxcaamvt" path="res://ui/start_ui/settings_button.gd" id="2_3hr76"]
 [ext_resource type="Script" uid="uid://bjkuxnv4piori" path="res://ui/start_ui/quit_button.gd" id="3_qfvsx"]
+
+[sub_resource type="Gradient" id="Gradient_k1w7j"]
+colors = PackedColorArray(0.951562, 0.882345, 0.867401, 1, 0.834232, 0.953632, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_01v4m"]
+gradient = SubResource("Gradient_k1w7j")
+width = 640
+height = 480
+fill_from = Vector2(0.649485, 1)
+fill_to = Vector2(0.4811, 0)
 
 [node name="startScreenUI" type="Control"]
 layout_mode = 3
@@ -21,13 +32,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="BG" type="Sprite2D" parent="main_container"]
+position = Vector2(320, 240)
+texture = SubResource("GradientTexture2D_01v4m")
+
+[node name="Logo" type="TextureRect" parent="main_container"]
+layout_mode = 2
+texture = ExtResource("1_qfvsx")
+expand_mode = 1
+
 [node name="main_vbox" type="VBoxContainer" parent="main_container"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_constants/separation = 40
 
-[node name="button_vbox" type="VBoxContainer" parent="main_container/main_vbox"]
+[node name="button_vbox" type="HBoxContainer" parent="main_container/main_vbox"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
@@ -49,6 +69,7 @@ text = "START"
 script = ExtResource("1_gj5kb")
 
 [node name="settings_button_container" type="MarginContainer" parent="main_container/main_vbox/button_vbox"]
+visible = false
 texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 4

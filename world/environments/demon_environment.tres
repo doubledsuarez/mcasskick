@@ -13,8 +13,9 @@ sky_material = SubResource("ProceduralSkyMaterial_wsisx")
 [resource]
 background_mode = 2
 background_color = Color(1, 0.263716, 0.438412, 1)
-background_energy_multiplier = 0.8
+background_energy_multiplier = 0.6
 sky = SubResource("Sky_fc2n7")
+ambient_light_energy = 0.7
 glow_enabled = true
 glow_bloom = 0.1
 volumetric_fog_enabled = true
