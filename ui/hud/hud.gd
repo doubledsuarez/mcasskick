@@ -21,6 +21,7 @@ func _ready() -> void:
 	g.player.health_changed.connect(_on_health_changed)
 	g.player.item_picked_up.connect(_item_picked_up)
 	g.player.shooting.connect(_set_ammo_count)
+	g.player.voice_line_trigger.connect(_voice_line)
 	_set_ammo_count()
 	
 	
@@ -55,3 +56,5 @@ func _set_ammo_count():
 	ammo_label.text = str(ammo_amount)
 	
 	
+func _voice_line():
+	$TalkAnim.play("talk")

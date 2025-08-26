@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b1eps5pilfg6h"
+path="res://.godot/imported/rickvoice_miss kitty cutie figurine.wav-d345dedd546bbe78941a7b6bd309938f.sample"
+
+[deps]
+
+source_file="res://entities/player/voice_lines/rickvoice_miss kitty cutie figurine.wav"
+dest_files=["res://.godot/imported/rickvoice_miss kitty cutie figurine.wav-d345dedd546bbe78941a7b6bd309938f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

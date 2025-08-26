@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cmycouhyotxho"
+path="res://.godot/imported/rickvoice_blast these assholes.wav-ba757a9e82cdb56d0f81947057fd39e3.sample"
+
+[deps]
+
+source_file="res://entities/player/voice_lines/rickvoice_blast these assholes.wav"
+dest_files=["res://.godot/imported/rickvoice_blast these assholes.wav-ba757a9e82cdb56d0f81947057fd39e3.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -15,10 +15,15 @@ var started_learning_shotgun_jump := false
 var learned_talking := false
 var started_learning_talking := false
 
+var playing := false
+
 # Logic for executing picked up cutscene, triggered from the player script
 func picked_up():
-	$CellPhoneAnimation.play("cellphone_initialize")
-	await $CellPhoneAnimation.animation_finished
+	if playing == false:
+		playing = true
+		g.player.play_line("cellphone_used")
+		$CellPhoneAnimation.play("cellphone_initialize")
+		await $CellPhoneAnimation.animation_finished
 
 func _ready():
 	await get_tree().create_timer(0.3).timeout
@@ -81,7 +86,9 @@ func unlock_world_switch():
 	Music.play_track("cuddly_descent")
 	g.world_switch()
 	g.low_gravity = true
-	await get_tree().create_timer(5.0).timeout
+	await get_tree().create_timer(3.0).timeout
+	g.player.play_line("cuddly_descent")
+	await get_tree().create_timer(2.0).timeout
 	g.world_switch_unlocked = true
 	cellphone_text.set_not_visible()
 
@@ -91,4 +98,3 @@ func unlock_world_switch():
 	await get_tree().create_timer(4.0).timeout
 	
 	tutorial_mode = true
-	

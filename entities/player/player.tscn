@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cc4pdef86f1w8"]
+[gd_scene load_steps=42 format=3 uid="uid://cc4pdef86f1w8"]
 
 [ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://addons/fpc/character.tscn" id="1_symyc"]
 [ext_resource type="Script" uid="uid://xv5xtyvvrlrr" path="res://entities/player/player.gd" id="2_1234"]
@@ -23,6 +23,19 @@
 [ext_resource type="AudioStream" uid="uid://day0bccnlyssw" path="res://entities/world_switch.wav" id="21_221hk"]
 [ext_resource type="Script" uid="uid://kamyusguu154" path="res://entities/player/world_switch.gd" id="22_ghoj8"]
 [ext_resource type="AudioStream" uid="uid://dbix6rbm13xv6" path="res://entities/player/death.wav" id="23_ghoj8"]
+[ext_resource type="Script" uid="uid://dltoy3hcksh6m" path="res://entities/player/rick_voice_lines.gd" id="24_t1t22"]
+[ext_resource type="AudioStream" uid="uid://cmycouhyotxho" path="res://entities/player/voice_lines/rickvoice_blast these assholes.wav" id="25_50fht"]
+[ext_resource type="AudioStream" uid="uid://cb1krwf2p0jl6" path="res://entities/player/voice_lines/rickvoice_chew bubblegum.wav" id="26_wuv6x"]
+[ext_resource type="AudioStream" uid="uid://5ls5j5n8u008" path="res://entities/player/voice_lines/rickvoice_what the hell.wav" id="27_0eo6o"]
+[ext_resource type="AudioStream" uid="uid://b1eps5pilfg6h" path="res://entities/player/voice_lines/rickvoice_miss kitty cutie figurine.wav" id="28_ttr27"]
+[ext_resource type="AudioStream" uid="uid://ckxq42vico5o1" path="res://entities/player/voice_lines/rickvoice_ive always wanted oen.wav" id="29_13wue"]
+[ext_resource type="AudioStream" uid="uid://b0sahx4s7cxuu" path="res://entities/player/voice_lines/rickvoice_hungry.wav" id="30_wy7bt"]
+[ext_resource type="AudioStream" uid="uid://bb0ivp7cxd5g" path="res://entities/player/voice_lines/rickvoice_who am i.wav" id="31_geky7"]
+[ext_resource type="AudioStream" uid="uid://crk8mb13vntvc" path="res://entities/player/voice_lines/rickvoice_cellphone spotted.wav" id="32_qwspa"]
+[ext_resource type="AudioStream" uid="uid://4gnyt8p6gpxs" path="res://entities/player/voice_lines/rickvoice_cell phone used.wav" id="33_r633c"]
+[ext_resource type="AudioStream" uid="uid://c2u1crdfn2imn" path="res://entities/player/voice_lines/rickvoice_cuddly descent.wav" id="34_pacje"]
+[ext_resource type="AudioStream" uid="uid://cr71xw8da10u3" path="res://entities/player/voice_lines/rickvoice_figure collecting.wav" id="35_2h0qb"]
+[ext_resource type="AudioStream" uid="uid://dwr7hdwtkpk43" path="res://entities/player/voice_lines/rickvoice_final staircase.wav" id="36_mmk7k"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_abrql"]
 
@@ -250,3 +263,19 @@ stream = ExtResource("23_ghoj8")
 volume_db = 2.0
 bus = &"SFX"
 script = ExtResource("22_ghoj8")
+
+[node name="RickVoiceLines" type="AudioStreamPlayer" parent="." index="11" groups=["player"]]
+bus = &"SFX"
+script = ExtResource("24_t1t22")
+blast_demons = ExtResource("25_50fht")
+chew_bubblegum = ExtResource("26_wuv6x")
+what_the_heck = ExtResource("27_0eo6o")
+kittycutie_spotted = ExtResource("28_ttr27")
+ive_always_wanted_one = ExtResource("29_13wue")
+hungry = ExtResource("30_wy7bt")
+who_am_i = ExtResource("31_geky7")
+cellphone_spotted = ExtResource("32_qwspa")
+cellphone_used = ExtResource("33_r633c")
+cuddly_descent = ExtResource("34_pacje")
+figurine_collected = ExtResource("35_2h0qb")
+final_staircase = ExtResource("36_mmk7k")
