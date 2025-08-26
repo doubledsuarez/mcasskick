@@ -218,14 +218,14 @@ scale = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_221hk")
 
 [node name="CellPhoneOrigin" type="Node2D" parent="Weapon" index="2"]
-position = Vector2(0, -67)
+position = Vector2(0, -37)
 
 [node name="CellPhoneText" type="RichTextLabel" parent="Weapon/CellPhoneOrigin" index="0"]
 texture_filter = 1
 offset_left = 7.0
-offset_top = 75.0
+offset_top = 44.0
 offset_right = 304.0
-offset_bottom = 148.0
+offset_bottom = 117.0
 theme_override_colors/default_color = Color(0.160813, 1, 0.0407343, 1)
 theme_override_fonts/normal_font = ExtResource("15_mtric")
 theme_override_font_sizes/normal_font_size = 14
