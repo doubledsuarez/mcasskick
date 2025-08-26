@@ -3,7 +3,7 @@ extends Node2D
 var speed := 0
 
 func _ready():
-	Music.stop()
+	Music.stop_all_tracks()
 	Music.play_track("demon_level_1")
 
 func _input(event):
