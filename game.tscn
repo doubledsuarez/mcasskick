@@ -287,9 +287,10 @@ sky_mode = 1
 
 [node name="Environment" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("13_lc2xo")]
 
-[node name="Player" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("4_fc0e3")]
+[node name="Player" parent="SubViewportContainer/SubViewport/Game" node_paths=PackedStringArray("village_respawn_point") instance=ExtResource("4_fc0e3")]
 transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, -50.9035, 61.9914, -69.5545)
 collision_mask = 31
+village_respawn_point = NodePath("../RespawnPoints/Village")
 default_reticle = "res://addons/fpc/reticles/reticle_1.tscn"
 
 [node name="RespawnPoints" type="Node3D" parent="SubViewportContainer/SubViewport/Game"]

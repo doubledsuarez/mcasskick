@@ -20,6 +20,10 @@ var playing := false
 # Logic for executing picked up cutscene, triggered from the player script
 func picked_up():
 	if playing == false:
+		
+		if is_instance_valid(g.player.village_respawn_point):
+			g.player.village_respawn_point.activate_checkpoint()
+		
 		playing = true
 		g.player.play_line("cellphone_used")
 		$CellPhoneAnimation.play("cellphone_initialize")

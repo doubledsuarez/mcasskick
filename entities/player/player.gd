@@ -4,6 +4,8 @@ extends "res://addons/fpc/character.gd"
 
 var confetti_ref = preload("res://entities/player/confetti.tscn")
 
+@export var village_respawn_point : RespawnPoint
+
 @export var weapon_sprite : AnimatedSprite2D
 @export var cellphone_sprite : Sprite2D
 @onready var direction_ray: Marker3D = $Head/Direction
