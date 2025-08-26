@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfqoxld7yeoto"]
+
+[ext_resource type="Script" uid="uid://dpkiwcwe31dl4" path="res://world/voice_trigger.gd" id="1_02t3h"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_bo1f7"]
+radius = 1.41865
+
+[node name="voice_trigger" type="Area3D"]
+collision_layer = 0
+script = ExtResource("1_02t3h")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_bo1f7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

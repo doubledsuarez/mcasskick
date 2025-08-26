@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://h30klttmj8ll"]
+[gd_scene load_steps=19 format=3 uid="uid://h30klttmj8ll"]
 
 [ext_resource type="Script" uid="uid://7dc6wtyxq8qa" path="res://ui/hud/hud.gd" id="1_xmswo"]
 [ext_resource type="Texture2D" uid="uid://cfdtpwsyq8cux" path="res://ui/sprite/rick_glasses.png" id="2_4d6w6"]
@@ -13,6 +13,63 @@
 [ext_resource type="Texture2D" uid="uid://dvmiyxgnko2t2" path="res://ui/pickups/FigurinePreview_DoomGuyPink.png" id="10_5uuaq"]
 [ext_resource type="FontFile" uid="uid://cc12wq7tok063" path="res://ui/DooM.ttf" id="12_gv4gi"]
 [ext_resource type="Texture2D" uid="uid://cf66wmm3k7sbe" path="res://ui/hud/hud.png" id="12_p3vm3"]
+[ext_resource type="Texture2D" uid="uid://ql5vfwpq3kmb" path="res://ui/sprite/rick_open_mouth.png" id="14_5mn0o"]
+
+[sub_resource type="Animation" id="Animation_6gxmt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("main_box/MarginContainer/HudContents/display_seperator/character_display/open_mouth:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_olkg6"]
+resource_name = "base"
+length = 0.1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("main_box/MarginContainer/HudContents/display_seperator/character_display/open_mouth:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_3mxrk"]
+resource_name = "talk"
+length = 4.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("main_box/MarginContainer/HudContents/display_seperator/character_display/open_mouth:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.4, 0.7, 0.8, 0.9, 1, 1.2, 1.3, 1.6, 2, 2.1, 2.2, 2.5, 2.9, 3, 3.1, 3.4, 3.7, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false, true, true, false, true, true, false, true, false, true, false, true, false, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hk13k"]
+_data = {
+&"RESET": SubResource("Animation_6gxmt"),
+&"base": SubResource("Animation_olkg6"),
+&"talk": SubResource("Animation_3mxrk")
+}
 
 [node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("health_label", "chill_label", "ammo_label", "trinket_grid")]
 script = ExtResource("1_xmswo")
@@ -164,6 +221,12 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.572988, 0.572988, 0.572988, 1)
 
+[node name="open_mouth" type="TextureRect" parent="main_box/MarginContainer/HudContents/display_seperator/character_display"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("14_5mn0o")
+
 [node name="health" type="MarginContainer" parent="main_box/MarginContainer/HudContents/display_seperator"]
 custom_minimum_size = Vector2(144, 70)
 layout_mode = 2
@@ -238,3 +301,9 @@ theme_override_colors/default_color = Color(0.654232, 0.654232, 0.654232, 1)
 theme_override_fonts/normal_font = ExtResource("12_gv4gi")
 text = "Ammo"
 horizontal_alignment = 1
+
+[node name="TalkAnim" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_hk13k")
+}
+autoplay = "base"

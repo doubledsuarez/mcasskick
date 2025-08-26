@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dwr7hdwtkpk43"
+path="res://.godot/imported/rickvoice_final staircase.wav-05a32b53c9471e6f610f89e4ef144a80.sample"
+
+[deps]
+
+source_file="res://entities/player/voice_lines/rickvoice_final staircase.wav"
+dest_files=["res://.godot/imported/rickvoice_final staircase.wav-05a32b53c9471e6f610f89e4ef144a80.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

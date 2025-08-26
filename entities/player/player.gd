@@ -14,6 +14,9 @@ signal item_picked_up
 signal shooting
 signal talking
 
+# Used for the hud
+signal voice_line_trigger
+
 # This will be used with the final staircase to know how many segments to rise
 var figurine_count := 0
 
@@ -86,6 +89,9 @@ func take_damage(dmg : int):
 	health -= dmg
 	health = clampi(health, 0, MAX_HEALTH)
 	emit_signal("health_changed", health)
+	
+	if health <= 70:
+		$RickVoiceLines.play_line_conditional("hungry")
 
 	if g.hitflash_enabled:
 		$Weapon/HitFlash/HitFlashAnim.play("hitflash")
@@ -141,6 +147,8 @@ func add_to_inventory(item_name: String, description: String, quantity: int = 1,
 	# Keep track of the figurines for the final staircase
 	if is_figurine:
 		figurine_count += 1
+		if figurine_count == 2:
+			play_line("figurine_collected")
 		#print("Player figurine count: " + str(figurine_count))
 	
 	return true
@@ -350,3 +358,7 @@ func apply_shotgun_recoil():
 	# Log.info("Shotgun boost applied! Velocity: ", velocity.length())
 
 #endregion
+
+# A function to pass down to the voice lines so this can be easily triggered
+func play_line(line_name:String):
+	$RickVoiceLines.play_line(line_name)

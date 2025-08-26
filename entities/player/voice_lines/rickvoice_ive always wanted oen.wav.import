@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ckxq42vico5o1"
+path="res://.godot/imported/rickvoice_ive always wanted oen.wav-2bc7e16bbc75443e601492ff8c3d32d3.sample"
+
+[deps]
+
+source_file="res://entities/player/voice_lines/rickvoice_ive always wanted oen.wav"
+dest_files=["res://.godot/imported/rickvoice_ive always wanted oen.wav-2bc7e16bbc75443e601492ff8c3d32d3.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
