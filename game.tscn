@@ -288,7 +288,6 @@ sky_mode = 1
 
 [node name="Environment" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("13_lc2xo")]
 environment = ExtResource("15_qhcbd")
-cuddly_environment = ExtResource("15_qhcbd")
 
 [node name="Player" parent="SubViewportContainer/SubViewport/Game" node_paths=PackedStringArray("village_respawn_point") instance=ExtResource("4_fc0e3")]
 transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, -50.9035, 61.9914, -69.5545)
