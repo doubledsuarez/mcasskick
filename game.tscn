@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=4 uid="uid://r54dyixspqae"]
+[gd_scene load_steps=73 format=4 uid="uid://r54dyixspqae"]
 
 [ext_resource type="Script" uid="uid://0x1oyn0i5ywr" path="res://game.gd" id="1_eow3j"]
 [ext_resource type="PackedScene" uid="uid://co7sigkndoct3" path="res://world/puzzle_trees.tscn" id="2_iotsf"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://bim2jwgv8vjsu" path="res://world/final_area.tscn" id="11_e8heu"]
 [ext_resource type="PackedScene" uid="uid://c3dx7ns1vrdv5" path="res://entities/respawn_points/respawn_point.tscn" id="11_iotsf"]
 [ext_resource type="PackedScene" uid="uid://4icf1c7gpltw" path="res://world/environments/environment.tscn" id="13_lc2xo"]
+[ext_resource type="Environment" uid="uid://qc0u2ugfxv2c" path="res://world/environments/demon_environment.tres" id="15_qhcbd"]
 [ext_resource type="PackedScene" uid="uid://cpv2v57u64u8b" path="res://world/zone_base.tscn" id="16_f1jbl"]
 [ext_resource type="PackedScene" uid="uid://cy1huwjkxco4l" path="res://world/danny_puzzle.tscn" id="17_x5p1p"]
 [ext_resource type="Material" uid="uid://c3i8m0erv0ay4" path="res://textures/PlaceholderGround.tres" id="24_xa8c5"]
@@ -277,7 +278,7 @@ dialogue_resource = ExtResource("9_215e1")
 
 [node name="Reticle" parent="SubViewportContainer/SubViewport/Game" node_paths=PackedStringArray("character") instance=ExtResource("5_7jktm")]
 character = NodePath("../Player")
-dot_color = Color(1, 1, 1, 0.282353)
+dot_color = Color(1, 1, 1, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport/Game"]
 transform = Transform3D(-0.904297, 0.133342, 0.405545, 0.204798, -0.698018, 0.68617, 0.374573, 0.703556, 0.603908, 0, 8, -8)
@@ -286,6 +287,8 @@ shadow_enabled = true
 sky_mode = 1
 
 [node name="Environment" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("13_lc2xo")]
+environment = ExtResource("15_qhcbd")
+cuddly_environment = ExtResource("15_qhcbd")
 
 [node name="Player" parent="SubViewportContainer/SubViewport/Game" node_paths=PackedStringArray("village_respawn_point") instance=ExtResource("4_fc0e3")]
 transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, -50.9035, 61.9914, -69.5545)
