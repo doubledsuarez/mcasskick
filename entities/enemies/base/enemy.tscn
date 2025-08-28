@@ -191,6 +191,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_bgi78")
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 1, 0)
 pixel_size = 0.05
 billboard = 1
+shaded = true
 texture_filter = 0
 texture = ExtResource("2_jwj14")
 hframes = 14

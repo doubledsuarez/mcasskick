@@ -25,7 +25,7 @@ func picked_up():
 			g.player.village_respawn_point.activate_checkpoint()
 		
 		playing = true
-		g.player.play_line("cellphone_used")
+
 		$CellPhoneAnimation.play("cellphone_initialize")
 		await $CellPhoneAnimation.animation_finished
 
@@ -67,6 +67,8 @@ func _physics_process(delta):
 				started_learning_talking = true
 				cellphone_text.set_cellphonetext("Press E to talk to the villagers!")
 
+func play_cellphone_line():
+	g.player.play_line("cellphone_used")
 	
 
 func unlock_vertical_looking():
@@ -95,6 +97,10 @@ func unlock_world_switch():
 	await get_tree().create_timer(2.0).timeout
 	g.world_switch_unlocked = true
 	cellphone_text.set_not_visible()
+	
+	# Free the introship
+	if is_instance_valid(g.introship):
+		g.introship.queue_free()
 
 	await get_tree().create_timer(6.0).timeout
 	g.low_gravity = false
