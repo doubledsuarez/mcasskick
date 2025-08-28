@@ -14,6 +14,7 @@ var game
 var player = null
 var pause_menu = null
 var settings = null
+var introship = null
 
 var tutorial_done : bool = false
 var question_asked : bool = false
