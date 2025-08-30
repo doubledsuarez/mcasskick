@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=4 uid="uid://r54dyixspqae"]
+[gd_scene load_steps=91 format=4 uid="uid://r54dyixspqae"]
 
 [ext_resource type="Script" uid="uid://caaslniupkh8k" path="res://sub_viewport_container.gd" id="1_bnpwn"]
 [ext_resource type="Script" uid="uid://0x1oyn0i5ywr" path="res://game.gd" id="1_eow3j"]
@@ -15,12 +15,15 @@
 [ext_resource type="Resource" uid="uid://bs4kkljhftgq3" path="res://entities/villagers/bunny/bunny.dialogue" id="9_215e1"]
 [ext_resource type="PackedScene" uid="uid://7me2ccb5ua8m" path="res://world/castle.tscn" id="9_hve3p"]
 [ext_resource type="Resource" uid="uid://cpv342krgbtky" path="res://entities/villagers/bunny/tutorial.dialogue" id="11_5b14r"]
+[ext_resource type="Texture2D" uid="uid://cyg2snr1w5xw5" path="res://addons/func_godot/textures/default_texture.png" id="11_082n1"]
 [ext_resource type="PackedScene" uid="uid://bim2jwgv8vjsu" path="res://world/final_area.tscn" id="11_e8heu"]
 [ext_resource type="PackedScene" uid="uid://c3dx7ns1vrdv5" path="res://entities/respawn_points/respawn_point.tscn" id="11_iotsf"]
 [ext_resource type="PackedScene" uid="uid://4icf1c7gpltw" path="res://world/environments/environment.tscn" id="13_lc2xo"]
 [ext_resource type="PackedScene" uid="uid://cpv2v57u64u8b" path="res://world/zone_base.tscn" id="16_f1jbl"]
 [ext_resource type="PackedScene" uid="uid://cy1huwjkxco4l" path="res://world/danny_puzzle.tscn" id="17_x5p1p"]
+[ext_resource type="Script" uid="uid://bjv5x8op5bkcy" path="res://directional_light_3d.gd" id="18_7knny"]
 [ext_resource type="PackedScene" uid="uid://db7xp11deujhy" path="res://entities/enemies/fish/fish.tscn" id="18_qhcbd"]
+[ext_resource type="Environment" uid="uid://qc0u2ugfxv2c" path="res://world/environments/demon_environment.tres" id="19_dhpj7"]
 [ext_resource type="PackedScene" uid="uid://bwkx5s2xjebvv" path="res://entities/enemies/bat/bat.tscn" id="23_vaj68"]
 [ext_resource type="PackedScene" uid="uid://latadalk1638" path="res://entities/enemies/horse.tscn" id="24_i2p71"]
 [ext_resource type="Material" uid="uid://c3i8m0erv0ay4" path="res://textures/PlaceholderGround.tres" id="24_xa8c5"]
@@ -30,6 +33,60 @@
 [ext_resource type="Material" uid="uid://bxwcgqqtut6c" path="res://textures/world_cuddly/plank.tres" id="26_bnpwn"]
 [ext_resource type="PackedScene" uid="uid://b0f7c0va15hgh" path="res://finale/final_cutscene_menu.tscn" id="28_5b14r"]
 [ext_resource type="PackedScene" uid="uid://bokf76s8qk5nd" path="res://finale/final_lines.tscn" id="30_36jdj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8a7gl"]
+albedo_texture = ExtResource("11_082n1")
+metallic_specular = 0.0
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_lcqyo"]
+_surfaces = [{
+"aabb": AABB(-2, -0.5, -2, 4, 1, 4),
+"attribute_data": PackedByteArray("AACAPwAAgL4AAIA/AACAPgAAgL8AAIA+AACAvwAAgL4AAIC/AACAvgAAgD8AAIC+AACAPwAAgD4AAIC/AACAPgAAgD8AAIC/AACAPwAAgD8AAIC/AACAPwAAgL8AAIC/AACAvwAAgL8AAIA/AACAvwAAgD8AAIA/AACAvwAAgD8AAIA/AACAvgAAgD8AAIA+AACAvwAAgD4AAIC/AACAvgAAgL8AAIC+AACAPwAAgL4AAIA/AACAPgAAgL8AAIA+"),
+"format": 34359742487,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
+"material": SubResource("StandardMaterial3D_8a7gl"),
+"name": "__TB_empty",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAwAAAAD8AAADAAAAAwAAAAL8AAADAAAAAQAAAAL8AAADAAAAAQAAAAD8AAADAAAAAwAAAAD8AAADAAAAAwAAAAD8AAABAAAAAwAAAAL8AAABAAAAAwAAAAL8AAADAAAAAQAAAAL8AAADAAAAAwAAAAL8AAADAAAAAwAAAAL8AAABAAAAAQAAAAL8AAABAAAAAQAAAAD8AAADAAAAAQAAAAD8AAABAAAAAwAAAAD8AAABAAAAAwAAAAD8AAADAAAAAQAAAAD8AAADAAAAAQAAAAL8AAADAAAAAQAAAAL8AAABAAAAAQAAAAD8AAABAAAAAwAAAAD8AAABAAAAAQAAAAD8AAABAAAAAQAAAAL8AAABAAAAAwAAAAL8AAABA/////wAA/7//////AAD/v/////8AAP+//////wAA/78AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//v/9/AAD//////38AAP//////fwAA//////9/AAD//////3////9//7//f////3//v/9/////f/+//3////9//7////9//////////3//////////f/////////9///////9//3////+//3//f////7//f/9/////v/9//3////+/")
+}]
+
+[sub_resource type="ArrayOccluder3D" id="ArrayOccluder3D_nrf2w"]
+vertices = PackedVector3Array(-2, 0.5, -2, -2, -0.5, -2, 2, -0.5, -2, 2, 0.5, -2, -2, 0.5, -2, -2, 0.5, 2, -2, -0.5, 2, -2, -0.5, -2, 2, -0.5, -2, -2, -0.5, -2, -2, -0.5, 2, 2, -0.5, 2, 2, 0.5, -2, 2, 0.5, 2, -2, 0.5, 2, -2, 0.5, -2, 2, 0.5, -2, 2, -0.5, -2, 2, -0.5, 2, 2, 0.5, 2, -2, 0.5, 2, 2, 0.5, 2, 2, -0.5, 2, -2, -0.5, 2)
+indices = PackedInt32Array(0, 1, 2, 0, 2, 3, 4, 5, 6, 4, 6, 7, 8, 9, 10, 8, 10, 11, 12, 13, 14, 12, 14, 15, 16, 17, 18, 16, 18, 19, 20, 21, 22, 20, 22, 23)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_knkev"]
+points = PackedVector3Array(-2, 0.5, -2, -2, -0.5, -2, 2, -0.5, -2, 2, 0.5, -2, -2, 0.5, 2, -2, -0.5, 2, 2, -0.5, 2, 2, 0.5, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hjgtc"]
+albedo_texture = ExtResource("11_082n1")
+metallic_specular = 0.0
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_wotof"]
+_surfaces = [{
+"aabb": AABB(-2, -0.5, -2, 4, 1, 4),
+"attribute_data": PackedByteArray("AACAPwAAgL4AAIA/AACAPgAAgL8AAIA+AACAvwAAgL4AAIC/AACAvgAAgD8AAIC+AACAPwAAgD4AAIC/AACAPgAAgD8AAIC/AACAPwAAgD8AAIC/AACAPwAAgL8AAIC/AACAvwAAgL8AAIA/AACAvwAAgD8AAIA/AACAvwAAgD8AAIA/AACAvgAAgD8AAIA+AACAvwAAgD4AAIC/AACAvgAAgL8AAIC+AACAPwAAgL4AAIA/AACAPgAAgL8AAIA+"),
+"format": 34359742487,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
+"material": SubResource("StandardMaterial3D_hjgtc"),
+"name": "__TB_empty",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAwAAAAD8AAADAAAAAwAAAAL8AAADAAAAAQAAAAL8AAADAAAAAQAAAAD8AAADAAAAAwAAAAD8AAADAAAAAwAAAAD8AAABAAAAAwAAAAL8AAABAAAAAwAAAAL8AAADAAAAAQAAAAL8AAADAAAAAwAAAAL8AAADAAAAAwAAAAL8AAABAAAAAQAAAAL8AAABAAAAAQAAAAD8AAADAAAAAQAAAAD8AAABAAAAAwAAAAD8AAABAAAAAwAAAAD8AAADAAAAAQAAAAD8AAADAAAAAQAAAAL8AAADAAAAAQAAAAL8AAABAAAAAQAAAAD8AAABAAAAAwAAAAD8AAABAAAAAQAAAAD8AAABAAAAAQAAAAL8AAABAAAAAwAAAAL8AAABA/////wAA/7//////AAD/v/////8AAP+//////wAA/78AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//v/9/AAD//////38AAP//////fwAA//////9/AAD//////3////9//7//f////3//v/9/////f/+//3////9//7////9//////////3//////////f/////////9///////9//3////+//3//f////7//f/9/////v/9//3////+/")
+}]
+
+[sub_resource type="ArrayOccluder3D" id="ArrayOccluder3D_ajecg"]
+vertices = PackedVector3Array(-2, 0.5, -2, -2, -0.5, -2, 2, -0.5, -2, 2, 0.5, -2, -2, 0.5, -2, -2, 0.5, 2, -2, -0.5, 2, -2, -0.5, -2, 2, -0.5, -2, -2, -0.5, -2, -2, -0.5, 2, 2, -0.5, 2, 2, 0.5, -2, 2, 0.5, 2, -2, 0.5, 2, -2, 0.5, -2, 2, 0.5, -2, 2, -0.5, -2, 2, -0.5, 2, 2, 0.5, 2, -2, 0.5, 2, 2, 0.5, 2, 2, -0.5, 2, -2, -0.5, 2)
+indices = PackedInt32Array(0, 1, 2, 0, 2, 3, 4, 5, 6, 4, 6, 7, 8, 9, 10, 8, 10, 11, 12, 13, 14, 12, 14, 15, 16, 17, 18, 16, 18, 19, 20, 21, 22, 20, 22, 23)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0rbgw"]
+points = PackedVector3Array(-2, 0.5, -2, -2, -0.5, -2, 2, -0.5, -2, 2, 0.5, -2, -2, 0.5, 2, -2, -0.5, 2, 2, -0.5, 2, 2, 0.5, 2)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_xa8c5"]
 _surfaces = [{
@@ -262,6 +319,7 @@ render_target_update_mode = 4
 [node name="Game" type="Node3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00311661, 0.141235, 0.0404968)
 script = ExtResource("1_eow3j")
+dev_mode = true
 
 [node name="PuzzleTrees" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("2_iotsf")]
 transform = Transform3D(0.642788, 0, 0.766044, 0, 1, 0, -0.766044, 0, 0.642788, 37, 5, -32)
@@ -276,6 +334,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33, 50, -17)
 
 [node name="FinalArea" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("11_e8heu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 6.8, 165.5)
+
+[node name="entity_0_mesh_instance" parent="SubViewportContainer/SubViewport/Game/FinalArea/ZoneBase/WorldDemon/entity_0_worldspawn" index="0"]
+mesh = SubResource("ArrayMesh_lcqyo")
+
+[node name="entity_0_occluder_instance" parent="SubViewportContainer/SubViewport/Game/FinalArea/ZoneBase/WorldDemon/entity_0_worldspawn" index="1"]
+occluder = SubResource("ArrayOccluder3D_nrf2w")
+
+[node name="entity_0_brush_0_collision_shape" parent="SubViewportContainer/SubViewport/Game/FinalArea/ZoneBase/WorldDemon/entity_0_worldspawn" index="2"]
+shape = SubResource("ConvexPolygonShape3D_knkev")
+
+[node name="entity_0_mesh_instance" parent="SubViewportContainer/SubViewport/Game/FinalArea/ZoneBase/WorldCuddly/entity_0_worldspawn" index="0"]
+mesh = SubResource("ArrayMesh_wotof")
+
+[node name="entity_0_occluder_instance" parent="SubViewportContainer/SubViewport/Game/FinalArea/ZoneBase/WorldCuddly/entity_0_worldspawn" index="1"]
+occluder = SubResource("ArrayOccluder3D_ajecg")
+
+[node name="entity_0_brush_0_collision_shape" parent="SubViewportContainer/SubViewport/Game/FinalArea/ZoneBase/WorldCuddly/entity_0_worldspawn" index="2"]
+shape = SubResource("ConvexPolygonShape3D_0rbgw")
 
 [node name="BonBon" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("2_mfdv2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 5.04058, -6)
@@ -292,13 +368,26 @@ dialogue_resource = ExtResource("9_215e1")
 character = NodePath("../Player")
 dot_color = Color(1, 1, 1, 0.282353)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport/Game"]
+[node name="DirectionalLight3D_Cuddly" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport/Game"]
 transform = Transform3D(-0.904297, 0.133342, 0.405545, 0.204798, -0.698018, 0.68617, 0.374573, 0.703556, 0.603908, 0, 8, -8)
+light_color = Color(0.854902, 1, 1, 1)
 light_energy = 0.5
 shadow_enabled = true
 sky_mode = 1
+script = ExtResource("18_7knny")
+world_state = "cuddly"
+
+[node name="DirectionalLight3D2_Demon" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport/Game"]
+transform = Transform3D(-0.904297, 0.133342, 0.405545, 0.204798, -0.698018, 0.68617, 0.374573, 0.703556, 0.603908, 0, 8, -8)
+light_color = Color(0.860402, 0.691328, 0.557729, 1)
+light_energy = 0.8
+light_volumetric_fog_energy = 1.4
+shadow_enabled = true
+sky_mode = 1
+script = ExtResource("18_7knny")
 
 [node name="Environment" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("13_lc2xo")]
+environment = ExtResource("19_dhpj7")
 
 [node name="Player" parent="SubViewportContainer/SubViewport/Game" node_paths=PackedStringArray("village_respawn_point") instance=ExtResource("4_fc0e3")]
 transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, -50.9035, 61.9914, -69.5545)

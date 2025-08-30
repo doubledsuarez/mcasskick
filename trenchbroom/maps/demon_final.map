@@ -1,0 +1,17 @@
+// Game: McAssKick
+// Format: Valve
+// entity 0
+{
+"mapversion" "220"
+"wad" ""
+"classname" "worldspawn"
+// brush 0
+{
+( -688 -208 -224 ) ( -688 -207 -224 ) ( -688 -208 -223 ) world_cuddly/brick_grey [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -384 -768 -224 ) ( -384 -768 -223 ) ( -383 -768 -224 ) world_cuddly/brick_grey [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -384 -208 -336 ) ( -383 -208 -336 ) ( -384 -207 -336 ) world_cuddly/brick_grey [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 96 784 2320 ) ( 96 785 2320 ) ( 97 784 2320 ) world_cuddly/brick_grey [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 96 592 -208 ) ( 97 592 -208 ) ( 96 592 -207 ) world_cuddly/brick_grey [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 704 784 -208 ) ( 704 784 -207 ) ( 704 785 -208 ) world_cuddly/brick_grey [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}

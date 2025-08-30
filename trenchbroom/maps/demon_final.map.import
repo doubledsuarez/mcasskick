@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://d4kcx70cjk64n"
+path="res://.godot/imported/demon_final.map-83e80e0c5ca0e0d4b2bef8f52ac8ccec.tres"
+
+[deps]
+
+source_file="res://trenchbroom/maps/demon_final.map"
+dest_files=["res://.godot/imported/demon_final.map-83e80e0c5ca0e0d4b2bef8f52ac8ccec.tres"]
+
+[params]
+

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c1xntkh8cxt1m"]
+[gd_scene load_steps=13 format=3 uid="uid://c1xntkh8cxt1m"]
 
 [ext_resource type="PackedScene" uid="uid://b7varapqnerb5" path="res://world/zone_village.tscn" id="1_am3c7"]
 [ext_resource type="PackedScene" uid="uid://cuke6pl3it7f6" path="res://entities/pickups/figures/pickup_figurine_doomguy.tscn" id="3_exxhv"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://b8lj2fdqsbvg7" path="res://world/world_light.gd" id="9_nfe5f"]
 [ext_resource type="PackedScene" uid="uid://b5g5ldlfgsn0w" path="res://entities/toggleblock/toggle_block.tscn" id="10_t2p8v"]
 [ext_resource type="PackedScene" uid="uid://s8ycp8u5vbug" path="res://world/props/world_cuddly/lantern.tscn" id="11_lm1a5"]
+[ext_resource type="PackedScene" uid="uid://2btags6dyo62" path="res://world/props/world_cuddly/prop_rainbow.tscn" id="12_nfe5f"]
 [ext_resource type="PackedScene" uid="uid://bpgwa4eutjfo7" path="res://world/props/world_cuddly/strawberry.tscn" id="12_p64o3"]
 
 [node name="Village" type="Node3D"]
@@ -17,7 +18,7 @@
 [node name="ZoneVillage" parent="." instance=ExtResource("1_am3c7")]
 
 [node name="Pickup_Figurine_doomguy" parent="." instance=ExtResource("3_exxhv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 5, -6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1605, 6.46588, -12.3973)
 
 [node name="Pickup_Figurine_doomguy_gold" parent="." instance=ExtResource("4_yqwgi")]
 transform = Transform3D(0.642788, 0, 0.766044, 0, 1, 0, -0.766044, 0, 0.642788, 4, 6, -30)
@@ -29,7 +30,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81, 1, 8)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37, 3, 32)
 
 [node name="Pickup_Figurine_CarebearGold" parent="." instance=ExtResource("7_nfe5f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.57945, 10.5, -5.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.24652, 15.8846, -16.811)
 
 [node name="FinalStaircase" parent="." instance=ExtResource("8_lm1a5")]
 
@@ -45,6 +46,38 @@ world_state = "cuddly"
 
 [node name="WorldLight2" type="OmniLight3D" parent="Props"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.17774, 6.60212, 19.8664)
+light_color = Color(0.897218, 0.721951, 0.553394, 1)
+light_energy = 0.8
+omni_range = 1.0
+script = ExtResource("9_nfe5f")
+world_state = "cuddly"
+
+[node name="WorldLight19" type="OmniLight3D" parent="Props"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.51026, 6.60212, 20.4012)
+light_color = Color(0.897218, 0.721951, 0.553394, 1)
+light_energy = 0.8
+omni_range = 1.0
+script = ExtResource("9_nfe5f")
+world_state = "cuddly"
+
+[node name="WorldLight20" type="OmniLight3D" parent="Props"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.89424, 6.60212, 20.4012)
+light_color = Color(0.897218, 0.721951, 0.553394, 1)
+light_energy = 0.8
+omni_range = 1.0
+script = ExtResource("9_nfe5f")
+world_state = "cuddly"
+
+[node name="WorldLight21" type="OmniLight3D" parent="Props"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.77524, 6.84021, 20.6696)
+light_color = Color(0.897218, 0.721951, 0.553394, 1)
+light_energy = 0.8
+omni_range = 1.0
+script = ExtResource("9_nfe5f")
+world_state = "cuddly"
+
+[node name="WorldLight22" type="OmniLight3D" parent="Props"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.77524, 6.84021, 20.6696)
 light_color = Color(0.897218, 0.721951, 0.553394, 1)
 light_energy = 0.8
 omni_range = 1.0
@@ -75,14 +108,160 @@ omni_range = 1.0
 script = ExtResource("9_nfe5f")
 world_state = "cuddly"
 
+[node name="WorldLight6" type="OmniLight3D" parent="Props"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.1022, 6.95461, 2.78108)
+light_color = Color(0.897218, 0.721951, 0.553394, 1)
+light_energy = 0.8
+omni_range = 1.0
+script = ExtResource("9_nfe5f")
+world_state = "cuddly"
+
+[node name="WorldLight7" type="OmniLight3D" parent="Props"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.1022, 6.95461, -1.84982)
+light_color = Color(0.897218, 0.721951, 0.553394, 1)
+light_energy = 0.8
+omni_range = 1.0
+script = ExtResource("9_nfe5f")
+world_state = "cuddly"
+
+[node name="WorldLight10" type="OmniLight3D" parent="Props"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10.1453, 6.95461, -8.34632)
+light_color = Color(0.897218, 0.721951, 0.553394, 1)
+light_energy = 0.8
+omni_range = 1.0
+script = ExtResource("9_nfe5f")
+world_state = "cuddly"
+
+[node name="WorldLight11" type="OmniLight3D" parent="Props"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.78467, 6.95461, -11.4801)
+light_color = Color(0.897218, 0.721951, 0.553394, 1)
+light_energy = 0.8
+omni_range = 1.0
+script = ExtResource("9_nfe5f")
+world_state = "cuddly"
+
+[node name="WorldLight13" type="OmniLight3D" parent="Props"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.389475, 7.63124, -16.0867)
+light_color = Color(0.897218, 0.721951, 0.553394, 1)
+light_energy = 0.8
+omni_range = 1.0
+script = ExtResource("9_nfe5f")
+world_state = "cuddly"
+
+[node name="WorldLight14" type="OmniLight3D" parent="Props"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.68713, 7.63124, -16.0867)
+light_color = Color(0.897218, 0.721951, 0.553394, 1)
+light_energy = 0.8
+omni_range = 1.0
+script = ExtResource("9_nfe5f")
+world_state = "cuddly"
+
+[node name="WorldLight15" type="OmniLight3D" parent="Props"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 12.9366, 6.59284, -8.70912)
+light_color = Color(0.897218, 0.721951, 0.553394, 1)
+light_energy = 0.8
+omni_range = 1.0
+script = ExtResource("9_nfe5f")
+world_state = "cuddly"
+
+[node name="WorldLight16" type="OmniLight3D" parent="Props"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 14.5327, 6.59284, -4.80574)
+light_color = Color(0.897218, 0.721951, 0.553394, 1)
+light_energy = 0.8
+omni_range = 1.0
+script = ExtResource("9_nfe5f")
+world_state = "cuddly"
+
+[node name="WorldLight17" type="OmniLight3D" parent="Props"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 13.958, 10.0812, -4.46741)
+light_color = Color(0.897218, 0.721951, 0.553394, 1)
+light_energy = 0.8
+omni_range = 1.0
+script = ExtResource("9_nfe5f")
+world_state = "cuddly"
+
+[node name="WorldLight18" type="OmniLight3D" parent="Props"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 13.0499, 10.0812, -8.7679)
+light_color = Color(0.897218, 0.721951, 0.553394, 1)
+light_energy = 0.8
+omni_range = 1.0
+script = ExtResource("9_nfe5f")
+world_state = "cuddly"
+
+[node name="WorldLight12" type="OmniLight3D" parent="Props"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.80575, 9.91529, -13.1951)
+light_color = Color(0.897218, 0.721951, 0.553394, 1)
+light_energy = 0.8
+omni_range = 1.0
+script = ExtResource("9_nfe5f")
+world_state = "cuddly"
+
+[node name="WorldLight8" type="OmniLight3D" parent="Props"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.1022, 9.40413, -1.84982)
+light_color = Color(0.897218, 0.721951, 0.553394, 1)
+light_energy = 0.8
+omni_range = 1.0
+script = ExtResource("9_nfe5f")
+world_state = "cuddly"
+
+[node name="WorldLight9" type="OmniLight3D" parent="Props"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.1022, 9.40413, 2.54225)
+light_color = Color(0.897218, 0.721951, 0.553394, 1)
+light_energy = 0.8
+omni_range = 1.0
+script = ExtResource("9_nfe5f")
+world_state = "cuddly"
+
 [node name="ToggleBlock" parent="Props" instance=ExtResource("10_t2p8v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.25, 7, -19)
 
 [node name="Lantern" parent="Props" instance=ExtResource("11_lm1a5")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.34089, 8, 22)
 
+[node name="Lantern6" parent="Props" instance=ExtResource("11_lm1a5")]
+transform = Transform3D(-0.999104, 0, -0.042329, 0, 1, 0, 0.042329, 0, -0.999104, 8.00116, 8.09904, 20.578)
+
+[node name="Lantern7" parent="Props" instance=ExtResource("11_lm1a5")]
+transform = Transform3D(0.48786, 0, -0.872922, 0, 1, 0, 0.872922, 0, 0.48786, 13.3398, 8.09904, -6.63805)
+
+[node name="Lantern2" parent="Props" instance=ExtResource("11_lm1a5")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.1513, 8, 0.361172)
+
+[node name="Lantern4" parent="Props" instance=ExtResource("11_lm1a5")]
+transform = Transform3D(0.527252, 0, 0.849709, 0, 1, 0, -0.849709, 0, 0.527252, -8.85208, 7.85039, -10.0596)
+
+[node name="Lantern5" parent="Props" instance=ExtResource("11_lm1a5")]
+transform = Transform3D(0.99865, 0, 0.0519351, 0, 1, 0, -0.0519351, 0, 0.99865, 4.26914, 12.2569, -16.8038)
+
+[node name="Lantern3" parent="Props" instance=ExtResource("11_lm1a5")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.1513, 10.1502, 0.361172)
+
 [node name="Strawberry" parent="Props" instance=ExtResource("12_p64o3")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.68718, 6.06307, 19.696)
+
+[node name="Strawberry11" parent="Props" instance=ExtResource("12_p64o3")]
+transform = Transform3D(-0.660316, 0, -0.750988, 0, 1, 0, 0.750988, 0, -0.660316, 12.2586, 6.06307, 18.5619)
+
+[node name="Strawberry12" parent="Props" instance=ExtResource("12_p64o3")]
+transform = Transform3D(-0.660316, 0, -0.750988, 0, 1, 0, 0.750988, 0, -0.660316, 13.9606, 6.41729, 20.1605)
+
+[node name="Strawberry13" parent="Props" instance=ExtResource("12_p64o3")]
+transform = Transform3D(0.360811, 0, -0.932639, 0, 1, 0, 0.932639, 0, 0.360811, 17.7796, 5.838, 1.03943)
+
+[node name="Strawberry6" parent="Props" instance=ExtResource("12_p64o3")]
+transform = Transform3D(0.69237, 0, 0.721543, 0, 1, 0, -0.721543, 0, 0.69237, -5.31021, 9.67215, -12.912)
+
+[node name="Strawberry7" parent="Props" instance=ExtResource("12_p64o3")]
+transform = Transform3D(0.69237, 0, 0.721543, 0, 1, 0, -0.721543, 0, 0.69237, -6.45325, 6.05034, -11.4585)
+
+[node name="Strawberry8" parent="Props" instance=ExtResource("12_p64o3")]
+transform = Transform3D(0.69237, 0, 0.721543, 0, 1, 0, -0.721543, 0, 0.69237, -9.41918, 6.05034, -8.67169)
+
+[node name="Strawberry9" parent="Props" instance=ExtResource("12_p64o3")]
+transform = Transform3D(0.69237, 0, 0.721543, 0, 1, 0, -0.721543, 0, 0.69237, -10.1177, 10.5197, -9.96586)
+
+[node name="Strawberry10" parent="Props" instance=ExtResource("12_p64o3")]
+transform = Transform3D(0.926732, 0, -0.375723, 0, 1, 0, 0.375723, 0, 0.926732, 13.0948, 5.7914, -15.7301)
 
 [node name="Strawberry3" parent="Props" instance=ExtResource("12_p64o3")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.38836, 11.5717, 20.0634)
@@ -98,3 +277,15 @@ flip_h = true
 [node name="Strawberry2" parent="Props" instance=ExtResource("12_p64o3")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.73962, 6.00749, 24.26)
 flip_h = true
+
+[node name="PropRainbow2" parent="Props" instance=ExtResource("12_nfe5f")]
+transform = Transform3D(0.77775, 0, 0.628574, 0, 1, 0, -0.628574, 0, 0.77775, -103.412, 3.49944, -125.664)
+
+[node name="PropRainbow4" parent="Props" instance=ExtResource("12_nfe5f")]
+transform = Transform3D(-0.255817, 0, -0.966725, 0, 1, 0, 0.966725, 0, -0.255817, -140.543, 17.068, -1.53313)
+
+[node name="PropRainbow3" parent="Props" instance=ExtResource("12_nfe5f")]
+transform = Transform3D(0.128121, 0, 0.991759, 0, 1, 0, -0.991759, 0, 0.128121, 209.607, 10.6659, 63.9005)
+
+[node name="PropRainbow" parent="Props" instance=ExtResource("12_nfe5f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 23.616, 73.0111)

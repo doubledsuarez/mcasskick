@@ -194,7 +194,7 @@ volume_db = -0.6
 color = Color(0.7, 0, 0.0583334, 0)
 
 [node name="CloudBox" parent="." index="8" instance=ExtResource("14_afbqv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -40.2578, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -62.372, 0)
 
 [node name="WorldSwitch" type="AudioStreamPlayer" parent="." index="9"]
 stream = ExtResource("21_221hk")

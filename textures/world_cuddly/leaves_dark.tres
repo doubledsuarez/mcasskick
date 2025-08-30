@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://c2iv03ndpr4nc"]
+
+[ext_resource type="Texture2D" uid="uid://curjxfgnvvrby" path="res://textures/world_cuddly/leaves_dark.png" id="1_1a8ux"]
+
+[resource]
+albedo_texture = ExtResource("1_1a8ux")
+metallic_specular = 0.0
+texture_filter = 2
