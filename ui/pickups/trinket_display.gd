@@ -10,3 +10,6 @@ func _ready():
 
 func set_collected():
 	trinket_display.visible = true
+
+func set_not_collected():
+	trinket_display.visible = false

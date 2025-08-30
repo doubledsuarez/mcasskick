@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://kc4ldqmabs4"
+path="res://.godot/imported/finalline_dont you get tired.wav-a667de6512f428b90e60c342c8842102.sample"
+
+[deps]
+
+source_file="res://finale/voice_lines/finalline_dont you get tired.wav"
+dest_files=["res://.godot/imported/finalline_dont you get tired.wav-a667de6512f428b90e60c342c8842102.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

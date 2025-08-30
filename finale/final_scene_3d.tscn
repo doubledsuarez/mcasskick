@@ -1,0 +1,671 @@
+[gd_scene load_steps=27 format=3 uid="uid://dpddce1qcp4a8"]
+
+[ext_resource type="Script" uid="uid://bdlslr1rx80pr" path="res://finale/final_scene_3d.gd" id="1_t4wok"]
+[ext_resource type="Texture2D" uid="uid://cvrlk5x1kj61l" path="res://finale/demon_king_face.png" id="2_bvjuk"]
+[ext_resource type="PackedScene" uid="uid://bns3finxo6wj5" path="res://finale/final_walls.tscn" id="2_d4kq5"]
+[ext_resource type="Texture2D" uid="uid://btdhjp1ed4pq6" path="res://finale/demon_king_wheel6.png" id="3_3qaxx"]
+[ext_resource type="Script" uid="uid://c7ki2b1sydbxi" path="res://finale/wheel_1.gd" id="4_d4ec4"]
+[ext_resource type="Texture2D" uid="uid://dneqjmx3d8um7" path="res://finale/demon_king_wheel5.png" id="5_r66g3"]
+[ext_resource type="Texture2D" uid="uid://s0gxj6336pw8" path="res://finale/demon_king_wheel4.png" id="6_0nl5a"]
+[ext_resource type="Texture2D" uid="uid://b20s3d1fctt0b" path="res://finale/demon_king_wheel3.png" id="7_324fg"]
+[ext_resource type="Texture2D" uid="uid://53y38f7n7s38" path="res://finale/demon_king_wheel2.png" id="8_u83n4"]
+[ext_resource type="Texture2D" uid="uid://cc4io7wmu3qa1" path="res://finale/demon_king_wheel1.png" id="9_qtp35"]
+[ext_resource type="ArrayMesh" uid="uid://10e0xgxdpyal" path="res://entities/pickups/figures/hellokitty.res" id="10_qtp35"]
+[ext_resource type="Script" uid="uid://cqf6ivq60i8m6" path="res://finale/kitty_mesh.gd" id="11_qtp35"]
+[ext_resource type="PackedScene" uid="uid://c5wvuangwin50" path="res://credits/credits_trigger.tscn" id="13_qtp35"]
+
+[sub_resource type="Animation" id="Animation_3qaxx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("face:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_d4ec4"]
+resource_name = "face_float"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("face:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -2, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r66g3"]
+_data = {
+&"RESET": SubResource("Animation_3qaxx"),
+&"face_float": SubResource("Animation_d4ec4")
+}
+
+[sub_resource type="Animation" id="Animation_324fg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("face/backup_faces/face2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0, 0, 0.803922)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("face/backup_faces/face3:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0, 0, 0.317647)]
+}
+
+[sub_resource type="Animation" id="Animation_u83n4"]
+resource_name = "init"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("face/backup_faces/face2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("face/backup_faces/face3:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_0nl5a"]
+resource_name = "talk"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("face/backup_faces/face2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.533333, 1.6, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 0), Color(1, 0, 0, 0.803922), Color(1, 0, 0, 0.803922), Color(1, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("face/backup_faces/face3:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.533333, 1.6, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 0), Color(1, 0, 0, 0.317647), Color(1, 0, 0, 0.317647), Color(1, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u83n4"]
+_data = {
+&"RESET": SubResource("Animation_324fg"),
+&"init": SubResource("Animation_u83n4"),
+&"talk": SubResource("Animation_0nl5a")
+}
+
+[sub_resource type="Animation" id="Animation_bvjuk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Walls:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(3, -75, 17)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 15.2, 16.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera3D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.21568, 2.67938, 0.8544)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera3D:fov")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [75.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("kitty/kitty_mesh:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.5, 6.6)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("kitty:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("kitty/kitty_mesh:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("kitty:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_brk3j"]
+resource_name = "initialize"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Walls:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(3, -1000, 17)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("kitty:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_qtp35"]
+resource_name = "part_2"
+length = 24.0
+step = 0.1
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 4, 7.2, 10.1, 14.4, 17.4, 20.2, 23.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": ["dk_rethinking"],
+"method": &"play_demon_line"
+}, {
+"args": [],
+"method": &"demon_talking"
+}, {
+"args": [],
+"method": &"demon_talking"
+}, {
+"args": [],
+"method": &"demon_talking"
+}, {
+"args": [],
+"method": &"demon_talking"
+}, {
+"args": [],
+"method": &"demon_talking"
+}, {
+"args": [],
+"method": &"demon_talking"
+}, {
+"args": [],
+"method": &"part_3"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5.5, 5.6, 11.4, 11.5, 17.6, 17.7, 24),
+"transitions": PackedFloat32Array(1, 1e-05, 1, 1e-05, 1, 1e-05, 1, 1),
+"update": 0,
+"values": [Vector3(0, 15.2, 16.5), Vector3(0, 15.2, 4.3), Vector3(12.4, 14.7, 21.6), Vector3(11.9, 20.3, 21.9), Vector3(11.9, 72.2, -56.1), Vector3(-7.8, 97.5, -158.3), Vector3(0, 15.2, 4.3), Vector3(0, 15.2, -2.2)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera3D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 5.5, 5.6, 11.4, 11.5, 17.6, 17.7, 24),
+"transitions": PackedFloat32Array(1, 1e-05, 1, 1e-05, 1, 1e-05, 1, 1),
+"update": 0,
+"values": [Vector3(0, 3.14159, 0), Vector3(0, 3.14159, 0), Vector3(0.0147551, 2.9155, 0.129788), Vector3(0.0147551, 2.6537, 0.129788), Vector3(-0.443204, 3.1197, 0.392239), Vector3(-0.432842, 3.03687, 0.102974), Vector3(0, -3.14159, 0), Vector3(0, -3.14159, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera3D:fov")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 11.4, 11.5, 17.6, 17.7),
+"transitions": PackedFloat32Array(1, 1e-05, 1, 0.000601145, 1),
+"update": 0,
+"values": [75.0, 75.0, 57.3, 39.4, 75.0]
+}
+
+[sub_resource type="Animation" id="Animation_0u5yv"]
+resource_name = "part_3"
+length = 31.0
+step = 0.5
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4, 4.5, 5, 13, 15.5, 17, 29, 31),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": ["gift"],
+"method": &"play_rick_line"
+}, {
+"args": ["dk_is_that"],
+"method": &"play_demon_line"
+}, {
+"args": [],
+"method": &"give_kitty"
+}, {
+"args": ["kittie_cutie_description"],
+"method": &"play_rick_line"
+}, {
+"args": ["dk_giving_this_to_me"],
+"method": &"play_demon_line"
+}, {
+"args": ["you_bet_your_ass_i_am"],
+"method": &"play_rick_line"
+}, {
+"args": ["dk_final"],
+"method": &"play_demon_line"
+}, {
+"args": ["forever"],
+"method": &"play_rick_line"
+}, {
+"args": [],
+"method": &"start_credits"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("kitty/kitty_mesh:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2, 4),
+"transitions": PackedFloat32Array(0.353554, 1),
+"update": 0,
+"values": [Vector3(0, 1.5, 6.6), Vector3(0, 11.5, 17.4)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("kitty:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("kitty/kitty_mesh:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2, 4, 18, 19),
+"transitions": PackedFloat32Array(0.366021, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(4, 4, 4), Vector3(4, 4, 4), Vector3(0, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("kitty:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, -0.6, 0), Vector3(0, 0, 0), Vector3(0, -0.6, 0), Vector3(0, 0, 0), Vector3(0, -0.6, 0), Vector3(0, 0, 0), Vector3(0, -0.6, 0), Vector3(0, 0, 0), Vector3(0, -0.6, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_d4kq5"]
+resource_name = "start"
+length = 38.0
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Walls:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 1),
+"transitions": PackedFloat32Array(0.329877, 1),
+"update": 0,
+"values": [Vector3(3, -1000, 17), Vector3(3, -75, 17)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.5, 2.5, 3.73333, 5.3, 9.5, 11, 12.5, 15, 17.5, 21.5, 23.5, 24.5, 27, 30.5, 33.5, 38),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": ["dk_sentimental_fool"],
+"method": &"play_demon_line"
+}, {
+"args": [],
+"method": &"spawn_fish"
+}, {
+"args": [],
+"method": &"demon_talking"
+}, {
+"args": [],
+"method": &"demon_talking"
+}, {
+"args": ["making_new_friends"],
+"method": &"play_rick_line"
+}, {
+"args": [],
+"method": &"rick_till_talking"
+}, {
+"args": ["its_not_killing_demons"],
+"method": &"play_rick_line"
+}, {
+"args": [],
+"method": &"rick_till_talking"
+}, {
+"args": [],
+"method": &"rick_till_talking"
+}, {
+"args": ["dont_you_get_tired"],
+"method": &"play_rick_line"
+}, {
+"args": ["dk_what"],
+"method": &"play_demon_line"
+}, {
+"args": ["the_evil_is_bad"],
+"method": &"play_rick_line"
+}, {
+"args": [],
+"method": &"rick_till_talking"
+}, {
+"args": [],
+"method": &"rick_till_talking"
+}, {
+"args": [],
+"method": &"rick_till_talking"
+}, {
+"args": [],
+"method": &"part_2"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_d4ec4"]
+_data = {
+&"RESET": SubResource("Animation_bvjuk"),
+&"initialize": SubResource("Animation_brk3j"),
+&"part_2": SubResource("Animation_qtp35"),
+&"part_3": SubResource("Animation_0u5yv"),
+&"start": SubResource("Animation_d4kq5")
+}
+
+[node name="FinalScene3D" type="Node3D" node_paths=PackedStringArray("anim")]
+script = ExtResource("1_t4wok")
+anim = NodePath("Anim")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.65974, 0.61237, 0.435598, 0.736704, 0.641456, 0.214012, -0.148363, 0.462098, -0.87433, 0, 15.2, 16.5)
+
+[node name="demon_king" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16, 24.8)
+
+[node name="face" type="Sprite3D" parent="demon_king"]
+pixel_size = 0.3
+billboard = 2
+texture_filter = 0
+texture = ExtResource("2_bvjuk")
+
+[node name="backup_faces" type="Node3D" parent="demon_king/face"]
+
+[node name="face2" type="Sprite3D" parent="demon_king/face/backup_faces"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.700001)
+modulate = Color(1, 0, 0, 0.803922)
+pixel_size = 0.35
+billboard = 2
+texture_filter = 0
+texture = ExtResource("2_bvjuk")
+
+[node name="face3" type="Sprite3D" parent="demon_king/face/backup_faces"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.7)
+modulate = Color(1, 0, 0, 0.317647)
+pixel_size = 0.4
+billboard = 2
+texture_filter = 0
+texture = ExtResource("2_bvjuk")
+
+[node name="wheel 1" type="Sprite3D" parent="demon_king"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.326269, 0.6)
+modulate = Color(1, 1, 1, 0.909804)
+pixel_size = 0.35
+texture_filter = 0
+texture = ExtResource("3_3qaxx")
+script = ExtResource("4_d4ec4")
+speed = 0.05
+
+[node name="wheel 2" type="Sprite3D" parent="demon_king"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.326269, 1.4)
+modulate = Color(1, 1, 1, 0.854902)
+pixel_size = 0.35
+texture_filter = 0
+texture = ExtResource("5_r66g3")
+script = ExtResource("4_d4ec4")
+speed = -0.04
+
+[node name="wheel 3" type="Sprite3D" parent="demon_king"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.326269, 2.4)
+modulate = Color(1, 1, 1, 0.756863)
+pixel_size = 0.35
+texture_filter = 0
+texture = ExtResource("6_0nl5a")
+script = ExtResource("4_d4ec4")
+speed = 0.03
+
+[node name="wheel 4" type="Sprite3D" parent="demon_king"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.326269, 3.2)
+modulate = Color(1, 1, 1, 0.941176)
+pixel_size = 0.35
+texture_filter = 0
+texture = ExtResource("7_324fg")
+script = ExtResource("4_d4ec4")
+speed = 0.001
+
+[node name="wheel 5" type="Sprite3D" parent="demon_king"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.326269, 4.9)
+modulate = Color(1, 1, 1, 0.737255)
+pixel_size = 0.35
+texture_filter = 0
+texture = ExtResource("8_u83n4")
+script = ExtResource("4_d4ec4")
+speed = 0.005
+
+[node name="wheel 7" type="Sprite3D" parent="demon_king"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.326269, 8.4)
+modulate = Color(1, 1, 1, 0.737255)
+pixel_size = 0.4
+texture_filter = 0
+texture = ExtResource("8_u83n4")
+script = ExtResource("4_d4ec4")
+speed = -0.001
+
+[node name="wheel 6" type="Sprite3D" parent="demon_king"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.326269, 6.5)
+modulate = Color(1, 1, 1, 0.313726)
+pixel_size = 0.35
+texture_filter = 0
+texture = ExtResource("9_qtp35")
+script = ExtResource("4_d4ec4")
+speed = 0.005
+
+[node name="demon_anim" type="AnimationPlayer" parent="demon_king"]
+libraries = {
+&"": SubResource("AnimationLibrary_r66g3")
+}
+autoplay = "face_float"
+
+[node name="demon_talking" type="AnimationPlayer" parent="demon_king"]
+libraries = {
+&"": SubResource("AnimationLibrary_u83n4")
+}
+autoplay = "init"
+
+[node name="PlayerPos" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.2, 0)
+
+[node name="kitty" type="Node3D" parent="."]
+
+[node name="kitty_mesh" type="MeshInstance3D" parent="kitty"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 6.6)
+mesh = ExtResource("10_qtp35")
+script = ExtResource("11_qtp35")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="kitty"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 10.9113, 20.3)
+light_color = Color(0.916572, 0.000680376, 0.916566, 1)
+light_energy = 20.0
+omni_range = 10.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="kitty"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9, 15.8263, 12.1)
+light_color = Color(0, 0.729412, 1, 1)
+light_energy = 20.0
+omni_range = 10.0
+
+[node name="Walls" parent="." instance=ExtResource("2_d4kq5")]
+
+[node name="Anim" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_d4ec4")
+}
+autoplay = "initialize"
+
+[node name="fish_pos" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 92.3, 14.9)
+
+[node name="credits_trigger" parent="." instance=ExtResource("13_qtp35")]
+
+[node name="CollisionShape3D" parent="credits_trigger" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.1, -3.6)
+
+[editable path="credits_trigger"]

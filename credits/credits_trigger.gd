@@ -1,12 +1,15 @@
 extends Area3D
 
+var triggered := false
+
+func _ready():
+	g.final_menu.started.connect(disable)
 
 func _on_body_entered(body):
-	match Input.mouse_mode:
-		Input.MOUSE_MODE_CAPTURED:
-			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-			#get_tree().paused = false
-		Input.MOUSE_MODE_VISIBLE:
-			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-			
-	get_tree().call_deferred("change_scene_to_file", "res://credits/credits.tscn")
+	if body.is_in_group("player"):
+		if !triggered:
+			triggered = true
+			g.final_menu.start_finale()
+
+func disable():
+	triggered = true

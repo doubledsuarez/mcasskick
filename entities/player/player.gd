@@ -27,6 +27,8 @@ var health : int = MAX_HEALTH
 var dead = false
 var in_dialogue : bool = false
 
+# Used for the final cutscene
+var invincible := false
 
 # Shotgun recoil system
 @export var shotgun_recoil_strength: float = 4.0  # Horizontal knockback force
@@ -59,6 +61,15 @@ func _ready():
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
 	
 	g.world_toggled.connect(set_shotgun_texture)
+	
+	g.hide_hud.connect(hide_weapon)
+	g.reveal_hud.connect(reveal_weapon)
+
+func hide_weapon():
+	$Weapon/WeaponOrigin/WeaponSprite.visible = false
+
+func reveal_weapon():
+	$Weapon/WeaponOrigin/WeaponSprite.visible = true
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -91,11 +102,15 @@ func take_damage(dmg : int):
 		return
 
 	health -= dmg
-	health = clampi(health, 0, MAX_HEALTH)
-	emit_signal("health_changed", health)
 	
-	if health <= 70:
-		$RickVoiceLines.play_line_conditional("hungry")
+	if invincible:
+			health = clampi(health, 1, MAX_HEALTH)
+	else:
+		health = clampi(health, 0, MAX_HEALTH)
+		if health <= 70:
+			$RickVoiceLines.play_line_conditional("hungry")
+	
+	emit_signal("health_changed", health)
 
 	if g.hitflash_enabled:
 		$Weapon/HitFlash/HitFlashAnim.play("hitflash")

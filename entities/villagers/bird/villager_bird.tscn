@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnfyiydjq066t"]
+
+[ext_resource type="PackedScene" uid="uid://da52itg687i4n" path="res://entities/villagers/base/villager.tscn" id="1_6qog8"]
+[ext_resource type="Texture2D" uid="uid://8kjk52qf8jcb" path="res://entities/villagers/bird/bird.png" id="2_chhkk"]
+
+[node name="villager_bird" instance=ExtResource("1_6qog8")]
+
+[node name="Sprite3D" parent="." index="3"]
+billboard = 2
+texture = ExtResource("2_chhkk")

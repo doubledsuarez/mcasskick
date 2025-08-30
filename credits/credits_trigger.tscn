@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bwuo1wayyyh36" path="res://credits/credits_trigger.gd" id="1_qdcxg"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_kovmm"]
-radius = 0.78905
+radius = 10.7
 
 [node name="credits_trigger" type="Area3D"]
 collision_layer = 0

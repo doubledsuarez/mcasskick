@@ -1066,7 +1066,7 @@ shape = SubResource("ConvexPolygonShape3D_pblnm")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 2.5, 0)
 
 [node name="Pickup_Figurine_CareBear" parent="." instance=ExtResource("9_4p0vj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.5, 8.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 8.5, 0)
 
 [node name="Sniper" parent="." instance=ExtResource("10_5s2ih")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 8, -0.5)
@@ -1081,6 +1081,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, 8, -4)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 8, 1)
 
 [node name="voice_trigger" parent="." instance=ExtResource("11_5s2ih")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 9.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 8.5, 0)
+line_name = "final_staircase"
 
 [editable path="ZoneBase"]

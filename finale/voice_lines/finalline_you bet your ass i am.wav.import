@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://4lxvc6cfngv"
+path="res://.godot/imported/finalline_you bet your ass i am.wav-f3d6d76fa849c9468c46dbf3dad3c679.sample"
+
+[deps]
+
+source_file="res://finale/voice_lines/finalline_you bet your ass i am.wav"
+dest_files=["res://.godot/imported/finalline_you bet your ass i am.wav-f3d6d76fa849c9468c46dbf3dad3c679.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
