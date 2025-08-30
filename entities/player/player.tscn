@@ -190,9 +190,6 @@ position = Vector2(-154, -194)
 stream = ExtResource("13_j3ovn")
 volume_db = -0.6
 
-[node name="HitFlash" parent="Weapon" index="5"]
-color = Color(0.7, 0, 0.0583334, 0)
-
 [node name="CloudBox" parent="." index="8" instance=ExtResource("14_afbqv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -62.372, 0)
 

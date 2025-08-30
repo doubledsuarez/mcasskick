@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://cldcx2fns737u"
+path="res://.godot/imported/demon_puzzle_2.map-04e353a4a212cb2e7c2fbbfd45b99b97.tres"
+
+[deps]
+
+source_file="res://trenchbroom/maps/demon_puzzle_2.map"
+dest_files=["res://.godot/imported/demon_puzzle_2.map-04e353a4a212cb2e7c2fbbfd45b99b97.tres"]
+
+[params]
+
