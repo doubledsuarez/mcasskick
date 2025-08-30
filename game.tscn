@@ -318,6 +318,7 @@ render_target_update_mode = 4
 [node name="Game" type="Node3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00311661, 0.141235, 0.0404968)
 script = ExtResource("1_eow3j")
+dev_mode = true
 
 [node name="PuzzleTrees" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("2_iotsf")]
 transform = Transform3D(0.642788, 0, 0.766044, 0, 1, 0, -0.766044, 0, 0.642788, 37, 5, -32)

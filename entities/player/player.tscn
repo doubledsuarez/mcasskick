@@ -220,3 +220,5 @@ cellphone_used = ExtResource("33_r633c")
 cuddly_descent = ExtResource("34_pacje")
 figurine_collected = ExtResource("35_2h0qb")
 final_staircase = ExtResource("36_mmk7k")
+
+[connection signal="animation_finished" from="Weapon/WeaponAnim" to="." method="_on_weapon_anim_animation_finished"]

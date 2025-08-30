@@ -331,6 +331,8 @@ func handle_shooting():
 					
 		
 					$Weapon/ReloadTimer.start()
+					
+					shooting_enabled = false
 
 					if !g.cuddly_world:
 						SHOOT_SOUND.pitch_scale = 1.0
@@ -390,3 +392,9 @@ func apply_shotgun_recoil():
 # A function to pass down to the voice lines so this can be easily triggered
 func play_line(line_name:String):
 	$RickVoiceLines.play_line(line_name)
+
+
+func _on_weapon_anim_animation_finished(anim_name: StringName) -> void:
+	match anim_name:
+		"cuddly_fire", "demon_fire", "fire":
+			shooting_enabled = true

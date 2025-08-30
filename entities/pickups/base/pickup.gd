@@ -1,6 +1,8 @@
 extends TogglePickup
 class_name Pickup
 
+@onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
+
 # Pickup system with immediate use and inventory collection
 @export var pickup_name: String = "Unknown Item"
 @export var pickup_description: String = "A mysterious item"
@@ -50,12 +52,18 @@ func _on_body_entered(body: Node3D) -> void:
 	# Check if it's the player
 	if not body.is_in_group("player"):
 		return
+	
+	# disable all the collision so that the pickup doesn't get triggered multiple times
+	# before the animation finishes
+	visible = false
+	collision_shape_3d.set_deferred("disabled", true)
+	set_deferred("monitoring", false)
+	set_deferred("monitorable", false)
 
 	# Handle pickup based on type
 	pickup(body)
 	
-	visible = false
-	
+	# danny - why are we using this versus just queue_freeing on the pickup jingle end?
 	await get_tree().create_timer(2).timeout
 
 	# Remove pickup from scene
