@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://8jrkobmy4o2g"]
+[gd_scene load_steps=7 format=3 uid="uid://8jrkobmy4o2g"]
 
 [ext_resource type="AudioStream" uid="uid://d00hhm6m4j7hb" path="res://test-assets/mcasskick hell 2 jam rough.ogg" id="1_g6io0"]
 [ext_resource type="Script" uid="uid://xpt15aqq2kf8" path="res://music/music.gd" id="2_sma34"]
@@ -6,7 +6,6 @@
 [ext_resource type="AudioStream" uid="uid://cta73pslo5kb0" path="res://music/level2_cuddley_chill.ogg" id="4_t501q"]
 [ext_resource type="AudioStream" uid="uid://dqfw27u3pso67" path="res://music/level2-1_cuddley_chill.ogg" id="5_t501q"]
 [ext_resource type="AudioStream" uid="uid://b2ob6p4b2v8i7" path="res://music/level2-2_slower_guitar.ogg" id="6_eikdc"]
-[ext_resource type="AudioStream" uid="uid://wev6uvypld5x" path="res://music/level3_onslaught.ogg" id="7_eovk6"]
 
 [node name="Music" type="AudioStreamPlayer"]
 stream = ExtResource("1_g6io0")
@@ -32,7 +31,7 @@ stream = ExtResource("5_t501q")
 stream = ExtResource("6_eikdc")
 
 [node name="Final" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_eovk6")
+volume_db = -16.0
 
 [connection signal="finished" from="DescentIntoCuddliness" to="." method="_on_descent_into_cuddliness_finished"]
 [connection signal="finished" from="ChillJam1" to="." method="_on_chill_jam_1_finished"]

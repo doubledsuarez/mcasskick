@@ -27,6 +27,8 @@ var health : int = MAX_HEALTH
 var dead = false
 var in_dialogue : bool = false
 
+# Used for the final cutscene
+var invincible := false
 
 # Shotgun recoil system
 @export var shotgun_recoil_strength: float = 4.0  # Horizontal knockback force
@@ -100,11 +102,15 @@ func take_damage(dmg : int):
 		return
 
 	health -= dmg
-	health = clampi(health, 0, MAX_HEALTH)
-	emit_signal("health_changed", health)
 	
-	if health <= 70:
-		$RickVoiceLines.play_line_conditional("hungry")
+	if invincible:
+			health = clampi(health, 1, MAX_HEALTH)
+	else:
+		health = clampi(health, 0, MAX_HEALTH)
+		if health <= 70:
+			$RickVoiceLines.play_line_conditional("hungry")
+	
+	emit_signal("health_changed", health)
 
 	if g.hitflash_enabled:
 		$Weapon/HitFlash/HitFlashAnim.play("hitflash")

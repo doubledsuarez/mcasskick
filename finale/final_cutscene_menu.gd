@@ -6,18 +6,23 @@ extends CanvasLayer
 @export var camera : Camera2D
 @export var anim : AnimationPlayer
 
+signal started 
+
 func _ready():
 	visible = false
+	g.final_menu = self
 
 
-func _input(event):
-	if event.is_action_pressed("crouch"):
-		start_finale()
+#func _input(event):
+	#if event.is_action_pressed("crouch"):
+		#start_finale()
 
 func hide_game():
 	g.game_viewport.visible = false
 
 func start_finale():
+	emit_signal("started")
+	Music.stop_all_tracks()
 	visible = true
 	get_tree().paused = true
 	anim.play("start")
@@ -33,6 +38,22 @@ func end_menu_scene():
 	g.game_viewport.visible = true
 	get_tree().paused = false
 
-
 func end_menu_fully():
+	print("Final menu ending menu fully")
 	visible = false
+
+func start_music():
+	Music.play_track("Final")
+
+func begin_credits():
+	#visible = true
+	#get_tree().paused = true
+	#anim.play("credits")
+	#
+	#await anim.animation_finished
+	
+	match Input.mouse_mode:
+		Input.MOUSE_MODE_CAPTURED:
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
+	get_tree().call_deferred("change_scene_to_file", "res://credits/credits.tscn")

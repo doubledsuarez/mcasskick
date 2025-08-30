@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0db71is18d2q"]
+
+[ext_resource type="PackedScene" uid="uid://db7xp11deujhy" path="res://entities/enemies/fish/fish.tscn" id="1_kdb0i"]
+
+[node name="Fish_weak" instance=ExtResource("1_kdb0i")]
+health = 1

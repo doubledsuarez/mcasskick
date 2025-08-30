@@ -18,6 +18,7 @@ var introship = null
 var game_viewport = null
 var final_lines = null
 var final_scene_3d = null
+var final_menu = null
 
 var tutorial_done : bool = false
 var question_asked : bool = false
@@ -44,6 +45,8 @@ signal world_toggled
 # Used for the final cutscene camera
 signal hide_hud
 signal reveal_hud
+
+signal give_kitty_away
 
 # Respawn system variables
 var last_activated_checkpoint: Node3D = null

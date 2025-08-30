@@ -26,6 +26,7 @@ func _ready() -> void:
 	g.final_scene_3d.rick_still_talking.connect(_voice_line)
 	g.hide_hud.connect(hide_hud)
 	g.reveal_hud.connect(reveal_hud)
+	g.give_kitty_away.connect(give_kitty_away)
 	_set_ammo_count()
 
 func hide_hud():
@@ -60,6 +61,9 @@ func _item_picked_up(figurine_name:String):
 	
 		else:
 			chill_icon.texture = full_chill_icon
+
+func give_kitty_away():
+	$main_box/MarginContainer/HudContents/display_seperator/trinkets/GridContainer/TrinketDisplay6.set_not_collected()
 
 func _set_ammo_count():
 	ammo_amount -= 1
