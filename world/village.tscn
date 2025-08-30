@@ -1,10 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://c1xntkh8cxt1m"]
+[gd_scene load_steps=11 format=3 uid="uid://c1xntkh8cxt1m"]
 
 [ext_resource type="PackedScene" uid="uid://b7varapqnerb5" path="res://world/zone_village.tscn" id="1_am3c7"]
 [ext_resource type="PackedScene" uid="uid://cuke6pl3it7f6" path="res://entities/pickups/figures/pickup_figurine_doomguy.tscn" id="3_exxhv"]
 [ext_resource type="PackedScene" uid="uid://cm2rhd3w6soiv" path="res://entities/pickups/figures/pickup_figurine_doomguy_gold.tscn" id="4_yqwgi"]
-[ext_resource type="PackedScene" uid="uid://cju0pxn2xm2ql" path="res://entities/pickups/figures/pickup_figurine_doomguy_pink.tscn" id="5_yur0g"]
-[ext_resource type="PackedScene" uid="uid://pfsk25ldh56t" path="res://entities/pickups/figures/pickup_figurine_hellokitty_gold.tscn" id="6_pnguk"]
 [ext_resource type="PackedScene" uid="uid://dxfpxck5qlyej" path="res://entities/pickups/figures/pickup_figurine_carebear_gold.tscn" id="7_nfe5f"]
 [ext_resource type="PackedScene" uid="uid://dg6tthxf1a7m2" path="res://entities/final_staircase.tscn" id="8_lm1a5"]
 [ext_resource type="Script" uid="uid://b8lj2fdqsbvg7" path="res://world/world_light.gd" id="9_nfe5f"]
@@ -22,12 +20,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1605, 6.46588, -12.3973)
 
 [node name="Pickup_Figurine_doomguy_gold" parent="." instance=ExtResource("4_yqwgi")]
 transform = Transform3D(0.642788, 0, 0.766044, 0, 1, 0, -0.766044, 0, 0.642788, 4, 6, -30)
-
-[node name="Pickup_Figurine_doomguy_pink" parent="." instance=ExtResource("5_yur0g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81, 1, 8)
-
-[node name="Pickup_Figurine_hellokitty_gold" parent="." instance=ExtResource("6_pnguk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37, 3, 32)
 
 [node name="Pickup_Figurine_CarebearGold" parent="." instance=ExtResource("7_nfe5f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.24652, 15.8846, -16.811)
