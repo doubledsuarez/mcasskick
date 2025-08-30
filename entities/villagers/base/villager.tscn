@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c8srkvkryb10e" path="res://entities/villagers/base/villager.gd" id="1_nae3m"]
 [ext_resource type="PackedScene" uid="uid://oxf1gms0uy6m" path="res://helpers/interactable.tscn" id="2_plj41"]
-[ext_resource type="Resource" uid="uid://bokrq13iv10tx" path="res://entities/villagers/base/villager.dialogue" id="3_takau"]
+[ext_resource type="Resource" uid="uid://bs4kkljhftgq3" path="res://entities/villagers/bunny/bunny.dialogue" id="3_nfjb1"]
 [ext_resource type="Texture2D" uid="uid://dff258vub3l21" path="res://entities/villagers/villager_rabbit.png" id="4_nfjb1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5vvp5"]
@@ -30,7 +30,7 @@ mesh = SubResource("BoxMesh_nae3m")
 surface_material_override/0 = SubResource("StandardMaterial3D_plj41")
 
 [node name="Interactable" parent="." instance=ExtResource("2_plj41")]
-dialogue_resource = ExtResource("3_takau")
+dialogue_resource = ExtResource("3_nfjb1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable"]
 shape = SubResource("SphereShape3D_takau")

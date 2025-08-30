@@ -1,0 +1,17 @@
+~ start
+Sunny: awe a new friend ^-^ nice to meet you. my name's sunny :3
+Sunny: your figurines are seriously cool ^w^
+Sunny: i saw you talking to bonbon 0w0 i really appreciate your kindness to help us find our figures it’s really sweet of you
+~ choices
+- [Just Chat]
+	%
+		Sunny: did you know that me bonbon and clover worked together to build all our houses 0w0 i love working together with my friends they’re the best
+		Sunny: i would love to work together with you someday cause you seem like a really awesome person to work with -w-
+		Sunny: i hope you stick around in Cuddly Land cause youd really fit in here ^w^
+	% 
+		Sunny: ive never been to that tall tower in the distance 0w0 its been here for as long as i remember
+		Sunny: i wonder whats on top ^w^ maybe a ton of cute decorations for the whole town like flowers and string lights
+		Sunny: what do you think is up there ^-^
+	=> choices
+- Leave => END
+=> END

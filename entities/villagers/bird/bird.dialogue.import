@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dy8by0py0y8c0"
+path="res://.godot/imported/bird.dialogue-0dec03501e625374ba25f473d9ece827.tres"
+
+[deps]
+
+source_file="res://entities/villagers/bird/bird.dialogue"
+dest_files=["res://.godot/imported/bird.dialogue-0dec03501e625374ba25f473d9ece827.tres"]
+
+[params]
+
+defaults=true

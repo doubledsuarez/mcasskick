@@ -1,0 +1,17 @@
+~ start
+Clover: Howdy! The name’s Clover, pleased to make your acquaintance sir!
+Clover: Say, that figurine is just lovely! It’s got a cute lil’ outfit an’ everythin’!
+Clover: My favorites are the ones in all the shiny armor, they look mighty strong like me!
+~ choices
+- [Just Chat]
+	%
+		Clover: I made the garments for everyone in town, can you believe it?!
+		Clover: It took me a long while, but my hard work and determination really paid off!
+		Clover: Oh my goodness, what if I made YOU an outfit? Now that would really be somethin’ special!
+	% 
+		Clover: Wanna know what my all time favorite food is? What really gets my tummy grumblin’?
+		Clover: Cupcakes! They just make my day like marshmallows make hot cocoa!
+		Clover: I’m mighty glad that we got so many cherry trees ‘round here, BonBon loves to put ‘em in her cupcakes!
+	=> choices
+- Leave => END
+=> END

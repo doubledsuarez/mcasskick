@@ -1,9 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://b6i5tpxspd3mh"]
+[gd_scene load_steps=6 format=3 uid="uid://b6i5tpxspd3mh"]
 
 [ext_resource type="PackedScene" uid="uid://da52itg687i4n" path="res://entities/villagers/base/villager.tscn" id="1_21vh3"]
+[ext_resource type="Script" uid="uid://cxiwcvji8rhw5" path="res://entities/villagers/cow/villager_cow.gd" id="2_1sui8"]
 [ext_resource type="Texture2D" uid="uid://b43maf4gohc3h" path="res://entities/villagers/cow/cow.png" id="2_cmp4o"]
+[ext_resource type="Resource" uid="uid://dx808xfobk5si" path="res://entities/villagers/cow/cow.dialogue" id="2_nf0wp"]
+[ext_resource type="Resource" uid="uid://dr8tcdrk4fo78" path="res://entities/villagers/confetti.dialogue" id="3_1sui8"]
 
 [node name="villager_cow" instance=ExtResource("1_21vh3")]
+script = ExtResource("2_1sui8")
+confetti_resource = ExtResource("3_1sui8")
+dialogue_start = "start"
+
+[node name="Interactable" parent="." index="2"]
+dialogue_resource = ExtResource("2_nf0wp")
 
 [node name="Sprite3D" parent="." index="3"]
 texture = ExtResource("2_cmp4o")
