@@ -1,0 +1,51 @@
+[gd_scene load_steps=20 format=3 uid="uid://bokf76s8qk5nd"]
+
+[ext_resource type="Script" uid="uid://cdtpjtx2inli4" path="res://finale/final_lines.gd" id="1_8owfc"]
+[ext_resource type="AudioStream" uid="uid://cjhvisu34wm5y" path="res://finale/voice_lines/finalline_dk_we_meet_again.wav" id="2_gevtd"]
+[ext_resource type="AudioStream" uid="uid://4by0j42rvebk" path="res://finale/voice_lines/finalline_demon king encounter.wav" id="3_lfc6p"]
+[ext_resource type="AudioStream" uid="uid://sijxr2c3o7oi" path="res://finale/voice_lines/finalline_dk_pathetic_toy.wav" id="4_82k2q"]
+[ext_resource type="AudioStream" uid="uid://wr27nxodjp03" path="res://finale/voice_lines/finalline_mr snuggles.wav" id="5_3hdbq"]
+[ext_resource type="AudioStream" uid="uid://drf6b2ngmx4ii" path="res://finale/voice_lines/finalline_dk_you_sentimental fool.wav" id="6_xg7rd"]
+[ext_resource type="AudioStream" uid="uid://de3vs15osgeco" path="res://finale/voice_lines/finalline_making new friends.wav" id="7_5fuxa"]
+[ext_resource type="AudioStream" uid="uid://cwi57ykpyo3fi" path="res://finale/voice_lines/its_not_killing_demons.wav" id="8_cviij"]
+[ext_resource type="AudioStream" uid="uid://bke1o1xs6wqk4" path="res://finale/voice_lines/finalline_dk_what.wav" id="8_dq1v4"]
+[ext_resource type="AudioStream" uid="uid://kc4ldqmabs4" path="res://finale/voice_lines/finalline_dont you get tired.wav" id="9_mnwrr"]
+[ext_resource type="AudioStream" uid="uid://bdaidtdq8gbp7" path="res://finale/voice_lines/finalline_dk_rethinking.wav" id="10_cxrut"]
+[ext_resource type="AudioStream" uid="uid://fgoi5gqc3kcr" path="res://finale/voice_lines/the_evil_is_just_bad.wav" id="10_s7ujr"]
+[ext_resource type="AudioStream" uid="uid://br6r8mk4havyn" path="res://finale/voice_lines/gift.wav" id="11_4wlw1"]
+[ext_resource type="AudioStream" uid="uid://ptplm70n1xhk" path="res://finale/voice_lines/finalline_dk_is_that.wav" id="12_rstt8"]
+[ext_resource type="AudioStream" uid="uid://chgb4voj47xdv" path="res://finale/voice_lines/kittie_cutie_description.wav" id="13_tvwx6"]
+[ext_resource type="AudioStream" uid="uid://c8rgsijl1c5if" path="res://finale/voice_lines/finalline_dk_giving_this_to_me.wav" id="14_skv1q"]
+[ext_resource type="AudioStream" uid="uid://4lxvc6cfngv" path="res://finale/voice_lines/finalline_you bet your ass i am.wav" id="15_lw6ml"]
+[ext_resource type="AudioStream" uid="uid://c50am4wh1nrqw" path="res://finale/voice_lines/finalline_dk_final.wav" id="16_l7xtd"]
+[ext_resource type="AudioStream" uid="uid://cc8cuupsglxaq" path="res://finale/voice_lines/finalline_forever.wav" id="17_ydyry"]
+
+[node name="FinalLines" type="Node"]
+process_mode = 3
+script = ExtResource("1_8owfc")
+dk_meet_again = ExtResource("2_gevtd")
+you_took_everything = ExtResource("3_lfc6p")
+dk_pathetic_toy = ExtResource("4_82k2q")
+mr_snuggles = ExtResource("5_3hdbq")
+dk_sentimental_fool = ExtResource("6_xg7rd")
+making_new_friends = ExtResource("7_5fuxa")
+its_not_killing_demons = ExtResource("8_cviij")
+dk_what = ExtResource("8_dq1v4")
+the_evil_is_bad = ExtResource("10_s7ujr")
+dont_you_get_tired = ExtResource("9_mnwrr")
+dk_rethinking = ExtResource("10_cxrut")
+gift = ExtResource("11_4wlw1")
+dk_is_that = ExtResource("12_rstt8")
+kittie_cutie_description = ExtResource("13_tvwx6")
+dk_giving_this_to_me = ExtResource("14_skv1q")
+you_bet_your_ass_i_am = ExtResource("15_lw6ml")
+dk_final = ExtResource("16_l7xtd")
+forever = ExtResource("17_ydyry")
+
+[node name="Rick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_gevtd")
+bus = &"Rick"
+
+[node name="DemonKing" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_gevtd")
+bus = &"DemonKing"

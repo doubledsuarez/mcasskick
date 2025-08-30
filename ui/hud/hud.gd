@@ -22,7 +22,17 @@ func _ready() -> void:
 	g.player.item_picked_up.connect(_item_picked_up)
 	g.player.shooting.connect(_set_ammo_count)
 	g.player.voice_line_trigger.connect(_voice_line)
+	g.final_lines.rick_line.connect(_voice_line)
+	g.final_scene_3d.rick_still_talking.connect(_voice_line)
+	g.hide_hud.connect(hide_hud)
+	g.reveal_hud.connect(reveal_hud)
 	_set_ammo_count()
+
+func hide_hud():
+	visible = false
+
+func reveal_hud():
+	visible = true
 	
 	
 func _process(delta: float) -> void:

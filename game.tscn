@@ -1,5 +1,6 @@
-[gd_scene load_steps=75 format=4 uid="uid://r54dyixspqae"]
+[gd_scene load_steps=80 format=4 uid="uid://r54dyixspqae"]
 
+[ext_resource type="Script" uid="uid://caaslniupkh8k" path="res://sub_viewport_container.gd" id="1_bnpwn"]
 [ext_resource type="Script" uid="uid://0x1oyn0i5ywr" path="res://game.gd" id="1_eow3j"]
 [ext_resource type="PackedScene" uid="uid://co7sigkndoct3" path="res://world/puzzle_trees.tscn" id="2_iotsf"]
 [ext_resource type="PackedScene" uid="uid://da52itg687i4n" path="res://entities/villagers/base/villager.tscn" id="2_mfdv2"]
@@ -24,7 +25,11 @@
 [ext_resource type="PackedScene" uid="uid://latadalk1638" path="res://entities/enemies/horse.tscn" id="24_i2p71"]
 [ext_resource type="Material" uid="uid://c3i8m0erv0ay4" path="res://textures/PlaceholderGround.tres" id="24_xa8c5"]
 [ext_resource type="Material" uid="uid://bjacqtbmvxotu" path="res://textures/PlaceholderWall.tres" id="25_5b14r"]
+[ext_resource type="PackedScene" uid="uid://cnfyiydjq066t" path="res://entities/villagers/bird/villager_bird.tscn" id="25_xa8c5"]
+[ext_resource type="PackedScene" uid="uid://b6i5tpxspd3mh" path="res://entities/villagers/cow/villager_cow.tscn" id="26_5b14r"]
 [ext_resource type="Material" uid="uid://bxwcgqqtut6c" path="res://textures/world_cuddly/plank.tres" id="26_bnpwn"]
+[ext_resource type="PackedScene" uid="uid://b0f7c0va15hgh" path="res://finale/final_cutscene_menu.tscn" id="28_5b14r"]
+[ext_resource type="PackedScene" uid="uid://bokf76s8qk5nd" path="res://finale/final_lines.tscn" id="30_36jdj"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_xa8c5"]
 _surfaces = [{
@@ -237,11 +242,14 @@ points = PackedVector3Array(6, 7.5, 13, 6, 0.5, 13, 7, 0.5, 13, 7, 7.5, 13, 6, 7
 
 [node name="Node" type="Node"]
 
+[node name="FinalLines" parent="." instance=ExtResource("30_36jdj")]
+
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 texture_filter = 1
 offset_right = 320.0
 offset_bottom = 240.0
 scale = Vector2(2, 2)
+script = ExtResource("1_bnpwn")
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 handle_input_locally = false
@@ -252,6 +260,7 @@ render_target_update_mode = 4
 [node name="Game" type="Node3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00311661, 0.141235, 0.0404968)
 script = ExtResource("1_eow3j")
+dev_mode = true
 
 [node name="PuzzleTrees" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("2_iotsf")]
 transform = Transform3D(0.642788, 0, 0.766044, 0, 1, 0, -0.766044, 0, 0.642788, 37, 5, -32)
@@ -489,7 +498,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 3, 8)
 [node name="Horse" parent="SubViewportContainer/SubViewport/Game/ChescherPuzzle" instance=ExtResource("24_i2p71")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 1, 16)
 
+[node name="villager_bird" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("25_xa8c5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.2, 5.2, 0)
+
+[node name="villager_cow" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("26_5b14r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.4, 0)
+
 [node name="HUD" parent="." instance=ExtResource("7_eow3j")]
 
+[node name="FinalCutsceneMenu" parent="." instance=ExtResource("28_5b14r")]
+
+[editable path="SubViewportContainer/SubViewport/Game/FinalArea"]
+[editable path="SubViewportContainer/SubViewport/Game/FinalArea/ZoneBase"]
 [editable path="SubViewportContainer/SubViewport/Game/BonBon"]
 [editable path="SubViewportContainer/SubViewport/Game/ChescherPuzzle"]

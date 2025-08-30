@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dj37if3oasgnc"]
+[gd_scene load_steps=6 format=3 uid="uid://dj37if3oasgnc"]
 
 [ext_resource type="Script" uid="uid://b8keunj66h1h0" path="res://entities/projectiles/fireball/fireball.gd" id="1_jf27t"]
+[ext_resource type="Texture2D" uid="uid://b1a4mj6t4drrf" path="res://entities/enemies/attack.png" id="2_07iqc"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_he3yo"]
 radius = 0.175
@@ -21,5 +22,16 @@ script = ExtResource("1_jf27t")
 shape = SubResource("SphereShape3D_he3yo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("CapsuleMesh_jf27t")
 surface_material_override/0 = SubResource("StandardMaterial3D_he3yo")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+pixel_size = 0.016
+billboard = 1
+texture_filter = 0
+texture = ExtResource("2_07iqc")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_color = Color(1, 0.677764, 0.464707, 1)
+omni_range = 2.0

@@ -59,6 +59,15 @@ func _ready():
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
 	
 	g.world_toggled.connect(set_shotgun_texture)
+	
+	g.hide_hud.connect(hide_weapon)
+	g.reveal_hud.connect(reveal_weapon)
+
+func hide_weapon():
+	$Weapon/WeaponOrigin/WeaponSprite.visible = false
+
+func reveal_weapon():
+	$Weapon/WeaponOrigin/WeaponSprite.visible = true
 
 
 func _unhandled_input(event: InputEvent) -> void:
