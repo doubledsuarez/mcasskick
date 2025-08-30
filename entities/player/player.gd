@@ -59,9 +59,9 @@ func _ready():
 	add_to_group("player")
 
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
-	
+
 	g.world_toggled.connect(set_shotgun_texture)
-	
+
 	g.hide_hud.connect(hide_weapon)
 	g.reveal_hud.connect(reveal_weapon)
 
@@ -75,11 +75,23 @@ func reveal_weapon():
 func _unhandled_input(event: InputEvent) -> void:
 	super._unhandled_input(event)
 
-	if Input.is_action_just_pressed("interact"):
+	if Input.is_action_just_pressed("interact") and not in_dialogue:
 		var interactables = interactable_finder.get_overlapping_areas()
 		if interactables.size() > 0:
+			# Consume the input event to prevent double-processing
+			get_viewport().set_input_as_handled()
+
+			# Set dialogue state immediately to prevent rapid-fire
+			in_dialogue = true
+			immobile = true
+
 			emit_signal("talking")
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
+			# Debug: Log how many interactables found
+			if interactables.size() > 1:
+				Log.info("Multiple interactables found: %d" % interactables.size())
+
 			interactables[0].action()
 			return
 
@@ -90,7 +102,7 @@ func _on_dialogue_ended(resource : DialogueResource):
 	immobile = false
 	jumping_enabled = true
 	g.question_asked = false
-	
+
 	await get_tree().create_timer(0.5).timeout
 	shooting_enabled = true
 
@@ -102,14 +114,14 @@ func take_damage(dmg : int):
 		return
 
 	health -= dmg
-	
+
 	if invincible:
 			health = clampi(health, 1, MAX_HEALTH)
 	else:
 		health = clampi(health, 0, MAX_HEALTH)
 		if health <= 70:
 			$RickVoiceLines.play_line_conditional("hungry")
-	
+
 	emit_signal("health_changed", health)
 
 	if g.hitflash_enabled:
@@ -162,17 +174,17 @@ func add_to_inventory(item_name: String, description: String, quantity: int = 1,
 
 	# Emit the signal to the hud can pick it up
 	emit_signal("item_picked_up", item_name)
-	
+
 	# Keep track of the figurines for the final staircase
 	if is_figurine:
 		figurine_count += 1
-		
+
 		if figurine_count == 1:
 			play_line("ive_always_wanted_one")
 		if figurine_count == 2:
 			play_line("figurine_collected")
 		#print("Player figurine count: " + str(figurine_count))
-	
+
 	return true
 
 func remove_from_inventory(item_name: String, quantity: int = 1) -> bool:
@@ -321,17 +333,17 @@ func handle_shooting():
 			if Input.is_action_just_pressed(controls.SHOOT) and not in_dialogue:
 				if not reloading:
 					reloading = true
-					
+
 					if g.cuddly_world:
 						$Weapon/WeaponAnim.play("cuddly_fire")
 					else:
 						$Weapon/WeaponAnim.play("demon_fire")
-					
+
 					emit_signal("shooting")
-					
-		
+
+
 					$Weapon/ReloadTimer.start()
-					
+
 					shooting_enabled = false
 
 					if !g.cuddly_world:
@@ -339,7 +351,7 @@ func handle_shooting():
 					else:
 						SHOOT_SOUND.pitch_scale = 2.0
 					SHOOT_SOUND.play()
-					
+
 					if g.cuddly_world:
 						var confetti = confetti_ref.instantiate()
 						g.game.add_child(confetti)
@@ -347,10 +359,10 @@ func handle_shooting():
 						confetti.global_position = global_position
 						var material = confetti.process_material as ParticleProcessMaterial
 						material.direction = -HEAD.transform.basis.z
-						
+
 						##CONFETTI_SOUND.play()
 						#Log.info("Confetti!!")
-						
+
 					# Shoot to kill enemies, throw confetti at villagers
 					if RAYCAST.is_colliding() and RAYCAST.get_collider().has_method("take_damage"):
 						Log.info("Player shot hit: " + str(RAYCAST.get_collider().get_name()))
@@ -358,7 +370,7 @@ func handle_shooting():
 					elif RAYCAST.is_colliding() and RAYCAST.get_collider().has_method("have_party"):
 						Log.info("Player shot confetti at: " + str(RAYCAST.get_collider().get_name()))
 						RAYCAST.get_collider().have_party()
-						
+
 					# Shotgun momentum boost - only when airborne
 					if g.recoil_unlocked or g.dev_mode:
 						if not is_on_floor():
