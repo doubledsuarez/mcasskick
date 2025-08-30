@@ -10,9 +10,24 @@
 [ext_resource type="Texture2D" uid="uid://b20s3d1fctt0b" path="res://finale/demon_king_wheel3.png" id="7_324fg"]
 [ext_resource type="Texture2D" uid="uid://53y38f7n7s38" path="res://finale/demon_king_wheel2.png" id="8_u83n4"]
 [ext_resource type="Texture2D" uid="uid://cc4io7wmu3qa1" path="res://finale/demon_king_wheel1.png" id="9_qtp35"]
-[ext_resource type="ArrayMesh" uid="uid://dfeowxfbwb7ne" path="res://entities/pickups/figures/hellokittygold.res" id="10_u83n4"]
+[ext_resource type="ArrayMesh" uid="uid://10e0xgxdpyal" path="res://entities/pickups/figures/hellokitty.res" id="10_qtp35"]
 [ext_resource type="Script" uid="uid://cqf6ivq60i8m6" path="res://finale/kitty_mesh.gd" id="11_qtp35"]
 [ext_resource type="PackedScene" uid="uid://c5wvuangwin50" path="res://credits/credits_trigger.tscn" id="13_qtp35"]
+
+[sub_resource type="Animation" id="Animation_3qaxx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("face:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_d4ec4"]
 resource_name = "face_float"
@@ -31,53 +46,10 @@ tracks/0/keys = {
 "values": [Vector3(0, 0, 0), Vector3(0, -2, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_3qaxx"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("face:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_r66g3"]
 _data = {
 &"RESET": SubResource("Animation_3qaxx"),
 &"face_float": SubResource("Animation_d4ec4")
-}
-
-[sub_resource type="Animation" id="Animation_0nl5a"]
-resource_name = "talk"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("face/backup_faces/face2:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.533333, 1.6, 3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 0, 0, 0), Color(1, 0, 0, 0.803922), Color(1, 0, 0, 0.803922), Color(1, 0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("face/backup_faces/face3:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.533333, 1.6, 3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 0, 0, 0), Color(1, 0, 0, 0.317647), Color(1, 0, 0, 0.317647), Color(1, 0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_324fg"]
@@ -135,87 +107,39 @@ tracks/1/keys = {
 "values": [Color(1, 0, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_0nl5a"]
+resource_name = "talk"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("face/backup_faces/face2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.533333, 1.6, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 0), Color(1, 0, 0, 0.803922), Color(1, 0, 0, 0.803922), Color(1, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("face/backup_faces/face3:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.533333, 1.6, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 0), Color(1, 0, 0, 0.317647), Color(1, 0, 0, 0.317647), Color(1, 0, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_u83n4"]
 _data = {
 &"RESET": SubResource("Animation_324fg"),
 &"init": SubResource("Animation_u83n4"),
 &"talk": SubResource("Animation_0nl5a")
-}
-
-[sub_resource type="Animation" id="Animation_d4kq5"]
-resource_name = "start"
-length = 38.0
-step = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Walls:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.5, 1),
-"transitions": PackedFloat32Array(0.329877, 1),
-"update": 0,
-"values": [Vector3(3, -1000, 17), Vector3(3, -75, 17)]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(1.5, 2.5, 3.73333, 5.3, 9.5, 11, 12.5, 15, 17.5, 21.5, 23.5, 24.5, 27, 30.5, 33.5, 38),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"values": [{
-"args": ["dk_sentimental_fool"],
-"method": &"play_demon_line"
-}, {
-"args": [],
-"method": &"spawn_fish"
-}, {
-"args": [],
-"method": &"demon_talking"
-}, {
-"args": [],
-"method": &"demon_talking"
-}, {
-"args": ["making_new_friends"],
-"method": &"play_rick_line"
-}, {
-"args": [],
-"method": &"rick_till_talking"
-}, {
-"args": ["its_not_killing_demons"],
-"method": &"play_rick_line"
-}, {
-"args": [],
-"method": &"rick_till_talking"
-}, {
-"args": [],
-"method": &"rick_till_talking"
-}, {
-"args": ["dont_you_get_tired"],
-"method": &"play_rick_line"
-}, {
-"args": ["dk_what"],
-"method": &"play_demon_line"
-}, {
-"args": ["the_evil_is_bad"],
-"method": &"play_rick_line"
-}, {
-"args": [],
-"method": &"rick_till_talking"
-}, {
-"args": [],
-"method": &"rick_till_talking"
-}, {
-"args": [],
-"method": &"rick_till_talking"
-}, {
-"args": [],
-"method": &"part_2"
-}]
 }
 
 [sub_resource type="Animation" id="Animation_bvjuk"]
@@ -512,6 +436,82 @@ tracks/4/keys = {
 "values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, -0.6, 0), Vector3(0, 0, 0), Vector3(0, -0.6, 0), Vector3(0, 0, 0), Vector3(0, -0.6, 0), Vector3(0, 0, 0), Vector3(0, -0.6, 0), Vector3(0, 0, 0), Vector3(0, -0.6, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_d4kq5"]
+resource_name = "start"
+length = 38.0
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Walls:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 1),
+"transitions": PackedFloat32Array(0.329877, 1),
+"update": 0,
+"values": [Vector3(3, -1000, 17), Vector3(3, -75, 17)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.5, 2.5, 3.73333, 5.3, 9.5, 11, 12.5, 15, 17.5, 21.5, 23.5, 24.5, 27, 30.5, 33.5, 38),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": ["dk_sentimental_fool"],
+"method": &"play_demon_line"
+}, {
+"args": [],
+"method": &"spawn_fish"
+}, {
+"args": [],
+"method": &"demon_talking"
+}, {
+"args": [],
+"method": &"demon_talking"
+}, {
+"args": ["making_new_friends"],
+"method": &"play_rick_line"
+}, {
+"args": [],
+"method": &"rick_till_talking"
+}, {
+"args": ["its_not_killing_demons"],
+"method": &"play_rick_line"
+}, {
+"args": [],
+"method": &"rick_till_talking"
+}, {
+"args": [],
+"method": &"rick_till_talking"
+}, {
+"args": ["dont_you_get_tired"],
+"method": &"play_rick_line"
+}, {
+"args": ["dk_what"],
+"method": &"play_demon_line"
+}, {
+"args": ["the_evil_is_bad"],
+"method": &"play_rick_line"
+}, {
+"args": [],
+"method": &"rick_till_talking"
+}, {
+"args": [],
+"method": &"rick_till_talking"
+}, {
+"args": [],
+"method": &"rick_till_talking"
+}, {
+"args": [],
+"method": &"part_2"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_d4ec4"]
 _data = {
 &"RESET": SubResource("Animation_bvjuk"),
@@ -526,7 +526,7 @@ script = ExtResource("1_t4wok")
 anim = NodePath("Anim")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.65974, 0.612372, 0.435596, 0.736704, 0.641456, 0.214011, -0.148361, 0.462097, -0.874331, 0, 15.2, 16.5)
+transform = Transform3D(-0.65974, 0.61237, 0.435598, 0.736704, 0.641456, 0.214012, -0.148363, 0.462098, -0.87433, 0, 15.2, 16.5)
 
 [node name="demon_king" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16, 24.8)
@@ -637,7 +637,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.2
 
 [node name="kitty_mesh" type="MeshInstance3D" parent="kitty"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 6.6)
-mesh = ExtResource("10_u83n4")
+mesh = ExtResource("10_qtp35")
 script = ExtResource("11_qtp35")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="kitty"]

@@ -26,7 +26,8 @@ func spawn_fish():
 		f.global_position = $fish_pos.global_position + Vector3(randf_range(-10,10),randf_range(-10,10),randf_range(-10,10))
 
 func begin():
-	print("Final 3d beginning")
+	if g.cuddly_world:
+		g.world_switch()
 	g.player.global_position = $PlayerPos.global_position
 	g.player.get_node("Head").rotation_degrees.y = $PlayerPos.rotation_degrees.y
 	g.player.get_node("Weapon/RayCast").rotation_degrees.y = $PlayerPos.rotation_degrees.y

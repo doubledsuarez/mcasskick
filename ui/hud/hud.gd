@@ -63,7 +63,7 @@ func _item_picked_up(figurine_name:String):
 			chill_icon.texture = full_chill_icon
 
 func give_kitty_away():
-	$main_box/MarginContainer/HudContents/display_seperator/trinkets/GridContainer/TrinketDisplay6.set_not_collected()
+	$main_box/MarginContainer/HudContents/display_seperator/trinkets/GridContainer/TrinketDisplay2.set_not_collected()
 
 func _set_ammo_count():
 	ammo_amount -= 1
