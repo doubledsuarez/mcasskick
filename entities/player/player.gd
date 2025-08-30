@@ -148,7 +148,6 @@ func die():
 		return
 	$Dying.play()
 	dead = true
-	immobile = true
 	health = 0
 	respawn()
 
@@ -248,7 +247,7 @@ func respawn():
 	death_label.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	death_label.add_theme_font_size_override("font_size", 24)
 	death_label.modulate = Color.WHITE
-	var custom_font = load("res://ui/UAV-OSD-Mono.ttf")
+	var custom_font = load("res://ui/DooM.ttf")
 	if custom_font:
 		death_label.add_theme_font_override("font", custom_font)
 
