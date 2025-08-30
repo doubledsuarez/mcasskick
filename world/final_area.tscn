@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=4 uid="uid://bim2jwgv8vjsu"]
+[gd_scene load_steps=11 format=4 uid="uid://bim2jwgv8vjsu"]
 
 [ext_resource type="PackedScene" uid="uid://cpv2v57u64u8b" path="res://world/zone_base.tscn" id="1_jgjdm"]
 [ext_resource type="Material" uid="uid://ujkrxq58nt4i" path="res://textures/world_cuddly/brick_grey.tres" id="2_5bpno"]
+[ext_resource type="Material" uid="uid://dd0dij1boa28p" path="res://textures/world_cuddly/brick_blue.tres" id="3_16yy8"]
 [ext_resource type="PackedScene" uid="uid://dpddce1qcp4a8" path="res://finale/final_scene_3d.tscn" id="4_16yy8"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_16yy8"]
@@ -33,8 +34,8 @@ _surfaces = [{
 "format": 34359742487,
 "index_count": 36,
 "index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
-"material": ExtResource("2_5bpno"),
-"name": "world_cuddly/brick_grey",
+"material": ExtResource("3_16yy8"),
+"name": "world_cuddly/brick_blue",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
@@ -53,18 +54,18 @@ points = PackedVector3Array(-24, 72.5, -21.5, -24, -10.5, -21.5, 18.5, -10.5, -2
 [node name="ZoneBase" parent="." instance=ExtResource("1_jgjdm")]
 
 [node name="WorldDemon" parent="ZoneBase" index="0"]
-local_map_file = "uid://cgdt2ceuoveqe"
+local_map_file = "uid://d4kcx70cjk64n"
 
 [node name="entity_0_worldspawn2" type="StaticBody3D" parent="ZoneBase/WorldDemon" index="0"]
 collision_mask = 0
 
-[node name="entity_0_mesh_instance2" type="MeshInstance3D" parent="ZoneBase/WorldDemon/entity_0_worldspawn" index="3"]
+[node name="entity_0_mesh_instance" type="MeshInstance3D" parent="ZoneBase/WorldDemon/entity_0_worldspawn2"]
 mesh = SubResource("ArrayMesh_16yy8")
 
-[node name="entity_0_occluder_instance2" type="OccluderInstance3D" parent="ZoneBase/WorldDemon/entity_0_worldspawn" index="4"]
+[node name="entity_0_occluder_instance" type="OccluderInstance3D" parent="ZoneBase/WorldDemon/entity_0_worldspawn2"]
 occluder = SubResource("ArrayOccluder3D_avwma")
 
-[node name="entity_0_brush_0_collision_shape2" type="CollisionShape3D" parent="ZoneBase/WorldDemon/entity_0_worldspawn" index="5"]
+[node name="entity_0_brush_0_collision_shape" type="CollisionShape3D" parent="ZoneBase/WorldDemon/entity_0_worldspawn2"]
 shape = SubResource("ConvexPolygonShape3D_po7lu")
 
 [node name="WorldCuddly" parent="ZoneBase" index="1"]
@@ -73,13 +74,13 @@ local_map_file = "uid://cgdt2ceuoveqe"
 [node name="entity_0_worldspawn2" type="StaticBody3D" parent="ZoneBase/WorldCuddly" index="0"]
 collision_mask = 0
 
-[node name="entity_0_mesh_instance2" type="MeshInstance3D" parent="ZoneBase/WorldCuddly/entity_0_worldspawn" index="3"]
+[node name="entity_0_mesh_instance" type="MeshInstance3D" parent="ZoneBase/WorldCuddly/entity_0_worldspawn2"]
 mesh = SubResource("ArrayMesh_obglv")
 
-[node name="entity_0_occluder_instance2" type="OccluderInstance3D" parent="ZoneBase/WorldCuddly/entity_0_worldspawn" index="4"]
+[node name="entity_0_occluder_instance" type="OccluderInstance3D" parent="ZoneBase/WorldCuddly/entity_0_worldspawn2"]
 occluder = SubResource("ArrayOccluder3D_4s1ge")
 
-[node name="entity_0_brush_0_collision_shape2" type="CollisionShape3D" parent="ZoneBase/WorldCuddly/entity_0_worldspawn" index="5"]
+[node name="entity_0_brush_0_collision_shape" type="CollisionShape3D" parent="ZoneBase/WorldCuddly/entity_0_worldspawn2"]
 shape = SubResource("ConvexPolygonShape3D_emjlu")
 
 [node name="FinalScene3D" parent="." instance=ExtResource("4_16yy8")]

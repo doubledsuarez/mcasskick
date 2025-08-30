@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://ly8ecbiii0mi"]
+
+[ext_resource type="Texture2D" uid="uid://bfwuhhp608kwb" path="res://textures/world_demon/demon_water.png" id="1_58xrp"]
+
+[resource]
+albedo_texture = ExtResource("1_58xrp")
+metallic_specular = 0.0
+texture_filter = 2
