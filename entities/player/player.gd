@@ -407,5 +407,5 @@ func play_line(line_name:String):
 
 func _on_weapon_anim_animation_finished(anim_name: StringName) -> void:
 	match anim_name:
-		"cuddly_fire", "demon_fire", "fire":
+		"cuddly_fire", "demon_fire", "fire" when g.player.dead != true:
 			shooting_enabled = true

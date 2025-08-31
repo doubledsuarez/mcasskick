@@ -49,7 +49,7 @@ func launch(direction: Vector3, start_position: Vector3) -> void:
 	velocity.z = direction.z * speed
 
 func _on_body_entered(body: Node3D) -> void:
-	if body.has_method("take_damage"):
+	if body.has_method("take_damage") and body.is_in_group("player"):
 		body.take_damage(damage)
 	explode()
 

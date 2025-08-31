@@ -677,460 +677,459 @@ points = PackedVector3Array(22, 7, 12, 23, 6, 12, 25, 6, 12, 26, 7, 12, 26, 8.5,
 transform = Transform3D(-0.999868, 0, 0.0162309, 0, 1, 0, -0.0162309, 0, -0.999868, 37.1607, -5.44415, 40.1418)
 
 [node name="WorldDemon" parent="DannyPuzzle1" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 local_map_file = "uid://dggqig5hpxlmq"
 
-[node name="entity_0_worldspawn" type="StaticBody3D" parent="DannyPuzzle1/WorldDemon" index="0"]
+[node name="entity_0_worldspawn2" type="StaticBody3D" parent="DannyPuzzle1/WorldDemon" index="0"]
 collision_mask = 0
 
-[node name="entity_0_mesh_instance" type="MeshInstance3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_mesh_instance2" type="MeshInstance3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="3"]
 mesh = SubResource("ArrayMesh_cyupq")
 
-[node name="entity_0_occluder_instance" type="OccluderInstance3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_occluder_instance2" type="OccluderInstance3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="4"]
 occluder = SubResource("ArrayOccluder3D_piptb")
 
-[node name="entity_0_brush_0_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_0_collision_shape2" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="5"]
 shape = SubResource("ConvexPolygonShape3D_3u7yh")
 
-[node name="entity_0_brush_1_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_1_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="6"]
 shape = SubResource("ConvexPolygonShape3D_q0q8h")
 
-[node name="entity_0_brush_2_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_2_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="7"]
 shape = SubResource("ConvexPolygonShape3D_vtf23")
 
-[node name="entity_0_brush_3_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_3_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="8"]
 shape = SubResource("ConvexPolygonShape3D_7rnaj")
 
-[node name="entity_0_brush_4_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_4_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="9"]
 shape = SubResource("ConvexPolygonShape3D_v47dg")
 
-[node name="entity_0_brush_5_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_5_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="10"]
 shape = SubResource("ConvexPolygonShape3D_gwr6u")
 
-[node name="entity_0_brush_6_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_6_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="11"]
 shape = SubResource("ConvexPolygonShape3D_tjbge")
 
-[node name="entity_0_brush_7_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_7_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="12"]
 shape = SubResource("ConvexPolygonShape3D_yrgj0")
 
-[node name="entity_0_brush_8_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_8_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="13"]
 shape = SubResource("ConvexPolygonShape3D_nqwvh")
 
-[node name="entity_0_brush_9_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_9_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="14"]
 shape = SubResource("ConvexPolygonShape3D_wvo8c")
 
-[node name="entity_0_brush_10_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_10_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="15"]
 shape = SubResource("ConvexPolygonShape3D_gt1u3")
 
-[node name="entity_0_brush_11_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_11_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="16"]
 shape = SubResource("ConvexPolygonShape3D_neai4")
 
-[node name="entity_0_brush_12_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_12_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="17"]
 shape = SubResource("ConvexPolygonShape3D_eb75x")
 
-[node name="entity_0_brush_13_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_13_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="18"]
 shape = SubResource("ConvexPolygonShape3D_v8gej")
 
-[node name="entity_0_brush_14_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_14_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="19"]
 shape = SubResource("ConvexPolygonShape3D_i4gne")
 
-[node name="entity_0_brush_15_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_15_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="20"]
 shape = SubResource("ConvexPolygonShape3D_pyeip")
 
-[node name="entity_0_brush_16_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_16_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="21"]
 shape = SubResource("ConvexPolygonShape3D_pn7rl")
 
-[node name="entity_0_brush_17_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_17_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="22"]
 shape = SubResource("ConvexPolygonShape3D_rpeat")
 
-[node name="entity_0_brush_18_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_18_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="23"]
 shape = SubResource("ConvexPolygonShape3D_35d16")
 
-[node name="entity_0_brush_19_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_19_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="24"]
 shape = SubResource("ConvexPolygonShape3D_mmuvh")
 
-[node name="entity_0_brush_20_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_20_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="25"]
 shape = SubResource("ConvexPolygonShape3D_avpaj")
 
-[node name="entity_0_brush_21_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_21_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="26"]
 shape = SubResource("ConvexPolygonShape3D_ptei3")
 
-[node name="entity_0_brush_22_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_22_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="27"]
 shape = SubResource("ConvexPolygonShape3D_carsa")
 
-[node name="entity_0_brush_23_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_23_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="28"]
 shape = SubResource("ConvexPolygonShape3D_iyp20")
 
-[node name="entity_0_brush_24_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_24_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="29"]
 shape = SubResource("ConvexPolygonShape3D_gn82y")
 
-[node name="entity_0_brush_25_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_25_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="30"]
 shape = SubResource("ConvexPolygonShape3D_frl7d")
 
-[node name="entity_0_brush_26_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_26_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="31"]
 shape = SubResource("ConvexPolygonShape3D_5y768")
 
-[node name="entity_0_brush_27_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_27_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="32"]
 shape = SubResource("ConvexPolygonShape3D_ti2yv")
 
-[node name="entity_0_brush_28_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_28_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="33"]
 shape = SubResource("ConvexPolygonShape3D_3mnxc")
 
-[node name="entity_0_brush_29_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_29_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="34"]
 shape = SubResource("ConvexPolygonShape3D_awqkm")
 
-[node name="entity_0_brush_30_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_30_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="35"]
 shape = SubResource("ConvexPolygonShape3D_u1b3k")
 
-[node name="entity_0_brush_31_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_31_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="36"]
 shape = SubResource("ConvexPolygonShape3D_joaji")
 
-[node name="entity_0_brush_32_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_32_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="37"]
 shape = SubResource("ConvexPolygonShape3D_5rwtc")
 
-[node name="entity_0_brush_33_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_33_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="38"]
 shape = SubResource("ConvexPolygonShape3D_ttul1")
 
-[node name="entity_0_brush_34_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_34_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="39"]
 shape = SubResource("ConvexPolygonShape3D_adioc")
 
-[node name="entity_0_brush_35_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_35_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="40"]
 shape = SubResource("ConvexPolygonShape3D_5tu4f")
 
-[node name="entity_0_brush_36_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_36_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="41"]
 shape = SubResource("ConvexPolygonShape3D_ida2v")
 
-[node name="entity_0_brush_37_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_37_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="42"]
 shape = SubResource("ConvexPolygonShape3D_neyrb")
 
-[node name="entity_0_brush_38_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_38_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="43"]
 shape = SubResource("ConvexPolygonShape3D_cqd5b")
 
-[node name="entity_0_brush_39_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_39_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="44"]
 shape = SubResource("ConvexPolygonShape3D_m72la")
 
-[node name="entity_0_brush_40_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_40_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="45"]
 shape = SubResource("ConvexPolygonShape3D_0p2dv")
 
-[node name="entity_0_brush_41_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_41_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="46"]
 shape = SubResource("ConvexPolygonShape3D_otmf5")
 
-[node name="entity_0_brush_42_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_42_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="47"]
 shape = SubResource("ConvexPolygonShape3D_m2rer")
 
-[node name="entity_0_brush_43_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_43_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="48"]
 shape = SubResource("ConvexPolygonShape3D_diost")
 
-[node name="entity_0_brush_44_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_44_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="49"]
 shape = SubResource("ConvexPolygonShape3D_7qb36")
 
-[node name="entity_0_brush_45_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_45_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="50"]
 shape = SubResource("ConvexPolygonShape3D_tuimh")
 
-[node name="entity_0_brush_46_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_46_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="51"]
 shape = SubResource("ConvexPolygonShape3D_hyw5u")
 
-[node name="entity_0_brush_47_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_47_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="52"]
 shape = SubResource("ConvexPolygonShape3D_wl2cf")
 
-[node name="entity_0_brush_48_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_48_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="53"]
 shape = SubResource("ConvexPolygonShape3D_l08gu")
 
-[node name="entity_0_brush_49_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_49_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="54"]
 shape = SubResource("ConvexPolygonShape3D_50tp5")
 
-[node name="entity_0_brush_50_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_50_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="55"]
 shape = SubResource("ConvexPolygonShape3D_ljvqc")
 
-[node name="entity_0_brush_51_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_51_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="56"]
 shape = SubResource("ConvexPolygonShape3D_a0c7n")
 
-[node name="entity_0_brush_52_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_52_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="57"]
 shape = SubResource("ConvexPolygonShape3D_7ykoq")
 
-[node name="entity_0_brush_53_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_53_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="58"]
 shape = SubResource("ConvexPolygonShape3D_h13ly")
 
-[node name="entity_0_brush_54_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_54_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="59"]
 shape = SubResource("ConvexPolygonShape3D_1fk62")
 
-[node name="entity_0_brush_55_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_55_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="60"]
 shape = SubResource("ConvexPolygonShape3D_kauf0")
 
-[node name="entity_0_brush_56_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_56_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="61"]
 shape = SubResource("ConvexPolygonShape3D_63j84")
 
-[node name="entity_0_brush_57_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_57_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="62"]
 shape = SubResource("ConvexPolygonShape3D_rtbfb")
 
-[node name="entity_0_brush_58_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_58_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="63"]
 shape = SubResource("ConvexPolygonShape3D_f1v02")
 
-[node name="entity_0_brush_59_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_59_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="64"]
 shape = SubResource("ConvexPolygonShape3D_akpcn")
 
-[node name="entity_0_brush_60_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_60_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="65"]
 shape = SubResource("ConvexPolygonShape3D_0u0dm")
 
-[node name="entity_0_brush_61_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_61_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="66"]
 shape = SubResource("ConvexPolygonShape3D_b6jip")
 
-[node name="entity_0_brush_62_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_62_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="67"]
 shape = SubResource("ConvexPolygonShape3D_m763s")
 
-[node name="entity_0_brush_63_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_63_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="68"]
 shape = SubResource("ConvexPolygonShape3D_1hucn")
 
-[node name="entity_0_brush_64_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_64_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="69"]
 shape = SubResource("ConvexPolygonShape3D_m7e6o")
 
-[node name="entity_0_brush_65_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_65_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="70"]
 shape = SubResource("ConvexPolygonShape3D_03jxp")
 
-[node name="entity_0_brush_66_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_66_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="71"]
 shape = SubResource("ConvexPolygonShape3D_bkyqi")
 
-[node name="entity_0_brush_67_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_67_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="72"]
 shape = SubResource("ConvexPolygonShape3D_re16q")
 
-[node name="entity_0_brush_68_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_68_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="73"]
 shape = SubResource("ConvexPolygonShape3D_18pc3")
 
-[node name="entity_0_brush_69_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_69_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="74"]
 shape = SubResource("ConvexPolygonShape3D_lsfjh")
 
-[node name="entity_0_brush_70_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_70_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="75"]
 shape = SubResource("ConvexPolygonShape3D_onwtt")
 
-[node name="entity_0_brush_71_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn"]
+[node name="entity_0_brush_71_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldDemon/entity_0_worldspawn" index="76"]
 shape = SubResource("ConvexPolygonShape3D_b4uqd")
 
 [node name="WorldCuddly" parent="DannyPuzzle1" index="1"]
 local_map_file = "uid://bhc4mtjbrs27k"
 
-[node name="entity_0_worldspawn" type="StaticBody3D" parent="DannyPuzzle1/WorldCuddly" index="0"]
+[node name="entity_0_worldspawn2" type="StaticBody3D" parent="DannyPuzzle1/WorldCuddly" index="0"]
 collision_mask = 0
 
-[node name="entity_0_mesh_instance" type="MeshInstance3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_mesh_instance2" type="MeshInstance3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="3"]
 mesh = SubResource("ArrayMesh_dhs2x")
 
-[node name="entity_0_occluder_instance" type="OccluderInstance3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_occluder_instance2" type="OccluderInstance3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="4"]
 occluder = SubResource("ArrayOccluder3D_4ijq5")
 
-[node name="entity_0_brush_0_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_0_collision_shape2" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="5"]
 shape = SubResource("ConvexPolygonShape3D_6i2qt")
 
-[node name="entity_0_brush_1_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_1_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="6"]
 shape = SubResource("ConvexPolygonShape3D_6soy8")
 
-[node name="entity_0_brush_2_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_2_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="7"]
 shape = SubResource("ConvexPolygonShape3D_agrw4")
 
-[node name="entity_0_brush_3_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_3_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="8"]
 shape = SubResource("ConvexPolygonShape3D_733v8")
 
-[node name="entity_0_brush_4_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_4_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="9"]
 shape = SubResource("ConvexPolygonShape3D_r0xey")
 
-[node name="entity_0_brush_5_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_5_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="10"]
 shape = SubResource("ConvexPolygonShape3D_8su1l")
 
-[node name="entity_0_brush_6_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_6_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="11"]
 shape = SubResource("ConvexPolygonShape3D_kxa8v")
 
-[node name="entity_0_brush_7_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_7_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="12"]
 shape = SubResource("ConvexPolygonShape3D_7upl5")
 
-[node name="entity_0_brush_8_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_8_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="13"]
 shape = SubResource("ConvexPolygonShape3D_xsyy1")
 
-[node name="entity_0_brush_9_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_9_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="14"]
 shape = SubResource("ConvexPolygonShape3D_x14c3")
 
-[node name="entity_0_brush_10_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_10_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="15"]
 shape = SubResource("ConvexPolygonShape3D_qkl86")
 
-[node name="entity_0_brush_11_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_11_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="16"]
 shape = SubResource("ConvexPolygonShape3D_bddgj")
 
-[node name="entity_0_brush_12_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_12_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="17"]
 shape = SubResource("ConvexPolygonShape3D_kd7f5")
 
-[node name="entity_0_brush_13_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_13_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="18"]
 shape = SubResource("ConvexPolygonShape3D_6bw71")
 
-[node name="entity_0_brush_14_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_14_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="19"]
 shape = SubResource("ConvexPolygonShape3D_6px40")
 
-[node name="entity_0_brush_15_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_15_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="20"]
 shape = SubResource("ConvexPolygonShape3D_13yal")
 
-[node name="entity_0_brush_16_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_16_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="21"]
 shape = SubResource("ConvexPolygonShape3D_kv67t")
 
-[node name="entity_0_brush_17_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_17_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="22"]
 shape = SubResource("ConvexPolygonShape3D_wmiqn")
 
-[node name="entity_0_brush_18_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_18_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="23"]
 shape = SubResource("ConvexPolygonShape3D_ekdle")
 
-[node name="entity_0_brush_19_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_19_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="24"]
 shape = SubResource("ConvexPolygonShape3D_gvr7l")
 
-[node name="entity_0_brush_20_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_20_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="25"]
 shape = SubResource("ConvexPolygonShape3D_hxx0g")
 
-[node name="entity_0_brush_21_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_21_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="26"]
 shape = SubResource("ConvexPolygonShape3D_w2hao")
 
-[node name="entity_0_brush_22_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_22_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="27"]
 shape = SubResource("ConvexPolygonShape3D_i2he2")
 
-[node name="entity_0_brush_23_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_23_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="28"]
 shape = SubResource("ConvexPolygonShape3D_h7r3p")
 
-[node name="entity_0_brush_24_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_24_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="29"]
 shape = SubResource("ConvexPolygonShape3D_x5up0")
 
-[node name="entity_0_brush_25_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_25_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="30"]
 shape = SubResource("ConvexPolygonShape3D_8d5j7")
 
-[node name="entity_0_brush_26_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_26_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="31"]
 shape = SubResource("ConvexPolygonShape3D_7f27p")
 
-[node name="entity_0_brush_27_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_27_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="32"]
 shape = SubResource("ConvexPolygonShape3D_jof28")
 
-[node name="entity_0_brush_28_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_28_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="33"]
 shape = SubResource("ConvexPolygonShape3D_16ql8")
 
-[node name="entity_0_brush_29_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_29_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="34"]
 shape = SubResource("ConvexPolygonShape3D_brpor")
 
-[node name="entity_0_brush_30_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_30_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="35"]
 shape = SubResource("ConvexPolygonShape3D_fbpcf")
 
-[node name="entity_0_brush_31_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_31_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="36"]
 shape = SubResource("ConvexPolygonShape3D_jny2v")
 
-[node name="entity_0_brush_32_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_32_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="37"]
 shape = SubResource("ConvexPolygonShape3D_c0bsg")
 
-[node name="entity_0_brush_33_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_33_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="38"]
 shape = SubResource("ConvexPolygonShape3D_76na2")
 
-[node name="entity_0_brush_34_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_34_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="39"]
 shape = SubResource("ConvexPolygonShape3D_2ay4p")
 
-[node name="entity_0_brush_35_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_35_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="40"]
 shape = SubResource("ConvexPolygonShape3D_um7qv")
 
-[node name="entity_0_brush_36_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_36_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="41"]
 shape = SubResource("ConvexPolygonShape3D_gv281")
 
-[node name="entity_0_brush_37_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_37_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="42"]
 shape = SubResource("ConvexPolygonShape3D_de625")
 
-[node name="entity_0_brush_38_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_38_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="43"]
 shape = SubResource("ConvexPolygonShape3D_fhj1e")
 
-[node name="entity_0_brush_39_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_39_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="44"]
 shape = SubResource("ConvexPolygonShape3D_vjv3d")
 
-[node name="entity_0_brush_40_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_40_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="45"]
 shape = SubResource("ConvexPolygonShape3D_futrx")
 
-[node name="entity_0_brush_41_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_41_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="46"]
 shape = SubResource("ConvexPolygonShape3D_68o0v")
 
-[node name="entity_0_brush_42_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_42_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="47"]
 shape = SubResource("ConvexPolygonShape3D_qysa2")
 
-[node name="entity_0_brush_43_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_43_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="48"]
 shape = SubResource("ConvexPolygonShape3D_03iq6")
 
-[node name="entity_0_brush_44_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_44_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="49"]
 shape = SubResource("ConvexPolygonShape3D_yhbd4")
 
-[node name="entity_0_brush_45_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_45_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="50"]
 shape = SubResource("ConvexPolygonShape3D_xfq7t")
 
-[node name="entity_0_brush_46_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_46_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="51"]
 shape = SubResource("ConvexPolygonShape3D_hr16e")
 
-[node name="entity_0_brush_47_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_47_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="52"]
 shape = SubResource("ConvexPolygonShape3D_wfjyl")
 
-[node name="entity_0_brush_48_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_48_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="53"]
 shape = SubResource("ConvexPolygonShape3D_py57c")
 
-[node name="entity_0_brush_49_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_49_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="54"]
 shape = SubResource("ConvexPolygonShape3D_8kirj")
 
-[node name="entity_0_brush_50_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_50_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="55"]
 shape = SubResource("ConvexPolygonShape3D_qkrlq")
 
-[node name="entity_0_brush_51_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_51_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="56"]
 shape = SubResource("ConvexPolygonShape3D_2m12v")
 
-[node name="entity_0_brush_52_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_52_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="57"]
 shape = SubResource("ConvexPolygonShape3D_jcxl0")
 
-[node name="entity_0_brush_53_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_53_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="58"]
 shape = SubResource("ConvexPolygonShape3D_f6gm3")
 
-[node name="entity_0_brush_54_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_54_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="59"]
 shape = SubResource("ConvexPolygonShape3D_qce2n")
 
-[node name="entity_0_brush_55_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_55_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="60"]
 shape = SubResource("ConvexPolygonShape3D_ywaub")
 
-[node name="entity_0_brush_56_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_56_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="61"]
 shape = SubResource("ConvexPolygonShape3D_e2bsy")
 
-[node name="entity_0_brush_57_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_57_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="62"]
 shape = SubResource("ConvexPolygonShape3D_0is5x")
 
-[node name="entity_0_brush_58_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_58_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="63"]
 shape = SubResource("ConvexPolygonShape3D_h1k3j")
 
-[node name="entity_0_brush_59_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_59_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="64"]
 shape = SubResource("ConvexPolygonShape3D_ao14i")
 
-[node name="entity_0_brush_60_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_60_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="65"]
 shape = SubResource("ConvexPolygonShape3D_c6fo8")
 
-[node name="entity_0_brush_61_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_61_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="66"]
 shape = SubResource("ConvexPolygonShape3D_cxdjo")
 
-[node name="entity_0_brush_62_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_62_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="67"]
 shape = SubResource("ConvexPolygonShape3D_uphrr")
 
-[node name="entity_0_brush_63_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_63_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="68"]
 shape = SubResource("ConvexPolygonShape3D_gtfc7")
 
-[node name="entity_0_brush_64_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_64_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="69"]
 shape = SubResource("ConvexPolygonShape3D_b7j1j")
 
-[node name="entity_0_brush_65_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_65_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="70"]
 shape = SubResource("ConvexPolygonShape3D_msjd0")
 
-[node name="entity_0_brush_66_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_66_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="71"]
 shape = SubResource("ConvexPolygonShape3D_xlu8q")
 
-[node name="entity_0_brush_67_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_67_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="72"]
 shape = SubResource("ConvexPolygonShape3D_ksfsb")
 
-[node name="entity_0_brush_68_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_68_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="73"]
 shape = SubResource("ConvexPolygonShape3D_3x04p")
 
-[node name="entity_0_brush_69_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_69_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="74"]
 shape = SubResource("ConvexPolygonShape3D_4n7gn")
 
-[node name="entity_0_brush_70_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_70_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="75"]
 shape = SubResource("ConvexPolygonShape3D_2bpvc")
 
-[node name="entity_0_brush_71_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn"]
+[node name="entity_0_brush_71_collision_shape" type="CollisionShape3D" parent="DannyPuzzle1/WorldCuddly/entity_0_worldspawn" index="76"]
 shape = SubResource("ConvexPolygonShape3D_8ctm3")
 
 [node name="ToggleBlock" parent="DannyPuzzle1" instance=ExtResource("8_largn")]
