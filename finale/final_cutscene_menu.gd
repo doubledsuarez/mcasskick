@@ -52,6 +52,9 @@ func begin_credits():
 	#
 	#await anim.animation_finished
 	
+	# log final runtime when credits start
+	g.log_final_runtime()
+	
 	match Input.mouse_mode:
 		Input.MOUSE_MODE_CAPTURED:
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE

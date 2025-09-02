@@ -1,5 +1,6 @@
 extends CanvasLayer
 
+@onready var game_timer_label: Label = $GameTimerLabel
 
 @export var health_label : RichTextLabel
 @export var chill_label : RichTextLabel
@@ -28,6 +29,8 @@ func _ready() -> void:
 	g.reveal_hud.connect(reveal_hud)
 	g.give_kitty_away.connect(give_kitty_away)
 	_set_ammo_count()
+	
+	game_timer_label.visible = g.settings.timer_label_checkbox.is_pressed()
 
 func hide_hud():
 	visible = false
@@ -38,6 +41,7 @@ func reveal_hud():
 	
 func _process(delta: float) -> void:
 	health_label.text = str(g.player.health)
+	game_timer_label.text = "%.02f" % g.get_current_runtime()
 	
 func _on_health_changed(new_health: int) -> void:
 	health_label.text = str(new_health)
@@ -72,3 +76,4 @@ func _set_ammo_count():
 	
 func _voice_line():
 	$TalkAnim.play("talk")
+	
