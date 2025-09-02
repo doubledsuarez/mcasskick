@@ -51,6 +51,10 @@ signal give_kitty_away
 # Respawn system variables
 var last_activated_checkpoint: Node3D = null
 
+# Runtime timer for showcase analytics
+var runtime_timer: Timer
+var total_play_time: float = 0.0
+
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
@@ -59,7 +63,7 @@ func _input(event):
 	if event.is_action_pressed("toggle"):
 		if world_switch_unlocked or dev_mode:
 			world_switch()
-	
+
 
 	if event.is_action_pressed("pause"):
 		toggle_pause()
@@ -83,15 +87,52 @@ func get_last_activated_checkpoint() -> Node3D:
 	return last_activated_checkpoint
 
 func toggle_pause():
-	print("Toggling mouse mode")
-# You may want another node to handle pausing, because this player may get paused too.
+	Log.info("Toggling mouse mode")
 	match Input.mouse_mode:
 		Input.MOUSE_MODE_CAPTURED:
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 			g.pause_menu.visible = true
 			get_tree().paused = true
-		
+			pause_runtime_timer()
+
 		Input.MOUSE_MODE_VISIBLE:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 			get_tree().paused = false
 			g.pause_menu.visible = false
+			resume_runtime_timer()
+
+# Runtime timer functions
+func setup_runtime_timer():
+	runtime_timer = Timer.new()
+	runtime_timer.wait_time = 1.0  # Update every second
+	runtime_timer.autostart = false  # Don't auto-start
+	runtime_timer.timeout.connect(_on_runtime_tick)
+	add_child(runtime_timer)
+
+func start_runtime_timer():
+	if runtime_timer:
+		runtime_timer.start()
+		total_play_time = 0.0  # Reset timer
+		Log.info("Runtime timer started")
+
+func _on_runtime_tick():
+	total_play_time += 1.0
+
+func get_current_runtime() -> float:
+	return total_play_time
+
+func pause_runtime_timer():
+	if runtime_timer:
+		runtime_timer.paused = true
+		Log.info("Runtime paused at: %d seconds" % total_play_time)
+
+func resume_runtime_timer():
+	if runtime_timer:
+		runtime_timer.paused = false
+		Log.info("Runtime resumed")
+
+func log_final_runtime():
+	var final_time = total_play_time
+	var minutes = int(final_time / 60)
+	var seconds = int(final_time) % 60
+	Log.info("FINAL RUNTIME: %d minutes, %d seconds (%d total seconds)" % [minutes, seconds, final_time])

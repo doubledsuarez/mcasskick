@@ -6,7 +6,6 @@ extends Node3D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	g.game = self
-	
 	g.dev_mode = dev_mode
 
 func _input(event: InputEvent) -> void:

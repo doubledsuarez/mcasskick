@@ -105,9 +105,10 @@ func _on_dialogue_ended(resource : DialogueResource):
 
 	await get_tree().create_timer(0.5).timeout
 	shooting_enabled = true
+	
+#endregion
 
 #region Logic Handling
-
 
 func take_damage(dmg : int):
 	if dead:
@@ -227,19 +228,19 @@ func print_inventory():
 #region Respawn System
 
 func respawn():
-	# Disable player input during death
+	# disable input during respawn
 	immobile = true
 	shooting_enabled = false
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
-	# Create red transparent overlay
+	# red overlay
 	var overlay = ColorRect.new()
 	overlay.color = Color(0.8, 0.0, 0.0, 0.4)  # Semi-transparent red
 	overlay.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	overlay.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	get_tree().current_scene.add_child(overlay)
 
-	# Create death message
+	# death message
 	var death_label = Label.new()
 	death_label.text = "YOU DIED\nRespawning in 5 seconds..."
 	death_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -253,22 +254,20 @@ func respawn():
 
 	get_tree().current_scene.add_child(death_label)
 
-	# Fade in the overlay and text
 	var tween = create_tween()
-	tween.set_parallel(true)  # Allow multiple tweens to run simultaneously
-
+	tween.set_parallel(true)
+	
 	overlay.modulate.a = 0.0
 	death_label.modulate.a = 0.0
 
 	tween.tween_property(overlay, "modulate:a", 1.0, 1.0)
 	tween.tween_property(death_label, "modulate:a", 1.0, 1.0)
 
-	# Countdown from 5 seconds
+	# 5 second countdown
 	for i in range(5, 0, -1):
 		death_label.text = "YOU DIED\nRespawning in %d seconds..." % i
 		await get_tree().create_timer(1.0).timeout
 
-	# Clean up UI elements before respawning
 	overlay.queue_free()
 	death_label.queue_free()
 
@@ -276,17 +275,13 @@ func respawn():
 
 	if last_checkpoint == null or not is_instance_valid(last_checkpoint):
 		Log.info("No last activated checkpoint found! Respawning at current position.")
-		# Just reset player state without moving
-		reset_player_state()
+		reset_player_state_with_fade()
 		return
 
-	# Move player to respawn point
-	global_position = last_checkpoint.global_position
+	# Move player to respawn point with smooth transition
+	await spawn(last_checkpoint)
+
 	var respawn_name = last_checkpoint.get_respawn_name() if last_checkpoint.has_method("get_respawn_name") else "Unknown"
-
-	# Reset only player state, keep inventory and world state
-	reset_player_state()
-
 	Log.info("Respawned at: %s" % respawn_name)
 
 func reset_player_state():
@@ -299,6 +294,60 @@ func reset_player_state():
 
 	# Reset camera and input
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+func reset_player_state_with_fade():
+	# Create fade overlay for smooth transition
+	var fade_overlay = ColorRect.new()
+	fade_overlay.color = Color.BLACK
+	fade_overlay.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	fade_overlay.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	get_tree().current_scene.add_child(fade_overlay)
+
+	# Fade to black
+	var tween = create_tween()
+	fade_overlay.modulate.a = 0.0
+	tween.tween_property(fade_overlay, "modulate:a", 1.0, 0.3)
+	await tween.finished
+
+	# Reset player state
+	reset_player_state()
+
+	# Fade back in
+	tween = create_tween()
+	tween.tween_property(fade_overlay, "modulate:a", 0.0, 0.3)
+	await tween.finished
+
+	# Clean up
+	fade_overlay.queue_free()
+
+func spawn(respawn_point: Node3D):
+	# Create fade overlay
+	var fade_overlay = ColorRect.new()
+	fade_overlay.color = Color.BLACK
+	fade_overlay.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	fade_overlay.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	get_tree().current_scene.add_child(fade_overlay)
+
+	# Fade to black
+	var tween = create_tween()
+	fade_overlay.modulate.a = 0.0
+	tween.tween_property(fade_overlay, "modulate:a", 1.0, 0.3)
+	await tween.finished
+
+	# Move player during black screen
+	global_position = respawn_point.global_position
+	reset_player_state()
+
+	# Brief pause
+	await get_tree().create_timer(0.1).timeout
+
+	# Fade back in
+	tween = create_tween()
+	tween.tween_property(fade_overlay, "modulate:a", 0.0, 0.5)
+	await tween.finished
+
+	# Clean up
+	fade_overlay.queue_free()
 
 #endregion
 

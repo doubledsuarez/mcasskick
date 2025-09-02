@@ -6,6 +6,9 @@ func _ready():
 	Music.stop_all_tracks()
 	Music.play_track("demon_level_1")
 
+	# Log final runtime when credits start
+	g.log_final_runtime()
+
 func _input(event):
 	if event.is_action_released("shoot"):
 		speed += 1

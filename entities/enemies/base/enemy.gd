@@ -27,12 +27,15 @@ var dead = false
 func _ready() -> void:
 	super()
 	anim.play("walking")
-	
+
+	# Add to enemies group for fireball collision detection
+	add_to_group("enemies")
+
 	# Make sure we have a player reference
 	await get_tree().create_timer(.1).timeout
 	if g.player != null:
 		player = g.player
-	
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -78,7 +81,7 @@ func attack():
 	# Check if attack is ready (cooldown finished)
 	if attack_timer > 0:
 		return
-	
+
 	anim.play("attacking")
 	attack_timer = fireball_cooldown
 
@@ -105,7 +108,7 @@ func take_damage(dmg : int):
 	health -= dmg
 	anim.play("hurt")
 
-	
+
 	if health <= 0:
 		die()
 	else:
