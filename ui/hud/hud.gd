@@ -68,6 +68,7 @@ func reveal_hud():
 	
 func _process(delta: float) -> void:
 	health_label.text = str(g.player.health)
+	game_timer_label.text = "%.02f" % g.get_current_runtime()
 	
 func _on_health_changed(new_health: int) -> void:
 	health_label.text = str(new_health)
