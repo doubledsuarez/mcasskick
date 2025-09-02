@@ -1,7 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://h30klttmj8ll"]
+[gd_scene load_steps=20 format=3 uid="uid://h30klttmj8ll"]
 
 [ext_resource type="Script" uid="uid://7dc6wtyxq8qa" path="res://ui/hud/hud.gd" id="1_xmswo"]
 [ext_resource type="Texture2D" uid="uid://cfdtpwsyq8cux" path="res://ui/sprite/rick_glasses.png" id="2_4d6w6"]
+[ext_resource type="Texture2D" uid="uid://csyfw2qsf5t02" path="res://ui/hud/hud_cuddly.png" id="2_5mn0o"]
 [ext_resource type="PackedScene" uid="uid://mr2liq6v6i3d" path="res://ui/pickups/trinket_display.tscn" id="2_e0nub"]
 [ext_resource type="Texture2D" uid="uid://br3cevlqa6it8" path="res://ui/pickups/FigurinePreview_Carebear.png" id="3_w75iv"]
 [ext_resource type="Texture2D" uid="uid://18detfbslqdo" path="res://ui/pickups/FigurinePreview_HelloKitty.png" id="4_imuuq"]
@@ -77,6 +78,8 @@ health_label = NodePath("main_box/MarginContainer/HudContents/display_seperator/
 chill_label = NodePath("main_box/MarginContainer/HudContents/display_seperator/chill_meter/header_content_seperator/chill_percent")
 ammo_label = NodePath("main_box/MarginContainer/HudContents/display_seperator/ammo/header_content_seperator/ammo_count")
 trinket_grid = NodePath("main_box/MarginContainer/HudContents/display_seperator/trinkets/GridContainer")
+hud_demon = ExtResource("12_p3vm3")
+hud_cuddly = ExtResource("2_5mn0o")
 
 [node name="main_box" type="MarginContainer" parent="."]
 anchors_preset = 15
@@ -93,7 +96,7 @@ size_flags_vertical = 8
 [node name="BG" type="TextureRect" parent="main_box/MarginContainer"]
 texture_filter = 1
 layout_mode = 2
-texture = ExtResource("12_p3vm3")
+texture = ExtResource("2_5mn0o")
 
 [node name="HudContents" type="MarginContainer" parent="main_box/MarginContainer"]
 custom_minimum_size = Vector2(0, 70)

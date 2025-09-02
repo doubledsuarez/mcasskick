@@ -6,6 +6,9 @@ extends CanvasLayer
 @export var ammo_label : RichTextLabel
 @export var trinket_grid : GridContainer = null
 
+@export var hud_demon : Texture
+@export var hud_cuddly : Texture
+
 # rick head icon
 @onready var chill_icon = %rick_head
 
@@ -27,7 +30,27 @@ func _ready() -> void:
 	g.hide_hud.connect(hide_hud)
 	g.reveal_hud.connect(reveal_hud)
 	g.give_kitty_away.connect(give_kitty_away)
+	g.world_toggled.connect(set_hud_texture)
 	_set_ammo_count()
+	set_hud_texture()
+
+func set_hud_texture():
+	if g.cuddly_world:
+		$main_box/MarginContainer/BG.texture = hud_cuddly
+		chill_label.add_theme_color_override("default_color", Color("ff90b3"))
+		chill_label.add_theme_color_override("font_outline_color", Color("ffaec8"))
+		health_label.add_theme_color_override("default_color", Color("ff90b3"))
+		health_label.add_theme_color_override("font_outline_color", Color("ffaec8"))
+		ammo_label.add_theme_color_override("default_color", Color("ff90b3"))
+		ammo_label.add_theme_color_override("font_outline_color", Color("ffaec8"))
+	else:
+		$main_box/MarginContainer/BG.texture = hud_demon
+		chill_label.add_theme_color_override("default_color", Color("ad0012"))
+		chill_label.add_theme_color_override("font_outline_color", Color("5a0005"))
+		health_label.add_theme_color_override("default_color", Color("ad0012"))
+		health_label.add_theme_color_override("font_outline_color", Color("5a0005"))
+		ammo_label.add_theme_color_override("default_color", Color("ad0012"))
+		ammo_label.add_theme_color_override("font_outline_color", Color("5a0005"))
 
 func hide_hud():
 	visible = false
