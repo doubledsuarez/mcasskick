@@ -16,7 +16,6 @@ func _ready() -> void:
 	if debug_visual:
 		debug_visual.visible = show_debug_visual
 
-	# Set up checkpoint detection - all respawn points are checkpoints
 	if checkpoint_area:
 		checkpoint_area.add_to_group("respawn_points")
 		checkpoint_area.body_entered.connect(_on_player_entered)

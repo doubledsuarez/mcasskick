@@ -1,23 +1,33 @@
 extends Node2D
 
+@onready var credits_text: RichTextLabel = $"Credit Root/MarginContainer/VBoxContainer/Credits Text"
+
 var speed := 0
+
+var credits_done : bool = false
 
 func _ready():
 	Music.stop_all_tracks()
 	Music.play_track("demon_level_1")
-
-	# Log final runtime when credits start
-	g.log_final_runtime()
+	
+	set_end_time()
 
 func _input(event):
-	if event.is_action_released("shoot"):
+	if event.is_action_released("shoot") and not credits_done:
 		speed += 1
 		$AnimationPlayer.speed_scale += speed
 
 		if speed >= 4:
-			end_credits()
+			$AnimationPlayer.seek(89.9, true)
+	elif event.is_action_released("shoot") and credits_done:
+		end_credits()
 
-
+func set_end_time():
+	var final_time = g.get_current_runtime()
+	var minutes = int(final_time / 60)
+	var seconds = final_time - (minutes * 60)
+	credits_text.append_text("\n\n\n\n\n\n\n\n\n\nFINAL TIME: \n%d minutes, %.2f seconds\n%.2f total seconds\n\n\n\n\n\n\n\n\n\n" % [minutes, seconds, final_time])
+	
 func end_credits():
 	# reset globals
 	g.y_look_unlocked = false
@@ -38,6 +48,9 @@ func end_credits():
 	# reset music stopped variable
 	# (without this cuddly songs won't play after descent)
 	Music.stopped = false
+	
+	credits_done = false
+	g.clear_runtime_timer()
 
 	get_tree().change_scene_to_file("res://ui/start_ui/start_screen_ui.tscn")
 
@@ -45,4 +58,5 @@ func end_credits():
 
 
 func _on_animation_player_animation_finished(anim_name):
-	end_credits()
+	credits_done = true
+	#end_credits()

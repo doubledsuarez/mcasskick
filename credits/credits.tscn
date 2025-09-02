@@ -46,7 +46,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 89.9),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 480), Vector2(0, -3624)]
+"values": [Vector2(0, 480), Vector2(0, -4100)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lj7uq"]
@@ -137,7 +137,7 @@ Bass
 Cream of the Crop
 
 DANNY SUAREZ
-Backend Programmer
+Systems Programmer
 Drummer
 All around cool guy
 

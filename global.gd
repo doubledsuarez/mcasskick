@@ -20,6 +20,8 @@ var final_lines = null
 var final_scene_3d = null
 var final_menu = null
 
+var hud = null
+
 var tutorial_done : bool = false
 var question_asked : bool = false
 
@@ -104,7 +106,7 @@ func toggle_pause():
 # Runtime timer functions
 func setup_runtime_timer():
 	runtime_timer = Timer.new()
-	runtime_timer.wait_time = 1.0  # Update every second
+	runtime_timer.wait_time = 0.01  # Update every 0.01 seconds (10ms)
 	runtime_timer.autostart = false  # Don't auto-start
 	runtime_timer.timeout.connect(_on_runtime_tick)
 	add_child(runtime_timer)
@@ -116,7 +118,7 @@ func start_runtime_timer():
 		Log.info("Runtime timer started")
 
 func _on_runtime_tick():
-	total_play_time += 1.0
+	total_play_time += 0.01
 
 func get_current_runtime() -> float:
 	return total_play_time
@@ -134,5 +136,9 @@ func resume_runtime_timer():
 func log_final_runtime():
 	var final_time = total_play_time
 	var minutes = int(final_time / 60)
-	var seconds = int(final_time) % 60
-	Log.info("FINAL RUNTIME: %d minutes, %d seconds (%d total seconds)" % [minutes, seconds, final_time])
+	var seconds = final_time - (minutes * 60)
+	Log.info("FINAL TIME: %d minutes, %.2f seconds (%.2f total seconds)" % [minutes, seconds, final_time])
+
+func clear_runtime_timer():
+	if runtime_timer:
+		runtime_timer.queue_free()
