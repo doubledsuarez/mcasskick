@@ -1,15 +1,16 @@
+import "res://entities/villagers/bunny/bunny.dialogue" as bonbon
+
 ~ start
 BonBon: OMG hiii!! I'm BonBon :) You look so freaking cool! I LUV ur Miss Kitty Cutie figurine! <3 I have that one too!
 BonBon: We all love her here, Sunny, Clover, and I! HUGE fans!! XD Welcome to Cuddly Land!! :D
 BonBon: U know, we got like, tons of figures around, but smth happened right around when you came to town and now these blocks with mean faces are keeping us from them!! :,(
 BonBon: If you can find them, for sure keep them!! <3
 - Wow, this is increidlble! I am very pleased to meet you BonBon! => phone
-	~ phone
-	BonBon: OOOH, that phone is adorbs btw!! <3
-	BonBon: I think there’s a special feature if you [right click] on it! I saw it on the Bouncing Bubblegum IG page lol! :P
-	BonBon: OMG you know what I ALSO saw on there?? :O That phone teaches you things!!
-	BonBon: Like that really cute confetti launcher you have there! :) I bet if you jump super high in the air and shoot confetti, that you could jump even HIGHER!! XD
-	BonBon: U know, maybe that’s what those scary blocks need too, just a good shot of confetti to cheer them up!! <3
-	set g.tutorial_done = true
-	- Leave => END
-=> END
+~ phone
+BonBon: OOOH, that phone is adorbs btw!! <3
+BonBon: I think there’s a special feature if you [right click] on it! I saw it on the Bouncing Bubblegum IG page lol! :P
+BonBon: OMG you know what I ALSO saw on there?? :O That phone teaches you things!!
+BonBon: Like that really cute confetti launcher you have there! :) I bet if you jump super high in the air and shoot confetti, that you could jump even HIGHER!! XD
+BonBon: U know, maybe that’s what those scary blocks need too, just a good shot of confetti to cheer them up!! <3
+set g.tutorial_done = true
+=> bonbon/start
