@@ -188,7 +188,7 @@ position = Vector2(-154, -194)
 
 [node name="ShootSound" parent="Weapon" index="4"]
 stream = ExtResource("13_j3ovn")
-volume_db = -0.6
+volume_db = -4.0
 
 [node name="CloudBox" parent="." index="8" instance=ExtResource("14_afbqv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -62.372, 0)
