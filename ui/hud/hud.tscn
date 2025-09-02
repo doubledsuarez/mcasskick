@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://h30klttmj8ll"]
+[gd_scene load_steps=21 format=3 uid="uid://h30klttmj8ll"]
 
 [ext_resource type="Script" uid="uid://7dc6wtyxq8qa" path="res://ui/hud/hud.gd" id="1_xmswo"]
 [ext_resource type="Texture2D" uid="uid://cfdtpwsyq8cux" path="res://ui/sprite/rick_glasses.png" id="2_4d6w6"]
@@ -318,12 +318,13 @@ libraries = {
 autoplay = "base"
 
 [node name="GameTimerLabel" type="Label" parent="."]
-visible = false
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 23.0
+offset_left = -46.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = 28.0
 grow_horizontal = 0
 text = "Time"
 label_settings = SubResource("LabelSettings_5mn0o")
