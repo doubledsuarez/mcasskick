@@ -8,9 +8,12 @@ extends Area3D
 @export var lifetime = 5.0
 @export var gravity_factor = 0.5
 @export var arc : float = 2.0
+@export var tracking_strength: float = 1.2  # Increased power for high-flying enemies
+@export var tracking_duration: float = 2.5  # How long tracking lasts
 
 var velocity: Vector3
 var time_alive = 0.0
+var target_player: Node3D = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -30,6 +33,11 @@ func _physics_process(delta: float) -> void:
 	# Apply gravity
 	velocity.y -= ProjectSettings.get_setting("physics/3d/default_gravity") * gravity_factor * delta
 
+	# Apply enhanced tracking toward player (for high-flying enemies like bats)
+	if target_player and is_instance_valid(target_player) and time_alive < tracking_duration:
+		var direction_to_player = (target_player.global_position - global_position).normalized()
+		velocity = velocity.lerp(direction_to_player * speed, tracking_strength * delta)
+
 	# Move the fireball
 	global_position += velocity * delta
 
@@ -48,12 +56,24 @@ func launch(direction: Vector3, start_position: Vector3) -> void:
 	velocity.x = direction.x * speed
 	velocity.z = direction.z * speed
 
+	# Set tracking target to player
+	target_player = get_tree().get_first_node_in_group("player")
+
 func _on_body_entered(body: Node3D) -> void:
-	if body.has_method("take_damage") and body.is_in_group("player"):
-		body.take_damage(damage)
-	explode()
+	# Only explode if hitting player or world - ignore enemies entirely
+	if body.is_in_group("player"):
+		if body.has_method("take_damage"):
+			body.take_damage(damage)
+		explode()
+	elif not body.is_in_group("enemies"):
+		# Hit world geometry or other non-enemy objects
+		explode()
 
 func _on_area_entered(area: Area3D) -> void:
+	# Ignore checkpoint areas (respawn points)
+	if area.is_in_group("respawn_points"):
+		return
+
 	# Handle collision with other areas if needed
 	explode()
 

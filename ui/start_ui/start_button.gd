@@ -4,6 +4,8 @@ extends Button
 #start button calls game
 func _on_pressed() -> void:
 	#print("the button is being pressed")
+	g.setup_runtime_timer()
+	g.start_runtime_timer()
 	
 	
 	# change "res://" path to proper

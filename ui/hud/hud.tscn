@@ -72,6 +72,12 @@ _data = {
 &"talk": SubResource("Animation_3mxrk")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_5mn0o"]
+font = ExtResource("12_gv4gi")
+font_color = Color(0.678431, 0, 0.0705882, 1)
+outline_size = 5
+outline_color = Color(0.352941, 0, 0.0196078, 1)
+
 [node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("health_label", "chill_label", "ammo_label", "trinket_grid")]
 script = ExtResource("1_xmswo")
 health_label = NodePath("main_box/MarginContainer/HudContents/display_seperator/health/header_content_seperator/health_percent")
@@ -310,3 +316,14 @@ libraries = {
 &"": SubResource("AnimationLibrary_hk13k")
 }
 autoplay = "base"
+
+[node name="GameTimerLabel" type="Label" parent="."]
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "Time"
+label_settings = SubResource("LabelSettings_5mn0o")

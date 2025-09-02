@@ -1,11 +1,14 @@
 extends Control
 
+@onready var timer_label_checkbox: CheckBox = $main_container/settings_box/timer_toggle/timer_label_checkbox
+
 func _ready() -> void:
 	g.settings = self
 	visible = false
 	
 	var current_volume_db = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"))
 	$main_container/settings_box/volume_container/volume_slider.value = db_to_linear(current_volume_db)
+	
 
 func enable():
 	pass
@@ -26,3 +29,4 @@ func _on_volume_slider_value_changed(value):
 	
 	# Set the master bus volume
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), volume_db)
+	

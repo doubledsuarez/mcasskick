@@ -1,10 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://dddjifsnb10gh"]
+[gd_scene load_steps=11 format=3 uid="uid://dddjifsnb10gh"]
 
 [ext_resource type="Script" uid="uid://olxtlh80f43m" path="res://ui/ingame_settings_ui/ingame_settings_ui.gd" id="1_ayb4e"]
 [ext_resource type="Theme" uid="uid://ch7oeipur42j5" path="res://ui/themes/start_screen_theme.tres" id="1_nan42"]
 [ext_resource type="Script" uid="uid://bp3v54itc6el6" path="res://ui/ingame_settings_ui/ingame_back_button.gd" id="2_ayb4e"]
 [ext_resource type="Script" uid="uid://dyar7n7q8nnag" path="res://ui/settings_ui/fullscreen_checkbox.gd" id="2_car5r"]
 [ext_resource type="Script" uid="uid://h5kobc6spwuq" path="res://ui/ingame_settings_ui/h_slider.gd" id="2_dr28s"]
+[ext_resource type="FontFile" uid="uid://cc12wq7tok063" path="res://ui/DooM.ttf" id="2_o80u7"]
+[ext_resource type="Script" uid="uid://bd3nydugm6ra1" path="res://ui/ingame_settings_ui/timer_label_checkbox.gd" id="5_oknr4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_oknr4"]
+font = ExtResource("2_o80u7")
+
+[sub_resource type="LabelSettings" id="LabelSettings_4qktj"]
+font = ExtResource("2_o80u7")
+
+[sub_resource type="LabelSettings" id="LabelSettings_30ed3"]
+font = ExtResource("2_o80u7")
 
 [node name="CanvasLayer" type="CanvasLayer"]
 process_mode = 3
@@ -41,6 +52,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="ingame_settings_ui/main_container/settings_box/volume_container"]
 layout_mode = 2
 text = "Master Volume"
+label_settings = SubResource("LabelSettings_oknr4")
 
 [node name="volume_slider" type="HSlider" parent="ingame_settings_ui/main_container/settings_box/volume_container"]
 custom_minimum_size = Vector2(200, 20)
@@ -61,6 +73,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="ingame_settings_ui/main_container/settings_box/mouse_sense_container"]
 layout_mode = 2
 text = "Mouse Sensitivity"
+label_settings = SubResource("LabelSettings_4qktj")
 
 [node name="HSlider" type="HSlider" parent="ingame_settings_ui/main_container/settings_box/mouse_sense_container"]
 custom_minimum_size = Vector2(200, 20)
@@ -84,6 +97,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="ingame_settings_ui/main_container/settings_box/fullscreen_toggle_container"]
 layout_mode = 2
 text = "Full Screen On/Off"
+label_settings = SubResource("LabelSettings_30ed3")
 
 [node name="fullscreen_checkbox" type="CheckBox" parent="ingame_settings_ui/main_container/settings_box/fullscreen_toggle_container"]
 layout_mode = 2
@@ -94,6 +108,25 @@ custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
 [node name="Control" type="Control" parent="ingame_settings_ui/main_container/settings_box/seperator3"]
+layout_mode = 2
+
+[node name="timer_toggle" type="VBoxContainer" parent="ingame_settings_ui/main_container/settings_box"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ingame_settings_ui/main_container/settings_box/timer_toggle"]
+layout_mode = 2
+text = "Game Timer Visibility"
+label_settings = SubResource("LabelSettings_30ed3")
+
+[node name="timer_label_checkbox" type="CheckBox" parent="ingame_settings_ui/main_container/settings_box/timer_toggle"]
+layout_mode = 2
+script = ExtResource("5_oknr4")
+
+[node name="seperator4" type="MarginContainer" parent="ingame_settings_ui/main_container/settings_box"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Control" type="Control" parent="ingame_settings_ui/main_container/settings_box/seperator4"]
 layout_mode = 2
 
 [node name="back_button_container" type="MarginContainer" parent="ingame_settings_ui/main_container/settings_box"]
@@ -113,4 +146,5 @@ script = ExtResource("2_ayb4e")
 [connection signal="value_changed" from="ingame_settings_ui/main_container/settings_box/volume_container/volume_slider" to="ingame_settings_ui" method="_on_volume_slider_value_changed"]
 [connection signal="value_changed" from="ingame_settings_ui/main_container/settings_box/mouse_sense_container/HSlider" to="ingame_settings_ui" method="_on_h_slider_value_changed"]
 [connection signal="toggled" from="ingame_settings_ui/main_container/settings_box/fullscreen_toggle_container/fullscreen_checkbox" to="ingame_settings_ui/main_container/settings_box/fullscreen_toggle_container/fullscreen_checkbox" method="_on_toggled"]
+[connection signal="toggled" from="ingame_settings_ui/main_container/settings_box/timer_toggle/timer_label_checkbox" to="ingame_settings_ui/main_container/settings_box/timer_toggle/timer_label_checkbox" method="_on_toggled"]
 [connection signal="pressed" from="ingame_settings_ui/main_container/settings_box/back_button_container/back_button" to="ingame_settings_ui/main_container/settings_box/back_button_container/back_button" method="_on_pressed"]

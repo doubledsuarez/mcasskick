@@ -16,13 +16,10 @@ func _ready() -> void:
 	if debug_visual:
 		debug_visual.visible = show_debug_visual
 
-	# Set up checkpoint detection if enabled
 	if checkpoint_area:
+		checkpoint_area.add_to_group("respawn_points")
 		checkpoint_area.body_entered.connect(_on_player_entered)
 		checkpoint_area.collision_mask = 1  # Player layer
-	elif checkpoint_area:
-		# Disable checkpoint area if not needed
-		checkpoint_area.monitoring = false
 
 func _on_player_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
@@ -36,11 +33,6 @@ func activate_checkpoint() -> void:
 		# Register as the last activated checkpoint globally
 		g.set_last_activated_checkpoint(self)
 
-		# Visual feedback for activation
-		if debug_visual:
-			var tween = create_tween()
-			tween.tween_property(debug_visual, "scale", Vector3(1.2, 1.2, 1.2), 0.2)
-			tween.tween_property(debug_visual, "scale", Vector3(1.0, 1.0, 1.0), 0.2)
 
 func get_respawn_position() -> Vector3:
 	return global_position
