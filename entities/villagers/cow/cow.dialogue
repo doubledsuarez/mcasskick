@@ -1,7 +1,11 @@
 ~ start
 Sunny: awe a new friend ^-^ nice to meet you. my name's sunny :3
 Sunny: your figurines are seriously cool ^w^
-Sunny: i saw you talking to bonbon 0w0 i really appreciate your kindness to help us find our figures it’s really sweet of you
+if g.tutorial_done
+	Sunny: i saw you talking to bonbon 0w0 i really appreciate your kindness to help us find our figures it’s really sweet of you
+else
+	Sunny: please talk to our mayor bonbon if you have any questions <3 she's the bunny near the town square
+	Sunny: she's so nice and easy to talk to :] and she always loves helping
 ~ choices
 - [Just Chat]
 	%
