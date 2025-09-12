@@ -65,12 +65,15 @@ func _physics_process(delta: float) -> void:
 
 # Virtual move function - can be overridden by subclasses
 func move():
-	var dir = player.global_position - global_position
-	dir.y = 0.0
-	dir = dir.normalized()
+	var dist_to_player = global_position.distance_to(player.global_position)
+	
+	if dist_to_player < 25:
+		var dir = player.global_position - global_position
+		dir.y = 0.0
+		dir = dir.normalized()
 
-	velocity.x = dir.x * move_speed
-	velocity.z = dir.z * move_speed
+		velocity.x = dir.x * move_speed
+		velocity.z = dir.z * move_speed
 
 func attack():
 
@@ -101,7 +104,9 @@ func fire_projectile():
 	# Launch the fireball
 	fireball.launch(direction, launch_position)
 
-func take_damage(dmg : int):
+# I put an underscore here, so it doesn't actually get triggered by the player,  but 
+# rather the Hitbox
+func _take_damage(dmg : int):
 	if dead:
 		return
 

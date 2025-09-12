@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://gdk071ikp7vg"]
+[gd_scene load_steps=15 format=3 uid="uid://gdk071ikp7vg"]
 
 [ext_resource type="Script" uid="uid://bcma6fowf87da" path="res://entities/enemies/base/enemy.gd" id="1_6b1gw"]
 [ext_resource type="Texture2D" uid="uid://c3ae0en5c0084" path="res://entities/enemies/fish/fish.png" id="2_jwj14"]
 [ext_resource type="AudioStream" uid="uid://iqqsxq1ka0ib" path="res://test-assets/monster_die.wav" id="3_6qwc0"]
+[ext_resource type="Script" uid="uid://d1sor0kugb7pp" path="res://entities/enemies/base/hitbox.gd" id="4_bgyrl"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fotwf"]
 radius = 0.672137
@@ -172,9 +173,13 @@ _data = {
 &"walking": SubResource("Animation_jwj14")
 }
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jwj14"]
+radius = 0.7
+height = 30.0
+
 [node name="Enemy" type="CharacterBody3D"]
-collision_layer = 2
-collision_mask = 31
+collision_layer = 0
+collision_mask = 29
 script = ExtResource("1_6b1gw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -213,3 +218,12 @@ bus = &"SFX"
 libraries = {
 &"": SubResource("AnimationLibrary_wvv05")
 }
+
+[node name="Hitbox" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("4_bgyrl")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Hitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_jwj14")

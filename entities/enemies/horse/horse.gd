@@ -35,15 +35,18 @@ func move():
 		return
 
 	# Simple shambling movement toward player
-	var dir = player.global_position - global_position
-	dir.y = 0.0
-	dir = dir.normalized()
+	var dist_to_player = global_position.distance_to(player.global_position)
 
-	# Use lunge speed if attacking, normal speed otherwise
-	var current_speed = lunge_speed if is_attacking else move_speed
+	if dist_to_player < 25:
+		var dir = player.global_position - global_position
+		dir.y = 0.0
+		dir = dir.normalized()
 
-	velocity.x = dir.x * current_speed
-	velocity.z = dir.z * current_speed
+		# Use lunge speed if attacking, normal speed otherwise
+		var current_speed = lunge_speed if is_attacking else move_speed
+
+		velocity.x = dir.x * current_speed
+		velocity.z = dir.z * current_speed
 
 # Override attack for melee behavior
 func attack():
