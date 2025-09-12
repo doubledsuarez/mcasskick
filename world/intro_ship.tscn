@@ -1021,6 +1021,7 @@ shape = SubResource("ConvexPolygonShape3D_84u8g")
 shape = SubResource("ConvexPolygonShape3D_gsjq5")
 
 [node name="entity_0_brush_110_collision_shape" type="CollisionShape3D" parent="ZoneIntroShip/WorldDemon/entity_0_worldspawn" index="115"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
 shape = SubResource("ConvexPolygonShape3D_hwj1p")
 
 [node name="entity_0_brush_111_collision_shape" type="CollisionShape3D" parent="ZoneIntroShip/WorldDemon/entity_0_worldspawn" index="116"]
@@ -1256,52 +1257,69 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.1, 0)
 
 [node name="Bat" parent="Enemies" instance=ExtResource("2_invuf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.8243, -1.6225, 10.5079)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.3243, 0.177501, 10.5079)
+collision_layer = 2
+collision_mask = 31
+
+[node name="Bat2" parent="Enemies" instance=ExtResource("2_invuf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.7243, 0.177501, 15.3079)
+collision_layer = 2
+collision_mask = 31
 
 [node name="Fish" parent="Enemies" instance=ExtResource("3_6bg7k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.7012, -0.2, -31.466)
-
-[node name="Horse" parent="Enemies" instance=ExtResource("4_yaf3i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.9307, -0.7, 0.58767)
+collision_layer = 2
+collision_mask = 31
 
 [node name="Horse4" parent="Enemies" instance=ExtResource("4_yaf3i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1307, -0.7, -22.4123)
+collision_layer = 2
+collision_mask = 31
 
 [node name="Fish2" parent="Enemies" instance=ExtResource("3_6bg7k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2026, -1.2, -23.4243)
+collision_layer = 2
+collision_mask = 31
 
 [node name="Fish3" parent="Enemies" instance=ExtResource("3_6bg7k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.4111, 1, 14.1169)
+collision_layer = 2
+collision_mask = 31
 
 [node name="Fish4" parent="Enemies" instance=ExtResource("3_6bg7k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.9003, 5.24246, -5.40146)
+collision_layer = 2
+collision_mask = 31
 
 [node name="Fish5" parent="Enemies" instance=ExtResource("3_6bg7k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.4518, 5.05653, 15.3562)
+collision_layer = 2
+collision_mask = 31
 
 [node name="Fish6" parent="Enemies" instance=ExtResource("3_6bg7k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.837, 1.15653, 20.7923)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.737, 1.15653, 20.7923)
+collision_layer = 2
+collision_mask = 31
 
 [node name="Fish7" parent="Enemies" instance=ExtResource("3_6bg7k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.825, 2.23669, 9.96192)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.725, 0.93669, 17.3619)
+collision_layer = 2
+collision_mask = 31
 
 [node name="Horse2" parent="Enemies" instance=ExtResource("4_yaf3i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.829, -1.22525, 15.725)
-
-[node name="Horse3" parent="Enemies" instance=ExtResource("4_yaf3i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0756, -2.09371, 22.1838)
-
-[node name="Bat2" parent="Enemies" instance=ExtResource("2_invuf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.7149, -1.6, 13.7904)
-
-[node name="Bat3" parent="Enemies" instance=ExtResource("2_invuf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.71072, -1.6, 19.5777)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.529, -4.22525, 23.025)
+collision_layer = 2
+collision_mask = 31
 
 [node name="Bat4" parent="Enemies" instance=ExtResource("2_invuf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.0396, 4.8, -5.0245)
+collision_layer = 2
+collision_mask = 31
 
 [node name="Bat5" parent="Enemies" instance=ExtResource("2_invuf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.5729, 4.6, 10.4049)
+collision_layer = 2
+collision_mask = 31
 
 [node name="CellPhone" parent="." instance=ExtResource("2_6bg7k")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 34.8378, 13.3091, 20.621)

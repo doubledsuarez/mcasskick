@@ -196,6 +196,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.50114, 5.44415, -6.65887)
 
 [node name="Fish" parent="SubViewportContainer/SubViewport/Game/DannyPuzzle" instance=ExtResource("18_qhcbd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33, -4, 30)
+collision_layer = 2
+collision_mask = 31
 
 [node name="ChescherPuzzle2" parent="SubViewportContainer/SubViewport/Game" instance=ExtResource("24_xa8c5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.7011, 1.44415, 32.6411)
