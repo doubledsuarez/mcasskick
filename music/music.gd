@@ -38,13 +38,23 @@ func play_track(track_name:String):
 
 
 func _on_descent_into_cuddliness_finished():
-	await get_tree().create_timer(15.0).timeout
+	await get_tree().create_timer(5.0).timeout
 	if stopped == false:
 		$ChillJam1.play()
-	
-
 
 func _on_chill_jam_1_finished():
-	await get_tree().create_timer(15.0).timeout
+	await get_tree().create_timer(5.0).timeout
 	if stopped == false:
 		$ChillJam2.play()
+
+
+func _on_chill_jam_2_finished():
+	await get_tree().create_timer(5.0).timeout
+	if stopped == false:
+		$ChillJam3.play()
+
+
+func _on_chill_jam_3_finished():
+	await get_tree().create_timer(5.0).timeout
+	if stopped == false:
+		$ChillJam4.play()

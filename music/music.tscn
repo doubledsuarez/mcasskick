@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://8jrkobmy4o2g"]
+[gd_scene load_steps=9 format=3 uid="uid://8jrkobmy4o2g"]
 
 [ext_resource type="Script" uid="uid://xpt15aqq2kf8" path="res://music/music.gd" id="2_sma34"]
 [ext_resource type="AudioStream" uid="uid://d25r28ae5xvie" path="res://music/Descent into cuddliness.ogg" id="3_akenf"]
@@ -6,6 +6,8 @@
 [ext_resource type="AudioStream" uid="uid://x4rpcw2sryy2" path="res://music/e1r1.ogg" id="5_eikdc"]
 [ext_resource type="AudioStream" uid="uid://dqfw27u3pso67" path="res://music/level2-1_cuddley_chill.ogg" id="5_t501q"]
 [ext_resource type="AudioStream" uid="uid://b2ob6p4b2v8i7" path="res://music/level2-2_slower_guitar.ogg" id="6_eikdc"]
+[ext_resource type="AudioStream" uid="uid://cgy6ixa8mxp5b" path="res://music/post_sessions_bigchill.ogg" id="7_eikdc"]
+[ext_resource type="AudioStream" uid="uid://di6jy4nwymoid" path="res://music/post_sessions_rockjam.ogg" id="8_eovk6"]
 
 [node name="Music" type="AudioStreamPlayer"]
 stream = ExtResource("5_eikdc")
@@ -30,8 +32,18 @@ stream = ExtResource("5_t501q")
 [node name="ChillJam2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_eikdc")
 
+[node name="ChillJam3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_eikdc")
+volume_db = -6.0
+
+[node name="ChillJam4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_eovk6")
+volume_db = -8.0
+
 [node name="Final" type="AudioStreamPlayer" parent="."]
 volume_db = -16.0
 
 [connection signal="finished" from="DescentIntoCuddliness" to="." method="_on_descent_into_cuddliness_finished"]
 [connection signal="finished" from="ChillJam1" to="." method="_on_chill_jam_1_finished"]
+[connection signal="finished" from="ChillJam2" to="." method="_on_chill_jam_2_finished"]
+[connection signal="finished" from="ChillJam3" to="." method="_on_chill_jam_3_finished"]
