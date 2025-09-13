@@ -154,6 +154,11 @@ Resident discord lurker
 
 JAMES BOCHANKSI
 Figurine 3D Models
+Metal Gear and Gorillaz Enthusiast
+
+Kevin So
+Bassist
+I Just Got Here
 
 MILTON MONROE
 Animation
@@ -200,7 +205,7 @@ scale = Vector2(0.258333, 0.258333)
 texture = ExtResource("4_24bn4")
 
 [node name="Enemies" type="Sprite2D" parent="Credits/Credit Root"]
-position = Vector2(320, 3192)
+position = Vector2(320, 3432)
 scale = Vector2(0.258333, 0.258333)
 texture = ExtResource("5_bacv1")
 
